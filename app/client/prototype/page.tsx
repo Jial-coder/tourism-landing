@@ -1,3 +1,4 @@
+import Image from "next/image";
 import chinaMap from "@/app/_generated/china-map.json";
 
 type Landmark = {
@@ -13,6 +14,7 @@ type Landmark = {
 };
 
 const landmarks = chinaMap.landmarks as Landmark[];
+const beijing = landmarks.find((l) => l.id === "beijing")!;
 
 export default function PrototypePage() {
   return (
@@ -23,7 +25,7 @@ export default function PrototypePage() {
         className="relative grid min-h-[calc(100vh-80px)] grid-cols-1 items-center gap-12 py-12 lg:grid-cols-[45fr_55fr] lg:gap-16"
       >
         {/* LEFT — content */}
-        <div className="flex max-w-2xl flex-col gap-8 z-10">
+        <div className="z-10 flex max-w-2xl flex-col gap-8">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-[#C9A65C]" aria-hidden />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A65C]">
@@ -31,7 +33,10 @@ export default function PrototypePage() {
             </span>
           </div>
 
-          <h1 className="font-serif text-[#1F4E5C]" style={{ fontFamily: '"Noto Serif SC", "Source Han Serif", serif' }}>
+          <h1
+            className="text-[#1F4E5C]"
+            style={{ fontFamily: '"Noto Serif SC", "Source Han Serif", serif' }}
+          >
             <span className="block text-[clamp(56px,8vw,112px)] leading-[0.95] tracking-tight">
               看景 · 吃喝 · 人文
             </span>
@@ -54,7 +59,9 @@ export default function PrototypePage() {
               className="group flex items-center justify-center gap-2 rounded-xl border border-[#C13829] bg-[#C13829] px-7 py-4 text-sm font-semibold text-[#F8F4EC] shadow-sm transition-all duration-150 hover:-translate-y-px hover:bg-[#A82E22]"
             >
               定制我的中国行程
-              <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+              <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">
+                →
+              </span>
             </button>
             <button
               type="button"
@@ -71,8 +78,8 @@ export default function PrototypePage() {
           </div>
         </div>
 
-        {/* RIGHT — China map */}
-        <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-3xl border border-[#E8E0D5]/70 bg-gradient-to-br from-[#F8F4EC] to-[#E8E0D5]/60 lg:aspect-auto lg:h-[640px]">
+        {/* RIGHT — China map with landmark portraits */}
+        <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-visible rounded-3xl border border-[#E8E0D5]/70 bg-gradient-to-br from-[#F8F4EC] to-[#E8E0D5]/60 lg:aspect-auto lg:h-[640px]">
           <svg
             viewBox={chinaMap.viewBox}
             className="absolute inset-0 h-full w-full"
@@ -87,22 +94,32 @@ export default function PrototypePage() {
               strokeWidth={1.2}
               strokeLinejoin="round"
             />
-
-            {landmarks.map((m) => (
-              <g key={m.id} transform={`translate(${m.x}, ${m.y})`}>
-                <circle r={11} fill="#C13829" opacity={0.18}>
-                  <animate attributeName="r" values="9;14;9" dur="2.6s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.18;0.05;0.18" dur="2.6s" repeatCount="indefinite" />
+            {/* Pulse rings (SVG layer for crisp alignment) */}
+            {landmarks.map((m) =>
+              m.id === "beijing" ? null : (
+                <circle
+                  key={`pulse-${m.id}`}
+                  cx={m.x}
+                  cy={m.y}
+                  r={22}
+                  fill="#C13829"
+                  opacity={0.12}
+                >
+                  <animate attributeName="r" values="18;26;18" dur="3.2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.14;0.04;0.14" dur="3.2s" repeatCount="indefinite" />
                 </circle>
-                <circle r={5} fill="#C13829" stroke="#F8F4EC" strokeWidth={1.5} />
-              </g>
-            ))}
+              ),
+            )}
           </svg>
 
-          {/* Beijing active popover (HTML over SVG for crisper text) */}
-          <BeijingPopover landmark={landmarks[0]} />
+          {/* Landmark portraits (HTML layer for Image optimization) */}
+          {landmarks.map((m) => (
+            <LandmarkPortrait key={m.id} landmark={m} active={m.id === "beijing"} />
+          ))}
 
-          {/* Audit footer */}
+          {/* Active popover */}
+          <BeijingPopover landmark={beijing} />
+
           <span className="absolute bottom-3 right-4 text-[10px] text-[#1A1A1A]/35">
             审图号 GS(2019)1822
           </span>
@@ -121,31 +138,76 @@ export default function PrototypePage() {
 function TrustItem({ icon, label }: { icon: string; label: string }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-base text-[#C9A65C]" aria-hidden>{icon}</span>
+      <span className="text-base text-[#C9A65C]" aria-hidden>
+        {icon}
+      </span>
       <span className="text-sm font-medium text-[#1A1A1A]">{label}</span>
     </div>
   );
 }
 
-function BeijingPopover({ landmark }: { landmark: Landmark }) {
-  const containerW = 1000;
-  const containerH = 750;
-  const xPct = (landmark.x / containerW) * 100;
-  const yPct = (landmark.y / containerH) * 100;
+function LandmarkPortrait({ landmark, active }: { landmark: Landmark; active: boolean }) {
+  const xPct = (landmark.x / chinaMap.width) * 100;
+  const yPct = (landmark.y / chinaMap.height) * 100;
+  const size = active ? 64 : 44;
 
   return (
     <div
-      className="absolute z-10 w-[280px] -translate-y-1/2 translate-x-6 rounded-xl border border-[#E8E0D5] bg-[#F8F4EC] p-3 shadow-[0_12px_32px_rgba(26,26,26,0.10)]"
+      className="absolute -translate-x-1/2 -translate-y-1/2"
+      style={{ left: `${xPct}%`, top: `${yPct}%` }}
+    >
+      <div
+        className={`relative overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-[#F8F4EC] transition-all duration-300 hover:scale-110 ${
+          active ? "ring-[#C13829]" : "ring-[#C9A65C]/70"
+        }`}
+        style={{ width: size, height: size }}
+      >
+        <Image
+          src={`/landmarks/${landmark.id}.jpg`}
+          alt={`${landmark.zh} ${landmark.en}`}
+          fill
+          sizes={`${size}px`}
+          className="object-cover"
+        />
+      </div>
+      <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap rounded bg-[#1F4E5C] px-1.5 py-0.5 text-[10px] font-medium text-[#F8F4EC] opacity-0 shadow transition-opacity duration-200 group-hover:opacity-100">
+        {landmark.zh}
+      </span>
+    </div>
+  );
+}
+
+function BeijingPopover({ landmark }: { landmark: Landmark }) {
+  const xPct = (landmark.x / chinaMap.width) * 100;
+  const yPct = (landmark.y / chinaMap.height) * 100;
+
+  return (
+    <div
+      className="absolute z-20 w-[280px] -translate-y-1/2 translate-x-10 rounded-xl border border-[#E8E0D5] bg-[#F8F4EC] p-3 shadow-[0_12px_32px_rgba(26,26,26,0.10)]"
       style={{ left: `${xPct}%`, top: `${yPct}%` }}
     >
       <div className="flex gap-3">
-        <div className="h-[60px] w-[80px] flex-shrink-0 rounded-md bg-[#E8E0D5] bg-cover bg-center" aria-label={`${landmark.en} 占位图`} />
+        <div className="relative h-[60px] w-[80px] flex-shrink-0 overflow-hidden rounded-md">
+          <Image
+            src={`/landmarks/${landmark.id}.jpg`}
+            alt={`${landmark.zh} ${landmark.en}`}
+            fill
+            sizes="80px"
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col justify-center">
-          <h3 className="font-serif text-sm font-semibold leading-tight text-[#1F4E5C]" style={{ fontFamily: '"Noto Serif SC", serif' }}>
+          <h3
+            className="text-sm font-semibold leading-tight text-[#1F4E5C]"
+            style={{ fontFamily: '"Noto Serif SC", serif' }}
+          >
             {landmark.zh} {landmark.en}
           </h3>
           <p className="mb-2 text-[11px] leading-tight text-[#1A1A1A]/60">{landmark.tagline}</p>
-          <a className="flex items-center gap-1 text-[11px] font-semibold text-[#C13829] transition-opacity hover:opacity-80" href="#">
+          <a
+            className="flex items-center gap-1 text-[11px] font-semibold text-[#C13829] transition-opacity hover:opacity-80"
+            href="#"
+          >
             查看详情 →
           </a>
         </div>

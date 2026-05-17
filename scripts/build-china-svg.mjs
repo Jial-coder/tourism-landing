@@ -22,7 +22,7 @@ const LANDMARKS = [
   { id: "guilin", zh: "桂林", en: "Guilin", tagline: "漓江 · 山水甲天下", lng: 110.2900, lat: 25.2736, query: "Guilin Li River karst mountains" },
   { id: "chengdu", zh: "成都", en: "Chengdu", tagline: "熊猫基地 · 麻辣火锅", lng: 104.0668, lat: 30.5728, query: "Chengdu giant panda" },
   { id: "hangzhou", zh: "杭州", en: "Hangzhou", tagline: "西湖 · 烟雨江南", lng: 120.1551, lat: 30.2741, query: "West Lake Hangzhou misty" },
-  { id: "dunhuang", zh: "敦煌", en: "Dunhuang", tagline: "莫高窟 · 沙漠丝路", lng: 94.6614, lat: 40.1421, query: "Dunhuang Mogao caves desert" },
+  { id: "dunhuang", zh: "敦煌", en: "Dunhuang", tagline: "莫高窟 · 沙漠丝路", lng: 94.6614, lat: 40.1421, query: "desert sand dunes" },
   { id: "lhasa", zh: "拉萨", en: "Lhasa", tagline: "布达拉宫 · 雪域圣地", lng: 91.1322, lat: 29.6500, query: "Potala Palace Lhasa Tibet" },
   { id: "lijiang", zh: "丽江", en: "Lijiang", tagline: "古城 · 玉龙雪山", lng: 100.2331, lat: 26.8721, query: "Lijiang old town Yulong snow mountain" },
 ];
