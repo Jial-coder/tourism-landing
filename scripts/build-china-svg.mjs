@@ -29,13 +29,13 @@ const LANDMARKS = [
 
 const geo = JSON.parse(fs.readFileSync(SRC, "utf8"));
 
-const projection = geoMercator().fitExtent(
-  [
-    [20, 20],
-    [VIEWBOX_W - 20, VIEWBOX_H - 20],
-  ],
-  geo,
-);
+// Manual mercator projection tuned to fit mainland China within 1000x750.
+// fitExtent on full-geo (with 9-dash line down to 3.4°N) over-shrinks landmarks
+// into a tiny cluster — see scripts notes for tuning history.
+const projection = geoMercator()
+  .center([105, 35])
+  .scale(700)
+  .translate([VIEWBOX_W / 2, VIEWBOX_H / 2]);
 
 const pathGen = geoPath(projection);
 const pathData = pathGen(geo);

@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useCallback } from "react";
 import chinaMap from "@/app/_generated/china-map.json";
+import { LANDMARK_DETAILS } from "./landmark-details";
 
 type Landmark = {
   id: string;
@@ -14,9 +18,25 @@ type Landmark = {
 };
 
 const landmarks = chinaMap.landmarks as Landmark[];
-const beijing = landmarks.find((l) => l.id === "beijing")!;
 
 export default function PrototypePage() {
+  const [hoverId, setHoverId] = useState<string | null>("beijing");
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const handleEnter = useCallback((id: string) => setHoverId(id), []);
+  const handleLeave = useCallback(() => setHoverId(null), []);
+  const handleClick = useCallback((id: string) => {
+    setActiveId((prev) => (prev === id ? null : id));
+  }, []);
+
+  const popoverLandmark =
+    landmarks.find((l) => l.id === hoverId) ??
+    landmarks.find((l) => l.id === "beijing")!;
+  const activeLandmark = activeId
+    ? landmarks.find((l) => l.id === activeId)!
+    : null;
+  const activeDetail = activeLandmark ? LANDMARK_DETAILS[activeLandmark.id] : null;
+
   return (
     <article>
       <section
@@ -78,7 +98,7 @@ export default function PrototypePage() {
           </div>
         </div>
 
-        {/* RIGHT — China map with landmark portraits */}
+        {/* RIGHT — China map */}
         <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-visible rounded-3xl border border-[#E8E0D5]/70 bg-gradient-to-br from-[#F8F4EC] to-[#E8E0D5]/60 lg:aspect-auto lg:h-[640px]">
           <svg
             viewBox={chinaMap.viewBox}
@@ -94,9 +114,8 @@ export default function PrototypePage() {
               strokeWidth={1.2}
               strokeLinejoin="round"
             />
-            {/* Pulse rings (SVG layer for crisp alignment) */}
             {landmarks.map((m) =>
-              m.id === "beijing" ? null : (
+              m.id === hoverId || m.id === activeId ? null : (
                 <circle
                   key={`pulse-${m.id}`}
                   cx={m.x}
@@ -106,25 +125,50 @@ export default function PrototypePage() {
                   opacity={0.12}
                 >
                   <animate attributeName="r" values="18;26;18" dur="3.2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.14;0.04;0.14" dur="3.2s" repeatCount="indefinite" />
+                  <animate
+                    attributeName="opacity"
+                    values="0.14;0.04;0.14"
+                    dur="3.2s"
+                    repeatCount="indefinite"
+                  />
                 </circle>
               ),
             )}
+
+            {/* SVG renders in source order — put hovered/active LAST so they sit on top */}
+            {[...landmarks]
+              .sort((a, b) => {
+                const aBig = a.id === hoverId || a.id === activeId ? 1 : 0;
+                const bBig = b.id === hoverId || b.id === activeId ? 1 : 0;
+                return aBig - bBig;
+              })
+              .map((m) => (
+                <LandmarkPortrait
+                  key={m.id}
+                  landmark={m}
+                  hovered={hoverId === m.id}
+                  active={activeId === m.id}
+                  onEnter={handleEnter}
+                  onLeave={handleLeave}
+                  onClick={handleClick}
+                />
+              ))}
+
+            <Popover landmark={popoverLandmark} />
           </svg>
-
-          {/* Landmark portraits (HTML layer for Image optimization) */}
-          {landmarks.map((m) => (
-            <LandmarkPortrait key={m.id} landmark={m} active={m.id === "beijing"} />
-          ))}
-
-          {/* Active popover */}
-          <BeijingPopover landmark={beijing} />
 
           <span className="absolute bottom-3 right-4 text-[10px] text-[#1A1A1A]/35">
             审图号 GS(2019)1822
           </span>
         </div>
       </section>
+
+      {/* Detail panel — expands below hero on landmark click, no page nav */}
+      <DetailPanel
+        landmark={activeLandmark}
+        detail={activeDetail}
+        onClose={() => setActiveId(null)}
+      />
 
       <section className="border-t border-[#E8E0D5] py-8 text-sm text-[#1A1A1A]/60">
         <p>
@@ -146,72 +190,226 @@ function TrustItem({ icon, label }: { icon: string; label: string }) {
   );
 }
 
-function LandmarkPortrait({ landmark, active }: { landmark: Landmark; active: boolean }) {
-  const xPct = (landmark.x / chinaMap.width) * 100;
-  const yPct = (landmark.y / chinaMap.height) * 100;
-  const size = active ? 64 : 44;
-
+function LandmarkPortrait({
+  landmark,
+  hovered,
+  active,
+  onEnter,
+  onLeave,
+  onClick,
+}: {
+  landmark: Landmark;
+  hovered: boolean;
+  active: boolean;
+  onEnter: (id: string) => void;
+  onLeave: () => void;
+  onClick: (id: string) => void;
+}) {
+  const big = hovered || active;
+  const size = big ? 50 : 40;
+  // SVG units: place at landmark.x/y inside viewBox (1000x750), -size/2 to center
   return (
-    <div
-      className="absolute -translate-x-1/2 -translate-y-1/2"
-      style={{ left: `${xPct}%`, top: `${yPct}%` }}
+    <foreignObject
+      x={landmark.x - size / 2}
+      y={landmark.y - size / 2}
+      width={size}
+      height={size}
+      style={{ overflow: "visible" }}
     >
-      <div
-        className={`relative overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-[#F8F4EC] transition-all duration-300 hover:scale-110 ${
-          active ? "ring-[#C13829]" : "ring-[#C9A65C]/70"
-        }`}
-        style={{ width: size, height: size }}
+      <button
+        type="button"
+        className="block h-full w-full cursor-pointer rounded-full transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-[#C13829]/40"
+        onMouseEnter={() => onEnter(landmark.id)}
+        onMouseLeave={onLeave}
+        onFocus={() => onEnter(landmark.id)}
+        onBlur={onLeave}
+        onClick={() => onClick(landmark.id)}
+        aria-label={`${landmark.zh} ${landmark.en} — ${landmark.tagline}`}
       >
-        <Image
-          src={`/landmarks/${landmark.id}.jpg`}
-          alt={`${landmark.zh} ${landmark.en}`}
-          fill
-          sizes={`${size}px`}
-          className="object-cover"
-        />
-      </div>
-      <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap rounded bg-[#1F4E5C] px-1.5 py-0.5 text-[10px] font-medium text-[#F8F4EC] opacity-0 shadow transition-opacity duration-200 group-hover:opacity-100">
-        {landmark.zh}
-      </span>
-    </div>
+        <span
+          className={`relative block h-full w-full overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-[#F8F4EC] transition-all duration-300 ${
+            active
+              ? "ring-[#C13829] shadow-[0_8px_24px_rgba(193,56,41,0.28)]"
+              : hovered
+                ? "ring-[#C13829]"
+                : "ring-[#C9A65C]/70"
+          }`}
+        >
+          <Image
+            src={`/landmarks/${landmark.id}.jpg`}
+            alt=""
+            fill
+            sizes="60px"
+            className="object-cover"
+          />
+        </span>
+      </button>
+    </foreignObject>
   );
 }
 
-function BeijingPopover({ landmark }: { landmark: Landmark }) {
-  const xPct = (landmark.x / chinaMap.width) * 100;
-  const yPct = (landmark.y / chinaMap.height) * 100;
+function Popover({ landmark }: { landmark: Landmark }) {
+  // Same coord system: landmark.x/y in viewBox 1000x750
+  const popoverW = 280;
+  const popoverH = 78;
+  const flipLeft = landmark.x > 650;
+  const dx = flipLeft ? -(popoverW + 30) : 30;
 
   return (
-    <div
-      className="absolute z-20 w-[280px] -translate-y-1/2 translate-x-10 rounded-xl border border-[#E8E0D5] bg-[#F8F4EC] p-3 shadow-[0_12px_32px_rgba(26,26,26,0.10)]"
-      style={{ left: `${xPct}%`, top: `${yPct}%` }}
+    <foreignObject
+      x={landmark.x + dx}
+      y={landmark.y - popoverH / 2}
+      width={popoverW}
+      height={popoverH + 10}
+      style={{ overflow: "visible", pointerEvents: "none" }}
     >
-      <div className="flex gap-3">
-        <div className="relative h-[60px] w-[80px] flex-shrink-0 overflow-hidden rounded-md">
+      <div className="rounded-xl border border-[#E8E0D5] bg-[#F8F4EC] p-3 shadow-[0_12px_32px_rgba(26,26,26,0.10)]">
+        <div className="flex gap-3">
+          <div className="relative h-[60px] w-[80px] flex-shrink-0 overflow-hidden rounded-md">
+            <Image
+              src={`/landmarks/${landmark.id}.jpg`}
+              alt={`${landmark.zh} ${landmark.en}`}
+              fill
+              sizes="80px"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <h3
+              className="text-sm font-semibold leading-tight text-[#1F4E5C]"
+              style={{ fontFamily: '"Noto Serif SC", serif' }}
+            >
+              {landmark.zh} {landmark.en}
+            </h3>
+            <p className="mb-2 text-[11px] leading-tight text-[#1A1A1A]/60">{landmark.tagline}</p>
+            <span className="text-[11px] font-semibold text-[#C13829]">
+              点击查看详情 →
+            </span>
+          </div>
+        </div>
+      </div>
+    </foreignObject>
+  );
+}
+
+function DetailPanel({
+  landmark,
+  detail,
+  onClose,
+}: {
+  landmark: Landmark | null;
+  detail: ReturnType<typeof LANDMARK_DETAILS extends Record<string, infer T> ? () => T : never> | null;
+  onClose: () => void;
+}) {
+  if (!landmark || !detail) return null;
+
+  return (
+    <section
+      data-feedback-id="HERO-01-DETAIL"
+      className="relative -mt-4 mb-12 animate-[fadeIn_300ms_ease-out] rounded-3xl border border-[#E8E0D5] bg-[#F8F4EC] p-8 shadow-[0_24px_64px_rgba(26,26,26,0.08)]"
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-[#E8E0D5] bg-[#F8F4EC] text-[#1F4E5C] transition-colors hover:bg-[#E8E0D5]"
+        aria-label="关闭详情"
+      >
+        ×
+      </button>
+
+      <div className="grid gap-8 lg:grid-cols-[2fr_3fr]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
           <Image
             src={`/landmarks/${landmark.id}.jpg`}
             alt={`${landmark.zh} ${landmark.en}`}
             fill
-            sizes="80px"
+            sizes="(min-width: 1024px) 40vw, 100vw"
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col justify-center">
-          <h3
-            className="text-sm font-semibold leading-tight text-[#1F4E5C]"
-            style={{ fontFamily: '"Noto Serif SC", serif' }}
-          >
-            {landmark.zh} {landmark.en}
-          </h3>
-          <p className="mb-2 text-[11px] leading-tight text-[#1A1A1A]/60">{landmark.tagline}</p>
-          <a
-            className="flex items-center gap-1 text-[11px] font-semibold text-[#C13829] transition-opacity hover:opacity-80"
-            href="#"
-          >
-            查看详情 →
-          </a>
+
+        <div className="flex flex-col gap-5">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A65C]">
+              {landmark.en}
+            </span>
+            <h2
+              className="mt-2 text-[clamp(28px,4vw,48px)] leading-tight text-[#1F4E5C]"
+              style={{ fontFamily: '"Noto Serif SC", serif' }}
+            >
+              {landmark.zh}
+            </h2>
+            <p className="mt-2 text-base font-medium text-[#1A1A1A]/80">{detail.emotionLine}</p>
+          </div>
+
+          <p className="text-[15px] leading-relaxed text-[#1A1A1A]/75">{detail.intro}</p>
+
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#C9A65C]">
+              周边美食
+            </h3>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {detail.food.map((f) => (
+                <div
+                  key={f.name}
+                  className="rounded-lg border border-[#E8E0D5] bg-white/40 px-3 py-2 text-sm"
+                >
+                  <div className="font-medium text-[#1F4E5C]">{f.name}</div>
+                  <div className="text-[11px] text-[#1A1A1A]/55">{f.tag}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 min-w-[200px]">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#C9A65C]">
+                人文标签
+              </h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {detail.culture.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full border border-[#1F4E5C]/30 px-3 py-1 text-xs text-[#1F4E5C]"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1 min-w-[200px]">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-[#C9A65C]">
+                基础设施
+              </h3>
+              <ul className="mt-3 space-y-1.5 text-sm">
+                {detail.infra.map((i) => (
+                  <li key={i.label} className="flex items-center gap-2 text-[#1A1A1A]/80">
+                    <span className="text-[#C9A65C]">{i.icon}</span>
+                    <span>{i.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-2 flex flex-wrap gap-3 border-t border-[#E8E0D5] pt-5">
+            <button
+              type="button"
+              className="flex items-center gap-2 rounded-xl border border-[#C13829] bg-[#C13829] px-6 py-3 text-sm font-semibold text-[#F8F4EC] transition-all hover:-translate-y-px hover:bg-[#A82E22]"
+            >
+              把这里加进我的行程
+              <span>+</span>
+            </button>
+            <button
+              type="button"
+              className="flex items-center gap-2 rounded-xl border border-[#1F4E5C] bg-transparent px-6 py-3 text-sm font-semibold text-[#1F4E5C] transition-all hover:-translate-y-px hover:bg-[#1F4E5C]/5"
+            >
+              和我聊聊这里
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
