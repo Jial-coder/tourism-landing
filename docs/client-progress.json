@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "client-progress.v1",
+  "project": "tourism-landing",
+  "updatedAt": "2026-05-18T00:00:00Z",
+  "updatedBy": "claude",
+  "reviewUrl": "https://prayer-provider-valid-improvement.trycloudflare.com",
+  "milestone": { "name": "week-1-prototype", "day": 1 },
+  "blocks": [
+    {
+      "id": "HERO-01",
+      "title": "首屏价值主张",
+      "route": "/client/prototype",
+      "status": "planned",
+      "summary": "占位 HERO section，待 Stitch 出高保真 + DESIGN.md 锁定后填充",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='HERO-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "Sections / HERO-01" },
+      "workflowNodeId": "hero",
+      "owner": "claude",
+      "startedAt": "2026-05-18T00:00:00Z",
+      "updatedAt": "2026-05-18T00:00:00Z",
+      "nextAction": {
+        "owner": "user",
+        "type": "decide",
+        "text": "确认 Day 1 portal 渲染正常后，决定 HERO-01 主标题方向（文化深度 / 商务舒适 / 行程定制）",
+        "dueAt": "2026-05-19T00:00:00Z"
+      },
+      "clientQuestions": [],
+      "dependencies": [],
+      "relatedFeedback": []
+    }
+  ],
+  "changelog": [
+    {
+      "at": "2026-05-18T00:00:00Z",
+      "by": "claude",
+      "summary": "Day 1: 项目骨架 + 4 契约文件 + portal 三 tab 占位",
+      "blocks": ["HERO-01"]
+    }
+  ]
+}

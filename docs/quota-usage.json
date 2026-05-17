@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "quota-usage.v1",
+  "project": "tourism-landing",
+  "updatedAt": "2026-05-18T00:00:00Z",
+  "figma": {
+    "today": "2026-05-18",
+    "readsToday": 0,
+    "readsThisMinute": 0,
+    "minuteWindowStart": "2026-05-18T00:00:00Z",
+    "warnAtDay": 150,
+    "blockAtDay": 200,
+    "warnAtMinute": 8,
+    "blockAtMinute": 10,
+    "lastResetAt": "2026-05-18T00:00:00Z",
+    "notes": "tier=student, seat=Full, seatType=expert. read 工具计数; generate_figma_design / add_code_connect_map / whoami 不计."
+  },
+  "stitch": {
+    "month": "2026-05",
+    "standardThisMonth": 0,
+    "proThisMonth": 0,
+    "warnAt": 440,
+    "blockAt": 500,
+    "lastResetAt": "2026-05-01T00:00:00Z",
+    "notes": "Free 550/月 (Standard 350 Gemini 2.5 Flash + Pro 200 Gemini 2.5 Pro). Google Labs 实验产品, Q4 2026 可能改价."
+  }
+}
