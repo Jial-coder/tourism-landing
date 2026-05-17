@@ -17,10 +17,12 @@
   "stitch": {
     "month": "2026-05",
     "standardThisMonth": 0,
-    "proThisMonth": 0,
+    "proThisMonth": 2,
     "warnAt": 440,
     "blockAt": 500,
     "lastResetAt": "2026-05-01T00:00:00Z",
-    "notes": "Free 550/月 (Standard 350 Gemini 2.5 Flash + Pro 200 Gemini 2.5 Pro). Google Labs 实验产品, Q4 2026 可能改价."
+    "lastUsedAt": "2026-05-18T03:31:00Z",
+    "lastUsedScreen": "bb885cf310e442b5b89b9464dcd6a627",
+    "notes": "Free 550/月 (Standard 350 Gemini 2.5 Flash + Pro 200 Gemini 2.5 Pro). Google Labs 实验产品, Q4 2026 可能改价. v1=0c433a, v2(edit)=bb885c. 观察: Stitch 不能放真实摄影, 占位图必然是灰块 → 高级感由 portal 端 React 集成 Unsplash 等照片库实现, Stitch 出结构稿."
   }
 }

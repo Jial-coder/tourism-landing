@@ -36,3 +36,20 @@ Error during WebSocket handshake: Unexpected response code: 502
 **当前绕法**：用 `npm install` + `npm run dev` 替代 pnpm。
 
 **何时回切 pnpm**：pnpm 13 修复或我们换 corepack pinned 版本。
+
+## ⚠️ Stitch 官方 MCP 不暴露 tools / resources（确认绕过）
+
+**症状**：`claude mcp add stitch --transport http https://stitch.googleapis.com/mcp` 返回 `✓ Connected`，但 `ListMcpResourcesTool` 返回空，工具列表里没有任何 `stitch_*` 工具。
+
+**根因**：Stitch 官方 MCP（截至 2026-05-18）实际可能是给 Stitch web app 内部自用，不对外暴露标准 MCP tool/resource 接口。codex v8 调研时假设的"Stitch MCP 可让 AI 生成"不成立。
+
+**绕过**：回到 v9 sign-off 时 Stitch 的本意 —— **Stitch 是 vibe design accelerator，主用法是 web UI 出稿**：
+1. 用户在 https://stitch.withgoogle.com/ 出稿（Pro mode）
+2. 出稿后导出 React 代码
+3. AI（Claude Code）集成进 portal `/client/prototype`
+
+**Stitch MCP 注册保留不删**：将来 Google 可能补 tool API；保留不增加任何成本（Connected ≠ 调用 ≠ 配额消耗）。
+
+**对 v9 架构无影响**：Stitch 在 v9 里就是 accelerator only，用 web UI 跟用 MCP 在 design stack 里是同等位置；只是手动一步而已。
+
+**何时回试 MCP**：Q4 2026 前后 Stitch 退出 Google Labs 时，重新查 docs 看有无 tool 暴露。

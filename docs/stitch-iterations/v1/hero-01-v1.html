@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600&amp;family=Inter:wght@400;500;600&amp;family=Public+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        cinnabar: "#C13829",
+                        inkTeal: "#1F4E5C",
+                        warmWhite: "#F8F4EC",
+                        charcoal: "#1A1A1A",
+                        paperGold: "#C9A65C",
+                        softMist: "#E8E0D5",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif SC", "serif"],
+                        display: ["Noto Serif SC", "serif"],
+                        body: ["Inter", "PingFang SC", "sans-serif"],
+                        label: ["Public Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .china-map-stroke {
+            stroke-dasharray: 4;
+            stroke-linecap: round;
+        }
+    </style>
+</head>
+<body class="bg-warmWhite text-charcoal font-body antialiased">
+<!-- TopNavBar Component from JSON -->
+<nav class="bg-[#F8F4EC] dark:bg-[#1A1A1A] docked full-width top-0 sticky z-50 border-b border-[#C9A65C]/30 flat no shadows">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-6 md:px-12 h-20">
+<div class="text-2xl font-headline font-semibold text-[#1F4E5C] dark:text-[#F8F4EC]">
+                中游 ZHONGYOU
+            </div>
+<div class="hidden md:flex items-center space-gap-8 lg:gap-12">
+<div class="flex space-x-8">
+<a class="text-[#1F4E5C] dark:text-[#F8F4EC]/80 hover:text-[#C13829] transition-colors font-body" href="#">行程</a>
+<a class="text-[#1F4E5C] dark:text-[#F8F4EC]/80 hover:text-[#C13829] transition-colors font-body" href="#">景点</a>
+<a class="text-[#1F4E5C] dark:text-[#F8F4EC]/80 hover:text-[#C13829] transition-colors font-body" href="#">美食</a>
+<a class="text-[#1F4E5C] dark:text-[#F8F4EC]/80 hover:text-[#C13829] transition-colors font-body" href="#">联系</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[#1F4E5C] dark:text-[#F8F4EC] font-label font-medium">EN</span>
+<span class="material-symbols-outlined text-[#C13829] scale-95 active:opacity-80 transition-transform cursor-pointer" data-icon="language">language</span>
+</div>
+</div>
+</nav>
+<!-- HERO-01 Section -->
+<main class="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 md:py-0">
+<!-- Left Column: Content -->
+<div class="lg:col-span-6 space-y-8 z-10">
+<div class="space-y-4">
+<span class="text-paperGold font-label font-medium tracking-[0.2em] uppercase text-sm block">EXPLORE CHINA · 探索中国</span>
+<h1 class="font-display text-inkTeal leading-[1.1] flex flex-col">
+<span class="text-5xl md:text-7xl lg:text-8xl">看景 · 吃喝 · 人文</span>
+<span class="text-3xl md:text-4xl lg:text-5xl mt-2 opacity-90 font-medium">一站式中国深度行程</span>
+</h1>
+</div>
+<div class="space-y-6 max-w-xl">
+<p class="text-xl md:text-2xl text-charcoal font-medium">Curated journeys — sights, taste, soul, all in one trip</p>
+<p class="text-charcoal/70 leading-relaxed text-lg">
+                        Discover the hidden gems of the Middle Kingdom with local experts. Our bespoke itineraries blend iconic landmarks with authentic street-level discovery, ensuring every moment of your journey is deeply personal and culturally immersive.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-cinnabar text-white px-8 py-4 rounded-full font-medium hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-cinnabar/20 flex items-center justify-center gap-2">
+                        定制我的中国行程 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border-2 border-inkTeal text-inkTeal px-8 py-4 rounded-full font-medium hover:bg-inkTeal hover:text-white transition-all duration-300 flex items-center justify-center">
+                        在线聊聊想去哪里
+                    </button>
+</div>
+<!-- Trust Signals -->
+<div class="pt-8 flex flex-wrap gap-y-4 gap-x-8 border-t border-paperGold/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-paperGold text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-sm font-label text-inkTeal/80">5,000+ 五星好评</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-paperGold text-lg" data-icon="support_agent">support_agent</span>
+<span class="text-sm font-label text-inkTeal/80">24/7 中英双语客服</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-paperGold text-lg" data-icon="edit_calendar">edit_calendar</span>
+<span class="text-sm font-label text-inkTeal/80">100% 个性化定制</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual (Map) -->
+<div class="lg:col-span-6 relative flex justify-center items-center h-[500px] lg:h-[700px]">
+<!-- Minimalist Abstract China Map Graphic -->
+<div class="relative w-full h-full max-w-2xl bg-no-repeat bg-contain bg-center opacity-90 transition-opacity hover:opacity-100" data-location="China" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWWzE0f-PLqn3EO8DXa3cCV5-5MMEisyVBGHfOhy3s9dWhYNvNLd8Hl0EpNy9OlzjgLAWQyrloEXKOoeMp-kNhGK1f4C_rT9tzFkG6Im1JnDtAWNrKNnrQQF3NUiT_I45aE5HWCyok9xTLPclG7KLp2EN61heGTqR0LcP7ceCCfRQKCPoRCeQSzyCHSxfvqXpCtP2VtCxQ8MW6HAQ85LJroX5cKc50nhVDpaMKdDDkykGTQxmwuZc89-6YNXoL6NXVJUres3W51qL1'); filter: sepia(20%) saturate(50%) brightness(95%);">
+<!-- Map Outline Overlay (Conceptual Vector Path) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 100 100">
+<!-- Points representing major cities -->
+<!-- Beijing (Active) -->
+<circle class="animate-pulse shadow-xl" cx="75" cy="35" fill="#C13829" r="1.2"></circle>
+<circle class="animate-ping opacity-30" cx="75" cy="35" r="3" stroke="#C13829" stroke-width="0.5"></circle>
+<!-- Others -->
+<circle cx="78" cy="55" fill="#C13829" r="0.8"></circle> <!-- Shanghai -->
+<circle cx="62" cy="48" fill="#C13829" r="0.8"></circle> <!-- Xi'an -->
+<circle cx="58" cy="65" fill="#C13829" r="0.8"></circle> <!-- Chengdu -->
+<circle cx="65" cy="62" fill="#C13829" r="0.8"></circle> <!-- Zhangjiajie -->
+<circle cx="68" cy="78" fill="#C13829" r="0.8"></circle> <!-- Guilin -->
+<circle cx="74" cy="58" fill="#C13829" r="0.8"></circle> <!-- Hangzhou -->
+<circle cx="38" cy="38" fill="#C13829" r="0.8"></circle> <!-- Dunhuang -->
+<circle cx="28" cy="62" fill="#C13829" r="0.8"></circle> <!-- Lhasa -->
+<circle cx="48" cy="72" fill="#C13829" r="0.8"></circle> <!-- Lijiang -->
+</svg>
+<!-- Active Popover Card for Beijing -->
+<div class="absolute top-[18%] left-[68%] z-20 w-56 transform -translate-x-1/2 -translate-y-full mb-4">
+<div class="bg-white p-3 rounded-xl border border-softMist shadow-2xl space-y-3">
+<div class="h-32 w-full rounded-lg overflow-hidden relative">
+<img alt="Beijing Great Wall" class="w-full h-full object-cover" data-alt="A high-end editorial photograph of the Great Wall of China winding through lush green mountains during the golden hour. The soft morning sunlight casts a warm, golden glow on the ancient stonework, creating long shadows and highlighting the texture of the bricks. The atmosphere is quiet, serene, and majestic, with a clear blue sky that reflects the premium, light-mode aesthetic of the website. The color palette is dominated by earth tones, deep greens, and warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN-acOb3Mbrbkt78JbkdC8mnLfMI8K72En80oO7YsJwfGFOep5BuNNgJDU6xitDhDF112l_l-S7xP8-gu5V5E0zbYZKHmG-SmlimanIfLX1APJBPVvdp9hucEnKvu6Yw9zyD8oTmTyznXeeY4MQOKg2OzUGQyji2Aakpdu-8wExWHkFWzX3fhJh9AJ4xrUYcfIDMmgi-lJMBEIhxSjcQ5gveR7_u7cdoB_KcJ5g7mj7zYQBMIlNgfjXbSr4RWg7BDft2Sunf762j3h"/>
+</div>
+<div class="space-y-1">
+<h4 class="font-display text-inkTeal font-semibold">北京 Beijing</h4>
+<p class="text-xs text-charcoal/60">故宫 · 紫禁城 600 年</p>
+</div>
+<a class="text-xs font-medium text-cinnabar flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                                查看详情 <span class="material-symbols-outlined text-[10px]">arrow_forward</span>
+</a>
+<!-- Pointer tail -->
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r border-b border-softMist rotate-45"></div>
+</div>
+</div>
+</div>
+<!-- Subtle Decorative Background Shape -->
+<div class="absolute -right-20 -bottom-20 w-[600px] h-[600px] bg-paperGold/5 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</main>
+<!-- Footer Component from JSON -->
+<footer class="bg-[#F8F4EC] dark:bg-[#1A1A1A] full-width border-t border-[#C9A65C]/20 flat no shadows mt-20">
+<div class="max-w-[1280px] mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8 fade-in duration-500">
+<div class="text-lg font-headline font-semibold text-[#1F4E5C]">ZHONGYOU TRAVEL</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body text-sm uppercase tracking-widest text-[#1A1A1A]/60 dark:text-[#F8F4EC]/60 hover:text-[#1F4E5C] transition-opacity duration-300" href="#">隐私政策</a>
+<a class="font-body text-sm uppercase tracking-widest text-[#1A1A1A]/60 dark:text-[#F8F4EC]/60 hover:text-[#1F4E5C] transition-opacity duration-300" href="#">服务条款</a>
+<a class="font-body text-sm uppercase tracking-widest text-[#1A1A1A]/60 dark:text-[#F8F4EC]/60 hover:text-[#1F4E5C] transition-opacity duration-300" href="#">可持续旅游</a>
+<a class="font-body text-sm uppercase tracking-widest text-[#1A1A1A]/60 dark:text-[#F8F4EC]/60 hover:text-[#1F4E5C] transition-opacity duration-300" href="#">诚聘英才</a>
+</div>
+<div class="font-body text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/40 dark:text-[#F8F4EC]/40">
+                © 2024 ZHONGYOU TRAVEL. MODERN HERITAGE EXPERIENCES.
+            </div>
+</div>
+</footer>
+</body></html>
