@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "client:build-map": "node scripts/build-china-svg.mjs",
+    "client:fetch-photos": "node scripts/fetch-landmark-photos.mjs",
+    "client:export": "node scripts/export-workflow-svg.mjs"
   },
   "dependencies": {
     "@types/d3-geo": "^3.1.0",
@@ -19,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@xmldom/xmldom": "^0.9.10",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

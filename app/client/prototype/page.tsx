@@ -42,10 +42,10 @@ export default function PrototypePage() {
       <section
         id="hero"
         data-feedback-id="HERO-01"
-        className="relative grid min-h-[calc(100vh-80px)] grid-cols-1 items-center gap-12 py-12 lg:grid-cols-[45fr_55fr] lg:gap-16"
+        className="relative grid min-h-[calc(100vh-80px)] grid-cols-1 items-center gap-8 py-8 lg:grid-cols-[45fr_55fr] lg:gap-16 lg:py-12"
       >
         {/* LEFT — content */}
-        <div className="z-10 flex max-w-2xl flex-col gap-8">
+        <div className="z-10 flex max-w-2xl flex-col gap-6 lg:gap-8">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-[#C9A65C]" aria-hidden />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A65C]">
@@ -57,19 +57,19 @@ export default function PrototypePage() {
             className="text-[#1F4E5C]"
             style={{ fontFamily: '"Noto Serif SC", "Source Han Serif", serif' }}
           >
-            <span className="block text-[clamp(56px,8vw,112px)] leading-[0.95] tracking-tight">
+            <span className="block text-[clamp(40px,8vw,112px)] leading-[1] tracking-tight lg:leading-[0.95]">
               看景 · 吃喝 · 人文
             </span>
-            <span className="mt-3 block text-[clamp(28px,3.5vw,48px)] leading-tight text-[#1F4E5C]/85">
+            <span className="mt-2 block text-[clamp(22px,4vw,48px)] leading-tight text-[#1F4E5C]/85 lg:mt-3">
               一站式中国深度行程
             </span>
           </h1>
 
-          <p className="max-w-lg text-lg font-medium text-[#1A1A1A]/90">
+          <p className="max-w-lg text-base font-medium text-[#1A1A1A]/90 lg:text-lg">
             Curated journeys — sights, taste, soul, all in one trip
           </p>
 
-          <p className="max-w-lg text-base leading-relaxed text-[#1A1A1A]/75">
+          <p className="max-w-lg text-sm leading-relaxed text-[#1A1A1A]/75 lg:text-base">
             十年本地策划经验，带境外游客避开打卡套路。每一段行程由当地资深规划师设计 —— 看真景、吃真味、读真历史。
           </p>
 
@@ -91,7 +91,7 @@ export default function PrototypePage() {
             </button>
           </div>
 
-          <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[#E8E0D5] pt-6">
+          <div className="mt-2 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[#E8E0D5] pt-5 lg:gap-x-8 lg:pt-6">
             <TrustItem icon="★" label="5,000+ 五星好评" />
             <TrustItem icon="◐" label="24/7 中英双语客服" />
             <TrustItem icon="◇" label="100% 个性化定制" />
@@ -99,67 +99,92 @@ export default function PrototypePage() {
         </div>
 
         {/* RIGHT — China map */}
-        <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-visible rounded-3xl border border-[#E8E0D5]/70 bg-gradient-to-br from-[#F8F4EC] to-[#E8E0D5]/60 lg:aspect-auto lg:h-[640px]">
-          <svg
-            viewBox={chinaMap.viewBox}
-            className="absolute inset-0 h-full w-full"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="中华人民共和国地图（GS(2019)1822 标准底图）"
-          >
-            <path
-              d={chinaMap.path}
-              fill="rgba(31, 78, 92, 0.04)"
-              stroke="#1F4E5C"
-              strokeOpacity={0.55}
-              strokeWidth={1.2}
-              strokeLinejoin="round"
-            />
-            {landmarks.map((m) =>
-              m.id === hoverId || m.id === activeId ? null : (
-                <circle
-                  key={`pulse-${m.id}`}
-                  cx={m.x}
-                  cy={m.y}
-                  r={22}
-                  fill="#C13829"
-                  opacity={0.12}
-                >
-                  <animate attributeName="r" values="18;26;18" dur="3.2s" repeatCount="indefinite" />
-                  <animate
-                    attributeName="opacity"
-                    values="0.14;0.04;0.14"
-                    dur="3.2s"
-                    repeatCount="indefinite"
+        <div className="flex flex-col gap-3">
+          <div className="relative flex aspect-square w-full items-center justify-center overflow-visible rounded-3xl border border-[#E8E0D5]/70 bg-gradient-to-br from-[#F8F4EC] to-[#E8E0D5]/60 lg:aspect-auto lg:h-[640px]">
+            <svg
+              viewBox={chinaMap.viewBox}
+              className="absolute inset-0 h-full w-full"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="中华人民共和国地图（GS(2019)1822 标准底图）"
+            >
+              <path
+                d={chinaMap.path}
+                fill="rgba(31, 78, 92, 0.04)"
+                stroke="#1F4E5C"
+                strokeOpacity={0.55}
+                strokeWidth={1.2}
+                strokeLinejoin="round"
+              />
+              {landmarks.map((m) =>
+                m.id === hoverId || m.id === activeId ? null : (
+                  <circle
+                    key={`pulse-${m.id}`}
+                    cx={m.x}
+                    cy={m.y}
+                    r={22}
+                    fill="#C13829"
+                    opacity={0.12}
+                  >
+                    <animate attributeName="r" values="18;26;18" dur="3.2s" repeatCount="indefinite" />
+                    <animate
+                      attributeName="opacity"
+                      values="0.14;0.04;0.14"
+                      dur="3.2s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                ),
+              )}
+
+              {/* SVG renders in source order — put hovered/active LAST so they sit on top */}
+              {[...landmarks]
+                .sort((a, b) => {
+                  const aBig = a.id === hoverId || a.id === activeId ? 1 : 0;
+                  const bBig = b.id === hoverId || b.id === activeId ? 1 : 0;
+                  return aBig - bBig;
+                })
+                .map((m) => (
+                  <LandmarkPortrait
+                    key={m.id}
+                    landmark={m}
+                    hovered={hoverId === m.id}
+                    active={activeId === m.id}
+                    onEnter={handleEnter}
+                    onLeave={handleLeave}
+                    onClick={handleClick}
                   />
-                </circle>
-              ),
-            )}
+                ))}
 
-            {/* SVG renders in source order — put hovered/active LAST so they sit on top */}
-            {[...landmarks]
-              .sort((a, b) => {
-                const aBig = a.id === hoverId || a.id === activeId ? 1 : 0;
-                const bBig = b.id === hoverId || b.id === activeId ? 1 : 0;
-                return aBig - bBig;
-              })
-              .map((m) => (
-                <LandmarkPortrait
-                  key={m.id}
-                  landmark={m}
-                  hovered={hoverId === m.id}
-                  active={activeId === m.id}
-                  onEnter={handleEnter}
-                  onLeave={handleLeave}
-                  onClick={handleClick}
-                />
+              <Popover landmark={popoverLandmark} />
+            </svg>
+
+            <span className="absolute bottom-3 right-4 text-[10px] text-[#1A1A1A]/35">
+              审图号 GS(2019)1822
+            </span>
+          </div>
+
+          {/* Mobile-only chip list — desktop hides via lg:hidden */}
+          <div className="lg:hidden">
+            <p className="mb-2 text-xs uppercase tracking-widest text-[#C9A65C]">
+              点击景区查看详情
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {landmarks.map((m) => (
+                <button
+                  key={`chip-${m.id}`}
+                  type="button"
+                  onClick={() => handleClick(m.id)}
+                  className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                    activeId === m.id
+                      ? "border-[#C13829] bg-[#C13829] text-[#F8F4EC]"
+                      : "border-[#1F4E5C]/30 bg-white/40 text-[#1F4E5C] hover:border-[#C13829]"
+                  }`}
+                >
+                  <span className="font-medium">{m.zh}</span>
+                </button>
               ))}
-
-            <Popover landmark={popoverLandmark} />
-          </svg>
-
-          <span className="absolute bottom-3 right-4 text-[10px] text-[#1A1A1A]/35">
-            审图号 GS(2019)1822
-          </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -317,7 +342,7 @@ function DetailPanel({
         ×
       </button>
 
-      <div className="grid gap-8 lg:grid-cols-[2fr_3fr]">
+      <div className="grid gap-6 lg:grid-cols-[2fr_3fr] lg:gap-8">
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
           <Image
             src={`/landmarks/${landmark.id}.jpg`}
@@ -328,13 +353,13 @@ function DetailPanel({
           />
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4 lg:gap-5">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A65C]">
               {landmark.en}
             </span>
             <h2
-              className="mt-2 text-[clamp(28px,4vw,48px)] leading-tight text-[#1F4E5C]"
+              className="mt-2 text-[clamp(28px,5vw,48px)] leading-tight text-[#1F4E5C]"
               style={{ fontFamily: '"Noto Serif SC", serif' }}
             >
               {landmark.zh}
@@ -362,7 +387,7 @@ function DetailPanel({
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <div className="flex-1 min-w-[200px]">
+            <div className="flex-1 min-w-[180px]">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-[#C9A65C]">
                 人文标签
               </h3>
@@ -378,7 +403,7 @@ function DetailPanel({
               </div>
             </div>
 
-            <div className="flex-1 min-w-[200px]">
+            <div className="flex-1 min-w-[180px]">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-[#C9A65C]">
                 基础设施
               </h3>
@@ -393,17 +418,17 @@ function DetailPanel({
             </div>
           </div>
 
-          <div className="mt-2 flex flex-wrap gap-3 border-t border-[#E8E0D5] pt-5">
+          <div className="mt-2 flex flex-col gap-3 border-t border-[#E8E0D5] pt-5 sm:flex-row sm:flex-wrap">
             <button
               type="button"
-              className="flex items-center gap-2 rounded-xl border border-[#C13829] bg-[#C13829] px-6 py-3 text-sm font-semibold text-[#F8F4EC] transition-all hover:-translate-y-px hover:bg-[#A82E22]"
+              className="flex items-center justify-center gap-2 rounded-xl border border-[#C13829] bg-[#C13829] px-6 py-3 text-sm font-semibold text-[#F8F4EC] transition-all hover:-translate-y-px hover:bg-[#A82E22]"
             >
               把这里加进我的行程
               <span>+</span>
             </button>
             <button
               type="button"
-              className="flex items-center gap-2 rounded-xl border border-[#1F4E5C] bg-transparent px-6 py-3 text-sm font-semibold text-[#1F4E5C] transition-all hover:-translate-y-px hover:bg-[#1F4E5C]/5"
+              className="flex items-center justify-center gap-2 rounded-xl border border-[#1F4E5C] bg-transparent px-6 py-3 text-sm font-semibold text-[#1F4E5C] transition-all hover:-translate-y-px hover:bg-[#1F4E5C]/5"
             >
               和我聊聊这里
             </button>

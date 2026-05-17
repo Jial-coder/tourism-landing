@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Cognitive Cockpit" modified="2026-05-18T00:00:00.000Z" agent="claude-code" version="24.0.0">
+  <diagram id="tourism-landing-workflow" name="客户业务流程">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Stage 0: Entry -->
+        <mxCell id="entry" value="客户首次到访" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F8F4EC;strokeColor=#1F4E5C;fontColor=#1F4E5C;fontFamily=Helvetica;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="160" height="80" as="geometry" />
+          <object feedbackId="ENTRY" workflowNodeId="entry" status="approved" />
+        </mxCell>
+        <!-- Stage 1: HERO browse -->
+        <mxCell id="hero" value="HERO-01 浏览&#10;中国地图 / 景区头像 / 详情面板" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F4EC;strokeColor=#C9A65C;fontColor=#1A1A1A;fontFamily=Helvetica;fontSize=12;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="380" width="200" height="80" as="geometry" />
+          <object feedbackId="HERO-01" workflowNodeId="hero" status="ready_for_review" />
+        </mxCell>
+        <!-- Stage 2: Itinerary cards -->
+        <mxCell id="itin" value="ITIN-01 行程卡片&#10;预设 3-5 天 / 7 天 / 深度行程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F4EC;strokeColor=#C9A65C;fontColor=#1A1A1A;fontFamily=Helvetica;fontSize=12;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="380" width="200" height="80" as="geometry" />
+          <object feedbackId="ITIN-01" workflowNodeId="itin" status="planned" />
+        </mxCell>
+        <!-- Stage 3: Price section -->
+        <mxCell id="price" value="PRICE-01 价格区&#10;区间 + 含/不含明细" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F4EC;strokeColor=#C9A65C;fontColor=#1A1A1A;fontFamily=Helvetica;fontSize=12;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="380" width="200" height="80" as="geometry" />
+          <object feedbackId="PRICE-01" workflowNodeId="price" status="planned" />
+        </mxCell>
+        <!-- Stage 4: Branch — form OR chat -->
+        <mxCell id="branch" value="客户选择" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E8E0D5;strokeColor=#C13829;fontColor=#1A1A1A;fontFamily=Helvetica;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="380" width="160" height="80" as="geometry" />
+          <object feedbackId="BRANCH" workflowNodeId="branch" status="planned" />
+        </mxCell>
+        <!-- Stage 5a: Form -->
+        <mxCell id="form" value="FORM-01 询价表单&#10;姓名 / 国家 / 心仪景区 / 预算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C13829;strokeColor=#C13829;fontColor=#F8F4EC;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="280" width="200" height="80" as="geometry" />
+          <object feedbackId="FORM-01" workflowNodeId="form" status="planned" />
+        </mxCell>
+        <!-- Stage 5b: Chat -->
+        <mxCell id="chat" value="在线聊聊&#10;(Day 6 接入实时聊天)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F4E5C;strokeColor=#1F4E5C;fontColor=#F8F4EC;fontFamily=Helvetica;fontSize=12;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="480" width="200" height="80" as="geometry" />
+          <object feedbackId="CHAT-01" workflowNodeId="chat" status="planned" />
+        </mxCell>
+        <!-- Stage 6: Lead captured -->
+        <mxCell id="lead" value="联系方式 / 心仪行程&#10;入库 → 销售跟进" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C9A65C;strokeColor=#1F4E5C;fontColor=#1A1A1A;fontFamily=Helvetica;fontSize=12;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="380" width="180" height="80" as="geometry" />
+          <object feedbackId="LEAD" workflowNodeId="lead" status="planned" />
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e1" style="endArrow=classic;html=1;strokeColor=#1F4E5C;strokeWidth=1.5;" edge="1" parent="1" source="entry" target="hero">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=classic;html=1;strokeColor=#1F4E5C;strokeWidth=1.5;" edge="1" parent="1" source="hero" target="itin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=classic;html=1;strokeColor=#1F4E5C;strokeWidth=1.5;" edge="1" parent="1" source="itin" target="price">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=classic;html=1;strokeColor=#1F4E5C;strokeWidth=1.5;" edge="1" parent="1" source="price" target="branch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5a" value="表单" style="endArrow=classic;html=1;strokeColor=#C13829;strokeWidth=1.5;fontColor=#C13829;fontSize=11;" edge="1" parent="1" source="branch" target="form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5b" value="聊天" style="endArrow=classic;html=1;strokeColor=#1F4E5C;strokeWidth=1.5;fontColor=#1F4E5C;fontSize=11;" edge="1" parent="1" source="branch" target="chat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6a" style="endArrow=classic;html=1;strokeColor=#C9A65C;strokeWidth=1.5;" edge="1" parent="1" source="form" target="lead">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6b" style="endArrow=classic;html=1;strokeColor=#C9A65C;strokeWidth=1.5;" edge="1" parent="1" source="chat" target="lead">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Audit footer -->
+        <mxCell id="audit" value="审图号 GS(2019)1822 · DESIGN.md v0.1.1 · v9 contracts" style="text;html=1;align=right;verticalAlign=middle;fontColor=#1A1A1A;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="820" width="500" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
