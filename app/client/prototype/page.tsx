@@ -4,8 +4,11 @@ import Image from "next/image";
 import { useState, useCallback } from "react";
 import {
   ArrowRight,
+  BookOpen,
+  Camera,
   Check,
   Headset,
+  Music,
   Plus,
   Sparkles,
   Star,
@@ -43,6 +46,12 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 type Landmark = {
   id: string;
@@ -776,6 +785,188 @@ export default function PrototypePage() {
         </Card>
         </section>
       </FadeContent>
+
+      <FadeContent>
+        <section
+          id="faq"
+          data-feedback-id="FAQ-01"
+          data-workflow-node-id="faq"
+          className="border-t border-soft-mist bg-warm-white py-16 lg:py-24"
+        >
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-paper-gold">
+                BEFORE YOU GO · 出行前须知
+              </span>
+              <h2
+                className="mt-3 text-[clamp(28px,4vw,44px)] leading-tight text-ink-teal"
+                style={{ fontFamily: SERIF_FONT }}
+              >
+                Things to Know Before Your Trip
+              </h2>
+            </div>
+
+            <Accordion
+              type="single"
+              collapsible
+              className="mt-12 divide-y divide-soft-mist border-y border-soft-mist"
+            >
+              <AccordionItem value="faq-1" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  Do I need a visa to visit China?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  For most travelers, the answer is simpler than it used to be. Citizens of more than fifty countries now enter China visa-free for short tourism stays, and most other passports qualify for the visa-free transit policy at major airports — entering through Beijing, Shanghai, Guangzhou, Chengdu, Xi&apos;an and other gateway cities for up to ten days while traveling onward. If neither route fits your itinerary, the standard tourist visa (L) takes about a week through your local Chinese consulate. We confirm the right entry path for your passport before any deposit, and we send you a single-page entry checklist tailored to your route.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-2" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  Is China safe for solo and female travelers?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  Yes — China is consistently rated among the safest large countries in Asia for visitors, including women traveling alone. Streets, metros and high-speed rail are well-lit, well-policed and unusually quiet at night, and tourist-facing staff in major cities increasingly speak working English. The everyday friction is logistical rather than physical: payment apps, ride-hailing, language at smaller restaurants. Every guest gets a 24/7 China-based contact line, an offline phrase card, and a pre-loaded local SIM with our number saved — so help is one tap away whether you are lost in a hutong or stuck at a ticket gate.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-3" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  Is the price I see the price I pay?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  Yes. Our quote is a single all-inclusive figure covering private guide, driver, vehicle, entrance tickets, intercity transport, hand-picked hotels, and the daily meals listed on your itinerary. We do not run optional shopping stops, commissioned jade or tea visits, or &ldquo;upgrade fees&rdquo; mid-trip — practices that quietly inflate cheaper packages. Tipping is not customary in mainland China and is never expected from our team; if you would like to thank a guide who went above and beyond, a small gesture at trip&apos;s end is welcome but never solicited.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-4" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  Can you handle dietary restrictions, allergies or picky eaters?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  Comfortably. Vegetarian, halal, gluten-free, nut-allergic and low-spice diets are all everyday requests for our planning team. Halal kitchens are common across China — Xi&apos;an&apos;s Muslim Quarter and Beijing&apos;s halal restaurants are itinerary highlights in their own right — and Buddhist vegetarian cuisine is a centuries-old tradition. We collect dietary notes during planning, brief every guide and restaurant in advance, and carry bilingual allergy cards for your wallet. Younger travelers and cautious palates eat well too: dumplings, noodles, Cantonese roast meats and northern flatbreads are crowd-pleasers we can lean into when needed.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-5" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  How customizable is my itinerary?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  Fully. Most of our guests travel as a private party of two to eight, which means pace, city order, hotel tier, and daily start time are yours to set. Want a slower three-day Beijing instead of two? An extra night in Suzhou for the gardens? A morning off after the Great Wall? All standard. We also build hybrid trips: classic icons (Forbidden City, Terracotta Army, Li River) paired with quieter China — tea villages in Yunnan, Hakka roundhouses in Fujian, the Silk Road outside Dunhuang. If you would prefer a small-group joining option, we run those too, capped at sixteen guests with no shopping detours.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-6" className="border-0">
+                <AccordionTrigger className="py-5 text-left text-lg font-medium text-ink-teal">
+                  What happens if I need to change or cancel my trip?
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-charcoal/85">
+                  We work to make changes painless rather than punitive. Free date reshuffling is available up to thirty days before departure, and the deposit moves with you to the new dates at no additional fee. Inside thirty days, partial refunds follow a published schedule that we share with your booking confirmation — no fine-print surprises. For genuine force-majeure events (natural disasters, flight grounding, government travel suspensions), we refund all recoverable costs and waive our planning fee. Travel insurance is recommended for everything else; we are happy to point you toward providers our past guests have used without trouble.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+      </FadeContent>
+
+      <footer
+        data-feedback-id="FOOT-01"
+        data-workflow-node-id="foot"
+        className="bg-ink-teal py-16 text-warm-white"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-4">
+          <div>
+            <h3
+              className="mb-3 text-xl text-warm-white"
+              style={{ fontFamily: SERIF_FONT }}
+            >
+              Inbound China Tourism
+            </h3>
+            <p className="text-sm leading-relaxed opacity-80">
+              Warm, premium, China-cultural-modern travel experiences for international guests.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-medium uppercase tracking-wider text-paper-gold">
+              Explore
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#hero" className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold">
+                  Map &amp; Destinations
+                </a>
+              </li>
+              <li>
+                <a href="#itineraries" className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold">
+                  Itineraries
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold">
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-medium uppercase tracking-wider text-paper-gold">
+              Contact
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="mailto:hello@inbound-china.tourism"
+                  className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold"
+                >
+                  hello@inbound-china.tourism
+                </a>
+              </li>
+              <li className="opacity-60">WeChat: TBD</li>
+              <li className="opacity-60">WhatsApp: TBD</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-3 text-sm font-medium uppercase tracking-wider text-paper-gold">
+              Follow
+            </h4>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold"
+              >
+                <Camera size={20} />
+              </a>
+              <a
+                href="#"
+                aria-label="TikTok"
+                className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold"
+              >
+                <Music size={20} />
+              </a>
+              <a
+                href="#"
+                aria-label="Xiaohongshu"
+                className="opacity-90 transition-opacity hover:opacity-100 hover:text-paper-gold"
+              >
+                <BookOpen size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-7xl border-t border-warm-white/20 px-6 pt-6 text-center text-xs opacity-60">
+          &copy; 2026 Inbound China Tourism. All rights reserved.
+        </div>
+      </footer>
     </article>
   );
 }
