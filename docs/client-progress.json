@@ -1,17 +1,17 @@
 {
   "schemaVersion": "client-progress.v1",
   "project": "tourism-landing",
-  "updatedAt": "2026-05-18T00:00:00Z",
+  "updatedAt": "2026-05-18T05:08:23Z",
   "updatedBy": "claude",
-  "reviewUrl": "https://prayer-provider-valid-improvement.trycloudflare.com",
-  "milestone": { "name": "week-1-prototype", "day": 1 },
+  "reviewUrl": "expired (tunnel ephemeral, restart cloudflared to get new URL)",
+  "milestone": { "name": "week-1-prototype", "day": 5 },
   "blocks": [
     {
       "id": "HERO-01",
       "title": "首屏价值主张 + 中国地图交互",
       "route": "/client/prototype",
-      "status": "in_progress",
-      "summary": "用户已给方向 brief（中国板块地图 + 景区标注 + 详情面板），下一步 Stitch Pro 出高保真稿",
+      "status": "done",
+      "summary": "中国板块地图（GS 2019 1822）+ 真实景区照片圆形 marker + hover/click 详情面板 + 移动端适配，Stitch v2 结构整合完成",
       "codeRef": {
         "file": "app/client/prototype/page.tsx",
         "selector": "[data-feedback-id='HERO-01']"
@@ -20,15 +20,140 @@
       "workflowNodeId": "hero",
       "owner": "claude",
       "startedAt": "2026-05-18T00:00:00Z",
-      "updatedAt": "2026-05-18T02:30:00Z",
+      "updatedAt": "2026-05-18T04:28:47Z",
+      "nextAction": null,
+      "clientQuestions": [],
+      "dependencies": [],
+      "relatedFeedback": []
+    },
+    {
+      "id": "ITIN-01",
+      "title": "行程卡片",
+      "route": "/client/prototype",
+      "status": "done",
+      "summary": "shadcn/ui (radix-nova) + framer-motion 实现行程卡片区，Day 5 team-mode 重构落地",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='ITIN-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "ITIN-01 行程卡片" },
+      "workflowNodeId": "itinerary",
+      "owner": "claude",
+      "startedAt": "2026-05-18T04:52:42Z",
+      "updatedAt": "2026-05-18T05:08:23Z",
+      "nextAction": null,
+      "clientQuestions": [],
+      "dependencies": ["HERO-01"],
+      "relatedFeedback": []
+    },
+    {
+      "id": "PRICE-01",
+      "title": "价格区",
+      "route": "/client/prototype",
+      "status": "done",
+      "summary": "shadcn/ui + framer-motion 实现价格区，Day 5 team-mode 重构落地",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='PRICE-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "PRICE-01 价格区" },
+      "workflowNodeId": "price",
+      "owner": "claude",
+      "startedAt": "2026-05-18T04:52:42Z",
+      "updatedAt": "2026-05-18T05:08:23Z",
+      "nextAction": null,
+      "clientQuestions": [],
+      "dependencies": ["ITIN-01"],
+      "relatedFeedback": []
+    },
+    {
+      "id": "FORM-01",
+      "title": "询价表单",
+      "route": "/client/prototype",
+      "status": "done",
+      "summary": "shadcn/ui + framer-motion 实现询价表单区，Day 5 team-mode 重构落地",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='FORM-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "FORM-01 询价表单" },
+      "workflowNodeId": "form",
+      "owner": "claude",
+      "startedAt": "2026-05-18T04:52:42Z",
+      "updatedAt": "2026-05-18T05:08:23Z",
+      "nextAction": null,
+      "clientQuestions": [],
+      "dependencies": ["PRICE-01"],
+      "relatedFeedback": []
+    },
+    {
+      "id": "WORKFLOW-01",
+      "title": "客户工作流图 + 移动适配",
+      "route": "/client/prototype",
+      "status": "done",
+      "summary": "client-workflow.drawio renderer + HERO 移动端适配落地",
+      "codeRef": {
+        "file": "docs/client-workflow.drawio",
+        "selector": null
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "Layout" },
+      "workflowNodeId": "workflow",
+      "owner": "claude",
+      "startedAt": "2026-05-18T04:37:50Z",
+      "updatedAt": "2026-05-18T04:37:50Z",
+      "nextAction": null,
+      "clientQuestions": [],
+      "dependencies": ["HERO-01"],
+      "relatedFeedback": []
+    },
+    {
+      "id": "FAQ-01",
+      "title": "常见问题",
+      "route": "/client/prototype",
+      "status": "in_progress",
+      "summary": "Day 6 占位：FAQ 区（手风琴 / shadcn accordion）待实现",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='FAQ-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "FAQ-01 常见问题" },
+      "workflowNodeId": "faq",
+      "owner": "claude",
+      "startedAt": null,
+      "updatedAt": "2026-05-18T05:00:00Z",
       "nextAction": {
         "owner": "claude",
         "type": "implement",
-        "text": "重启 Claude Code 后调 Stitch MCP Pro mode 出 HERO-01 高保真稿（消耗 1/200 Pro）",
+        "text": "Day 6 实现 FAQ-01：用 shadcn accordion 出 6-8 条客户高频问题，content 由 user brief 决定",
         "dueAt": "2026-05-19T00:00:00Z"
       },
       "clientQuestions": [],
-      "dependencies": [],
+      "dependencies": ["FORM-01"],
+      "relatedFeedback": []
+    },
+    {
+      "id": "FOOT-01",
+      "title": "页脚",
+      "route": "/client/prototype",
+      "status": "in_progress",
+      "summary": "Day 6 占位：页脚（联系方式 / 备案 / 社媒）待实现",
+      "codeRef": {
+        "file": "app/client/prototype/page.tsx",
+        "selector": "[data-feedback-id='FOOT-01']"
+      },
+      "designRef": { "file": "docs/DESIGN.md", "heading": "FOOT-01 页脚" },
+      "workflowNodeId": "footer",
+      "owner": "claude",
+      "startedAt": null,
+      "updatedAt": "2026-05-18T05:00:00Z",
+      "nextAction": {
+        "owner": "claude",
+        "type": "implement",
+        "text": "Day 6 实现 FOOT-01：联系方式 + 备案占位 + 社媒图标，参考 DESIGN.md FOOT-01 章节",
+        "dueAt": "2026-05-19T00:00:00Z"
+      },
+      "clientQuestions": [],
+      "dependencies": ["FAQ-01"],
       "relatedFeedback": []
     }
   ],
@@ -38,6 +163,30 @@
       "by": "claude",
       "summary": "Day 1: 项目骨架 + 4 契约文件 + portal 三 tab 占位",
       "blocks": ["HERO-01"]
+    },
+    {
+      "at": "2026-05-18T03:51:40Z",
+      "by": "claude",
+      "summary": "Day 2: HERO-01 brief 落地 — 真实中国地图（GS 2019 1822）+ Stitch v2 结构整合",
+      "blocks": ["HERO-01"]
+    },
+    {
+      "at": "2026-05-18T03:57:14Z",
+      "by": "claude",
+      "summary": "Day 3: HERO-01 真实景区照片（Unsplash）+ 圆形头像 marker + hover/click 详情面板 + projection cluster 修复",
+      "blocks": ["HERO-01"]
+    },
+    {
+      "at": "2026-05-18T04:37:50Z",
+      "by": "claude",
+      "summary": "Day 4: client-workflow.drawio renderer + HERO 移动端适配",
+      "blocks": ["WORKFLOW-01", "HERO-01"]
+    },
+    {
+      "at": "2026-05-18T05:08:23Z",
+      "by": "claude",
+      "summary": "Day 5: shadcn/ui (radix-nova) + lucide + framer-motion 装机 + ITIN-01 / PRICE-01 / FORM-01 三区落地（team-mode 重构）",
+      "blocks": ["ITIN-01", "PRICE-01", "FORM-01"]
     }
   ]
 }
