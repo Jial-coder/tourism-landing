@@ -47,3 +47,9 @@ docs/screenshots/
 .idea/
 .vscode/
 Thumbs.db
+
+# local QA and generation artifacts
+.playwright-mcp/
+hero-*.png
+qa-*.png
+scripts/_tmp/
