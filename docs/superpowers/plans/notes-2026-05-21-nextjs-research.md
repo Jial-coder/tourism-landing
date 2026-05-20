@@ -141,3 +141,18 @@ export async function POST(request: NextRequest): Promise<Response> {
 - `generateMetadata` 读 cookie 切语言 meta 受支持；不需要回头修改 plan 的 Phase 4/5 任务范围。
 
 **Status：DONE（无 concerns，全部命中 plan 假设）。**
+
+---
+
+## Task 0.4 锁定记录 — `leadResponsePromise` 字典 key
+
+Phase 4/5 实填字典时必须使用以下唯一 key（不是 TBD，不是 pending，禁止任何 sections / email autoresponse 用其它文案承诺响应时间）：
+
+```
+leadResponsePromise.en = "A China travel advisor usually replies within 24 hours (Chinese holidays excluded)."
+leadResponsePromise.zh = "我们的中国旅行顾问通常会在 24 小时内回复你（中国节假日除外）"
+```
+
+引用方至少：`components/sections/LeadFormSuccess.tsx`、`components/sections/ConciergeNote.tsx`、未来 email autoresponse 模板。
+
+字典结构约束（与 Phase 1 Task 1.1 一致）：`leadResponsePromise` 是 **顶层 string 单 key**，不嵌入 `leadFormSuccess` / `concierge` / `email` 任一 section 命名空间，确保多处引用同源。中英文字典对象必须严格同形，`leadResponsePromise` 在 Task 1.1 直接写入最终文案（不放 `// TODO_COPY`）。
