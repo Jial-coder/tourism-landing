@@ -58,3 +58,86 @@
 - `<html lang={locale === 'zh' ? 'zh-CN' : 'en'}>`；`<body>` 不动。
 - Server-resolved 的 locale 同时作为 `<LocaleProvider initialLocale={locale}>` 的 prop 传给客户端，避免双源 drift。
 - 当前 `app/layout.tsx` 是同步函数 + 硬编码 `lang="zh-CN"`（lines 10, 16），Phase 1 Task 1.x 必须改造为 async server component。
+
+---
+
+## 3. POST handler 推荐签名 = `(request: NextRequest)` → `Response.json(...)` 或 `NextResponse.json(...)`
+
+**结论**：`app/api/leads/route.ts` 导出签名采用：
+
+```ts
+import type { NextRequest } from 'next/server';
+
+export const runtime = 'nodejs';
+
+export async function POST(request: NextRequest): Promise<Response> {
+  const body = await request.json();
+  // honeypot / Turnstile / rate-limit / leadFormSchema.safeParse / db insert / Feishu webhook
+  return Response.json({ ok: true }, { status: 200 });
+}
+```
+
+**理由（事实依据）**：
+
+- `03-file-conventions/route.md` Lines 60-78：`request` 参数官方定义就是 `NextRequest`（Web `Request` 的扩展），方便用 `request.cookies` / `request.nextUrl.searchParams` / `request.json()`。Plan 决策 i 的速率限制 + Turnstile remoteip 需要从 headers 取 `x-forwarded-for`，`NextRequest` 的 `request.headers.get(...)` 与 Web `Request` 一致，但 `NextRequest` 提供了更稳的类型。
+- 返回值方面，Lines 6-18 与 Lines 483-499 都直接用 `Response.json({...})`，这是 Web 标准 API，类型是 `Response`，无需额外 import。当需要设置 Cookie / 自定义 header 链路时再换 `NextResponse.json(..., { headers: ... })`（`04-functions/next-response.md` 暴露这些便利方法）。本项目目前只需返回 200/400/429 的 JSON，**优先 `Response.json`**，更轻、更接近 Web 标准。
+- `15-route-handlers.md` Lines 41-43 明确支持 GET/POST/PUT/PATCH/DELETE/HEAD/OPTIONS；POST handler 默认不缓存（Lines 49-51），符合“每次提交都必须真写库”的要求。
+- Plan 决策 e 强制 `app/api/leads/route.ts` `export const runtime = 'nodejs'`（Vercel + drizzle-orm + postgres-js 直连）。`route.md` Lines 640-660 “Segment Config Options” 列出 `runtime = 'nodejs'` 是合法的 segment config，且本文件示例与 plan 一致。
+
+---
+
+## 4. `export const runtime = 'edge' | 'nodejs'` —— Next.js 16 仍支持，**默认 `'nodejs'`**
+
+**结论**：Next.js 16.x 仍然支持 `export const runtime = 'nodejs' | 'edge'` 在 page / layout / route 顶部声明，**默认值已改为 `'nodejs'`**。`'experimental-edge'` 旧值在 v15.0.0-RC 已 deprecated（有 codemod）；**不存在**“runtime 配置语法被改名 / 废弃”的情况。
+
+**理由（事实依据）**：
+
+- `02-route-segment-config/runtime.md` Lines 6-19 直接给定签名：
+  ```ts
+  export const runtime = 'nodejs' // 'nodejs' | 'edge'
+  ```
+  并标注 `'nodejs'` 为 default。
+- `02-route-segment-config/index.md` Lines 8-14 表格对 `runtime` 标注 `'nodejs' | 'edge'`，default `'nodejs'`。
+- 同文件 Lines 18-21 的 Version History 显示：
+  - `v16.0.0`：`dynamic` / `dynamicParams` / `revalidate` / `fetchCache` 在 Cache Components 启用时**移除**（`runtime` 不在被移除清单内 → 仍保留）。
+  - `v16.0.0`：`export const experimental_ppr = true` 移除（与 runtime 无关）。
+  - `v15.0.0-RC`：`export const runtime = "experimental-edge"` deprecated（不影响 `'edge'` 与 `'nodejs'` 两个有效值）。
+- `runtime.md` Lines 21-24 “Good to know” 注意事项：
+  - `'edge'` 在 Cache Components 模式下不被支持；本项目不打算启用 Cache Components，nodejs 路径是默认。
+  - 该选项不能在 `proxy` 文件中使用（不影响 `app/api/*/route.ts`）。
+
+**与 plan 假设的关系**：plan 决策 e 与 Task 0.2 假设“`runtime = 'nodejs'` 仍可用”——事实校对一致，**无冲突**。
+
+---
+
+## 5. `generateMetadata` 能读 cookie 决定语言 meta —— 支持，但有约束
+
+**结论**：`generateMetadata` 可以在函数体内 `await cookies()` 读 cookie 切换 `<title>` / `<description>` / `<openGraph>` 等语言相关字段；但要求该 segment 不能完全 prerender，访问 cookie 会让 metadata 进入 streaming / runtime 路径。
+
+**理由（事实依据）**：
+
+- `04-functions/generate-metadata.md` Line 27 明确 `metadata` 与 `generateMetadata` **只在 Server Components 中导出**；Server Components 可以使用 `cookies()` / `headers()`（`05-server-and-client-components.md` Lines 26-32 + `15-route-handlers.md` Lines 113-124 均印证）。
+- 同文档 Lines 1254-1314 “With Cache Components”：
+  > When Cache Components is enabled, `generateMetadata` follows the same rules as other components. **If metadata accesses runtime data (`cookies()`, `headers()`, `params`, `searchParams`)** or performs uncached data fetching, it defers to request time.
+  并给出 `(await cookies()).get('token')?.value` 的示例（Lines 1278-1289），证明 `cookies()` 在 `generateMetadata` 中是受支持的、但会让该页面 metadata 走 streaming / runtime 而非 prerender。
+- 同文档 Lines 119-131（位于 `14-metadata-and-og-images.md` 同名章节内）补充：streaming metadata 默认开启，对 bot/crawler 关闭（Twitterbot / Slackbot / Bingbot 走非 streaming 路径），不影响主流社交分享卡片抓取。
+
+**实现约束（影响 Phase 4 metadata 任务）**：
+- 如要在 `app/layout.tsx` 用 `generateMetadata` 替换静态 `metadata`，函数必须 `async` + `await cookies()`；server-side 拿到 locale 后 return `{ title, description, openGraph: { locale: ... } }` 等。
+- 当前项目没有启用 Cache Components；即便不启用，访问 `cookies()` 会让该 segment 默认 dynamic（`route.md` Lines 113-124 列出的 “Prerendering stops if … runtime APIs like cookies() …” 等同规则）。本项目首页本身需要 dynamic（locale cookie + Turnstile script + lead form），不冲突。
+- 如果未来引入 Cache Components 并希望保留 SSG，则要走 `'use cache'` 路径或 `<DynamicMarker />`（generate-metadata.md Lines 1265-1314 给的两条出路）；本计划 Phase 0-7 不涉及。
+
+**与 plan 假设的关系**：plan 没有写死 metadata 是否 SSR；本结论保守地选 “server-side 读 cookie + dynamic metadata”，与决策 a/e/i 的 server-only 数据流向一致，**无冲突**。
+
+---
+
+## 与 plan 假设的潜在出入（综合）
+
+无显著冲突。5 条结论全部与 plan 决策段（lines 73-141）一致：
+
+- LocaleProvider = client、root layout = server async、html lang = server SSR 来自 cookie，跟 Phase 1 Task 1.x “Typed 数据层 + 国际化骨架” 没有矛盾。
+- POST handler 用 `NextRequest` + `Response.json` + `runtime = 'nodejs'`，跟决策 e（Vercel / 不切 HTTP driver）+ 决策 i（蜜罐 + Turnstile + 限流串行管线）+ 决策 g（Feishu webhook 通知）兼容。
+- `runtime` 配置语法在 16.x 仍然有效；`'experimental-edge'` 已废弃但**不影响 `'nodejs'`**。
+- `generateMetadata` 读 cookie 切语言 meta 受支持；不需要回头修改 plan 的 Phase 4/5 任务范围。
+
+**Status：DONE（无 concerns，全部命中 plan 假设）。**
