@@ -7,12 +7,6 @@ import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
 import { cn } from "@/lib/utils";
 
-/**
- * ConciergeBand — M-CONCIERGE-BAND
- *
- * Hero 下方第一段：左 70% 4-字段编辑型表单 + 右 30% advisor mini。
- * brief: docs/modules/M-CONCIERGE-BAND.md
- */
 export function ConciergeBand() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -34,7 +28,6 @@ export function ConciergeBand() {
       <FilmGrain opacity={0.05} />
       <div className="relative mx-auto w-full max-w-[1440px] px-6 lg:px-16 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,320px)] gap-10 lg:gap-16">
-          {/* Left: form */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3 max-w-[640px]">
               <h2 className="text-[24px] lg:text-[32px] font-misans-bold leading-tight text-soft-ivory">
@@ -94,15 +87,14 @@ export function ConciergeBand() {
             )}
           </div>
 
-          {/* Right: advisor mini */}
-          <aside className="rounded-[8px] border border-soft-ivory/8 bg-charcoal-blue/40 p-5 flex flex-col gap-4">
+          <aside className="rounded-[12px] border border-soft-ivory/8 bg-charcoal-blue/40 p-5 flex flex-col gap-4">
             <div className="flex items-start gap-4">
-              <div className="relative h-[80px] w-[80px] shrink-0 overflow-hidden rounded-[6px] border border-soft-ivory/12">
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[16px] border border-soft-ivory/12">
                 <Image
                   src="/landmarks/lijiang.jpg"
                   alt="顾问头像占位（实拍待替换）"
                   fill
-                  sizes="80px"
+                  sizes="96px"
                   className="object-cover"
                 />
               </div>
