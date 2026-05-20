@@ -1,0 +1,700 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "China Highlights Logo" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "China Highlights Logo" [ref=e7]
+      - navigation [ref=e8]:
+        - generic [ref=e9]:
+          - generic [ref=e10] [cursor=pointer]: CHINA TOURS
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - generic [ref=e15]: Top China Tours
+              - generic [ref=e16]:
+                - generic [ref=e17]:
+                  - generic [ref=e18]:
+                    - link "2-Week China Natural Wonders Discovery" [ref=e19] [cursor=pointer]:
+                      - /url: /china-tours/natural-wonders-discovery.htm
+                      - img "2-Week China Natural Wonders Discovery" [ref=e20]
+                    - link "2-Week China Natural Wonders Discovery" [ref=e22] [cursor=pointer]:
+                      - /url: /china-tours/natural-wonders-discovery.htm
+                  - generic [ref=e23]:
+                    - link "2-Week China Essence and Panda Tour" [ref=e24] [cursor=pointer]:
+                      - /url: /china-tours/china-essence-panda-tour.htm
+                      - img "2-Week China Essence and Panda Tour" [ref=e25]
+                    - link "2-Week China Essence and Panda Tour" [ref=e27] [cursor=pointer]:
+                      - /url: /china-tours/china-essence-panda-tour.htm
+                - generic [ref=e28]:
+                  - generic [ref=e29]:
+                    - link "3-Week Grand Tour of China's Landmarks" [ref=e30] [cursor=pointer]:
+                      - /url: /china-tours/china-landmarks.htm
+                      - img "3-Week Grand Tour of China's Landmarks" [ref=e31]
+                    - link "3-Week Grand Tour of China's Landmarks" [ref=e33] [cursor=pointer]:
+                      - /url: /china-tours/china-landmarks.htm
+                  - generic [ref=e34]:
+                    - link "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e35] [cursor=pointer]:
+                      - /url: /china-tours/must-see-places-including-tibet.htm
+                      - img "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e36]
+                    - link "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e38] [cursor=pointer]:
+                      - /url: /china-tours/must-see-places-including-tibet.htm
+              - link "Top China Tours" [ref=e40] [cursor=pointer]:
+                - /url: /china-tours/top-tours.htm
+            - generic [ref=e41]:
+              - generic [ref=e42]: Popular Cities and Region Tours
+              - list [ref=e44]:
+                - listitem [ref=e45]:
+                  - link "Beijing" [ref=e46] [cursor=pointer]:
+                    - /url: /beijing/tours/
+                - listitem [ref=e47]:
+                  - link "Chengdu" [ref=e48] [cursor=pointer]:
+                    - /url: /chengdu/tours/
+                - listitem [ref=e49]:
+                  - link "Chongqing" [ref=e50] [cursor=pointer]:
+                    - /url: /chongqing/tours/
+                - listitem [ref=e51]:
+                  - link "Chaozhou-Shantou" [ref=e52] [cursor=pointer]:
+                    - /url: /chaozhou-shantou/tours/chaoshan-hakka-heritage.htm
+                - listitem [ref=e53]:
+                  - link "Guilin" [ref=e54] [cursor=pointer]:
+                    - /url: /guilin/tours/
+                - listitem [ref=e55]:
+                  - link "Guizhou" [ref=e56] [cursor=pointer]:
+                    - /url: /guizhou/tours/
+                - listitem [ref=e57]:
+                  - link "Guangzhou" [ref=e58] [cursor=pointer]:
+                    - /url: /guangzhou/tours/
+                - listitem [ref=e59]:
+                  - link "Harbin" [ref=e60] [cursor=pointer]:
+                    - /url: /harbin/tours/
+                - listitem [ref=e61]:
+                  - link "Hong Kong" [ref=e62] [cursor=pointer]:
+                    - /url: /hong-kong/tours/
+                - listitem [ref=e63]:
+                  - link "Hangzhou" [ref=e64] [cursor=pointer]:
+                    - /url: /hangzhou/tours/
+                - listitem [ref=e65]:
+                  - link "Huangshan" [ref=e66] [cursor=pointer]:
+                    - /url: /huangshan/tours/
+                - listitem [ref=e67]:
+                  - link "Inner Mongolia" [ref=e68] [cursor=pointer]:
+                    - /url: /inner-mongolia/tours/
+                - listitem [ref=e69]:
+                  - link "Jiuzhaigou" [ref=e70] [cursor=pointer]:
+                    - /url: /jiuzhaigou/tours/
+              - list [ref=e72]:
+                - listitem [ref=e73]:
+                  - link "Pingyao" [ref=e74] [cursor=pointer]:
+                    - /url: /pingyao/tours/
+                - listitem [ref=e75]:
+                  - link "Suzhou" [ref=e76] [cursor=pointer]:
+                    - /url: /suzhou/tours/
+                - listitem [ref=e77]:
+                  - link "Silk Road" [ref=e78] [cursor=pointer]:
+                    - /url: /silk-road/tours/
+                - listitem [ref=e79]:
+                  - link "Shanghai" [ref=e80] [cursor=pointer]:
+                    - /url: /shanghai/tours/
+                - listitem [ref=e81]:
+                  - link "Tibet" [ref=e82] [cursor=pointer]:
+                    - /url: /tibet/tours/
+                - listitem [ref=e83]:
+                  - link "Taiwan" [ref=e84] [cursor=pointer]:
+                    - /url: /taiwan/tours/
+                - listitem [ref=e85]:
+                  - link "Xinjiang" [ref=e86] [cursor=pointer]:
+                    - /url: /xinjiang/tours/
+                - listitem [ref=e87]:
+                  - link "Xiamen" [ref=e88] [cursor=pointer]:
+                    - /url: /xiamen/tours/
+                - listitem [ref=e89]:
+                  - link "Xi'an" [ref=e90] [cursor=pointer]:
+                    - /url: /xian/tours/
+                - listitem [ref=e91]:
+                  - link "Yunnan" [ref=e92] [cursor=pointer]:
+                    - /url: /yunnan/tours/
+                - listitem [ref=e93]:
+                  - link "Yangtze River" [ref=e94] [cursor=pointer]:
+                    - /url: /yangtzecruise/
+                - listitem [ref=e95]:
+                  - link "Zhangjiajie" [ref=e96] [cursor=pointer]:
+                    - /url: /zhangjiajie/tours/
+                - listitem [ref=e97]:
+                  - link "More Destinations" [ref=e98] [cursor=pointer]:
+                    - /url: /destinations.htm
+            - generic [ref=e99]:
+              - generic [ref=e100]: Multi-countries Tours
+              - list [ref=e101]:
+                - listitem [ref=e102]:
+                  - link "China+Japan" [ref=e103] [cursor=pointer]:
+                    - /url: https://www.japanhighlights.com/japan/tours/japan-china-discovery
+                - listitem [ref=e104]:
+                  - link "China+Vietnam" [ref=e105] [cursor=pointer]:
+                    - /url: https://www.highlightstravel.com/asia/tours/china-and-vietnam
+                - listitem [ref=e106]:
+                  - link "China+Nepal+India" [ref=e107] [cursor=pointer]:
+                    - /url: https://www.highlightstravel.com/asia/tours/china-nepal-and-india
+                - listitem [ref=e108]:
+                  - link "China+Thailand" [ref=e109] [cursor=pointer]:
+                    - /url: /asia-tours/china-thailand.htm
+                - listitem [ref=e110]:
+                  - link "More Asia Tours" [ref=e111] [cursor=pointer]:
+                    - /url: https://www.highlightstravel.com/tours
+        - generic [ref=e112]:
+          - generic [ref=e113] [cursor=pointer]: Themes
+          - generic [ref=e117]:
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - generic [ref=e121]: Travel with
+                - list [ref=e122]:
+                  - listitem [ref=e123]:
+                    - link "Family" [ref=e124] [cursor=pointer]:
+                      - /url: /family-tours/
+                  - listitem [ref=e125]:
+                    - link "Couple" [ref=e126] [cursor=pointer]:
+                      - /url: /china-tours/couple-tours.htm
+              - generic [ref=e127]:
+                - generic [ref=e128]: Ways to travel
+                - list [ref=e129]:
+                  - listitem [ref=e130]:
+                    - link "Educational Tours" [ref=e131] [cursor=pointer]:
+                      - /url: /educational-tours/
+                  - listitem [ref=e132]:
+                    - link "Foodie Journeys" [ref=e133] [cursor=pointer]:
+                      - /url: /china-tours/food-tours.htm
+                  - listitem [ref=e134]:
+                    - link "Hiking Adventures" [ref=e135] [cursor=pointer]:
+                      - /url: /china-tours/hiking-tours.htm
+                  - listitem [ref=e136]:
+                    - link "Nature Escapes" [ref=e137] [cursor=pointer]:
+                      - /url: /china-tours/nature-tours.htm
+                  - listitem [ref=e138]:
+                    - link "Panda Encounters" [ref=e139] [cursor=pointer]:
+                      - /url: /china-tours/china-panda-tours.htm
+                  - listitem [ref=e140]:
+                    - link "Train Tickets Booking" [ref=e141] [cursor=pointer]:
+                      - /url: /china-trains/
+            - generic [ref=e142]:
+              - generic [ref=e143]: Seasonal picks
+              - generic [ref=e144]:
+                - generic [ref=e145]:
+                  - generic [ref=e146]:
+                    - link "Ride Through Inner Mongolia's Grasslands (June to Early October)" [ref=e147] [cursor=pointer]:
+                      - /url: /inner-mongolia/tours/grassland-and-desert.htm
+                      - img "Ride Through Inner Mongolia's Grasslands (June to Early October)" [ref=e148]
+                    - link "Ride Through Inner Mongolia's Grasslands (June to Early October)" [ref=e150] [cursor=pointer]:
+                      - /url: /inner-mongolia/tours/grassland-and-desert.htm
+                  - generic [ref=e151]:
+                    - link "Encounter the Romantic Purple in Ili River Valley (May - Aug.)" [ref=e152] [cursor=pointer]:
+                      - /url: /xinjiang/tours/north-xinjiang-with-ili.htm
+                      - img "Encounter the Romantic Purple in Ili River Valley (May - Aug.)" [ref=e153]
+                    - link "Encounter the Romantic Purple in Ili River Valley (May - Aug.)" [ref=e155] [cursor=pointer]:
+                      - /url: /xinjiang/tours/north-xinjiang-with-ili.htm
+                - generic [ref=e156]:
+                  - generic [ref=e157]:
+                    - link "Dive into Miao Sisters' Meal Festival (May)" [ref=e158] [cursor=pointer]:
+                      - /url: /guizhou/tours/minority-festival.htm
+                      - img "Dive into Miao Sisters' Meal Festival (May)" [ref=e159]
+                    - link "Dive into Miao Sisters' Meal Festival (May)" [ref=e161] [cursor=pointer]:
+                      - /url: /guizhou/tours/minority-festival.htm
+                  - generic [ref=e162]:
+                    - link "Catch the Golden Vibe in Beijing (Late Oct. to Early Nov.)" [ref=e163] [cursor=pointer]:
+                      - /url: /beijing/tours/autumn-trip.htm
+                      - img "Catch the Golden Vibe in Beijing (Late Oct. to Early Nov.)" [ref=e164]
+                    - link "Catch the Golden Vibe in Beijing (Late Oct. to Early Nov.)" [ref=e166] [cursor=pointer]:
+                      - /url: /beijing/tours/autumn-trip.htm
+        - generic [ref=e167]:
+          - generic [ref=e168] [cursor=pointer]: Inspirations
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - link "Best time" [ref=e174] [cursor=pointer]:
+                - /url: /weather/china-best-times.htm
+              - list [ref=e176]:
+                - listitem [ref=e177]:
+                  - link "January" [ref=e178] [cursor=pointer]:
+                    - /url: /weather/january.htm
+                - listitem [ref=e179]:
+                  - link "February" [ref=e180] [cursor=pointer]:
+                    - /url: /weather/february.htm
+                - listitem [ref=e181]:
+                  - link "March" [ref=e182] [cursor=pointer]:
+                    - /url: /weather/march.htm
+                - listitem [ref=e183]:
+                  - link "April" [ref=e184] [cursor=pointer]:
+                    - /url: /weather/april.htm
+                - listitem [ref=e185]:
+                  - link "May" [ref=e186] [cursor=pointer]:
+                    - /url: /weather/may.htm
+                - listitem [ref=e187]:
+                  - link "June" [ref=e188] [cursor=pointer]:
+                    - /url: /weather/june.htm
+              - list [ref=e190]:
+                - listitem [ref=e191]:
+                  - link "July" [ref=e192] [cursor=pointer]:
+                    - /url: /weather/july.htm
+                - listitem [ref=e193]:
+                  - link "August" [ref=e194] [cursor=pointer]:
+                    - /url: /weather/august.htm
+                - listitem [ref=e195]:
+                  - link "September" [ref=e196] [cursor=pointer]:
+                    - /url: /weather/september.htm
+                - listitem [ref=e197]:
+                  - link "October" [ref=e198] [cursor=pointer]:
+                    - /url: /weather/october.htm
+                - listitem [ref=e199]:
+                  - link "November" [ref=e200] [cursor=pointer]:
+                    - /url: /weather/november.htm
+                - listitem [ref=e201]:
+                  - link "December" [ref=e202] [cursor=pointer]:
+                    - /url: /weather/december.htm
+            - generic [ref=e203]:
+              - generic [ref=e204]: Maximize your time
+              - list [ref=e205]:
+                - listitem [ref=e206]:
+                  - link "5-Day Trip" [ref=e207] [cursor=pointer]:
+                    - /url: /travelguide/5-days-china-itinerary.htm
+                - listitem [ref=e208]:
+                  - link "8-Day Trip" [ref=e209] [cursor=pointer]:
+                    - /url: /china-tours/8-days-in-china.htm
+                - listitem [ref=e210]:
+                  - link "10-Day Trip" [ref=e211] [cursor=pointer]:
+                    - /url: /travelguide/10-days-china-itinerary.htm
+                - listitem [ref=e212]:
+                  - link "2-Week Trip" [ref=e213] [cursor=pointer]:
+                    - /url: /china-tours/14-days-in-china.htm
+                - listitem [ref=e214]:
+                  - link "3-Week Trip" [ref=e215] [cursor=pointer]:
+                    - /url: /travelguide/3-weeks-china-itinerary.htm
+                - listitem [ref=e216]:
+                  - link "4-Week Trip" [ref=e217] [cursor=pointer]:
+                    - /url: /travelguide/4-week-china-itinerary.htm
+                - listitem [ref=e218]:
+                  - link "China Visa-Free Tours" [ref=e219] [cursor=pointer]:
+                    - /url: /china-tours/hassle-free-china-visas.htm
+            - generic [ref=e220]:
+              - generic [ref=e221]: The Real Local Experiences
+              - generic [ref=e222]:
+                - link "Closer Moment Program" [ref=e223] [cursor=pointer]:
+                  - /url: /customer-stories/closer-moments.htm
+                  - img "Closer Moment Program" [ref=e224]
+                - link "Closer Moment Program" [ref=e226] [cursor=pointer]:
+                  - /url: /customer-stories/closer-moments.htm
+              - generic [ref=e227]:
+                - link "Local Finds" [ref=e228] [cursor=pointer]:
+                  - /url: /china-tours/local-experiences/
+                  - img "Local Finds" [ref=e229]
+                - link "Local Finds" [ref=e231] [cursor=pointer]:
+                  - /url: /china-tours/local-experiences/
+            - generic [ref=e232]:
+              - generic [ref=e233]: Travelers' stories
+              - generic [ref=e234]:
+                - generic [ref=e236]:
+                  - img "The Embrace of the Jungle" [ref=e237]
+                  - generic [ref=e238]: The Embrace of the Jungle
+                - generic [ref=e240]:
+                  - img "Thanksgiving Day, No Turkey? No Problem!" [ref=e241]
+                  - generic [ref=e242]: Thanksgiving Day, No Turkey? No Problem!
+              - link "Read Their Stories" [ref=e244] [cursor=pointer]:
+                - /url: /customer-stories/
+        - generic [ref=e245]:
+          - link "About Us" [ref=e246] [cursor=pointer]:
+            - /url: /aboutus/
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e251]: About us
+              - generic [ref=e253]:
+                - img "Who we are" [ref=e254]
+                - link "Who we are" [ref=e255] [cursor=pointer]:
+                  - /url: /aboutus/
+                  - generic [ref=e257]: Who we are
+              - generic [ref=e259]:
+                - img "Meet our team" [ref=e260]
+                - link "Meet our team" [ref=e261] [cursor=pointer]:
+                  - /url: /aboutus/meet-our-team.htm
+                  - generic [ref=e263]: Meet our team
+              - generic [ref=e265]:
+                - img "What others say" [ref=e266]
+                - link "What others say" [ref=e267] [cursor=pointer]:
+                  - /url: /reviews.htm
+                  - generic [ref=e269]: What others say
+              - generic [ref=e271]:
+                - img "Responsible travel" [ref=e272]
+                - link "Responsible travel" [ref=e273] [cursor=pointer]:
+                  - /url: /aboutus/responsible-travel.htm
+                  - generic [ref=e275]: Responsible travel
+              - generic [ref=e277]:
+                - img "Loyalty program" [ref=e278]
+                - link "Loyalty program" [ref=e279] [cursor=pointer]:
+                  - /url: /aboutus/loyalty-program.htm
+                  - generic [ref=e281]: Loyalty program
+            - generic [ref=e283]:
+              - list:
+                - listitem [ref=e284]:
+                  - img "WTA 2024" [ref=e285]
+                - listitem [ref=e286]:
+                  - img "2026 Traveler's Choice" [ref=e287]
+                - listitem [ref=e288]:
+                  - img "2025 Traveler's Choice" [ref=e289]
+                - listitem [ref=e290]:
+                  - img "2024 Traveler's Choice" [ref=e291]
+                - listitem [ref=e292]:
+                  - img "2023 Traveler's Choice" [ref=e293]
+                - listitem [ref=e294]:
+                  - img "2022 Traveler's Choice" [ref=e295]
+                - listitem [ref=e296]:
+                  - img "2021 Traveler's Choice" [ref=e297]
+      - generic [ref=e298]:
+        - generic [ref=e301]:
+          - textbox "Search China Highlights" [ref=e302]
+          - button "site search button" [ref=e303] [cursor=pointer]
+        - link "Start Your Journey" [ref=e304] [cursor=pointer]:
+          - /url: /forms/create-my-trip.htm?product_code=cht-home-111
+  - img "China Highlights, Discovery Your Way!" [ref=e306]
+  - heading "China Highlights, Discovery Your Way!" [level=1] [ref=e307]
+  - generic [ref=e309]:
+    - main [ref=e311]:
+      - paragraph [ref=e313]:
+        - text: Discover China with the
+        - strong [ref=e314]: award-winning
+        - text: and
+        - strong [ref=e315]: best-rated
+        - text: tour company for
+        - strong [ref=e316]: personalized travel in China
+        - text: . Honored as
+        - strong [ref=e317]: China's Leading Tour Operator
+        - text: by the
+        - strong [ref=e318]: World Travel Awards
+        - text: ", we boast"
+        - strong [ref=e319]: 10,000+ reviews
+        - text: and a remarkable
+        - strong [ref=e320]: 98.8% 5-star rating
+        - text: . Our expertise in customizing personalized China explorations is backed by our company-managed local services across China. Explore and kickstart your personalized travel experience with just a click!
+      - img "China Highlights was recommended by the famous social medias." [ref=e323]
+      - generic [ref=e324]:
+        - generic [ref=e325]:
+          - img "Good news for travelers!" [ref=e326]
+          - paragraph [ref=e327]:
+            - strong [ref=e328]: China Extends Visa-Free Policy Until the End of 2026.
+          - paragraph [ref=e329]:
+            - text: Travelers from countries including Italy, Australia, Spain, Germany, France, New Zealand, Belgium, Saudi Arabia, and Brazil can continue to enjoy 30-day visa-free entry to China.
+            - link "Check the full list of eligible countries" [ref=e330] [cursor=pointer]:
+              - /url: /travelguide/visa-application/china-visa-exemption.htm
+            - text: .
+          - paragraph [ref=e331]:
+            - strong [ref=e332]: Canada
+            - text: and the
+            - strong [ref=e333]: United Kingdom
+            - text: have also been newly added to the 30-day visa-free list, valid through December 31, 2026.
+          - paragraph [ref=e334]:
+            - text: Meanwhile, travelers from the United States and
+            - link "54 other countries" [ref=e335] [cursor=pointer]:
+              - /url: /travelguide/visa-application/10-day-visa-free.htm
+            - text: can still enjoy a 10-day visa-free transit in China.
+        - heading "Top China Tours" [level=2] [ref=e336]
+        - paragraph [ref=e337]:
+          - text: The tours below will give you an idea of what's possible if you travel with us. Our tours are always designed to help you
+          - strong [ref=e338]: experience authentic China
+          - text: . Feel free to customize any tour to incorporate your preferred destinations, interests and schedule.
+        - generic [ref=e339]:
+          - generic [ref=e340]:
+            - link "most classic china tour" [ref=e342] [cursor=pointer]:
+              - /url: /china-tours/classic-tour.htm
+              - img "most classic china tour" [ref=e343]
+            - generic [ref=e344]:
+              - link "12-Day China Classic Tour" [ref=e346] [cursor=pointer]:
+                - /url: /china-tours/classic-tour.htm
+              - paragraph [ref=e347]: Beijing, Xi'an, Guilin, and Shanghai
+              - link "View More" [ref=e349] [cursor=pointer]:
+                - /url: /china-tours/classic-tour.htm
+          - generic [ref=e350]:
+            - link "China's natural beauty" [ref=e352] [cursor=pointer]:
+              - /url: /china-tours/natural-wonders-discovery.htm
+              - img "China's natural beauty" [ref=e353]
+            - generic [ref=e354]:
+              - link "14-Day China Natural Wonders Discovery" [ref=e356] [cursor=pointer]:
+                - /url: /china-tours/natural-wonders-discovery.htm
+              - paragraph [ref=e357]: Beijing, Xi'an, Zhangjiajie, Guilin, and Shanghai
+              - link "View More" [ref=e359] [cursor=pointer]:
+                - /url: /china-tours/natural-wonders-discovery.htm
+          - generic [ref=e360]:
+            - link "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e361] [cursor=pointer]:
+              - /url: /china-tours/must-see-places-including-tibet.htm
+              - img "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e362]
+            - generic [ref=e363]:
+              - link "3-Week Must-See Places China Tour Including Holy Tibet" [ref=e365] [cursor=pointer]:
+                - /url: /china-tours/must-see-places-including-tibet.htm
+              - paragraph [ref=e366]: Beijing, Xi'an, Lhasa, Chengdu, Zhangjiajie, Guilin, and Shanghai
+              - link "View More" [ref=e368] [cursor=pointer]:
+                - /url: /china-tours/must-see-places-including-tibet.htm
+          - generic [ref=e369]:
+            - link "21-Day China Tour with Silk Road" [ref=e370] [cursor=pointer]:
+              - /url: /china-tours/classic-china-with-silk-road.htm
+              - img "21-Day China Tour with Silk Road" [ref=e371]
+            - generic [ref=e372]:
+              - link "21-Day China Tour with Silk Road" [ref=e374] [cursor=pointer]:
+                - /url: /china-tours/classic-china-with-silk-road.htm
+              - paragraph [ref=e375]: Beijing, Xi'an, Zhangye, Dunhuang, Turpan, Urumqi, Kashgar, Chengdu, Zhangjiajie, and Shanghai
+              - link "View More" [ref=e377] [cursor=pointer]:
+                - /url: /china-tours/classic-china-with-silk-road.htm
+        - link "More China Tours" [ref=e379] [cursor=pointer]:
+          - /url: /china-tours/
+      - heading "Travelers Love China Highlights" [level=2] [ref=e382]
+      - generic [ref=e383]:
+        - heading "The Most Popular China Tour Destinations" [level=2] [ref=e384]
+        - generic [ref=e385]:
+          - generic [ref=e386]:
+            - img "Beijing Tours" [ref=e387]
+            - link "Beijing" [ref=e388] [cursor=pointer]:
+              - /url: /beijing/tours/
+              - strong [ref=e390]: Beijing
+          - generic [ref=e391]:
+            - img "Xi'an Tours" [ref=e392]
+            - link "Xi'an" [ref=e393] [cursor=pointer]:
+              - /url: /xian/tours/
+              - strong [ref=e395]: Xi'an
+          - generic [ref=e396]:
+            - img "The Li River in Guilin, karst landscape in Guilin" [ref=e397]
+            - link "Guilin" [ref=e398] [cursor=pointer]:
+              - /url: /guilin/tours/
+              - strong [ref=e400]: Guilin
+          - generic [ref=e401]:
+            - img "Shanghai Tours" [ref=e402]
+            - link "Shanghai" [ref=e403] [cursor=pointer]:
+              - /url: /shanghai/tours/
+              - strong [ref=e405]: Shanghai
+        - generic [ref=e406]:
+          - generic [ref=e407]:
+            - img "Zhangjiajie Tours" [ref=e408]
+            - link "Zhangjiajie" [ref=e409] [cursor=pointer]:
+              - /url: /zhangjiajie/tours/
+              - strong [ref=e411]: Zhangjiajie
+          - generic [ref=e412]:
+            - img "The hometown of giant pandas, giant pandas in Chengdu" [ref=e413]
+            - link "Chengdu" [ref=e414] [cursor=pointer]:
+              - /url: /chengdu/tours/
+              - strong [ref=e416]: Chengdu
+          - generic [ref=e417]:
+            - img "Silk Road Tours" [ref=e418]
+            - link "Silk Road" [ref=e419] [cursor=pointer]:
+              - /url: /silk-road/tours/
+              - strong [ref=e421]: Silk Road
+          - generic [ref=e422]:
+            - img "Tibet" [ref=e423]
+            - link "Tibet" [ref=e424] [cursor=pointer]:
+              - /url: /tibet/tours/
+              - strong [ref=e426]: Tibet
+        - link "See all China Destinations" [ref=e428] [cursor=pointer]:
+          - /url: /destinations.htm
+        - heading "How to Plan a Trip to China?" [level=2] [ref=e429]
+        - generic [ref=e430]:
+          - generic [ref=e431]:
+            - img "How to Plan Your First-Time Family Trip to China" [ref=e432]
+            - link "How to Plan Your Family Trip to China" [ref=e433] [cursor=pointer]:
+              - /url: /travelguide/family-trip-plan.htm
+              - strong [ref=e435]: How to Plan Your Family Trip to China
+          - generic [ref=e436]:
+            - img "How to Plan a First Trip to China" [ref=e437]
+            - link "How to Plan a First Trip to China" [ref=e438] [cursor=pointer]:
+              - /url: /travelguide/plan-first-trip.htm
+              - strong [ref=e440]: How to Plan a First Trip to China
+          - generic [ref=e441]:
+            - 'img "Top 10 Most Beautiful Places in China: Dos and Don''ts" [ref=e442]'
+            - link "Top 10 Most Beautiful Places in China" [ref=e443] [cursor=pointer]:
+              - /url: /travelguide/most-beautiful-places.htm
+              - strong [ref=e445]: Top 10 Most Beautiful Places in China
+        - link "Get more updated travel tips" [ref=e447] [cursor=pointer]:
+          - /url: /travelguide/
+      - link "Start Your Journey" [ref=e449] [cursor=pointer]:
+        - /url: /forms/create-my-trip.htm?product_code=cht-home-111
+        - text: Start
+        - text: Your
+        - text: Journey
+    - complementary
+  - contentinfo [ref=e450]:
+    - generic [ref=e452]:
+      - heading "A Global Network of Trust and Recognition" [level=2] [ref=e454]
+      - img "social medias logos" [ref=e456]
+    - generic [ref=e458]:
+      - text: Connect with your personal advisor
+      - text: to start your journey.
+      - link "Start Your Journey" [ref=e460] [cursor=pointer]:
+        - /url: /forms/create-my-trip.htm
+    - generic [ref=e462]:
+      - heading "Let the Journey Come to You" [level=2] [ref=e463]
+      - paragraph [ref=e464]:
+        - text: Receive our heartfelt stories, travel insights, and special offers -
+        - text: thoughtfully curated and sent to your inbox.
+      - link "Click to Subscribe" [ref=e466] [cursor=pointer]:
+        - /url: /newsletter/
+    - generic [ref=e468]:
+      - heading "Why China Highlights" [level=2] [ref=e470]
+      - paragraph [ref=e472]: Our Belief, and the People Who Bring It to Life.
+      - generic [ref=e473]:
+        - heading "Our Belief" [level=3] [ref=e475]
+        - paragraph [ref=e477]: Highlights Happen When We Get Closer.
+      - generic [ref=e478]:
+        - generic [ref=e479]:
+          - generic [ref=e480]:
+            - img "Close to Nature" [ref=e481]
+            - generic [ref=e482]:
+              - text: Close to
+              - strong [ref=e483]: Nature
+          - generic [ref=e484]:
+            - text: Your phone's wallpaper,
+            - text: but you are in it.
+        - generic [ref=e485]:
+          - generic [ref=e486]:
+            - img "Close to Culture" [ref=e487]
+            - generic [ref=e488]:
+              - text: Close to
+              - strong [ref=e489]: Culture
+          - generic [ref=e490]:
+            - text: Live it,
+            - text: don't just list it.
+        - generic [ref=e491]:
+          - generic [ref=e492]:
+            - img "Close to People" [ref=e493]
+            - generic [ref=e494]:
+              - text: Close to
+              - strong [ref=e495]: People
+          - generic [ref=e496]:
+            - text: Know yourself better by
+            - text: knowing others.
+      - generic [ref=e497]:
+        - heading "Our Promise" [level=3] [ref=e499]
+        - paragraph [ref=e501]: A 4-on-1 Team Dedicated to You.
+      - generic [ref=e502]:
+        - generic [ref=e504]:
+          - generic [ref=e505]:
+            - text: YOUR
+            - strong [ref=e506]: PERSONAL TRAVEL DESIGNER
+          - generic [ref=e507]:
+            - text: "\""
+            - text: We're Travelers First, Planners Second."
+          - img "YOUR PERSONAL TRAVEL DESIGNER" [ref=e508]
+          - paragraph [ref=e509]: Deeply rooted in Asia for authentic advice. Passionate about crafting your unique story.
+        - generic [ref=e511]:
+          - generic [ref=e512]:
+            - text: YOUR
+            - strong [ref=e513]:
+              - text: LOCAL
+              - text: STORYTELLER
+          - generic [ref=e514]:
+            - text: "\""
+            - text: We share the stories you won't find in a guidebook"
+          - img "YOUR LOCAL STORYTELLER" [ref=e515]
+          - paragraph [ref=e516]: Connecting you with the top 20% of local storytellers. Your personal photographer for cherished moments.
+        - generic [ref=e518]:
+          - generic [ref=e519]:
+            - text: YOUR
+            - strong [ref=e520]:
+              - text: PRIVATE DRIVER
+              - text: "& CAR"
+          - generic [ref=e521]:
+            - text: "\""
+            - text: 20% more space, 100% on your schedule."
+          - img "YOUR PRIVATE DRIVER & CAR" [ref=e522]
+          - paragraph [ref=e523]: A seamless journey that moves at your own pace. Your private, comfortable space on the road.
+        - generic [ref=e525]:
+          - generic [ref=e526]:
+            - text: YOUR
+            - strong [ref=e527]:
+              - text: 24/7
+              - text: TRAVEL SUPPORT
+          - generic [ref=e528]:
+            - text: "\""
+            - text: Any Problem, Anytime, Anywhere."
+          - img "YOUR 24/7 TRAVEL SUPPORT" [ref=e529]
+          - paragraph [ref=e530]: Your safety and peace of mind are our priority. Instant responses, so you're never left waiting.
+    - generic [ref=e531]:
+      - generic:
+        - generic:
+          - generic [ref=e533]:
+            - img "China Highlights logo" [ref=e534]
+            - table [ref=e535]:
+              - rowgroup [ref=e536]:
+                - row "China Highlights Since 1998, we've been crafting private journeys that bring you closer to the heart of Asia." [ref=e537]:
+                  - cell "China Highlights" [ref=e538]
+                  - cell "Since 1998, we've been crafting private journeys that bring you closer to the heart of Asia." [ref=e539]
+                - row "We believe Highlights happen when we get closer." [ref=e540]:
+                  - cell "We believe" [ref=e541]
+                  - cell "Highlights happen when we get closer." [ref=e542]:
+                    - strong [ref=e543]: Highlights happen when we get closer.
+          - generic [ref=e544]:
+            - link "Highlights Family highlight travel family link button" [ref=e546] [cursor=pointer]:
+              - /url: https://www.highlightstravel.com/about-us
+              - text: Highlights Family
+              - img "highlight travel family link button" [ref=e547]
+            - list:
+              - listitem [ref=e548]:
+                - link "China Highlights" [ref=e549] [cursor=pointer]:
+                  - /url: "#"
+                  - img "China Highlights" [ref=e550]
+              - listitem [ref=e551]:
+                - link "Japan Highlights" [ref=e552] [cursor=pointer]:
+                  - /url: https://www.japanhighlights.com/
+                  - img "Japan Highlights" [ref=e553]
+              - listitem [ref=e554]:
+                - link "Thailand Highlights" [ref=e555] [cursor=pointer]:
+                  - /url: https://www.thailandhighlights.com/
+                  - img "Thailand Highlights" [ref=e556]
+            - list [ref=e557]:
+              - listitem [ref=e558]:
+                - link "Deutsch" [ref=e559] [cursor=pointer]:
+                  - /url: https://www.chinahighlightstravel.de/
+              - listitem [ref=e560]:
+                - link "Français" [ref=e561] [cursor=pointer]:
+                  - /url: https://www.chinahighlights.fr/
+              - listitem [ref=e562]:
+                - link "Español" [ref=e563] [cursor=pointer]:
+                  - /url: https://www.chinahighlights.es/
+              - listitem [ref=e564]:
+                - link "Italiano" [ref=e565] [cursor=pointer]:
+                  - /url: https://www.chinahighlights.it/
+              - listitem [ref=e566]:
+                - link "Русский" [ref=e567] [cursor=pointer]:
+                  - /url: https://www.chinahighlights.ru/
+              - listitem [ref=e568]:
+                - link "日本語" [ref=e569] [cursor=pointer]:
+                  - /url: https://www.chinahighlights.jp/
+            - generic [ref=e570]: Follow Us
+            - list:
+              - listitem:
+                - link "Follow us on Facebook":
+                  - /url: https://www.facebook.com/ChinaHighlights.HTfamily
+                  - img [ref=e571] [cursor=pointer]
+              - listitem:
+                - link "Share us on Twitter":
+                  - /url: https://twitter.com/Chinahighlights
+                  - img [ref=e572] [cursor=pointer]
+              - listitem:
+                - link "Follow us on Instagram":
+                  - /url: https://www.instagram.com/chinahighlights/
+                  - img [ref=e573] [cursor=pointer]
+          - generic [ref=e574]:
+            - generic [ref=e575]: Company
+            - list [ref=e576]:
+              - listitem [ref=e577]:
+                - link "About us" [ref=e578] [cursor=pointer]:
+                  - /url: /aboutus/
+              - listitem [ref=e579]:
+                - link "Travel Agents" [ref=e580] [cursor=pointer]:
+                  - /url: /travel-agents.htm
+              - listitem [ref=e581]:
+                - link "Reviews" [ref=e582] [cursor=pointer]:
+                  - /url: /reviews.htm
+              - listitem [ref=e583]:
+                - link "Contact us" [ref=e584] [cursor=pointer]:
+                  - /url: /contactus/
+              - listitem [ref=e585]:
+                - link "Loyalty Program" [ref=e586] [cursor=pointer]:
+                  - /url: /aboutus/loyalty-program.htm
+              - listitem [ref=e587]:
+                - link "Partner" [ref=e588] [cursor=pointer]:
+                  - /url: /partner/
+              - listitem [ref=e589]:
+                - link "Privacy Policy" [ref=e590] [cursor=pointer]:
+                  - /url: /privacy.htm
+              - listitem [ref=e591]:
+                - link "Terms" [ref=e592] [cursor=pointer]:
+                  - /url: /aboutus/terms.htm
+    - generic [ref=e594]: © 1998-2026 Highlights Travel Co., Ltd. All rights reserved.

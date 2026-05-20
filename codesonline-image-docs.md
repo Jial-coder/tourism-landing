@@ -1,0 +1,321 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: C
+      - generic [ref=e7]: codesonline
+    - menubar [ref=e8]:
+      - menuitem "个人中心" [expanded] [ref=e312]:
+        - generic [ref=e313] [cursor=pointer]:
+          - img [ref=e315]
+          - generic [ref=e317]: 个人中心
+          - img [ref=e319]
+        - menu [ref=e321]:
+          - menuitem "总览" [ref=e322] [cursor=pointer]:
+            - img [ref=e324]
+            - text: 总览
+          - menuitem "API Keys" [ref=e326] [cursor=pointer]:
+            - img [ref=e328]
+            - text: API Keys
+          - menuitem "使用记录" [ref=e330] [cursor=pointer]:
+            - img [ref=e332]
+            - text: 使用记录
+          - menuitem "账单与充值" [ref=e334] [cursor=pointer]:
+            - img [ref=e336]
+            - text: 账单与充值
+          - menuitem "在线体验" [ref=e340] [cursor=pointer]:
+            - img [ref=e342]
+            - text: 在线体验
+          - menuitem "接口文档" [ref=e344] [cursor=pointer]:
+            - img [ref=e346]
+            - text: 接口文档
+    - generic [ref=e10]: v1.1.0
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - button [ref=e14] [cursor=pointer]:
+          - img [ref=e17]
+        - generic [ref=e19]: 接口文档
+      - generic [ref=e20]:
+        - button [ref=e21] [cursor=pointer]:
+          - img [ref=e24]
+        - button "J Jial" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: J
+          - generic [ref=e29]: Jial
+          - img [ref=e31]
+    - main [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - heading "接口文档 & 用量" [level=2] [ref=e37]
+            - paragraph [ref=e38]:
+              - text: 外部调用走
+              - code [ref=e39]: /v1/images/generations
+              - text: ", 下面给出 curl / Python SDK 代码片段和个人用量汇总。若想在浏览器里直接体验或查看生图历史,请打开「在线体验」。"
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - generic [ref=e42]: 14 天请求
+              - generic [ref=e43]: "0"
+            - generic [ref=e44]:
+              - generic [ref=e45]: 图片张数
+              - generic [ref=e46]: "0"
+            - generic [ref=e47]:
+              - generic [ref=e48]: 14 天消耗积分
+              - generic [ref=e49]: "0.00"
+        - generic [ref=e50]:
+          - tablist [ref=e54]:
+            - tab "图片生成(图片模型)" [selected] [ref=e56]
+          - tabpanel "图片生成(图片模型)" [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - heading "image.codesonline.dev 接入配置" [level=3] [ref=e61]
+                - paragraph [ref=e62]:
+                  - text: 图片接口按 OpenAI 兼容协议提供，默认模型为
+                  - code [ref=e63]: gpt-image-2
+                  - text: ， 支持文生图、图生图、站内图片 URL 返回和
+                  - code [ref=e64]: b64_json
+                  - text: 返回。
+              - generic [ref=e65]:
+                - generic [ref=e66]:
+                  - generic [ref=e67]: 接口类型
+                  - code [ref=e68]: OpenAI / OpenAI Compatible
+                - generic [ref=e69]:
+                  - generic [ref=e70]: Base URL
+                  - code [ref=e71]: https://image.codesonline.dev/v1
+                - generic [ref=e72]:
+                  - generic [ref=e73]: API Key
+                  - code [ref=e74]: 用户侧生成的 sk-... 密钥
+                - generic [ref=e75]:
+                  - generic [ref=e76]: 默认图片模型
+                  - code [ref=e77]: gpt-image-2
+                - generic [ref=e78]:
+                  - generic [ref=e79]: 文生图接口
+                  - code [ref=e80]: POST /v1/images/generations
+                - generic [ref=e81]:
+                  - generic [ref=e82]: 图生图接口
+                  - code [ref=e83]: POST /v1/images/edits
+              - alert [ref=e84]:
+                - img [ref=e86]
+                - generic [ref=e89]: 如果客户端把 Host 和 Path 分开配置，Host 填当前域名，Path 填 /v1；如果 Base URL 已填到 /v1，API Path 请留空，避免拼成 /v1/v1。
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]: 图片模型
+                - generic [ref=e94] [cursor=pointer]:
+                  - generic:
+                    - combobox [ref=e96]
+                    - generic [ref=e97]: gpt-image-2 · GPT-Image-2 高清生图(picture_v2 灰度)
+                  - img [ref=e100]
+              - generic [ref=e102]:
+                - tablist [ref=e106]:
+                  - tab "文生图 curl" [selected] [ref=e107]
+                  - tab "图生图 curl" [ref=e108]
+                  - tab "b64_json" [ref=e109]
+                  - tab "Python (OpenAI SDK)" [ref=e110]
+                - tabpanel "文生图 curl" [ref=e112]:
+                  - code [ref=e114]: "curl -X POST \"https://image.codesonline.dev/v1/images/generations\" \\ -H \"Authorization: Bearer ${YOUR_API_KEY}\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"gpt-image-2\", \"prompt\": \"A realistic sunset cityscape, wet street reflections, cinematic lighting, dense midground details, clean composition\", \"n\": 1, \"size\": \"16:9\", \"quality\": \"high\", \"style\": \"natural\", \"background\": \"opaque\" }'"
+                  - button "复制文生图 curl" [ref=e115] [cursor=pointer]:
+                    - generic [ref=e116]: 复制文生图 curl
+            - generic [ref=e117]:
+              - heading "接口与参数" [level=3] [ref=e118]
+              - generic [ref=e119]:
+                - generic [ref=e120]:
+                  - generic [ref=e121]: 文生图
+                  - paragraph [ref=e122]:
+                    - code [ref=e123]: POST https://image.codesonline.dev/v1/images/generations
+                  - table [ref=e124]:
+                    - rowgroup [ref=e125]:
+                      - row "字段 类型 必填 说明" [ref=e126]:
+                        - columnheader "字段" [ref=e127]
+                        - columnheader "类型" [ref=e128]
+                        - columnheader "必填" [ref=e129]
+                        - columnheader "说明" [ref=e130]
+                    - rowgroup [ref=e131]:
+                      - row "model string 是 固定填 gpt-image-2 或使用上方可选图片模型" [ref=e132]:
+                        - cell "model" [ref=e133]:
+                          - code [ref=e134]: model
+                        - cell "string" [ref=e135]
+                        - cell "是" [ref=e136]
+                        - cell "固定填 gpt-image-2 或使用上方可选图片模型" [ref=e137]
+                      - row "prompt string 是 生图提示词。需要比例时建议同时传 size" [ref=e138]:
+                        - cell "prompt" [ref=e139]:
+                          - code [ref=e140]: prompt
+                        - cell "string" [ref=e141]
+                        - cell "是" [ref=e142]
+                        - cell "生图提示词。需要比例时建议同时传 size" [ref=e143]
+                      - row "n number 否 生成张数，默认 1，最大 4" [ref=e144]:
+                        - cell "n" [ref=e145]:
+                          - code [ref=e146]: "n"
+                        - cell "number" [ref=e147]
+                        - cell "否" [ref=e148]
+                        - cell "生成张数，默认 1，最大 4" [ref=e149]
+                      - row "size string 否 比例或尺寸，如 1:1、16:9、1024x1024" [ref=e150]:
+                        - cell "size" [ref=e151]:
+                          - code [ref=e152]: size
+                        - cell "string" [ref=e153]
+                        - cell "否" [ref=e154]
+                        - cell "比例或尺寸，如 1:1、16:9、1024x1024" [ref=e155]
+                      - row "quality string 否 high / medium / low，推荐 high" [ref=e156]:
+                        - cell "quality" [ref=e157]:
+                          - code [ref=e158]: quality
+                        - cell "string" [ref=e159]
+                        - cell "否" [ref=e160]
+                        - cell "high / medium / low，推荐 high" [ref=e161]
+                      - row "style string 否 natural / vivid" [ref=e162]:
+                        - cell "style" [ref=e163]:
+                          - code [ref=e164]: style
+                        - cell "string" [ref=e165]
+                        - cell "否" [ref=e166]
+                        - cell "natural / vivid" [ref=e167]
+                      - row "background string 否 opaque / transparent / auto" [ref=e168]:
+                        - cell "background" [ref=e169]:
+                          - code [ref=e170]: background
+                        - cell "string" [ref=e171]
+                        - cell "否" [ref=e172]
+                        - cell "opaque / transparent / auto" [ref=e173]
+                      - row "response_format string 否 url 或 b64_json，默认 url" [ref=e174]:
+                        - cell "response_format" [ref=e175]:
+                          - code [ref=e176]: response_format
+                        - cell "string" [ref=e177]
+                        - cell "否" [ref=e178]
+                        - cell "url 或 b64_json，默认 url" [ref=e179]
+                      - row "upscale string 否 扩展字段：2k / 4k，本地插值放大" [ref=e180]:
+                        - cell "upscale" [ref=e181]:
+                          - code [ref=e182]: upscale
+                        - cell "string" [ref=e183]
+                        - cell "否" [ref=e184]
+                        - cell "扩展字段：2k / 4k，本地插值放大" [ref=e185]
+                - generic [ref=e186]:
+                  - generic [ref=e187]: 图生图
+                  - paragraph [ref=e188]:
+                    - code [ref=e189]: POST https://image.codesonline.dev/v1/images/edits
+                  - table [ref=e190]:
+                    - rowgroup [ref=e191]:
+                      - row "字段 类型 必填 说明" [ref=e192]:
+                        - columnheader "字段" [ref=e193]
+                        - columnheader "类型" [ref=e194]
+                        - columnheader "必填" [ref=e195]
+                        - columnheader "说明" [ref=e196]
+                    - rowgroup [ref=e197]:
+                      - row "model form field 是 固定填 gpt-image-2 或使用上方可选图片模型" [ref=e198]:
+                        - cell "model" [ref=e199]:
+                          - code [ref=e200]: model
+                        - cell "form field" [ref=e201]
+                        - cell "是" [ref=e202]
+                        - cell "固定填 gpt-image-2 或使用上方可选图片模型" [ref=e203]
+                      - row "prompt form field 是 对参考图的编辑或重绘要求" [ref=e204]:
+                        - cell "prompt" [ref=e205]:
+                          - code [ref=e206]: prompt
+                        - cell "form field" [ref=e207]
+                        - cell "是" [ref=e208]
+                        - cell "对参考图的编辑或重绘要求" [ref=e209]
+                      - row "image file 是 主参考图" [ref=e210]:
+                        - cell "image" [ref=e211]:
+                          - code [ref=e212]: image
+                        - cell "file" [ref=e213]
+                        - cell "是" [ref=e214]
+                        - cell "主参考图" [ref=e215]
+                      - row "image[] file 否 多图参考；最多 10 张，总大小不超过 100MB" [ref=e216]:
+                        - cell "image[]" [ref=e217]:
+                          - code [ref=e218]: image[]
+                        - cell "file" [ref=e219]
+                        - cell "否" [ref=e220]
+                        - cell "多图参考；最多 10 张，总大小不超过 100MB" [ref=e221]
+                      - row "mask file 否 可传；当前作为参考图一并交给上游" [ref=e222]:
+                        - cell "mask" [ref=e223]:
+                          - code [ref=e224]: mask
+                        - cell "file" [ref=e225]
+                        - cell "否" [ref=e226]
+                        - cell "可传；当前作为参考图一并交给上游" [ref=e227]
+                      - row "n form field 否 默认 1，最大 4" [ref=e228]:
+                        - cell "n" [ref=e229]:
+                          - code [ref=e230]: "n"
+                        - cell "form field" [ref=e231]
+                        - cell "否" [ref=e232]
+                        - cell "默认 1，最大 4" [ref=e233]
+                      - row "size form field 否 比例或尺寸" [ref=e234]:
+                        - cell "size" [ref=e235]:
+                          - code [ref=e236]: size
+                        - cell "form field" [ref=e237]
+                        - cell "否" [ref=e238]
+                        - cell "比例或尺寸" [ref=e239]
+                      - row "quality / style / background form field 否 同文生图" [ref=e240]:
+                        - cell "quality / style / background" [ref=e241]:
+                          - code [ref=e242]: quality / style / background
+                        - cell "form field" [ref=e243]
+                        - cell "否" [ref=e244]
+                        - cell "同文生图" [ref=e245]
+                      - row "response_format / upscale form field 否 同文生图" [ref=e246]:
+                        - cell "response_format / upscale" [ref=e247]:
+                          - code [ref=e248]: response_format / upscale
+                        - cell "form field" [ref=e249]
+                        - cell "否" [ref=e250]
+                        - cell "同文生图" [ref=e251]
+            - generic [ref=e252]:
+              - heading "比例、返回格式与画质建议" [level=3] [ref=e253]
+              - generic [ref=e254]:
+                - generic [ref=e255]:
+                  - generic [ref=e256]: 尺寸写法
+                  - table [ref=e257]:
+                    - rowgroup [ref=e258]:
+                      - row "方图 1024x1024 或 1:1" [ref=e259]:
+                        - cell "方图" [ref=e260]
+                        - cell "1024x1024 或 1:1" [ref=e261]:
+                          - code [ref=e262]: 1024x1024 或 1:1
+                      - row "横图 16:9、1792x1024、1536x1024" [ref=e263]:
+                        - cell "横图" [ref=e264]
+                        - cell "16:9、1792x1024、1536x1024" [ref=e265]:
+                          - code [ref=e266]: 16:9、1792x1024、1536x1024
+                      - row "竖图 9:16、1024x1792、1024x1536" [ref=e267]:
+                        - cell "竖图" [ref=e268]
+                        - cell "9:16、1024x1792、1024x1536" [ref=e269]:
+                          - code [ref=e270]: 9:16、1024x1792、1024x1536
+                      - row "横版海报 16:9、3:2、4:3" [ref=e271]:
+                        - cell "横版海报" [ref=e272]
+                        - cell "16:9、3:2、4:3" [ref=e273]:
+                          - code [ref=e274]: 16:9、3:2、4:3
+                      - row "竖版海报 3:4、4:5、2:3" [ref=e275]:
+                        - cell "竖版海报" [ref=e276]
+                        - cell "3:4、4:5、2:3" [ref=e277]:
+                          - code [ref=e278]: 3:4、4:5、2:3
+                  - paragraph [ref=e279]:
+                    - text: 不要只在 prompt 里写“16:9”，最好同时传
+                    - code [ref=e280]: size
+                    - text: ；服务端会按
+                    - code [ref=e281]: size
+                    - text: 做最终比例兜底。
+                - generic [ref=e282]:
+                  - generic [ref=e283]: 返回格式
+                  - list [ref=e284]:
+                    - listitem [ref=e285]:
+                      - code [ref=e286]: response_format=url
+                      - text: ：默认返回站内签名图片链接，可直接预览和下载。
+                    - listitem [ref=e287]:
+                      - code [ref=e288]: response_format=b64_json
+                      - text: ：直接返回图片 base64，适合工作流、Chatbox 或不想二次下载图片的场景。
+                    - listitem [ref=e289]: 签名 URL 有有效期；业务侧如需长期保存，请自行下载归档。
+                - generic [ref=e290]:
+                  - generic [ref=e291]: 2K / 4K 放大
+                  - list [ref=e292]:
+                    - listitem [ref=e293]:
+                      - code [ref=e294]: upscale=2k
+                      - text: ：长边放大到约 2560。
+                    - listitem [ref=e295]:
+                      - code [ref=e296]: upscale=4k
+                      - text: ：长边放大到约 3840。
+                    - listitem [ref=e297]: 这是传统插值放大，不是 AI 超分；想提升细节，优先优化 prompt、size 和 quality。
+                - generic [ref=e298]:
+                  - generic [ref=e299]: 推荐参数
+                  - list [ref=e300]:
+                    - listitem [ref=e301]:
+                      - text: 写实照片、建筑、室内：
+                      - code [ref=e302]: quality=high
+                      - text: ，
+                      - code [ref=e303]: style=natural
+                      - text: 。
+                    - listitem [ref=e304]:
+                      - text: 海报、广告、赛博风：
+                      - code [ref=e305]: quality=high
+                      - text: ，
+                      - code [ref=e306]: style=vivid
+                      - text: 。
+                    - listitem [ref=e307]: 白底商品或素材：明确写白底、干净阴影、主体完整构图。
+    - generic [ref=e349]: QQ交流群：656827785

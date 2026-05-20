@@ -1,0 +1,250 @@
+Figma Make Prompt v4 - Editorial Cinematic China Hero + Competitor Supersede
+Source: figma-make-prompt-v3-optimized.md + competitor-review-chinahighlights.md + multi-language switcher requirement.
+Use: paste into Figma Make (recommended: Gemini 3.1 Pro).
+
+Use Gemini 3.1 Pro if available.
+
+Create a single high-fidelity desktop hero frame for a premium China inbound travel landing page in Figma Make.
+
+Frame size: 1440 x 900.
+
+This is a visual direction experiment for a real lead-generation page. The output must deliberately reject generic AI landing-page aesthetics, must feel like an editorial cinematic travel discovery board for China, and must be measurably better than chinahighlights.com - the existing 1998-style SEO travel-agency portal we are competing with.
+
+Primary goal: make the viewer immediately feel, "China looks incredible. I trust this team. I want a real local advisor to help me plan this."
+
+Audience:
+- Overseas travelers considering China
+- Overseas Chinese travelers
+- Visa-free or visa-exempt nationals (US, UK, Canada, EU, AU, NZ, JP, KR, ASEAN)
+- People not yet sure where to go in China
+
+Business goal:
+- Encourage free consultation as the lowest-friction entry
+- Capture lightweight lead info: destination interest, travel time, group size, WhatsApp / WeChat / Email
+- Make trust feel personal: real advisors, not abstract 4-on-1 service blocks
+- The page must work in multiple languages, not just English
+
+Core art direction:
+Design the hero like a National Geographic / Conde Nast Traveller / premium travel editorial spread, fused with a calm modern travel-concierge product. Premium but approachable. Image-led. Cinematic. Not symmetrical. Not card-heavy. Not SaaS.
+
+The page should feel:
+- Cinematic
+- Image-led
+- Immersive
+- Editorial
+- Premium but warm
+- Travel-desire-driven
+- Trustworthy through real people, not award stacks
+- Less UI-heavy
+- Multilingual-ready
+- Not symmetrical or overly safe
+
+Strictly avoid all of the following:
+- Warm paper background, parchment beige
+- Cinnabar / ink / gold "traditional China" palette
+- Rounded floating form card as the main layout
+- Trust badge grid like chinahighlights.com (TripAdvisor / WTA stack)
+- shadcn-style cards, buttons, inputs, tabs, badge components
+- Generic card stacks
+- Small circular map photo markers
+- Simplified dotted China map widget
+- Left headline + right form / map grid
+- Mega-menu over-stuffed top navigation like chinahighlights.com
+- Eight equal destination cards stacked
+- Single "Start Your Journey" form-only CTA
+- Dashboard-like spacing
+- Safe corporate travel-agency layout
+- Generic "modern clean landing page" composition
+- Neat component-library layout
+- AI poster look
+- Fake smiling tourist stock cutouts
+- Icon-heavy UI
+- Perfectly centered SaaS hero with a button pair
+
+If the result can be described as "a neat travel SaaS hero with cards" or "another chinahighlights-style portal", regenerate it more cinematic, image-led, editorial.
+
+Visual composition requirements:
+- Full-screen hero, 1440 x 900.
+- 60 to 70 percent of the screen is driven by real-destination photography.
+- One large dramatic photograph as the dominant emotional anchor.
+- 2 or 3 smaller destination photo tiles arranged asymmetrically like a curated travel board.
+- At least one nature destination is visually dominant.
+- Include Zhangjiajie, Guilin, Jiuzhaigou, Yunnan as destination references.
+- Use atmospheric realistic photography: misty sandstone peaks, karst river landscape, alpine blue lakes, old towns, local life, cinematic morning or golden-hour light.
+- Photography must look like real on-location editorial shots, not AI posters.
+- Use overlapping images, soft shadows, gentle gradients, editorial captions, travel-notebook details for layered depth.
+- Layout may use diagonal movement, offset alignment, or imperfect editorial spacing.
+- Do not use a rigid grid.
+
+Suggested visual hierarchy:
+1. Dominant cinematic hero photograph, preferably Zhangjiajie misty mountains or Guilin karst river.
+2. Large bilingual editorial headline integrated with or beside the image composition.
+3. Small destination tiles for Guilin, Jiuzhaigou, Yunnan, or Zhangjiajie with subtle magazine-style captions.
+4. Compact concierge inquiry module integrated naturally into the composition.
+5. Real local advisor card with name, languages, specialty.
+6. Visa-free smart hint chip (30-day visa-free for your country).
+7. Diagnostic entry pills (Not sure where to go / Only 10 days / With kids / Nature, not cities).
+8. Subtle travel route or geographic notation in the background.
+9. Minimal trust cues as small editorial footnotes.
+10. Top-right discreet language switcher.
+
+Background and environment:
+- Use a dark cinematic or deep atmospheric background: charcoal blue, deep forest green, muted slate, night-sky gradient, shadowed landscape tones.
+- Background must support photography and depth.
+- Avoid beige paper, warm parchment, cinnabar red, ink-wash gold, faux traditional Chinese decoration.
+- Use subtle grain, atmospheric haze, faint contour lines, thin route strokes, soft light leaks if helpful.
+- No product-style map widget.
+
+Map and route treatment:
+- A map may appear only as a subtle geographic cue.
+- Acceptable treatments: thin route line connecting Zhangjiajie / Guilin / Jiuzhaigou / Yunnan, delicate coordinate labels, faint China outline, small travel notation, airport-code tags, lat / long marks.
+- The map must not be central.
+- The map must not look like a dashboard widget.
+- No dotted markers with circular photo bubbles.
+
+Diagnostic entry pills (must be visible above the fold):
+A compact row of 3 to 4 soft-pill prompts that let undecided visitors self-select into a path. They must NOT look like CTA buttons.
+
+Suggested labels (bilingual):
+- "Not sure where to go" / "还没想好"
+- "Only 10 days" / "只有 10 天"
+- "Traveling with kids" / "带孩子"
+- "Nature, not cities" / "想看自然"
+
+Each pill on hover should subtly hint that clicking it personalizes the next step (smart funnel), not a full form.
+
+Visa-free smart hint:
+A small chip above or beside the headline reads: "30-day visa-free for travelers from US / UK / Canada / EU / AU / NZ / JP / KR - through Dec 2026." Treat this as an editorial annotation, not a banner. It removes the biggest "can I even go?" doubt.
+
+Lead capture module (concierge note):
+Create a compact concierge inquiry module that feels like a travel note, itinerary slip, translucent overlay, handwritten planner insert, or premium concierge card.
+
+Must NOT look like a SaaS form card.
+
+Visually secondary to imagery and headline.
+
+Compact fields:
+- Where do you want to go?
+- When are you traveling?
+- How many travelers?
+- WhatsApp / WeChat / Email
+
+Helper text:
+"No fixed plan yet? Send us your rough idea."
+"还没确定路线也没关系，先告诉我们你的大概想法。"
+
+Local advisor card (must appear next to or under the inquiry module):
+A small, credible advisor identity block. Show:
+- One real-looking portrait (treat as placeholder photo)
+- Real-sounding name (e.g. "Lin - Senior China Travel Advisor")
+- Languages (e.g. "English / 中文 / Espanol")
+- Specialty (e.g. "Nature and remote regions in Sichuan / Yunnan")
+- A subtle WhatsApp button: "Talk to Lin on WhatsApp"
+
+This replaces chinahighlights.com's abstract 4-on-1 service block with a single, named human.
+
+Dual CTA pattern:
+Use TWO low-friction CTAs side by side, NOT a generic SaaS button pair.
+
+Primary (editorial invitation style):
+- "Plan My China Trip" / "免费定制行程"
+
+Secondary (instant chat):
+- "Talk to a Local Advisor" / "WhatsApp 直聊"
+- Show a faint WhatsApp glyph; no neon green SaaS button.
+
+Optional tertiary text link:
+- "See sample 10-day plan" / "看看 10 天样板行程"
+
+Bilingual copy (multi-language ready):
+Use English as primary, Chinese as supporting. Layout must be designed for additional languages (German, French, Spanish, Japanese, Russian) without breaking. Reserve up to about 30 percent extra horizontal space for German / French expansion.
+
+Headline:
+"Still deciding where to go in China? Start with what you love. We'll shape the journey."
+
+Chinese support line:
+"还没想好去中国哪里？从你喜欢的风景和体验开始，我们帮你规划行程。"
+
+Supporting copy:
+"Tell us your travel style, dates, and dream destinations. A real local China advisor will turn your idea into a route - not a generic package."
+
+CTAs:
+"Plan My China Trip"
+"Talk to a Local Advisor"
+"免费定制行程"
+"WhatsApp 直聊"
+"看看 10 天样板行程"
+
+Top-right language switcher (must be present in the hero):
+Render a small, discreet language switcher in the top-right of the hero, next to or under the brand mark.
+
+Requirements:
+- Trigger is a compact pill or icon-text combo, e.g. globe glyph + current language code ("EN").
+- On hover or click, reveals a refined dropdown with: English / 中文 / 日本語 / Deutsch / Francais / Espanol / Italiano / Russkiy.
+- The dropdown must feel editorial and minimal, not like an OS system menu.
+- Selection must visually update headline + concierge module + advisor card to that language without breaking layout.
+- Must be reachable on mobile via a hamburger or sticky mini-pill, not buried in footer.
+- Must NOT use flag icons (politically loaded in some markets).
+
+Trust cues (subtle, NOT badge grid):
+Include 3 to 4 small editorial-style annotations in a footer strip or inline captions:
+- "Local China travel advisors, on the ground"
+- "Bilingual / multi-lingual support"
+- "Routes, hotels, transport, tickets - handled"
+- "Free consultation. No obligation."
+
+Do NOT show award stacks (TripAdvisor / WTA grid) in this hero. Awards may live deeper in the page.
+
+Typography direction:
+- Editorial typography with strong hierarchy.
+- Headline reads magazine-like, expressive, premium.
+- Pair a high-contrast editorial serif or elegant display face for the headline with a clean, readable sans-serif for support, form fields, advisor card, language switcher.
+- Chinese text must be elegant and visually harmonious with the English (suggest Source Han Serif / Noto Serif SC for headline, Source Han Sans / Noto Sans SC for body).
+- Reserve enough headline whitespace so German and French translations don't overflow.
+
+Color direction:
+- Prioritize photographic tones from the destination imagery.
+- Suggested palette: deep blue-green, mist gray, alpine blue, dark slate, soft ivory text, muted moss, glacier blue, warm sunlight accents.
+- Avoid cinnabar red, ink black-and-gold cliche, parchment beige, generic bright SaaS blue.
+
+Destination tile details:
+Use subtle magazine annotations, not badges:
+- "Zhangjiajie - Mist peaks"
+- "Guilin - Karst rivers"
+- "Jiuzhaigou - Alpine lakes"
+- "Yunnan - Old towns and highland trails"
+
+Overall scene idea:
+A cinematic China trip discovery board:
+- Large atmospheric hero image dominates.
+- Smaller destination images overlap like curated travel references.
+- Thin route line or coordinate notation subtly connects destinations.
+- Bilingual editorial headline creates emotional desire.
+- A row of diagnostic entry pills lets undecided visitors self-select.
+- A visa-free smart hint quietly removes the biggest doubt.
+- A compact concierge note + named local advisor + WhatsApp button form a personal trust unit.
+- Dual low-friction CTAs invite consultation without forcing a long form.
+- Top-right discreet language switcher signals multi-market readiness.
+- Trust cues appear as understated editorial footnotes.
+
+Quality bar (compared to chinahighlights.com):
+This hero must visibly outperform chinahighlights.com's homepage on all of:
+- Visual desire to travel
+- First-screen calm vs information overload
+- Personal trust (real advisor name vs abstract 4-on-1)
+- Conversion soft entry (diagnostic pills + WhatsApp vs single form button)
+- Visa friction removal (clear hint vs deep menu link)
+- Multi-language affordance (visible switcher vs only footer flags)
+- Mobile readiness (clean composition vs collapsed mega menu)
+
+It must NOT look like:
+- A wireframe.
+- A generic landing template.
+- shadcn UI.
+- A tidy component library page.
+- chinahighlights.com or any traditional travel-agency homepage.
+- A corporate travel agency portal with award badges in the hero.
+
+It MUST look like:
+- A cinematic, editorial, image-led, immersive, emotionally compelling premium travel brand.
+- A modern multilingual concierge product where a real human will respond.
