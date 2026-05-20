@@ -1,0 +1,158 @@
+[
+  {
+    "version": "v1",
+    "generated_at": "2026-05-20T06:21:17.730Z",
+    "elapsed_sec": 34.7,
+    "model": "gpt-image-2",
+    "size": "1792x1024",
+    "quality": "high",
+    "style": "natural",
+    "prompt_first_120": "Wide cinematic horizontal composition, 16:9 aspect ratio, single coherent image (NOT a collage of separate panels). \n \nL",
+    "output_file": "public\\landmarks\\hero-gen\\v1.jpg",
+    "output_bytes": 2411977
+  },
+  {
+    "version": "v2-batch1",
+    "generated_at": "2026-05-20T06:40:10.915Z",
+    "elapsed_sec": 499.8,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "docs\\visual-references\\B_destination_discovery_collage.png",
+    "prompt_first_200": "Edit this reference image: keep the right-half exactly as it is — keep the warm-gold ink-line outline of mainland China, keep all four gold circle markers and their labels (ZHANGJIAJIE 张家界 DYG, JIUZHA",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v2-batch1-a.jpg",
+        "bytes": 8958227
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v2-batch1-b.jpg",
+        "bytes": 9132573
+      }
+    ]
+  },
+  {
+    "version": "v2-batch2",
+    "generated_at": "2026-05-20T06:47:24.193Z",
+    "elapsed_sec": 417.8,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "docs\\visual-references\\B_destination_discovery_collage.png",
+    "prompt_first_200": "Edit this reference image: keep the right-half exactly as it is — keep the warm-gold ink-line outline of mainland China, keep all four gold circle markers and their labels (ZHANGJIAJIE 张家界 DYG, JIUZHA",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v2-batch2-a.jpg",
+        "bytes": 8937882
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v2-batch2-b.jpg",
+        "bytes": 9041375
+      }
+    ]
+  },
+  {
+    "version": "v3-batch1",
+    "generated_at": "2026-05-20T07:09:08.811Z",
+    "elapsed_sec": 58.8,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "public\\landmarks\\hero-gen\\v2-b.jpg",
+    "prompt_first_200": "Edit this reference image. The reference is the current hero v2-b: a wide 16:9 horizontal composition with a Huangshan sea-of-clouds landscape on the left, a warm-gold map-of-China outline panel in th",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v3-batch1-a.jpg",
+        "bytes": 7778824
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v3-batch1-b.jpg",
+        "bytes": 7725135
+      }
+    ]
+  },
+  {
+    "version": "v3-batch2",
+    "generated_at": "2026-05-20T07:11:10.583Z",
+    "elapsed_sec": 74.3,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "public\\landmarks\\hero-gen\\v2-b.jpg",
+    "prompt_first_200": "Edit this reference image. The reference is the current hero v2-b: a wide 16:9 horizontal composition with a Huangshan sea-of-clouds landscape on the left, a warm-gold map-of-China outline panel in th",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v3-batch2-a.jpg",
+        "bytes": 8049396
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v3-batch2-b.jpg",
+        "bytes": 8147517
+      }
+    ]
+  },
+  {
+    "version": "v4-batch1",
+    "generated_at": "2026-05-20T09:13:31.760Z",
+    "elapsed_sec": 391.9,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "public\\landmarks\\hero-gen\\v3-a.jpg",
+    "prompt_first_200": "Edit this reference image. The reference is the current hero v3-a: a wide 16:9 horizontal cinematic composition with a photorealistic Huangshan (Yellow Mountain) sea-of-clouds at golden-hour sunrise o",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v4-batch1-a.jpg",
+        "bytes": 7879922
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v4-batch1-b.jpg",
+        "bytes": 8226944
+      }
+    ]
+  },
+  {
+    "version": "v4-batch2",
+    "generated_at": "2026-05-20T09:19:14.457Z",
+    "elapsed_sec": 328.5,
+    "endpoint": "/v1/images/edits",
+    "model": "gpt-image-2",
+    "n": 2,
+    "size": "1792x1024",
+    "upscale": "4k",
+    "quality": "high",
+    "style": "natural",
+    "reference_image": "public\\landmarks\\hero-gen\\v3-a.jpg",
+    "prompt_first_200": "Edit this reference image. The reference is the current hero v3-a: a wide 16:9 horizontal cinematic composition with a photorealistic Huangshan (Yellow Mountain) sea-of-clouds at golden-hour sunrise o",
+    "outputs": [
+      {
+        "file": "public\\landmarks\\hero-gen\\v4-batch2-a.jpg",
+        "bytes": 8000912
+      },
+      {
+        "file": "public\\landmarks\\hero-gen\\v4-batch2-b.jpg",
+        "bytes": 7957671
+      }
+    ]
+  }
+]

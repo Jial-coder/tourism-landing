@@ -1,0 +1,32 @@
+Edit this reference image. The reference is the current hero v2-b: a wide 16:9 horizontal composition with a Huangshan sea-of-clouds landscape on the left, a warm-gold map-of-China outline panel in the middle-right with four gold circle markers, and three small destination collage photos in the upper-right corner. The image also has multiple burned-in text labels.
+
+CRITICAL EDIT INSTRUCTIONS — apply these and nothing else:
+
+1. REMOVE every piece of text that is burned into the image. This includes:
+   - The large "CHINA" headline on the upper-left
+   - The "CURATED JOURNEYS, YOUR WAY" subheading
+   - The paragraph block on the left starting with "From timeless landscapes..."
+   - The Chinese tagline "山水之间，发现中国之美" near the bottom
+   - The English tagline "BETWEEN MOUNTAINS AND WATERS, DISCOVER THE BEAUTY OF CHINA"
+   - The four marker labels next to each gold dot (ZHANGJIAJIE 张家界 DYG / JIUZHAIGOU 九寨沟 JZH / GUILIN 桂林 KWL / YUNNAN 云南 LJG and their coordinates)
+   - The faint watermark-style "CHINA" text in the middle background
+   - Any other typography, ALL of it, gone, replaced by clean visual content.
+
+2. REMOVE the three small destination collage photos in the upper-right corner (the Zhangjiajie peaks tile, the Jiuzhaigou turquoise lake tile, and the Lijiang old-town tile). The right edge area where those three tiles used to live should be filled with the same dark deep-slate / charcoal-blue ink-wash background that already surrounds the map panel — extend the map's atmospheric background to fill that region cleanly. NO photo collage, no rectangles, no frames.
+
+3. KEEP the left 60% of the frame: the photorealistic Huangshan sea-of-clouds at golden-hour sunrise. Keep its composition, color, and brightness exactly the same as in the reference.
+
+4. KEEP the warm-gold ink-line outline of mainland China on the right side. Keep its position, scale, and stroke weight exactly the same. Keep the map outline shape.
+
+5. KEEP the four gold circle markers and the gold dashed connecting route line in the same locations on the map. Just remove the text labels next to them. The four gold circles themselves stay — they will be labeled later in HTML overlay.
+
+6. The transition between the bright photographic left half and the dark map-panel right half should remain a soft vertical gradient near the 60% mark — no hard edge.
+
+The result should be: a clean, text-free, photo-collage-free hero base layer where:
+- left 60% = Huangshan landscape photograph
+- right 40% = dark ink-blue panel with a warm-gold China map outline + 4 unlabeled gold marker dots + gold dashed route
+- nothing else burned in
+
+STRICT photographic style for the landscape: real DSLR photograph, NOT illustration, NOT digital painting, NOT poster art, NOT AI gloss, NOT painterly, NOT watercolor, NOT ink wash on the landscape side. The map panel can keep its editorial illustrated outline style.
+
+Negative: any burned-in text or typography of any kind, any photo collage tiles in the upper-right, hard rectangular borders, frames, painterly landscape style, oversaturated, blurred map outline, missing gold marker dots, lens flare, watermark, signature, AI signature, double exposure.

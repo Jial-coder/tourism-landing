@@ -1,0 +1,26 @@
+Edit this reference image. The reference is the current hero v3-a: a wide 16:9 horizontal cinematic composition with a photorealistic Huangshan (Yellow Mountain) sea-of-clouds at golden-hour sunrise occupying roughly the LEFT 60% of the frame, and a stylized warm-gold ink-line outline of mainland China on the RIGHT 40% over a dark ink-blue panel, including four gold circle markers (with soft glow halos) connected by gold dashed/solid route lines, and possibly faint label/watermark text remnants.
+
+CRITICAL EDIT INSTRUCTIONS — apply these and nothing else:
+
+1. REMOVE every graphic element on the right half of the frame that is NOT a real photographic landscape. Specifically remove:
+   - The entire warm-gold ink-line outline of mainland China — every stroke, every coastline, every internal border line. Erase it completely.
+   - All four gold circle markers, including their bright dot centers and any soft glow halos / radial glows around them. Erase them completely.
+   - Every gold dashed line, gold solid line, gold curved route, or any line/path connecting the markers. Erase them completely.
+   - Any remaining text, label, watermark, signature, coordinate string, place name, or typography of any kind anywhere in the frame. Erase it completely.
+   - Any rectangular panels, frames, borders, vignettes, or hard edges separating the left and right halves. No editorial panel structure should remain.
+
+2. REPLACE the right 40% of the frame with a NATURAL PHOTOGRAPHIC EXTENSION of the Huangshan landscape from the left half. The right side should look like a continuous wide-angle DSLR photograph of the same scene:
+   - Continue the sea of clouds rolling across the entire width of the frame
+   - Add distant granite peaks fading into atmospheric mist on the right side, consistent with the scale and perspective of the peaks on the left
+   - Continue the sky naturally — warm golden glow near the sun on the upper-left transitioning smoothly to cooler soft blue/dawn tones on the upper-right, but NO hard color seam at the 60% mark, NO visible vertical transition line
+   - The right edge can be slightly less dramatic than the focal area on the left (more atmospheric haze, softer light), but it must still be a real photographic landscape, not a panel, not a graphic, not a flat color field
+
+3. KEEP the left 60% of the frame EXACTLY as it is in the reference: the photorealistic Huangshan sea-of-clouds at golden-hour sunrise, granite peaks rising out of soft cloud sea, warm amber and rose-gold morning light bathing the foreground ridges, distant peaks fading into mist. Do not alter its composition, color, brightness, or focal point.
+
+4. The final image must read as ONE seamless cinematic 16:9 photograph of Huangshan at sunrise, with no editorial graphics, no map, no markers, no route lines, no text, no panels — pure landscape photography end to end.
+
+5. Color and tonal continuity: the warm amber/gold sunrise on the left should fade gradually toward cooler atmospheric blue-gray on the far right, like a real wide dawn sky. NO hard color boundary, NO visible split between left and right.
+
+STRICT photographic style: shot on Sony A7R IV, 35mm prime lens, natural daylight, real DSLR photograph, sharp focus on midground peaks, atmospheric depth, fine cloud texture detail, editorial cinematic travel photography, magazine cover quality. ABSOLUTELY NOT illustration, NOT digital painting, NOT poster art, NOT AI oil painting, NOT 3D render, NOT cartoon, NOT watercolor, NOT ink wash, NOT painterly, NOT graphic design, NOT infographic.
+
+Negative: any gold map outline residue, any marker dots or glow halos, any dashed or solid gold route lines, any text or typography or watermark, any rectangular panel or frame or border, hard vertical seam at 60%, dark editorial blue panel on the right, illustration, painterly brushstrokes, oil painting, watercolor, ink wash, cartoon, anime, fantasy, oversaturated, AI poster gloss, oversharpened HDR, lens flare, motion blur, fake symmetry, double exposure, distorted China map outline, missing or warped Huangshan peaks.

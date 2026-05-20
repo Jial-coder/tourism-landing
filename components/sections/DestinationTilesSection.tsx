@@ -1,22 +1,34 @@
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { SectionInner } from "@/components/atoms/SectionContainer";
+import {
+  DestinationCarousel,
+  type CarouselItem,
+} from "@/components/atoms/DestinationCarousel";
 
 /**
- * DestinationTilesSection — M-DESTINATION-TILES 独立段（不是 hero 内 collage）。
- * brief: docs/modules/M-DESTINATION-TILES.md §3 "/destinations 顶部" 非对称编辑型集群。
+ * DestinationTilesSection — M-DESTINATION-TILES (v8 重构)。
+ *
+ * 改动：从静态非对称编辑型集群 → 改为 DestinationCarousel（v8 hero 去轮播后下移到这里）。
+ * 桌面上下翻 / 移动左右翻 / 手动 / 点击跳详情。caption 单行 EN·CN（captionVariant="single"）。
  */
 
-const TILES = [
+const ITEMS: CarouselItem[] = [
   {
     href: "/destinations/zhangjiajie",
     src: "/landmarks/zhangjiajie.jpg",
     en: "Zhangjiajie",
     cn: "张家界",
     tagline: "雾峰 · 砂岩柱林",
-    width: 360,
-    rotate: "-1.2deg",
-    yOffset: 0,
+    iata: "DYG",
+    gps: "29.10° N · 110.48° E",
+  },
+  {
+    href: "/destinations/jiuzhaigou",
+    src: "/landmarks/jiuzhaigou.jpg",
+    en: "Jiuzhaigou",
+    cn: "九寨沟",
+    tagline: "高山湖泊 · 川西秘境",
+    iata: "JZH",
+    gps: "33.26° N · 103.92° E",
   },
   {
     href: "/destinations/guilin",
@@ -24,29 +36,17 @@ const TILES = [
     en: "Guilin",
     cn: "桂林",
     tagline: "喀斯特河流 · 漓江",
-    width: 320,
-    rotate: "+0.8deg",
-    yOffset: 36,
+    iata: "KWL",
+    gps: "25.27° N · 110.29° E",
   },
   {
-    href: "/destinations/jiuzhaigou",
-    src: "/landmarks/lhasa.jpg",
-    en: "Jiuzhaigou",
-    cn: "九寨沟",
-    tagline: "高山湖泊 · 川西秘境",
-    width: 300,
-    rotate: "-0.6deg",
-    yOffset: 12,
-  },
-  {
-    href: "/destinations/yunnan",
-    src: "/landmarks/lijiang.jpg",
-    en: "Yunnan",
-    cn: "云南 · 丽江",
-    tagline: "古镇 · 高地小径",
-    width: 280,
-    rotate: "+1.0deg",
-    yOffset: 60,
+    href: "/destinations/dali",
+    src: "/landmarks/dali.jpg",
+    en: "Dali",
+    cn: "大理",
+    tagline: "洱海 · 苍山 · 古城白族",
+    iata: "DLU",
+    gps: "25.61° N · 100.27° E",
   },
 ];
 
@@ -57,86 +57,23 @@ export function DestinationTilesSection() {
       className="relative w-full bg-deep-slate py-20 lg:py-32"
     >
       <SectionInner>
-        <div className="flex flex-col gap-3 max-w-[640px] mb-12 lg:mb-16">
-          <div className="text-[12px] font-misans-regular tracking-[0.18em] text-alpine-blue/80">
-            目的地
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] gap-12 lg:gap-20 items-center">
+          <div className="flex flex-col gap-3 max-w-[560px]">
+            <div className="text-[12px] font-misans-regular tracking-[0.18em] text-alpine-blue/80">
+              目的地
+            </div>
+            <h2 className="text-[32px] lg:text-[48px] font-misans-bold leading-tight text-soft-ivory tracking-tight">
+              从 1 个真实想去的地方开始
+            </h2>
+            <p className="text-[14px] lg:text-[16px] font-misans-regular text-soft-ivory/70 leading-relaxed">
+              这是顾问最常问客人的开场。你不需要一次想全 10 站，从一个让你心动的地点出发，剩下的我们来拼。
+            </p>
+            <p className="mt-4 text-[12px] font-misans-regular text-soft-ivory/45">
+              点击图片查看目的地详情 · 桌面上下箭头切换 · 移动端左右滑动
+            </p>
           </div>
-          <h2 className="text-[32px] lg:text-[48px] font-misans-bold leading-tight text-soft-ivory tracking-tight">
-            从 1 个真实想去的地方开始
-          </h2>
-          <p className="text-[14px] lg:text-[16px] font-misans-regular text-soft-ivory/70 leading-relaxed">
-            这是顾问最常问客人的开场。你不需要一次想全 10 站，从一个让你心动的地点出发，剩下的我们来拼。
-          </p>
-        </div>
 
-        {/* asymmetric editorial cluster — desktop */}
-        <div className="hidden lg:flex flex-wrap gap-x-10 gap-y-10 items-start">
-          {TILES.map((tile) => (
-            <a
-              key={tile.href}
-              href={tile.href}
-              style={{
-                width: tile.width,
-                marginTop: tile.yOffset,
-                transform: `rotate(${tile.rotate})`,
-              }}
-              className="group block"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] border border-soft-ivory/10 motion-safe:transition-all motion-safe:duration-300 group-hover:border-soft-ivory/25 group-hover:-translate-y-1">
-                <Image
-                  src={tile.src}
-                  alt={`${tile.en} ${tile.cn}`}
-                  fill
-                  sizes="360px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between gap-2">
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[15px] font-misans-bold text-soft-ivory">
-                    {tile.en} · {tile.cn}
-                  </span>
-                  <span className="text-[12px] font-misans-regular text-soft-ivory/60">
-                    {tile.tagline}
-                  </span>
-                </div>
-                <ArrowRight
-                  size={16}
-                  className="text-soft-ivory/40 motion-safe:transition-all group-hover:text-soft-ivory group-hover:translate-x-1"
-                  aria-hidden
-                />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* mobile horizontal swipe strip */}
-        <div className="lg:hidden -mx-6 flex gap-4 overflow-x-auto px-6 pb-4 [&::-webkit-scrollbar]:hidden">
-          {TILES.map((tile) => (
-            <a
-              key={`m-${tile.href}`}
-              href={tile.href}
-              className="shrink-0 w-[240px]"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] border border-soft-ivory/10">
-                <Image
-                  src={tile.src}
-                  alt={`${tile.en} ${tile.cn}`}
-                  fill
-                  sizes="240px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-2.5">
-                <div className="text-[13px] font-misans-bold text-soft-ivory">
-                  {tile.en} · {tile.cn}
-                </div>
-                <div className="text-[11px] font-misans-regular text-soft-ivory/60">
-                  {tile.tagline}
-                </div>
-              </div>
-            </a>
-          ))}
+          <DestinationCarousel items={ITEMS} captionVariant="single" />
         </div>
       </SectionInner>
     </section>

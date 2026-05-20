@@ -300,28 +300,36 @@ circle markers: r="4" fill="#c9a65c" 在每个 tile 中心
 
 **Mobile 折叠**：collapse to 2 tiles（Guilin + Jiuzhaigou）horizontal swipe strip + GPS/IATA caption；hide route line + map outline。
 
-### 7.12 Map outline（review-only，env-flag 门禁）
+### 7.12 ChinaMapOverlay（hero v9 Path A，2026-05-20）
 
-> 来源：`docs/known-risks.md` R-001 决策。仅 review 端启用。
+> 来源：Path A 决策。照片归照片，地图归运行时 SVG/DOM 叠层；`DESIGN.md` 记录视觉规格，合规风险见 `docs/known-risks.md` R-001。
 
 **实现规格**：
-```tsx
-const SHOW_MAP_OUTLINE = typeof process !== 'undefined' && process.env.NEXT_PUBLIC_ENABLE_MAP_OUTLINE === 'true';
-
-{SHOW_MAP_OUTLINE && (
-  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="none">
-    <path d="..." fill="none" stroke="#fdfbf7" strokeWidth="1" strokeOpacity="0.08" strokeDasharray="2 4" />
-    <text fill="#fdfbf7" fillOpacity="0.3" fontSize="10" fontStyle="italic">
-      an editorial sketch · 编辑型示意
-    </text>
-  </svg>
-)}
+```
+container: desktop only, absolute inset-y-0 right-0 w-[55%]
+base image: /landmarks/hero-gen/v4-a.webp（无地图 / marker / 路线烙印）
+svg viewBox: 0 0 620 360
+outline stroke: rgba(212, 175, 55, 0.85)
+outline strokeWidth: 0.8
+route stroke: rgba(212, 175, 55, 0.5)
+route strokeWidth: 0.7
+route strokeDasharray: "4 4"
+faint gold: rgba(212, 175, 55, 0.35)
+marker: 16px circle, fill #d4af37
+marker shadow: 0 0 12px rgba(212,175,55,0.6)
+marker hover/focus: scale(1.3), shadow 0 0 18px rgba(212,175,55,0.9)
+tooltip: bg-charcoal-blue/85 + border-soft-ivory/15 + text-soft-ivory + text-[11px]
 ```
 
-**门禁**：
-- review build：`NEXT_PUBLIC_ENABLE_MAP_OUTLINE=true`（仅 Cloudflare Tunnel 暴露）
-- prod build：默认 `false`，CI/CD 强制
-- **lead 推荐**：第一轮 review 阶段也 **默认关闭** — Gemini 生成的 path 不像中国，反而比不画更尴尬。如客户主动问"为什么没地图"再开。
+**交互门禁**：
+- marker 必须是 DOM `Link`，不是 SVG 装饰点；hover/focus/click 均可达。
+- mobile (`<lg`) 隐藏 ChinaMapOverlay，只保留风景主图 + CTA，避免地图文字和窄屏内容冲突。
+- Hero 内容层不能覆盖右侧 marker 的 pointer target；透明布局容器使用 `pointer-events-none`，真实 CTA 文案区域恢复 `pointer-events-auto`。
+
+**合规门禁**：
+- 当前状态是 review/production candidate 的 mitigation，不是法务最终签批。
+- 若生产上线前无法确认标准地图合规，关闭地图叠层，仅保留纯风景主图。
+
 
 ---
 

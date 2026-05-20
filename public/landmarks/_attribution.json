@@ -118,5 +118,95 @@
     "width": 6000,
     "height": 4000,
     "color": "#f3f3f3"
+  },
+  {
+    "id": "huangshan",
+    "source": "pexels",
+    "pexels_id": 18707644,
+    "photo_url": "https://www.pexels.com/photo/18707644/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Huangshan sea of clouds at sunrise",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "dali",
+    "source": "pexels",
+    "pexels_id": 14907895,
+    "photo_url": "https://www.pexels.com/photo/14907895/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Erhai lake Cangshan Dali Yunnan",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "lijiang-night",
+    "source": "pexels",
+    "pexels_id": 13977434,
+    "photo_url": "https://www.pexels.com/photo/13977434/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Lijiang old town lanterns",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "jiuzhaigou",
+    "source": "pexels",
+    "pexels_id": 13975984,
+    "photo_url": "https://www.pexels.com/photo/13975984/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Alpine lakes Jiuzhaigou Sichuan",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "hero-candidates/B-guilin-sunset",
+    "source": "pexels",
+    "pexels_id": 4558492,
+    "photo_url": "https://www.pexels.com/photo/4558492/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Li River Guilin karst silhouettes at warm sunset",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "hero-candidates/C-zhangjiajie-golden",
+    "source": "pexels",
+    "pexels_id": 16839205,
+    "photo_url": "https://www.pexels.com/photo/16839205/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Zhangjiajie sandstone pillars side-lit by warm golden hour sun",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "hero-candidates/D-yuanyang-rice-terraces",
+    "source": "pexels",
+    "pexels_id": 8989404,
+    "photo_url": "https://www.pexels.com/photo/8989404/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Yuanyang rice terraces Yunnan at sunrise reflecting warm gold sky",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "hero-candidates/E-great-wall-golden",
+    "source": "pexels",
+    "pexels_id": 19660746,
+    "photo_url": "https://www.pexels.com/photo/19660746/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Great Wall mountain ridge bathed in golden hour light",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
+  },
+  {
+    "id": "hero-candidates/F-mountain-temple-mist",
+    "source": "pexels",
+    "pexels_id": 4356144,
+    "photo_url": "https://www.pexels.com/photo/4356144/",
+    "photographer": "Pexels community",
+    "photographer_url": "https://www.pexels.com/",
+    "alt": "Chinese mountain temple in mist with golden roof catching dawn light",
+    "license": "Pexels License (free for commercial use, attribution appreciated)"
   }
 ]
