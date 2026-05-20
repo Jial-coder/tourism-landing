@@ -1,50 +1,59 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "misans-vf/lib/MiSans.min.css";
 
 @custom-variant dark (&:is(.dark *));
 
-/* ----- v9 brand tokens (DESIGN.md source of truth) ----- */
+/* =====================================================
+ * tourism-landing — DESIGN.md v0.2 source-of-truth tokens
+ * Locked to hero v5.1 visual anchor (2026-05-20).
+ * Color: charcoal blue + deep slate + soft ivory + alpine blue + paper gold
+ * Typography: MiSans VF single family, weight axis 800/700/400
+ * ===================================================== */
 :root {
-  --cinnabar: #C13829;
-  --ink-teal: #1F4E5C;
-  --warm-white: #F8F4EC;
-  --charcoal: #1A1A1A;
-  --paper-gold: #C9A65C;
-  --soft-mist: #E8E0D5;
+  /* ----- color tokens (DESIGN.md §2) ----- */
+  --charcoal-blue: #1a2538;
+  --deep-slate:    #0f172a;
+  --soft-ivory:    #fdfbf7;
+  --mist-gray:     #94a3b8;
+  --alpine-blue:   #38bdf8;
+  --paper-gold:    #c9a65c;
 
-  /* shadcn semantic tokens mapped onto v9 palette */
-  --background: var(--warm-white);
-  --foreground: var(--charcoal);
-  --card: #FFFFFF;
-  --card-foreground: var(--charcoal);
-  --popover: var(--warm-white);
-  --popover-foreground: var(--charcoal);
-  --primary: var(--cinnabar);
-  --primary-foreground: var(--warm-white);
-  --secondary: var(--ink-teal);
-  --secondary-foreground: var(--warm-white);
-  --muted: var(--soft-mist);
-  --muted-foreground: rgba(26, 26, 26, 0.6);
+  /* ----- legacy v0.1 tokens kept only because shadcn/ui atoms reference them.
+   *       DO NOT use in new modules. Mapped onto v0.2 palette so old shadcn
+   *       components (button, input, dialog, ...) still render coherently. ----- */
+  --background: var(--deep-slate);
+  --foreground: var(--soft-ivory);
+  --card: var(--charcoal-blue);
+  --card-foreground: var(--soft-ivory);
+  --popover: var(--charcoal-blue);
+  --popover-foreground: var(--soft-ivory);
+  --primary: var(--alpine-blue);
+  --primary-foreground: var(--deep-slate);
+  --secondary: var(--charcoal-blue);
+  --secondary-foreground: var(--soft-ivory);
+  --muted: rgba(253, 251, 247, 0.06);
+  --muted-foreground: rgba(253, 251, 247, 0.6);
   --accent: var(--paper-gold);
-  --accent-foreground: var(--charcoal);
-  --destructive: #C13829;
-  --destructive-foreground: var(--warm-white);
-  --border: var(--soft-mist);
-  --input: var(--soft-mist);
-  --ring: var(--cinnabar);
+  --accent-foreground: var(--deep-slate);
+  --destructive: #f97e6e;
+  --destructive-foreground: var(--soft-ivory);
+  --border: rgba(253, 251, 247, 0.12);
+  --input: rgba(253, 251, 247, 0.12);
+  --ring: var(--alpine-blue);
   --radius: 0.75rem;
 }
 
 @theme inline {
-  /* brand colors expose to Tailwind classes (bg-cinnabar / text-ink-teal etc.) */
-  --color-cinnabar: var(--cinnabar);
-  --color-ink-teal: var(--ink-teal);
-  --color-warm-white: var(--warm-white);
-  --color-charcoal: var(--charcoal);
-  --color-paper-gold: var(--paper-gold);
-  --color-soft-mist: var(--soft-mist);
+  /* expose v0.2 palette as Tailwind utility classes (bg-charcoal-blue, text-soft-ivory, ...) */
+  --color-charcoal-blue: var(--charcoal-blue);
+  --color-deep-slate:    var(--deep-slate);
+  --color-soft-ivory:    var(--soft-ivory);
+  --color-mist-gray:     var(--mist-gray);
+  --color-alpine-blue:   var(--alpine-blue);
+  --color-paper-gold:    var(--paper-gold);
 
-  /* shadcn semantic */
+  /* shadcn semantic mapping kept for legacy atoms */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -65,8 +74,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: "Inter", "PingFang SC", system-ui, sans-serif;
-  --font-serif: "Noto Serif SC", "Source Han Serif", serif;
+  --font-sans: "MiSans", "MiSans VF", -apple-system, BlinkMacSystemFont, "PingFang SC", system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -78,11 +86,33 @@
   * {
     border-color: var(--border);
   }
-  body {
-    background: var(--background);
-    color: var(--foreground);
+  html, body {
+    background: var(--deep-slate);
+    color: var(--soft-ivory);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+  ::selection {
+    background: rgba(56, 189, 248, 0.30);
+    color: var(--soft-ivory);
+  }
 }
 
+@layer utilities {
+  /* MiSans VF weight axis shortcuts — DESIGN.md §3 */
+  .font-misans-heavy    { font-family: "MiSans"; font-weight: 800; }
+  .font-misans-bold     { font-family: "MiSans"; font-weight: 700; }
+  .font-misans-semibold { font-family: "MiSans"; font-weight: 600; }
+  .font-misans-regular  { font-family: "MiSans"; font-weight: 400; }
+
+  /* hero v5.1 / chrome v1 atom shortcuts */
+  .text-headline-shadow { text-shadow: 0 2px 8px rgba(15, 23, 42, 0.4); }
+  .surface-dropdown {
+    background: rgba(26, 37, 56, 0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(253, 251, 247, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.4);
+  }
+}
