@@ -20,9 +20,9 @@ export function Marquee({ items, speed = 30, className, itemClassName }: Marquee
   if (reduce || !mounted) {
     return (
       <div className={className} suppressHydrationWarning>
-        <div className="flex flex-wrap items-center justify-center gap-8">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-3 md:grid-cols-3">
           {items.map((item, idx) => (
-            <span key={idx} className={itemClassName}>
+            <span key={idx} className={`text-center ${itemClassName ?? ''}`}>
               {item}
             </span>
           ))}

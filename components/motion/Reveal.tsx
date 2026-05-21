@@ -23,7 +23,7 @@ export function Reveal({
   delay = 0,
   y = 24,
   once = true,
-  duration = 0.7,
+  duration = 0.45,
 }: RevealProps) {
   const reduce = useReducedMotion();
   const mounted = useMounted();

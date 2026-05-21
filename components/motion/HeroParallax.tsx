@@ -9,8 +9,8 @@ export function HeroParallax({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, 120]);
-  const brightness = useTransform(scrollY, [0, 800], [1, 0.7]);
+  const y = useTransform(scrollY, [0, 800], [0, 60]);
+  const brightness = useTransform(scrollY, [0, 800], [1, 0.85]);
   const filter = useTransform(brightness, (v) => `brightness(${v})`);
 
   useEffect(() => setMounted(true), []);

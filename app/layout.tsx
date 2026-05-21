@@ -6,7 +6,6 @@ import { isLocale, DEFAULT_LOCALE } from "@/lib/data/locales";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { CursorAura } from "@/components/motion/CursorAura";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -54,7 +53,6 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col bg-cream text-ink">
         <LocaleProvider initialLocale={initialLocale}>
           <ScrollProgress />
-          <CursorAura />
           {children}
         </LocaleProvider>
         <Toaster richColors closeButton position="top-right" />
