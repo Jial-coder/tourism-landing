@@ -40,7 +40,7 @@ export type LeadFormState =
   | { kind: 'success'; submissionId: string };
 
 /**
- * @deprecated 由 LeadFormInput 接管，保留供过渡期参考。新代码请使用 LeadFormInput。
+ * @deprecated Replaced by LeadFormInput. Retained for transitional reads.
  */
 export interface LeadPayload {
   locale: 'en' | 'zh';
@@ -51,7 +51,7 @@ export interface LeadPayload {
 
 export const leadFormSchema = z.object({
   locale: z.enum(['en', 'zh']),
-  source: z.enum(['home-hero', 'home-mid', 'home-footer', 'chat-launcher']),
+  source: z.enum(['home-hero', 'home-mid', 'home-footer', 'chat-launcher', 'plan-wizard']),
   name: z.string().trim().min(1).max(80),
   email: z.string().trim().email().max(120),
   phone: z.string().trim().max(40).optional().or(z.literal('')),
@@ -68,3 +68,120 @@ export const leadFormSchema = z.object({
 
 export type LeadFormInput = z.input<typeof leadFormSchema>;
 export type LeadFormOutput = z.output<typeof leadFormSchema>;
+
+/* ============================================================
+ * Plan wizard (5-step) — spec §5.12 / §5.12.1
+ * Stored locally as draft; on final submit, mapped onto the API
+ * contract (leadFormSchema) inside the wizard component.
+ * ============================================================ */
+
+export const PLAN_DRAFT_STORAGE_KEY = 'pandatravel:plan-draft';
+export const PLAN_DRAFT_VERSION = 1;
+
+export const TRIP_WINDOW = ['precise', 'approximate', 'considering'] as const;
+export type TripWindow = (typeof TRIP_WINDOW)[number];
+
+export const TRIP_LENGTH_OPTIONS = [
+  '5-7-days',
+  '8-10-days',
+  '11-14-days',
+  '15-plus-days',
+  'unsure',
+] as const;
+export type TripLengthOption = (typeof TRIP_LENGTH_OPTIONS)[number];
+
+export const GROUP_TYPE = [
+  'solo',
+  'couple',
+  'family',
+  'friends',
+  'business-plus',
+] as const;
+export type GroupType = (typeof GROUP_TYPE)[number];
+
+export const CHILD_AGE_TIERS = ['0-3', '4-8', '9-12', '13-17'] as const;
+export type ChildAgeTier = (typeof CHILD_AGE_TIERS)[number];
+
+export const INTEREST_CHIPS = [
+  'nature',
+  'history',
+  'food',
+  'slow',
+  'modern-city',
+  'outdoor',
+  'honeymoon',
+  'visa-free',
+] as const;
+export type InterestChip = (typeof INTEREST_CHIPS)[number];
+
+export const BUDGET_TIER = [
+  'usd-1500-3000',
+  'usd-3000-6000',
+  'usd-6000-10000',
+  'usd-10000-plus',
+  'unsure',
+] as const;
+export type BudgetTier = (typeof BUDGET_TIER)[number];
+
+export const HOTEL_CLASS = [
+  '3-star',
+  '4-star',
+  '5-star',
+  'luxury',
+  'no-pref',
+  'recommend',
+] as const;
+export type HotelClass = (typeof HOTEL_CLASS)[number];
+
+export const planWizardSchema = z.object({
+  // step 1
+  tripWindow: z.enum(TRIP_WINDOW, { message: 'required' }),
+  tripMonth: z.string().trim().max(40).optional().or(z.literal('')),
+  tripLength: z.enum(TRIP_LENGTH_OPTIONS, { message: 'required' }),
+  // step 2
+  groupType: z.enum(GROUP_TYPE, { message: 'required' }),
+  adultsCount: z.coerce.number().int().min(1).max(50),
+  childrenAgeTiers: z.array(z.enum(CHILD_AGE_TIERS)).max(8).default([]),
+  // step 3
+  interests: z.array(z.enum(INTEREST_CHIPS)).max(INTEREST_CHIPS.length).default([]),
+  notesUserText: z.string().trim().max(800).optional().or(z.literal('')),
+  // step 4
+  budgetTier: z.enum(BUDGET_TIER, { message: 'required' }),
+  hotelClass: z.enum(HOTEL_CLASS, { message: 'required' }),
+  // step 5
+  name: z.string().trim().min(1).max(80),
+  email: z.string().trim().email().max(120),
+  countryCode: z.string().trim().min(1).max(8),
+  phone: z.string().trim().max(40).optional().or(z.literal('')),
+  whatsappOk: z.boolean().default(false),
+  wechatOk: z.boolean().default(false),
+  termsAccepted: z.literal(true, { message: 'required' }),
+  // anti-bot
+  company_website: z.string().max(0, { message: 'honeypot_hit' }).optional(),
+  turnstileToken: z.string().optional().default(''),
+});
+
+export type PlanWizardInput = z.input<typeof planWizardSchema>;
+export type PlanWizardOutput = z.output<typeof planWizardSchema>;
+
+export const PLAN_WIZARD_DEFAULTS: PlanWizardInput = {
+  tripWindow: undefined as unknown as TripWindow,
+  tripMonth: '',
+  tripLength: undefined as unknown as TripLengthOption,
+  groupType: undefined as unknown as GroupType,
+  adultsCount: 2,
+  childrenAgeTiers: [],
+  interests: [],
+  notesUserText: '',
+  budgetTier: undefined as unknown as BudgetTier,
+  hotelClass: undefined as unknown as HotelClass,
+  name: '',
+  email: '',
+  countryCode: 'US',
+  phone: '',
+  whatsappOk: false,
+  wechatOk: false,
+  termsAccepted: undefined as unknown as true,
+  company_website: '',
+  turnstileToken: '',
+};
