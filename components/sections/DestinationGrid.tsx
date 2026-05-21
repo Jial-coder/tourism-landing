@@ -52,7 +52,7 @@ export function DestinationGrid() {
                       aria-hidden="true"
                       className="absolute inset-0 bg-gradient-to-t from-deep-slate/85 via-deep-slate/20 to-deep-slate/0"
                     />
-                    <BorderBeam className="opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <BorderBeam />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5">
                       <h3 className="font-serif text-2xl leading-tight tracking-tight text-soft-ivory drop-shadow-[0_2px_8px_rgba(15,23,42,0.5)] transition-transform duration-400 ease-out group-hover:-translate-y-1">
                         {item.name}

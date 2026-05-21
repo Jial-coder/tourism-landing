@@ -151,6 +151,12 @@
   initial-value: 0deg;
 }
 
+@property --bb-duration {
+  syntax: '<time>';
+  inherits: true;
+  initial-value: 5s;
+}
+
 @keyframes border-beam {
   to { --border-beam-angle: 360deg; }
 }
