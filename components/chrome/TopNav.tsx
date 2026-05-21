@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Globe, Menu, MessageCircle, User, X } from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, User, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { DropdownSurface } from "@/components/atoms/DropdownSurface";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
+import { LocaleSwitch } from "@/components/i18n/LocaleSwitch";
 
 /**
  * TopNav v2 — chrome 三件套整合（M-NAV + M-LANG + M-AUTH-ENTRY）
@@ -34,27 +35,13 @@ const NAV_ITEMS = [
   { href: "/about", label: "关于我们", soft404: false },
 ];
 
-const LANGS = [
-  { code: "ZH", label: "中文", active: true },
-  { code: "EN", label: "English", active: true },
-  { code: "JA", label: "日本語", active: true },
-  { code: "DE", label: "Deutsch", active: true },
-  { code: "FR", label: "Français", active: true },
-  { code: "ES", label: "Español", active: false },
-  { code: "IT", label: "Italiano", active: false },
-  { code: "RU", label: "Русский", active: false },
-];
-
 export function TopNav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [storyModalOpen, setStoryModalOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("ZH");
 
   const authTriggerRef = useRef<HTMLButtonElement | null>(null);
-  const langTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   // Fix 1: scrolled threshold = 90vh (NOT >10) — hero 内不触发
   useEffect(() => {
@@ -168,7 +155,6 @@ export function TopNav() {
                 type="button"
                 onClick={() => {
                   setAuthOpen((v) => !v);
-                  setLangOpen(false);
                 }}
                 aria-haspopup="menu"
                 aria-expanded={authOpen}
@@ -213,72 +199,7 @@ export function TopNav() {
 
             {/* M-LANG */}
             <div className="relative">
-              <button
-                ref={langTriggerRef}
-                type="button"
-                onClick={() => {
-                  setLangOpen((v) => !v);
-                  setAuthOpen(false);
-                }}
-                aria-haspopup="menu"
-                aria-expanded={langOpen}
-                className="inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70"
-              >
-                <Globe size={14} aria-hidden />
-                <span className="hidden lg:inline">{currentLang}</span>
-                <ChevronDown size={12} aria-hidden className="hidden lg:inline" />
-              </button>
-              <DropdownSurface
-                open={langOpen}
-                onClose={() => setLangOpen(false)}
-                triggerRef={langTriggerRef}
-                width={220}
-                ariaLabel="语言切换"
-                align="right"
-              >
-                <ul role="menu" className="flex flex-col py-2">
-                  {LANGS.map((lang) => {
-                    const isCurrent = lang.code === currentLang;
-                    return (
-                      <li key={lang.code} role="none">
-                        <button
-                          role="menuitem"
-                          type="button"
-                          aria-disabled={!lang.active}
-                          tabIndex={lang.active ? 0 : -1}
-                          aria-label={
-                            !lang.active
-                              ? `${lang.label} (language not yet available)`
-                              : lang.label
-                          }
-                          onClick={() => {
-                            if (!lang.active) return;
-                            setCurrentLang(lang.code);
-                            setLangOpen(false);
-                          }}
-                          className={cn(
-                            "flex h-9 w-full items-center gap-2 px-5 text-left text-[13px] font-misans-regular",
-                            // Fix 6: 1px ivory border-left + bg transparent (NOT bg-[#fdfbf7]/5)
-                            isCurrent
-                              ? "border-l border-soft-ivory bg-transparent text-soft-ivory"
-                              : "text-soft-ivory/85",
-                            lang.active
-                              ? "hover:text-soft-ivory hover:bg-soft-ivory/[0.04] cursor-pointer"
-                              : "text-soft-ivory/35 cursor-not-allowed",
-                          )}
-                        >
-                          <span>{lang.label}</span>
-                          {!lang.active && (
-                            <span className="ml-auto text-[12px] text-soft-ivory/28">
-                              · coming soon
-                            </span>
-                          )}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </DropdownSurface>
+              <LocaleSwitch />
             </div>
 
             {/* Mobile menu trigger */}
@@ -297,8 +218,6 @@ export function TopNav() {
       <MobileDrawer
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        currentLang={currentLang}
-        onSelectLang={setCurrentLang}
         onSoft404={() => {
           setMobileOpen(false);
           setStoryModalOpen(true);
@@ -317,14 +236,10 @@ export function TopNav() {
 function MobileDrawer({
   open,
   onClose,
-  currentLang,
-  onSelectLang,
   onSoft404,
 }: {
   open: boolean;
   onClose: () => void;
-  currentLang: string;
-  onSelectLang: (code: string) => void;
   onSoft404: () => void;
 }) {
   useEffect(() => {
@@ -398,35 +313,9 @@ function MobileDrawer({
           <div className="text-[12px] font-misans-regular tracking-widest text-soft-ivory/45">
             LANGUAGE · 语言
           </div>
-          <ul className="mt-3 flex flex-col gap-2">
-            {LANGS.map((lang) => (
-              <li key={lang.code}>
-                <button
-                  type="button"
-                  disabled={!lang.active}
-                  onClick={() => {
-                    if (!lang.active) return;
-                    onSelectLang(lang.code);
-                    onClose();
-                  }}
-                  className={cn(
-                    "flex w-full items-center text-left text-[15px] font-misans-regular",
-                    lang.code === currentLang
-                      ? "text-soft-ivory border-l border-soft-ivory pl-3"
-                      : "text-soft-ivory/85",
-                    !lang.active && "text-soft-ivory/35 cursor-not-allowed",
-                  )}
-                >
-                  {lang.label}
-                  {!lang.active && (
-                    <span className="ml-2 text-[12px] text-soft-ivory/28">
-                      · coming soon
-                    </span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-3">
+            <LocaleSwitch />
+          </div>
         </div>
         <div className="mt-auto pt-6">
           <Link
