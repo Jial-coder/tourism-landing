@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
+import { Newsreader, Inter } from "next/font/google";
 import { headers, cookies } from "next/headers";
 import { detectLocaleFromAcceptLanguage } from "@/lib/i18n/detect";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/data/locales";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import "./globals.css";
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "中国本地旅行顾问 · Concierge Travel China",
@@ -23,8 +38,11 @@ export default async function RootLayout({
     ? cookieLocale
     : detectLocaleFromAcceptLanguage(headerStore.get("accept-language")) ?? DEFAULT_LOCALE;
   return (
-    <html lang={initialLocale} className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-deep-slate text-soft-ivory">
+    <html
+      lang={initialLocale}
+      className={`h-full antialiased ${newsreader.variable} ${inter.variable}`}
+    >
+      <body className="min-h-full flex flex-col bg-cream text-ink">
         <LocaleProvider initialLocale={initialLocale}>{children}</LocaleProvider>
       </body>
     </html>
