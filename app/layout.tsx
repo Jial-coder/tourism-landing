@@ -44,7 +44,13 @@ export default async function RootLayout({
     <html
       lang={initialLocale}
       className={`h-full antialiased ${newsreader.variable} ${inter.variable}`}
+      translate="no"
     >
+      <head>
+        {process.env.NODE_ENV !== "production" && (
+          <meta name="google" content="notranslate" />
+        )}
+      </head>
       <body className="min-h-full flex flex-col bg-cream text-ink">
         <LocaleProvider initialLocale={initialLocale}>
           <ScrollProgress />
