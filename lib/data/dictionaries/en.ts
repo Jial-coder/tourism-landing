@@ -30,6 +30,37 @@ export default {
   leadResponsePromise:
     'A China travel advisor usually replies within 24 hours (Chinese holidays excluded).',
   home: {
+    nav: {
+      ariaLabel: 'Primary navigation',
+      brand: 'pandatravel',
+      items: [
+        { href: '/destinations', label: 'Destinations', soft404: false },
+        { href: '/itineraries', label: 'Itineraries', soft404: false },
+        { href: '/advisors', label: 'Specialists', soft404: false },
+        { href: '/stories', label: 'Stories', soft404: true },
+        { href: '/about', label: 'About', soft404: false },
+      ],
+      more: 'More',
+      ctaPlan: 'Plan my trip',
+      whatsappLabel: 'WhatsApp · on-call',
+      whatsappAria: 'WhatsApp on-call specialist',
+      authTrigger: 'Sign in',
+      authMenuLabel: 'Sign-in menu',
+      authWelcome: 'Welcome',
+      authSignIn: 'Sign in',
+      authSignUp: 'Create account',
+      authNote: 'Save drafts and chats so you can pick up where you left off.',
+      authMobileLink: 'Sign in →',
+      mobileMenuOpen: 'Open menu',
+      mobileMenuClose: 'Close menu',
+      mobileMenuLabel: 'Mobile menu',
+      languageHeading: 'LANGUAGE · 语言',
+      soft404Title: 'This corner is opening in Phase 2',
+      soft404Body: "This corner of the site is opening in Phase 2. Want us to email you when it's live?",
+      soft404Notify: 'Notify me · 通知我',
+      soft404Close: 'Esc to close',
+      contactSpecialist: 'Talk to a specialist',
+    },
     hero: {
       eyebrow: 'Tailor-made China',
       headline: 'Plan your private China trip with local experts',
@@ -37,6 +68,9 @@ export default {
         'From the Forbidden City sunrises to a private Yunnan loop — every itinerary is a real conversation between you and a Beijing-based specialist.',
       primaryCta: 'Start planning',
       secondaryCta: 'Talk to a specialist',
+      contactModalTitle: 'Talk to a specialist',
+      contactModalDescription:
+        'Pick the channel that suits you. A Beijing specialist replies within 24 hours (Chinese holidays excluded).',
     },
     trustStrip: {
       items: [
@@ -101,6 +135,18 @@ export default {
       body: 'No obligation. We use these details to draft a private route, not a sales call.',
       submit: 'Send to a specialist',
       submitting: 'Sending…',
+      requiredHint: 'Required',
+      requiredAria: 'required field',
+      errors: {
+        required: 'This field is required',
+        invalidEmail: 'Please enter an email we can reach you at',
+        tooShort: 'A bit too short — please add more detail',
+        tooLong: 'This is over the maximum length',
+        invalidNumber: 'Please enter a valid number',
+        outOfRange: 'That value is outside the allowed range',
+        turnstileMissing: 'Verification not complete yet — please try again',
+        generic: "Something looks off here — please double-check",
+      },
       labels: {
         name: 'Your name',
         email: 'Email',
@@ -112,8 +158,6 @@ export default {
         preferredChannel: 'Preferred reply channel',
         budgetRange: 'Budget per person (optional)',
         notes: 'Tell us about your trip (optional)',
-        travelStyle: 'Travel style notes (optional)',
-        destinations: 'Destinations of interest (optional)',
       },
       placeholders: {
         name: 'Jane Traveler',
@@ -121,9 +165,7 @@ export default {
         phone: '+1 555 0100',
         country: 'United States',
         travelMonth: 'e.g. October 2026',
-        notes: 'Pace, must-sees, dietary needs, anything that matters.',
-        travelStyle: 'e.g. slow travel, food focus, family pace',
-        destinations: 'e.g. Beijing, Yunnan, Guilin',
+        notes: 'Pace, must-sees, dietary needs, destinations of interest, travel style — anything that matters.',
       },
       budgetOptions: [
         { id: 'tbd', label: 'Not sure yet' },

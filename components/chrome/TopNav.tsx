@@ -8,6 +8,7 @@ import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { DropdownSurface } from "@/components/atoms/DropdownSurface";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
 import { LocaleSwitch } from "@/components/i18n/LocaleSwitch";
+import { useDictionary } from "@/components/i18n/LocaleProvider";
 
 /**
  * TopNav v2 — chrome 三件套整合（M-NAV + M-LANG + M-AUTH-ENTRY）
@@ -27,15 +28,10 @@ import { LocaleSwitch } from "@/components/i18n/LocaleSwitch";
  *   DESIGN.md §7.7-§7.10
  */
 
-const NAV_ITEMS = [
-  { href: "/destinations", label: "目的地", soft404: false },
-  { href: "/itineraries", label: "行程", soft404: false },
-  { href: "/advisors", label: "顾问", soft404: false },
-  { href: "/stories", label: "旅行故事", soft404: true },
-  { href: "/about", label: "关于我们", soft404: false },
-];
-
 export function TopNav() {
+  const dict = useDictionary();
+  const nav = dict.home.nav;
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -81,18 +77,22 @@ export function TopNav() {
           {/* Brand wordmark */}
           <Link
             href="/"
-            className="font-misans-bold text-[20px] lg:text-[22px] tracking-tight text-soft-ivory shrink-0"
+            aria-label={nav.brand}
+            className="inline-flex items-center gap-2 shrink-0 text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm"
           >
-            [Brand]
+            <PandaMark className="h-7 w-7 lg:h-8 lg:w-8" />
+            <span className="font-misans-bold text-[20px] lg:text-[22px] tracking-tight">
+              {nav.brand}
+            </span>
           </Link>
 
           {/* Desktop nav */}
           <nav
             role="navigation"
-            aria-label="主导航"
+            aria-label={nav.ariaLabel}
             className="ml-12 hidden lg:flex items-center gap-8"
           >
-            {NAV_ITEMS.map((item) =>
+            {nav.items.map((item) =>
               item.soft404 ? (
                 <button
                   key={item.href}
@@ -124,7 +124,7 @@ export function TopNav() {
               href="/more"
               className="inline-flex items-center gap-1 text-[14px] font-misans-regular text-soft-ivory/90 hover:text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm"
             >
-              更多 <ChevronDown size={14} aria-hidden />
+              {nav.more} <ChevronDown size={14} aria-hidden />
             </Link>
           </nav>
 
@@ -136,15 +136,15 @@ export function TopNav() {
                 href="/plan"
                 className="h-9 px-5 text-[13px]"
               >
-                免费定制行程
+                {nav.ctaPlan}
               </CTAPrimary>
               <a
                 href="https://wa.me/"
                 className="inline-flex items-center gap-1.5 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/80 motion-safe:transition-colors"
-                aria-label="WhatsApp 值班顾问"
+                aria-label={nav.whatsappAria}
               >
                 <MessageCircle size={14} aria-hidden />
-                WhatsApp · 值班
+                {nav.whatsappLabel}
               </a>
             </div>
 
@@ -166,7 +166,7 @@ export function TopNav() {
                 >
                   <User size={14} className="text-soft-ivory/85" />
                 </span>
-                登录
+                {nav.authTrigger}
                 <ChevronDown size={12} aria-hidden />
               </button>
               <DropdownSurface
@@ -174,24 +174,24 @@ export function TopNav() {
                 onClose={() => setAuthOpen(false)}
                 triggerRef={authTriggerRef}
                 width={280}
-                ariaLabel="登录菜单"
+                ariaLabel={nav.authMenuLabel}
                 align="right"
               >
                 <div className="flex flex-col gap-3 p-5">
                   <div className="text-[14px] font-misans-bold text-soft-ivory">
-                    欢迎
+                    {nav.authWelcome}
                   </div>
                   <CTAPrimary href="/auth/sign-in" className="w-full h-10 text-[13px]">
-                    登录
+                    {nav.authSignIn}
                   </CTAPrimary>
                   <a
                     href="/auth/sign-up"
                     className="text-[13px] font-misans-regular text-soft-ivory underline-offset-4 hover:underline"
                   >
-                    创建账号
+                    {nav.authSignUp}
                   </a>
                   <p className="text-[12px] font-misans-regular text-soft-ivory/60 leading-relaxed">
-                    保存草稿和聊天记录，下次回来继续。
+                    {nav.authNote}
                   </p>
                 </div>
               </DropdownSurface>
@@ -207,7 +207,7 @@ export function TopNav() {
               type="button"
               onClick={() => setMobileOpen(true)}
               className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-soft-ivory hover:bg-soft-ivory/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70"
-              aria-label="打开菜单"
+              aria-label={nav.mobileMenuOpen}
             >
               <Menu size={20} aria-hidden />
             </button>
@@ -242,6 +242,9 @@ function MobileDrawer({
   onClose: () => void;
   onSoft404: () => void;
 }) {
+  const dict = useDictionary();
+  const nav = dict.home.nav;
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -257,7 +260,7 @@ function MobileDrawer({
       aria-modal={open}
       aria-hidden={!open}
       {...(!open ? { inert: true } : {})}
-      aria-label="移动端菜单"
+      aria-label={nav.mobileMenuLabel}
       className={cn(
         "lg:hidden fixed inset-0 z-[60] bg-charcoal-blue/95",
         "motion-safe:transition-transform motion-safe:duration-300 motion-reduce:transition-none",
@@ -269,13 +272,13 @@ function MobileDrawer({
         <button
           type="button"
           onClick={onClose}
-          aria-label="关闭菜单"
+          aria-label={nav.mobileMenuClose}
           className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full text-soft-ivory hover:bg-soft-ivory/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70"
         >
           <X size={20} aria-hidden />
         </button>
-        <nav className="mt-4 flex flex-col gap-8" aria-label="主导航">
-          {NAV_ITEMS.map((item) =>
+        <nav className="mt-4 flex flex-col gap-8" aria-label={nav.ariaLabel}>
+          {nav.items.map((item) =>
             item.soft404 ? (
               <button
                 key={item.href}
@@ -299,19 +302,19 @@ function MobileDrawer({
         </nav>
         <div className="mt-10 flex flex-col gap-4">
           <CTAPrimary href="/plan" className="w-full h-12">
-            免费定制行程
+            {nav.ctaPlan}
           </CTAPrimary>
           <a
             href="https://wa.me/"
             className="inline-flex items-center justify-center gap-2 text-[15px] font-misans-regular text-soft-ivory"
           >
             <MessageCircle size={16} aria-hidden />
-            WhatsApp · 值班
+            {nav.whatsappLabel}
           </a>
         </div>
         <div className="mt-10">
           <div className="text-[12px] font-misans-regular tracking-widest text-soft-ivory/45">
-            LANGUAGE · 语言
+            {nav.languageHeading}
           </div>
           <div className="mt-3">
             <LocaleSwitch />
@@ -323,7 +326,7 @@ function MobileDrawer({
             onClick={onClose}
             className="text-[15px] font-misans-regular text-soft-ivory underline-offset-4 hover:underline"
           >
-            登录 →
+            {nav.authMobileLink}
           </Link>
         </div>
       </div>
@@ -331,7 +334,33 @@ function MobileDrawer({
   );
 }
 
-/* ----- Soft 404 dialog ----- */
+/* ----- Brand mark ----- */
+function PandaMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      aria-hidden
+      className={className}
+      role="img"
+    >
+      {/* Head */}
+      <circle cx="16" cy="17" r="10" fill="#FAF7EE" />
+      {/* Ears */}
+      <ellipse cx="7.5" cy="9.5" rx="3.6" ry="3.2" fill="#1F1F1F" />
+      <ellipse cx="24.5" cy="9.5" rx="3.6" ry="3.2" fill="#1F1F1F" />
+      {/* Eye patches */}
+      <ellipse cx="12" cy="16" rx="2.4" ry="3" fill="#1F1F1F" transform="rotate(-15 12 16)" />
+      <ellipse cx="20" cy="16" rx="2.4" ry="3" fill="#1F1F1F" transform="rotate(15 20 16)" />
+      {/* Eyes */}
+      <circle cx="12.4" cy="16.6" r="0.9" fill="#FAF7EE" />
+      <circle cx="19.6" cy="16.6" r="0.9" fill="#FAF7EE" />
+      {/* Nose */}
+      <ellipse cx="16" cy="20" rx="1.4" ry="1" fill="#1F1F1F" />
+      {/* Red accent — 中国元素 */}
+      <circle cx="16" cy="6.5" r="1.6" fill="#C8102E" />
+    </svg>
+  );
+}
 function SoftFourOhFourDialog({
   open,
   onClose,
@@ -339,6 +368,9 @@ function SoftFourOhFourDialog({
   open: boolean;
   onClose: () => void;
 }) {
+  const dict = useDictionary();
+  const nav = dict.home.nav;
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -367,24 +399,24 @@ function SoftFourOhFourDialog({
             id="soft404-title"
             className="text-[16px] font-misans-bold text-soft-ivory"
           >
-            这一栏将在第二阶段开放
+            {nav.soft404Title}
           </h3>
           <p className="text-[13px] font-misans-regular text-soft-ivory/75 leading-relaxed">
-            This corner of the site is opening in Phase 2. Want us to email you when it&apos;s live?
+            {nav.soft404Body}
           </p>
           <div className="mt-2 flex items-center gap-4">
             <a
               href="mailto:hello@example.com?subject=Notify%20me%20when%20Stories%20opens"
               className="text-[13px] font-misans-regular text-alpine-blue underline-offset-4 hover:underline"
             >
-              Notify me · 通知我
+              {nav.soft404Notify}
             </a>
             <button
               type="button"
               onClick={onClose}
               className="ml-auto text-[12px] font-misans-regular text-soft-ivory/60 hover:text-soft-ivory/85"
             >
-              Esc 关闭
+              {nav.soft404Close}
             </button>
           </div>
         </div>
