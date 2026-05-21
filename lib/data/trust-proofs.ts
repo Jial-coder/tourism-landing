@@ -50,8 +50,167 @@ export interface CredentialProof extends BaseProof {
 
 export type TrustProof = ReviewProof | AdvisorProof | CaseProof | CredentialProof;
 
-// Phase 6 时根据 spec §4.3 与现有 components/sections/AdvisorCard.tsx 等内容迁移；初始为空数组占位。
-export const TRUST_PROOFS: TrustProof[] = [];
+export interface StatProof {
+  id: string;
+  status: ProofStatus;
+  productionVisible: boolean;
+  stat: string;
+  label: { en: string; zh: string };
+}
+
+export const TRUST_STATS: StatProof[] = [
+  {
+    id: 'stat-travelers-count',
+    status: 'mock',
+    productionVisible: true,
+    stat: '10,000+',
+    label: { en: "Travelers we've planned for", zh: '已为 10,000+ 位旅客做过定制' },
+  },
+  {
+    id: 'stat-five-star-rate',
+    status: 'mock',
+    productionVisible: true,
+    stat: '98.8%',
+    label: { en: '5-star reviews (sample)', zh: '五星好评率（样本）' },
+  },
+  {
+    id: 'stat-specialist-tenure',
+    status: 'mock',
+    productionVisible: true,
+    stat: '8 yrs',
+    label: { en: 'Average specialist tenure', zh: '顾问平均从业年限' },
+  },
+  {
+    id: 'stat-reply-window',
+    status: 'mock',
+    productionVisible: true,
+    stat: '24 h',
+    label: {
+      en: 'Reply within (China holidays excluded)',
+      zh: '内回复（中国节假日除外）',
+    },
+  },
+];
+
+export const TRUST_PROOFS: TrustProof[] = [
+  {
+    id: 'example-trip-classic-12d',
+    kind: 'C_case',
+    status: 'mock',
+    productionVisible: false,
+    customerType: 'First-time couple from the US',
+    durationDays: 12,
+    partySize: 2,
+    destinations: ['Beijing', "Xi'an", 'Guilin', 'Shanghai'],
+    challenge: {
+      en: 'Wanted the classic China loop but no group bus, no rushed museum stops, and a real food day in each city.',
+      zh: '想走经典中国一圈，但拒绝大巴团、博物馆走马观花，要每个城市留一天好好吃饭。',
+    },
+    outcome: {
+      en: 'Private guides in each city, Forbidden City sunrise slot, slow Li River bamboo morning, lane breakfast walk in Shanghai.',
+      zh: '每城私人向导、故宫日出时段、漓江竹筏慢早晨、上海弄堂早餐徒步。',
+    },
+    feedbackAvailable: false,
+  },
+  {
+    id: 'example-trip-yunnan-loop-9d',
+    kind: 'C_case',
+    status: 'mock',
+    productionVisible: false,
+    customerType: 'Slow-travel couple from the UK',
+    durationDays: 9,
+    partySize: 2,
+    destinations: ['Kunming', 'Dali', 'Lijiang', 'Shangri-La'],
+    challenge: {
+      en: 'Wanted Yunnan, but allergic to packaged old-town tours and big-bus altitude transfers.',
+      zh: '想去云南，又拒绝古镇打卡团和大巴上高原。',
+    },
+    outcome: {
+      en: 'Private driver loop, lakeside Dali stay, Naxi village lunch with a local family, gradual altitude pacing.',
+      zh: '私人司机环线、大理湖畔住宿、纳西村午餐做客本地人家、循序上高原。',
+    },
+    feedbackAvailable: false,
+  },
+  {
+    id: 'example-trip-family-15d',
+    kind: 'C_case',
+    status: 'mock',
+    productionVisible: false,
+    customerType: 'Multi-gen family of 5 from Australia',
+    durationDays: 15,
+    partySize: 5,
+    destinations: ['Beijing', "Xi'an", 'Chengdu', 'Zhangjiajie', 'Shanghai'],
+    challenge: {
+      en: 'Three generations, mixed pace, one wheelchair user; wanted pandas, peaks, and the Bund without losing grandma.',
+      zh: '三代同行、节奏不同、一位轮椅长者；既想看熊猫和山，又不想累到长辈。',
+    },
+    outcome: {
+      en: 'Wheelchair-accessible hotels, panda morning slot, Zhangjiajie elevator route, slower city days, family-style dinners booked.',
+      zh: '无障碍酒店、熊猫上午时段、张家界百龙电梯线路、放慢市内节奏、合家桌餐预订。',
+    },
+    feedbackAvailable: false,
+  },
+  {
+    id: 'demo-advisor-yiwen-lu',
+    kind: 'B_advisor',
+    status: 'mock',
+    productionVisible: false,
+    displayName: { en: 'Yiwen Lu', zh: '陆奕雯' },
+    role: { en: 'Senior China Specialist · Beijing', zh: '资深中国顾问 · 北京' },
+    languages: ['English', '中文'],
+    destinations: ['Beijing', "Xi'an", 'Inner Mongolia', 'Pingyao'],
+    yearsOfExperience: 9,
+    responseModel: {
+      en: 'Replies within 24h, weekdays Beijing time.',
+      zh: '北京工作日 24 小时内回复。',
+    },
+  },
+  {
+    id: 'demo-advisor-bo-chen',
+    kind: 'B_advisor',
+    status: 'mock',
+    productionVisible: false,
+    displayName: { en: 'Bo Chen', zh: '陈博' },
+    role: { en: 'Yunnan & Sichuan Specialist · Chengdu', zh: '云南川藏顾问 · 成都' },
+    languages: ['English', '中文', 'Français'],
+    destinations: ['Chengdu', 'Dali', 'Lijiang', 'Shangri-La', 'Jiuzhaigou'],
+    yearsOfExperience: 7,
+    responseModel: {
+      en: 'Replies within 24h; on-trip support in Chengdu timezone.',
+      zh: '24 小时内回复；行程中按成都时区随叫随到。',
+    },
+  },
+  {
+    id: 'demo-advisor-mei-zhang',
+    kind: 'B_advisor',
+    status: 'mock',
+    productionVisible: false,
+    displayName: { en: 'Mei Zhang', zh: '张玫' },
+    role: { en: 'East China & Shanghai Specialist', zh: '华东上海顾问' },
+    languages: ['English', '中文', '日本語'],
+    destinations: ['Shanghai', 'Hangzhou', 'Suzhou', 'Huangshan'],
+    yearsOfExperience: 8,
+    responseModel: {
+      en: 'Replies within 24h; reachable on WeChat during the trip.',
+      zh: '24 小时内回复；行程中微信常驻。',
+    },
+  },
+  {
+    id: 'demo-advisor-jian-li',
+    kind: 'B_advisor',
+    status: 'mock',
+    productionVisible: false,
+    displayName: { en: 'Jian Li', zh: '李健' },
+    role: { en: 'Family & Multi-gen Specialist · Beijing', zh: '家庭与多代同行顾问 · 北京' },
+    languages: ['English', '中文'],
+    destinations: ['Beijing', 'Zhangjiajie', 'Guilin', 'Hangzhou'],
+    yearsOfExperience: 10,
+    responseModel: {
+      en: 'Replies within 24h; specialised in accessible & family pacing.',
+      zh: '24 小时内回复；擅长无障碍与家庭节奏。',
+    },
+  },
+];
 
 export const renderableProofs = (
   proofs: TrustProof[],
@@ -62,3 +221,11 @@ export const renderableProofs = (
     if (isProduction && p.status === 'mock') return false;
     return p.productionVisible || !isProduction;
   });
+
+export const exampleCases = (proofs: TrustProof[] = TRUST_PROOFS): CaseProof[] =>
+  proofs.filter((p): p is CaseProof => p.kind === 'C_case' && p.id.startsWith('example-trip-'));
+
+export const demoAdvisors = (proofs: TrustProof[] = TRUST_PROOFS): AdvisorProof[] =>
+  proofs.filter(
+    (p): p is AdvisorProof => p.kind === 'B_advisor' && p.id.startsWith('demo-advisor-')
+  );
