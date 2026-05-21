@@ -53,6 +53,9 @@ export function HeroBackdrop({
         ? Array.from(new Set([src, ...DEFAULT_SLIDES]))
         : DEFAULT_SLIDES;
   const [index, setIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (reduce || list.length <= 1) return;
@@ -62,9 +65,9 @@ export function HeroBackdrop({
     return () => clearInterval(id);
   }, [reduce, list.length, intervalMs]);
 
-  if (reduce) {
+  if (reduce || !mounted) {
     return (
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" suppressHydrationWarning>
         <Image
           src={list[0]}
           alt={alt}
