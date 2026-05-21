@@ -1,4 +1,7 @@
+'use client';
+
 import { MockBadge } from '@/components/trust/MockBadge';
+import { useLocale } from '@/components/i18n/LocaleProvider';
 import type { AdvisorProof } from '@/lib/data/trust-proofs';
 
 const initials = (name: string) =>
@@ -9,6 +12,7 @@ const initials = (name: string) =>
     .slice(0, 2);
 
 export function AdvisorProfileCard({ advisor }: { advisor: AdvisorProof }) {
+  const { locale } = useLocale();
   const isMock = advisor.status === 'mock';
   return (
     <article
@@ -26,9 +30,9 @@ export function AdvisorProfileCard({ advisor }: { advisor: AdvisorProof }) {
       </div>
       <div>
         <h4 className="font-serif text-lg leading-snug text-ink">
-          {advisor.displayName.en}
+          {advisor.displayName[locale]}
         </h4>
-        <p className="mt-1 text-sm text-ink-soft">{advisor.role.en}</p>
+        <p className="mt-1 text-sm text-ink-soft">{advisor.role[locale]}</p>
       </div>
       <ul className="flex flex-wrap gap-1.5">
         {advisor.languages.map((lang) => (
@@ -43,7 +47,7 @@ export function AdvisorProfileCard({ advisor }: { advisor: AdvisorProof }) {
       <p className="text-xs uppercase tracking-wider text-jade">
         {advisor.destinations.slice(0, 4).join(' · ')}
       </p>
-      <p className="mt-auto text-xs text-ink-soft">{advisor.responseModel.en}</p>
+      <p className="mt-auto text-xs text-ink-soft">{advisor.responseModel[locale]}</p>
     </article>
   );
 }

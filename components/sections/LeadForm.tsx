@@ -11,6 +11,8 @@ import { CONTACT_CHANNELS } from '@/lib/data/contact-channels';
 import { HoneypotField } from '@/components/forms/HoneypotField';
 import { TurnstileWidget } from '@/components/forms/TurnstileWidget';
 import { LeadFormSuccess } from '@/components/sections/LeadFormSuccess';
+import { Reveal } from '@/components/motion/Reveal';
+import { MagneticCta } from '@/components/motion/MagneticCta';
 
 import {
   Form,
@@ -124,19 +126,22 @@ export function LeadForm({ source }: { source: LeadSource }) {
       className="bg-paper py-20 lg:py-28"
     >
       <div className="mx-auto w-full max-w-3xl px-6 lg:px-10">
-        <div className="mb-10 flex flex-col gap-3 text-center">
-          <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
-            {ld.eyebrow}
-          </p>
-          <h2 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
-            {ld.heading}
-          </h2>
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-            {ld.body}
-          </p>
-        </div>
+        <Reveal>
+          <div className="mb-10 flex flex-col gap-3 text-center">
+            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
+              {ld.eyebrow}
+            </p>
+            <h2 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
+              {ld.heading}
+            </h2>
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+              {ld.body}
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mx-auto max-w-2xl rounded-2xl border border-ink/10 bg-cream p-6 shadow-sm md:p-8">
+        <Reveal>
+          <div className="mx-auto max-w-2xl rounded-2xl border border-ink/10 bg-cream p-6 shadow-sm md:p-8">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -378,17 +383,20 @@ export function LeadForm({ source }: { source: LeadSource }) {
               <p className="text-xs leading-relaxed text-ink-soft">{ld.consent}</p>
 
               <div className="flex justify-center pt-2">
-                <Button
-                  type="submit"
-                  disabled={submitting}
-                  className="h-12 rounded-full bg-jade px-8 py-3 font-medium text-soft-ivory shadow-md transition-colors hover:bg-jade-soft disabled:opacity-60"
-                >
-                  {submitting ? ld.submitting : ld.submit}
-                </Button>
+                <MagneticCta>
+                  <Button
+                    type="submit"
+                    disabled={submitting}
+                    className="h-12 rounded-full bg-jade px-8 py-3 font-medium text-soft-ivory shadow-md transition-colors hover:bg-jade-soft disabled:opacity-60"
+                  >
+                    {submitting ? ld.submitting : ld.submit}
+                  </Button>
+                </MagneticCta>
               </div>
             </form>
           </Form>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

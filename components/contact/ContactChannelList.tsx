@@ -1,9 +1,12 @@
+'use client';
+
 import {
   CONTACT_CHANNELS,
   overseasOrder,
   type ContactChannel,
 } from '@/lib/data/contact-channels';
 import { MockBadge } from '@/components/trust/MockBadge';
+import { useLocale } from '@/components/i18n/LocaleProvider';
 import { cn } from '@/lib/utils';
 
 type Locale = 'en' | 'zh';
@@ -20,7 +23,7 @@ const ICON: Record<ContactChannel['kind'], string> = {
 
 export function ContactChannelList({
   variant = 'grid',
-  locale = 'en',
+  locale: localeProp,
   channels = CONTACT_CHANNELS,
   className,
 }: {
@@ -29,14 +32,16 @@ export function ContactChannelList({
   channels?: ContactChannel[];
   className?: string;
 }) {
+  const ctx = useLocale();
+  const locale: Locale = localeProp ?? ctx.locale;
   const ordered = overseasOrder(channels).filter((c) => c.visibility !== 'hidden');
+  const mockLabel = locale === 'zh' ? '占位' : 'mock';
 
   if (variant === 'list') {
     return (
       <ul className={cn('flex flex-col gap-2 text-sm', className)}>
         {ordered.map((channel) => {
-          const label =
-            (locale === 'zh' ? channel.label.zh : channel.label.en) ?? channel.label.en;
+          const label = channel.label[locale] ?? channel.label.en;
           const isMock = channel.status === 'mock';
           return (
             <li key={channel.id} className="flex items-center gap-2">
@@ -50,7 +55,7 @@ export function ContactChannelList({
               >
                 {label}
               </a>
-              {isMock && <MockBadge>mock</MockBadge>}
+              {isMock && <MockBadge>{mockLabel}</MockBadge>}
             </li>
           );
         })}
@@ -66,8 +71,7 @@ export function ContactChannelList({
       )}
     >
       {ordered.map((channel) => {
-        const label =
-          (locale === 'zh' ? channel.label.zh : channel.label.en) ?? channel.label.en;
+        const label = channel.label[locale] ?? channel.label.en;
         const isMock = channel.status === 'mock';
         return (
           <li key={channel.id}>
@@ -85,7 +89,7 @@ export function ContactChannelList({
               <span className="font-serif text-base leading-snug text-ink">{label}</span>
               {isMock && (
                 <span className="mt-auto">
-                  <MockBadge>mock</MockBadge>
+                  <MockBadge>{mockLabel}</MockBadge>
                 </span>
               )}
             </a>
