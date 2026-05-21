@@ -1,13 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useSpring,
-  useReducedMotion,
-} from 'framer-motion';
+import { animate, useMotionValue, useReducedMotion } from 'framer-motion';
 import { useMounted } from './use-mounted';
 
 interface NumberTickerProps {
@@ -30,47 +24,63 @@ function formatNumber(v: number, decimals: number) {
 export function NumberTicker({
   value,
   decimals = 0,
-  duration = 2.6,
+  duration = 1.6,
   delay = 0.3,
   className,
   prefix = '',
   suffix = '',
 }: NumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const [inView, setInView] = useState(false);
   const reduce = useReducedMotion();
   const mounted = useMounted();
   const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, {
-    duration: duration * 1000,
-    bounce: 0.18,
-  });
   const [display, setDisplay] = useState(() => formatNumber(0, decimals));
-  const [arrived, setArrived] = useState(false);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -80px 0px', threshold: 0 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [mounted]);
 
   useEffect(() => {
     if (!inView) return;
     if (reduce) {
+      motionValue.set(value);
       setDisplay(formatNumber(value, decimals));
-      setArrived(true);
       return;
     }
+    let controls: ReturnType<typeof animate> | null = null;
     const startTimer = window.setTimeout(() => {
-      motionValue.set(value);
+      controls = animate(motionValue, value, {
+        duration,
+        ease: [0.16, 1, 0.3, 1],
+        onUpdate: (v) => setDisplay(formatNumber(v, decimals)),
+      });
     }, delay * 1000);
-    const arriveTimer = window.setTimeout(
-      () => setArrived(true),
-      (delay + duration) * 1000,
-    );
-    const unsubscribe = spring.on('change', (v) => {
-      setDisplay(formatNumber(v, decimals));
-    });
     return () => {
       window.clearTimeout(startTimer);
-      window.clearTimeout(arriveTimer);
-      unsubscribe();
+      controls?.stop();
     };
-  }, [inView, reduce, value, decimals, delay, duration, motionValue, spring]);
+  }, [inView, reduce, value, decimals, delay, duration, motionValue]);
 
   if (!mounted) {
     return (
@@ -83,30 +93,11 @@ export function NumberTicker({
   }
 
   return (
-    <motion.span
-      ref={ref}
-      className={className}
-      style={{ display: 'inline-block', fontWeight: 700 }}
-      animate={
-        reduce
-          ? undefined
-          : arrived
-            ? {
-                scale: [1, 1.06, 1],
-                color: [
-                  'var(--color-jade)',
-                  'var(--color-jade)',
-                  'var(--color-ink)',
-                ],
-              }
-            : undefined
-      }
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-    >
+    <span ref={ref} className={className} style={{ display: 'inline-block', fontWeight: 700 }}>
       {prefix}
       {display}
       {suffix}
-    </motion.span>
+    </span>
   );
 }
 
