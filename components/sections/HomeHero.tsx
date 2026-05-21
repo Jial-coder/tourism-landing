@@ -58,7 +58,7 @@ export function HomeHero() {
               <MagneticCta>
                 <a
                   href="#lead-form"
-                  className="inline-flex items-center justify-center rounded-full bg-jade px-7 py-3 text-sm font-semibold text-soft-ivory shadow-lg shadow-jade/20 transition-colors hover:bg-jade-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade-soft focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate"
+                  className="inline-flex items-center justify-center rounded-full bg-vermilion px-7 py-3 text-sm font-semibold text-soft-ivory shadow-lg shadow-vermilion/25 transition-colors hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate"
                 >
                   {t.primaryCta}
                 </a>

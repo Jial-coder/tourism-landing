@@ -55,8 +55,8 @@ export default function HeroPickPage() {
   const [showOverlay, setShowOverlay] = useState(true);
 
   return (
-    <main className="min-h-screen bg-deep-slate text-soft-ivory">
-      <header className="sticky top-0 z-30 border-b border-soft-ivory/10 bg-deep-slate/95 backdrop-blur-md px-6 lg:px-16 py-5">
+    <main className="min-h-screen bg-cream text-ink">
+      <header className="sticky top-0 z-30 border-b border-soft-ivory/10 bg-deep-slate/95 backdrop-blur-md px-6 lg:px-16 py-5 text-soft-ivory">
         <div className="mx-auto max-w-[1440px] flex items-center justify-between gap-6 flex-wrap">
           <div>
             <h1 className="text-[18px] lg:text-[22px] font-misans-bold">
@@ -137,7 +137,7 @@ export default function HeroPickPage() {
         ))}
       </div>
 
-      <footer className="px-6 lg:px-16 py-8 text-[12px] text-soft-ivory/55">
+      <footer className="px-6 lg:px-16 py-8 text-[12px] text-ink/55">
         <div className="mx-auto max-w-[1440px]">
           5 张并排所见即所得 · v4 重点看右半是否干净 + 左半黄山是否未被破坏 · 选完 lead 把 Hero.tsx 主图换到对应文件并叠 ChinaMapOverlay
         </div>

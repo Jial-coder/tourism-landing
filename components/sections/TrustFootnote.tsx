@@ -34,11 +34,11 @@ export function TrustFootnote() {
   return (
     <section
       data-feedback-id="TRUST-01"
-      className="relative w-full bg-deep-slate py-16 lg:py-24 border-t border-soft-ivory/8"
+      className="relative w-full bg-cream py-16 lg:py-24 border-t border-ink/10"
     >
       <SectionInner>
         <div className="mb-10 lg:mb-12 max-w-[640px]">
-          <h2 className="text-[20px] lg:text-[28px] font-misans-bold tracking-tight text-soft-ivory italic">
+          <h2 className="text-[20px] lg:text-[28px] font-misans-bold tracking-tight text-ink italic">
             Why people stay with us
           </h2>
         </div>
@@ -70,13 +70,13 @@ function Footnote({
 }) {
   return (
     <div className={`flex flex-col gap-2 ${className ?? ""}`}>
-      <div className="text-[14px] font-misans-regular tracking-widest text-soft-ivory/35">
+      <div className="text-[14px] font-misans-regular tracking-widest text-ink/40">
         {n}
       </div>
-      <div className="text-[15px] font-misans-bold text-soft-ivory">
+      <div className="text-[15px] font-misans-bold text-ink">
         {title}
       </div>
-      <p className="text-[13px] font-misans-regular text-soft-ivory/70 leading-relaxed">
+      <p className="text-[13px] font-misans-regular text-ink/70 leading-relaxed">
         {desc}
       </p>
     </div>

@@ -200,6 +200,26 @@ OKLCH `0.55 0.20 27` 实际渲染近似 `#cc2827`（不是预想的 `#C8102E`）
 - focus-visible ring on vermilion bg（ring offset 颜色选择）
 - disabled state vermilion → vermilion-soft（disabled CTA 对比度）
 
+**TODO 真测结果（Phase 2.1 worker 2026-05-22 实测，sRGB hex 近似 + WCAG 2.x 公式）**：
+
+| TODO | 组合 | ratio | 结论 |
+|---|---|---|---|
+| 1a | vermilion 主 CTA 色块 vs hero 蒙版上段（deep-slate α=0.70） | 2.08 | 仅作色块辨识，不承载文字 — 可用 |
+| 1b | vermilion 主 CTA 色块 vs hero 蒙版下段（deep-slate α=0.85） | 2.70 | 同上，可用 |
+| 2a | vermilion **文字**直接画在 hero 蒙版（α=0.40）上 | 1.17 | ❌ FAIL — **禁用** vermilion 文字直接放 hero 蒙版浅段 |
+| 2b | vermilion **文字** on 蒙版（α=0.60） | 1.72 | ❌ FAIL — 禁用 |
+| 2c | vermilion **文字** on 蒙版（α=0.85，几乎纯 deep-slate） | 2.70 | ❌ FAIL（< AA 大字 3.0）— 禁用 |
+| 3a | focus-visible ring-vermilion vs ring-offset-cream | 5.16 | 跟 button bg 同色 ratio=1.04 ⇒ ring 在 button 边缘不可见，**禁用** |
+| 3b | focus-visible **ring-jade** vs ring-offset-cream | 4.97 | ✅ ring 跟 offset 4.97 可见；跟 button bg 1.04 — 靠 offset 把 ring 抬出 button 外缘，**采用**（已落地 CTAPrimary） |
+| 4a | disabled `opacity-60` 整体淡化（不换 token） | base 5.21 不变 | opacity 不改对比比，base 仍 PASS AA — 当前 LeadForm 路线可保留 |
+| 4b | disabled 改 vermilion-soft bg + ink text | 11.07 | ✅ AAA — 备用方案，更明显的"不可点击"语义可换这套 |
+| 4c | disabled 改 vermilion-soft bg + soft-ivory text | 1.28 | ❌ FAIL — 禁用此组合 |
+
+**强约束补充**（基于 2.1 真测）：
+- vermilion 文字 **禁止** 直接放在 hero 暗渐变蒙版上（任何 alpha 都 fail，2c 已 FAIL）— hero 段红字必须做底色背景或避开蒙版穿透区
+- 主 CTA focus ring 在暖底页用 `ring-jade ring-offset-cream`（CTAPrimary 已落地）；在暗底 hero 上用 `ring-soft-ivory ring-offset-deep-slate`（HomeHero 已落地）
+- disabled CTA v1 用 `disabled:opacity-60` 维持当前路线；若产品后续要更明显的"不可点击"语义，再切到 4b 方案
+
 ### 3.6 暖冷对比规则
 
 任何页面允许 1 个暗段（如 hero 大图 + 蒙版）作为视觉锚，其余全 cream/paper。**不允许整页冷底**。

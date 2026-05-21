@@ -20,6 +20,11 @@
   --color-jade-soft: oklch(0.55 0.05 155);
   --color-gold:      oklch(0.78 0.10 75);
 
+  /* pandatravel brand red — 中国红，主 CTA + brand accent (spec §3.3) */
+  --color-vermilion:      oklch(0.55 0.20 27);    /* ≈ #cc2827, brand svg dot */
+  --color-vermilion-deep: oklch(0.48 0.20 27);    /* hover / pressed */
+  --color-vermilion-soft: oklch(0.92 0.05 27);    /* 副分区暖红 / pill bg */
+
   /* ----- legacy v0.2 tokens kept: hero / advisor暗块 / Footer 仍要用 ----- */
   --charcoal-blue: #1a2538;
   --deep-slate:    #0f172a;
@@ -66,6 +71,11 @@
   --color-jade:      var(--color-jade);
   --color-jade-soft: var(--color-jade-soft);
   --color-gold:      var(--color-gold);
+
+  /* pandatravel brand red utilities (bg-vermilion / text-vermilion / hover:bg-vermilion-deep / bg-vermilion-soft) */
+  --color-vermilion:      var(--color-vermilion);
+  --color-vermilion-deep: var(--color-vermilion-deep);
+  --color-vermilion-soft: var(--color-vermilion-soft);
 
   /* legacy v0.2 palette as Tailwind utility classes (bg-charcoal-blue, text-soft-ivory, ...) */
   --color-charcoal-blue: var(--charcoal-blue);

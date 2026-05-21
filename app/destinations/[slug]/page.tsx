@@ -163,26 +163,26 @@ export default async function DestinationPage({
           </SectionInner>
         </section>
 
-        <section className="relative w-full bg-deep-slate py-16 lg:py-24">
+        <section className="relative w-full bg-cream py-16 lg:py-24">
           <SectionInner>
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,420px)] gap-12 lg:gap-20 items-start">
               <div className="flex flex-col gap-5 max-w-[640px]">
-                <div className="text-[12px] font-misans-regular tracking-[0.18em] text-alpine-blue/80">
+                <div className="text-[12px] font-misans-regular tracking-[0.18em] text-jade">
                   这一站值得去吗
                 </div>
-                <p className="text-[15px] lg:text-[17px] font-misans-regular text-soft-ivory/80 leading-relaxed">
+                <p className="text-[15px] lg:text-[17px] font-misans-regular text-ink/85 leading-relaxed">
                   {d.intro}
                 </p>
-                <p className="text-[13px] font-misans-regular text-soft-ivory/55 leading-relaxed">
+                <p className="text-[13px] font-misans-regular text-ink/55 leading-relaxed">
                   详细行程、住宿、最佳时节、签证 + 机票配置都由 Lin
                   跟你一对一聊完之后给。我们不卖标准包，所以这里不放价格表。
                 </p>
               </div>
-              <aside className="rounded-[8px] border border-soft-ivory/10 bg-charcoal-blue/40 p-5 flex flex-col gap-4">
-                <div className="text-[12px] font-misans-regular tracking-[0.18em] text-alpine-blue/80">
+              <aside className="rounded-[8px] ring-1 ring-ink/10 bg-paper p-5 flex flex-col gap-4">
+                <div className="text-[12px] font-misans-regular tracking-[0.18em] text-jade">
                   下一步
                 </div>
-                <p className="text-[14px] font-misans-regular text-soft-ivory/80 leading-relaxed">
+                <p className="text-[14px] font-misans-regular text-ink/80 leading-relaxed">
                   把 {d.cn} 加进你的行程草稿，让 Lin 在 4 小时内回复一份初步方案。
                 </p>
                 <CTAPrimary
@@ -193,7 +193,7 @@ export default async function DestinationPage({
                 </CTAPrimary>
                 <a
                   href={`https://wa.me/?text=${encodeURIComponent(`想聊聊 ${d.cn} ${d.en}`)}`}
-                  className="text-[13px] font-misans-regular text-soft-ivory/85 underline-offset-4 hover:underline"
+                  className="text-[13px] font-misans-regular text-ink/75 underline-offset-4 hover:underline hover:text-jade"
                 >
                   WhatsApp Lin · 直接聊 →
                 </a>

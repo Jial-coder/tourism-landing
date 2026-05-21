@@ -427,7 +427,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="h-12 rounded-full bg-jade px-8 py-3 font-medium text-soft-ivory shadow-md transition-colors hover:bg-jade-soft disabled:opacity-60"
+                    className="h-12 rounded-full bg-vermilion px-8 py-3 font-medium text-soft-ivory shadow-md shadow-vermilion/25 transition-colors hover:bg-vermilion-deep disabled:opacity-60"
                   >
                     {submitting ? ld.submitting : ld.submit}
                   </Button>
