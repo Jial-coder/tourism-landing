@@ -1,0 +1,5 @@
+Total messages: 4 (Errors: 0, Warnings: 2)
+Returning 2 messages for level "warning"
+
+[WARNING] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled @ http://localhost:3001/_next/static/chunks/0prs_next_dist_05bghtc._.js:2477
+[WARNING] Deprecated API for given entry type. @ :3

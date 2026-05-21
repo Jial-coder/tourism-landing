@@ -1,0 +1,606 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "[Brand]" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "主导航" [ref=e5]:
+        - link "目的地" [ref=e6] [cursor=pointer]:
+          - /url: /destinations
+        - link "行程" [ref=e7] [cursor=pointer]:
+          - /url: /itineraries
+        - link "顾问" [ref=e8] [cursor=pointer]:
+          - /url: /advisors
+        - button "旅行故事" [ref=e9]
+        - link "关于我们" [ref=e10] [cursor=pointer]:
+          - /url: /about
+        - link "更多" [ref=e11] [cursor=pointer]:
+          - /url: /more
+          - text: 更多
+          - img [ref=e12]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - link "免费定制行程" [ref=e16] [cursor=pointer]:
+            - /url: /plan
+          - link "WhatsApp 值班顾问" [ref=e17] [cursor=pointer]:
+            - /url: https://wa.me/
+            - img [ref=e18]
+            - text: WhatsApp · 值班
+        - button "登录" [ref=e21]:
+          - img [ref=e23]
+          - text: 登录
+          - img [ref=e26]
+        - group "language switch" [ref=e29]:
+          - button "EN" [ref=e30]
+          - button "中文" [pressed] [ref=e31]
+  - main [ref=e32]:
+    - generic [ref=e39]:
+      - paragraph [ref=e638]: 中国定制旅行
+      - heading "和本地顾问，把中国玩成你自己的样子" [level=1] [ref=e640]
+      - paragraph [ref=e642]: 从故宫日出到云南私享小环线，每一条路线都是你和北京顾问真人对话拼出来的，不是模板。
+      - generic [ref=e644]:
+        - link "开始定制" [ref=e646] [cursor=pointer]:
+          - /url: "#lead-form"
+        - button "直接联系顾问" [ref=e647]
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e649]:
+          - term [ref=e650]:
+            - generic [ref=e651]: 10,000+
+          - definition [ref=e652]: 已为 10,000+ 位旅客做过定制
+          - generic [ref=e653]: sample
+        - generic [ref=e656]:
+          - term [ref=e657]:
+            - generic [ref=e658]: 98.8%
+          - definition [ref=e659]: 五星好评率（样本）
+          - generic [ref=e660]: sample
+        - generic [ref=e663]:
+          - term [ref=e664]:
+            - generic [ref=e665]: 8 年
+          - definition [ref=e666]: 顾问平均从业年限
+          - generic [ref=e667]: sample
+        - generic [ref=e670]:
+          - term [ref=e671]:
+            - generic [ref=e672]: 24 小时
+          - definition [ref=e673]: 内回复（中国节假日除外）
+          - generic [ref=e674]: sample
+      - generic [ref=e676]:
+        - generic [ref=e677]: Beijing-based specialists
+        - generic [ref=e678]: Tailor-made, never packaged
+        - generic [ref=e679]: Real specialists, named replies
+        - generic [ref=e680]: 24h reply window
+        - generic [ref=e681]: 5-star sample reviews
+        - generic [ref=e682]: On-the-ground crisis support
+        - generic [ref=e683]: Beijing-based specialists
+        - generic [ref=e684]: Tailor-made, never packaged
+        - generic [ref=e685]: Real specialists, named replies
+        - generic [ref=e686]: 24h reply window
+        - generic [ref=e687]: 5-star sample reviews
+        - generic [ref=e688]: On-the-ground crisis support
+    - generic [ref=e92]:
+      - generic [ref=e690]:
+        - paragraph [ref=e691]: 我们的工作方式
+        - heading "三步从想法到行程" [level=2] [ref=e692]
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - article [ref=e694]:
+            - generic [ref=e696]: "00"
+            - heading "联系顾问" [level=3] [ref=e697]
+            - paragraph [ref=e698]: 告诉我们你的旅行月份、人数、节奏，以及你想象中的中国。没有打包菜单。
+          - article [ref=e700]:
+            - generic [ref=e702]: "00"
+            - heading "量身路线" [level=3] [ref=e703]
+            - paragraph [ref=e704]: 顾问为你画一条私人路线、选酒店、配向导和节奏；不合适就改到合适为止。
+          - article [ref=e706]:
+            - generic [ref=e708]: "00"
+            - heading "全程后援" [level=3] [ref=e709]
+            - paragraph [ref=e710]: 北京顾问做你的全程后援 —— 航班延误、临时改方案、饮食过敏，都按你的时区处理。
+        - generic:
+          - img
+          - img
+      - link "开始定制" [ref=e713] [cursor=pointer]:
+        - /url: "#lead-form"
+    - generic [ref=e121]:
+      - generic [ref=e715]:
+        - paragraph [ref=e716]: 目的地
+        - heading "从一个让你心动的地方开始" [level=2] [ref=e717]
+        - paragraph [ref=e718]: 选一个你想象过的地方，剩下的中国由我们串起来。
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - link "定制前往 北京" [ref=e721] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "北京" [ref=e722]
+            - generic [ref=e724]:
+              - heading "北京" [level=3] [ref=e725]
+              - paragraph [ref=e726]: 故宫日出，胡同清晨
+              - paragraph [ref=e727]: 定制前往 北京 →
+        - listitem [ref=e138]:
+          - link "定制前往 西安" [ref=e730] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "西安" [ref=e731]
+            - generic [ref=e733]:
+              - heading "西安" [level=3] [ref=e734]
+              - paragraph [ref=e735]: 兵马俑与盛唐夜市
+              - paragraph [ref=e736]: 定制前往 西安 →
+        - listitem [ref=e148]:
+          - link "定制前往 上海" [ref=e739] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "上海" [ref=e740]
+            - generic [ref=e742]:
+              - heading "上海" [level=3] [ref=e743]
+              - paragraph [ref=e744]: 外滩夜色与弄堂早茶
+              - paragraph [ref=e745]: 定制前往 上海 →
+        - listitem [ref=e158]:
+          - link "定制前往 桂林" [ref=e748] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "桂林" [ref=e749]
+            - generic [ref=e751]:
+              - heading "桂林" [level=3] [ref=e752]
+              - paragraph [ref=e753]: 喀斯特山水与竹筏
+              - paragraph [ref=e754]: 定制前往 桂林 →
+        - listitem [ref=e168]:
+          - link "定制前往 张家界" [ref=e757] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "张家界" [ref=e758]
+            - generic [ref=e760]:
+              - heading "张家界" [level=3] [ref=e761]
+              - paragraph [ref=e762]: 阿凡达云海之上
+              - paragraph [ref=e763]: 定制前往 张家界 →
+        - listitem [ref=e178]:
+          - link "定制前往 九寨沟" [ref=e766] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "九寨沟" [ref=e767]
+            - generic [ref=e769]:
+              - heading "九寨沟" [level=3] [ref=e770]
+              - paragraph [ref=e771]: 藏地秘境与翡翠水
+              - paragraph [ref=e772]: 定制前往 九寨沟 →
+        - listitem [ref=e188]:
+          - link "定制前往 大理" [ref=e775] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "大理" [ref=e776]
+            - generic [ref=e778]:
+              - heading "大理" [level=3] [ref=e779]
+              - paragraph [ref=e780]: 云南慢节奏湖畔
+              - paragraph [ref=e781]: 定制前往 大理 →
+        - listitem [ref=e198]:
+          - link "定制前往 黄山" [ref=e784] [cursor=pointer]:
+            - /url: "#lead-form"
+            - img "黄山" [ref=e785]
+            - generic [ref=e787]:
+              - heading "黄山" [level=3] [ref=e788]
+              - paragraph [ref=e789]: 云海之上的水墨
+              - paragraph [ref=e790]: 定制前往 黄山 →
+    - generic [ref=e209]:
+      - generic [ref=e792]:
+        - paragraph [ref=e793]: 范例行程
+        - heading "别人这样和我们一起出发" [level=2] [ref=e794]
+        - paragraph [ref=e795]: 概念性范例 —— 你的行程从对话出发，不从货架上选。
+      - generic [ref=e215]:
+        - article [ref=e797]:
+          - generic [ref=e798]:
+            - generic [ref=e799]: example
+            - generic [ref=e801]: 12 天
+          - heading "First-time couple from the US" [level=3] [ref=e802]
+          - paragraph [ref=e803]: Beijing · Xi'an · Guilin · Shanghai
+          - paragraph [ref=e804]: 每城私人向导、故宫日出时段、漓江竹筏慢早晨、上海弄堂早餐徒步。
+          - link "定制类似行程" [ref=e805] [cursor=pointer]:
+            - /url: "#lead-form"
+            - text: 定制类似行程
+            - generic [ref=e806]: →
+        - article [ref=e808]:
+          - generic [ref=e809]:
+            - generic [ref=e810]: example
+            - generic [ref=e812]: 9 天
+          - heading "Slow-travel couple from the UK" [level=3] [ref=e813]
+          - paragraph [ref=e814]: Kunming · Dali · Lijiang · Shangri-La
+          - paragraph [ref=e815]: 私人司机环线、大理湖畔住宿、纳西村午餐做客本地人家、循序上高原。
+          - link "定制类似行程" [ref=e816] [cursor=pointer]:
+            - /url: "#lead-form"
+            - text: 定制类似行程
+            - generic [ref=e817]: →
+        - article [ref=e819]:
+          - generic [ref=e820]:
+            - generic [ref=e821]: example
+            - generic [ref=e823]: 15 天
+          - heading "Multi-gen family of 5 from Australia" [level=3] [ref=e824]
+          - paragraph [ref=e825]: Beijing · Xi'an · Chengdu · Zhangjiajie · Shanghai
+          - paragraph [ref=e826]: 无障碍酒店、熊猫上午时段、张家界百龙电梯线路、放慢市内节奏、合家桌餐预订。
+          - link "定制类似行程" [ref=e827] [cursor=pointer]:
+            - /url: "#lead-form"
+            - text: 定制类似行程
+            - generic [ref=e828]: →
+    - generic [ref=e250]:
+      - generic [ref=e830]:
+        - paragraph [ref=e831]: 你的顾问
+        - heading "每条回复背后都是真人" [level=2] [ref=e832]
+        - paragraph [ref=e833]: 北京 / 成都 / 上海全职顾问，签约不外包。
+      - generic [ref=e834]:
+        - generic [ref=e835]: 陆奕雯
+        - generic [ref=e836]: 资深中国顾问 · 北京
+        - generic [ref=e837]: English · 中文
+        - generic [ref=e838]: Beijing · Xi'an · Inner Mongolia · Pingyao
+        - generic [ref=e839]: 陈博
+        - generic [ref=e840]: 云南川藏顾问 · 成都
+        - generic [ref=e841]: English · 中文 · Français
+        - generic [ref=e842]: Chengdu · Dali · Lijiang · Shangri-La · Jiuzhaigou
+        - generic [ref=e843]: 张玫
+        - generic [ref=e844]: 华东上海顾问
+        - generic [ref=e845]: English · 中文 · 日本語
+        - generic [ref=e846]: Shanghai · Hangzhou · Suzhou · Huangshan
+        - generic [ref=e847]: 李健
+        - generic [ref=e848]: 家庭与多代同行顾问 · 北京
+        - generic [ref=e849]: English · 中文
+        - generic [ref=e850]: Beijing · Zhangjiajie · Guilin · Hangzhou
+        - generic [ref=e851]: 陆奕雯
+        - generic [ref=e852]: 资深中国顾问 · 北京
+        - generic [ref=e853]: English · 中文
+        - generic [ref=e854]: Beijing · Xi'an · Inner Mongolia · Pingyao
+        - generic [ref=e855]: 陈博
+        - generic [ref=e856]: 云南川藏顾问 · 成都
+        - generic [ref=e857]: English · 中文 · Français
+        - generic [ref=e858]: Chengdu · Dali · Lijiang · Shangri-La · Jiuzhaigou
+        - generic [ref=e859]: 张玫
+        - generic [ref=e860]: 华东上海顾问
+        - generic [ref=e861]: English · 中文 · 日本語
+        - generic [ref=e862]: Shanghai · Hangzhou · Suzhou · Huangshan
+        - generic [ref=e863]: 李健
+        - generic [ref=e864]: 家庭与多代同行顾问 · 北京
+        - generic [ref=e865]: English · 中文
+        - generic [ref=e866]: Beijing · Zhangjiajie · Guilin · Hangzhou
+      - list [ref=e275]:
+        - listitem [ref=e276]:
+          - article [ref=e868]:
+            - generic [ref=e869]: demo
+            - generic [ref=e871]: YL
+            - generic [ref=e872]:
+              - heading "陆奕雯" [level=3] [ref=e873]
+              - paragraph [ref=e874]: 资深中国顾问 · 北京
+            - list [ref=e875]:
+              - listitem [ref=e876]: English
+              - listitem [ref=e877]: 中文
+            - paragraph [ref=e878]: Beijing · Xi'an · Inner Mongolia
+        - listitem [ref=e289]:
+          - article [ref=e880]:
+            - generic [ref=e881]: demo
+            - generic [ref=e883]: BC
+            - generic [ref=e884]:
+              - heading "陈博" [level=3] [ref=e885]
+              - paragraph [ref=e886]: 云南川藏顾问 · 成都
+            - list [ref=e887]:
+              - listitem [ref=e888]: English
+              - listitem [ref=e889]: 中文
+              - listitem [ref=e890]: Français
+            - paragraph [ref=e891]: Chengdu · Dali · Lijiang
+        - listitem [ref=e303]:
+          - article [ref=e893]:
+            - generic [ref=e894]: demo
+            - generic [ref=e896]: MZ
+            - generic [ref=e897]:
+              - heading "张玫" [level=3] [ref=e898]
+              - paragraph [ref=e899]: 华东上海顾问
+            - list [ref=e900]:
+              - listitem [ref=e901]: English
+              - listitem [ref=e902]: 中文
+              - listitem [ref=e903]: 日本語
+            - paragraph [ref=e904]: Shanghai · Hangzhou · Suzhou
+        - listitem [ref=e317]:
+          - article [ref=e906]:
+            - generic [ref=e907]: demo
+            - generic [ref=e909]: JL
+            - generic [ref=e910]:
+              - heading "李健" [level=3] [ref=e911]
+              - paragraph [ref=e912]: 家庭与多代同行顾问 · 北京
+            - list [ref=e913]:
+              - listitem [ref=e914]: English
+              - listitem [ref=e915]: 中文
+            - paragraph [ref=e916]: Beijing · Zhangjiajie · Guilin
+      - link "联系顾问" [ref=e919] [cursor=pointer]:
+        - /url: "#lead-form"
+    - generic [ref=e334]:
+      - generic [ref=e921]:
+        - paragraph [ref=e922]: 为什么留下来
+        - heading "顾问、案例、评价与小字" [level=2] [ref=e923]
+        - paragraph [ref=e924]: 当前为示例占位内容；所有模块都接到结构化数据层，运营可一键替换为真实素材。
+      - generic [ref=e340]:
+        - generic [ref=e926]:
+          - heading "真人顾问，而不是客服话术" [level=3] [ref=e927]
+          - paragraph [ref=e928]: 全职、签约、每条回复都署名。
+          - list [ref=e929]:
+            - listitem [ref=e930]:
+              - article [ref=e931]:
+                - generic [ref=e932]: demo
+                - generic [ref=e934]: YL
+                - generic [ref=e935]:
+                  - heading "陆奕雯" [level=4] [ref=e936]
+                  - paragraph [ref=e937]: 资深中国顾问 · 北京
+                - list [ref=e938]:
+                  - listitem [ref=e939]: English
+                  - listitem [ref=e940]: 中文
+                - paragraph [ref=e941]: Beijing · Xi'an · Inner Mongolia · Pingyao
+                - paragraph [ref=e942]: 北京工作日 24 小时内回复。
+            - listitem [ref=e943]:
+              - article [ref=e944]:
+                - generic [ref=e945]: demo
+                - generic [ref=e947]: BC
+                - generic [ref=e948]:
+                  - heading "陈博" [level=4] [ref=e949]
+                  - paragraph [ref=e950]: 云南川藏顾问 · 成都
+                - list [ref=e951]:
+                  - listitem [ref=e952]: English
+                  - listitem [ref=e953]: 中文
+                  - listitem [ref=e954]: Français
+                - paragraph [ref=e955]: Chengdu · Dali · Lijiang · Shangri-La
+                - paragraph [ref=e956]: 24 小时内回复；行程中按成都时区随叫随到。
+            - listitem [ref=e957]:
+              - article [ref=e958]:
+                - generic [ref=e959]: demo
+                - generic [ref=e961]: MZ
+                - generic [ref=e962]:
+                  - heading "张玫" [level=4] [ref=e963]
+                  - paragraph [ref=e964]: 华东上海顾问
+                - list [ref=e965]:
+                  - listitem [ref=e966]: English
+                  - listitem [ref=e967]: 中文
+                  - listitem [ref=e968]: 日本語
+                - paragraph [ref=e969]: Shanghai · Hangzhou · Suzhou · Huangshan
+                - paragraph [ref=e970]: 24 小时内回复；行程中微信常驻。
+            - listitem [ref=e971]:
+              - article [ref=e972]:
+                - generic [ref=e973]: demo
+                - generic [ref=e975]: JL
+                - generic [ref=e976]:
+                  - heading "李健" [level=4] [ref=e977]
+                  - paragraph [ref=e978]: 家庭与多代同行顾问 · 北京
+                - list [ref=e979]:
+                  - listitem [ref=e980]: English
+                  - listitem [ref=e981]: 中文
+                - paragraph [ref=e982]: Beijing · Zhangjiajie · Guilin · Hangzhou
+                - paragraph [ref=e983]: 24 小时内回复；擅长无障碍与家庭节奏。
+        - generic [ref=e985]:
+          - heading "我们起草过的范例旅程" [level=3] [ref=e986]
+          - paragraph [ref=e987]: 概念性范例 —— 你的行程会从对话出发重新搭建。
+          - list [ref=e988]:
+            - listitem [ref=e989]:
+              - article [ref=e990]:
+                - generic [ref=e991]: example
+                - generic [ref=e993]:
+                  - generic [ref=e994]: First-time couple from the US
+                  - generic [ref=e995]: ·
+                  - generic [ref=e996]: 12 天
+                  - generic [ref=e997]: ·
+                  - generic [ref=e998]: 2 人出行
+                - paragraph [ref=e999]: Beijing · Xi'an · Guilin · Shanghai
+                - paragraph [ref=e1000]: 每城私人向导、故宫日出时段、漓江竹筏慢早晨、上海弄堂早餐徒步。
+                - paragraph [ref=e1001]: 想走经典中国一圈，但拒绝大巴团、博物馆走马观花，要每个城市留一天好好吃饭。
+            - listitem [ref=e1002]:
+              - article [ref=e1003]:
+                - generic [ref=e1004]: example
+                - generic [ref=e1006]:
+                  - generic [ref=e1007]: Slow-travel couple from the UK
+                  - generic [ref=e1008]: ·
+                  - generic [ref=e1009]: 9 天
+                  - generic [ref=e1010]: ·
+                  - generic [ref=e1011]: 2 人出行
+                - paragraph [ref=e1012]: Kunming · Dali · Lijiang · Shangri-La
+                - paragraph [ref=e1013]: 私人司机环线、大理湖畔住宿、纳西村午餐做客本地人家、循序上高原。
+                - paragraph [ref=e1014]: 想去云南，又拒绝古镇打卡团和大巴上高原。
+            - listitem [ref=e1015]:
+              - article [ref=e1016]:
+                - generic [ref=e1017]: example
+                - generic [ref=e1019]:
+                  - generic [ref=e1020]: Multi-gen family of 5 from Australia
+                  - generic [ref=e1021]: ·
+                  - generic [ref=e1022]: 15 天
+                  - generic [ref=e1023]: ·
+                  - generic [ref=e1024]: 5 人出行
+                - paragraph [ref=e1025]: Beijing · Xi'an · Chengdu · Zhangjiajie · Shanghai
+                - paragraph [ref=e1026]: 无障碍酒店、熊猫上午时段、张家界百龙电梯线路、放慢市内节奏、合家桌餐预订。
+                - paragraph [ref=e1027]: 三代同行、节奏不同、一位轮椅长者；既想看熊猫和山，又不想累到长辈。
+        - generic [ref=e1029]:
+          - heading "旅客怎么说" [level=3] [ref=e1030]
+          - paragraph [ref=e1031]: 示例占位评价 —— 真实 Tripadvisor 和 Google 评价由运营接入。
+          - list [ref=e1032]:
+            - listitem [ref=e1033]:
+              - article [ref=e1034]:
+                - generic [ref=e1035]: mock
+                - generic [ref=e1037]: “
+                - paragraph [ref=e1038]: 示例评价占位 —— 上线前由运营替换为真实 Tripadvisor 评价。
+                - generic [ref=e1039]:
+                  - generic [ref=e1040]: Tripadvisor 占位
+                  - generic [ref=e1041]: Couple · 12 days · Beijing → Xi’an → Guilin → Shanghai
+            - listitem [ref=e1042]:
+              - article [ref=e1043]:
+                - generic [ref=e1044]: mock
+                - generic [ref=e1046]: “
+                - paragraph [ref=e1047]: 示例评价占位 —— 上线前由运营替换为真实 Google 评价。
+                - generic [ref=e1048]:
+                  - generic [ref=e1049]: Google 占位
+                  - generic [ref=e1050]: Multi-gen family · 15 days · Beijing → Chengdu → Zhangjiajie
+        - generic [ref=e1052]:
+          - heading "正经但有用的小字" [level=3] [ref=e1053]
+          - paragraph [ref=e1054]: 资质、支付合作、隐私声明 —— 法务确认前先用占位。
+          - list [ref=e1056]:
+            - listitem [ref=e1057]:
+              - generic [ref=e1058]: 占位
+              - generic [ref=e1060]: 资质
+              - heading "示例合规旅行业资质占位" [level=4] [ref=e1061]
+              - paragraph [ref=e1062]: 中国旅行社业务许可的占位文案，上线前替换为真实许可证号与发证机关。
+            - listitem [ref=e1063]:
+              - generic [ref=e1064]: 占位
+              - generic [ref=e1066]: 支付
+              - heading "示例支付合作占位" [level=4] [ref=e1067]
+              - paragraph [ref=e1068]: 银行卡 / Stripe 支付合作徽章的占位文案，待品牌使用授权后替换。
+            - listitem [ref=e1069]:
+              - generic [ref=e1070]: 占位
+              - generic [ref=e1072]: 隐私
+              - heading "示例隐私声明占位" [level=4] [ref=e1073]
+              - paragraph [ref=e1074]: GDPR 与数据处理声明占位，待法务确认后替换为正式隐私政策链接。
+    - generic [ref=e1180]:
+      - generic [ref=e1182]:
+        - paragraph [ref=e1183]: 与顾问一起规划
+        - heading "说说你想要的中国 —— 顾问 24 小时内回复" [level=2] [ref=e1184]
+        - paragraph [ref=e1185]: 没有销售推销。这些信息只用于为你起草一条私人路线。
+      - generic [ref=e1188]:
+        - generic [ref=e1189]:
+          - generic [ref=e1190]:
+            - generic [ref=e1191]:
+              - text: 你的称呼
+              - generic [ref=e1192]: "*"
+              - generic [ref=e1193]: (必填字段)
+            - textbox "你的称呼 (必填字段)" [ref=e1194]:
+              - /placeholder: 请填写姓名
+          - generic [ref=e1195]:
+            - generic [ref=e1196]:
+              - text: 邮箱
+              - generic [ref=e1197]: "*"
+              - generic [ref=e1198]: (必填字段)
+            - textbox "邮箱 (必填字段)" [ref=e1199]:
+              - /placeholder: you@email.com
+        - generic [ref=e1200]:
+          - generic [ref=e1201]:
+            - generic [ref=e1202]:
+              - text: 出行月份
+              - generic [ref=e1203]: "*"
+              - generic [ref=e1204]: (必填字段)
+            - textbox "出行月份 (必填字段)" [ref=e1205]:
+              - /placeholder: 例：2026 年 10 月
+          - generic [ref=e1206]:
+            - generic [ref=e1207]:
+              - text: 行程天数
+              - generic [ref=e1208]: "*"
+              - generic [ref=e1209]: (必填字段)
+            - spinbutton "行程天数 (必填字段)" [ref=e1210]: "7"
+          - generic [ref=e1211]:
+            - generic [ref=e1212]:
+              - text: 出行人数
+              - generic [ref=e1213]: "*"
+              - generic [ref=e1214]: (必填字段)
+            - spinbutton "出行人数 (必填字段)" [ref=e1215]: "2"
+        - generic [ref=e1216]:
+          - generic [ref=e1217]:
+            - generic [ref=e1218]:
+              - text: 希望的回复方式
+              - generic [ref=e1219]: "*"
+              - generic [ref=e1220]: (必填字段)
+            - combobox "希望的回复方式 (必填字段)" [ref=e1221]:
+              - generic: 希望的回复方式
+              - img
+            - combobox [ref=e1222]
+          - generic [ref=e1223]:
+            - generic [ref=e1224]: 人均预算（选填）
+            - combobox "人均预算（选填）" [ref=e1225]:
+              - generic: 人均预算（选填）
+              - img
+            - combobox [ref=e1226]
+        - generic [ref=e1227]:
+          - generic [ref=e1228]: 旅行风格（选填）
+          - textbox "旅行风格（选填）" [ref=e1229]:
+            - /placeholder: 例：慢节奏、探店、家庭节奏
+        - generic [ref=e1230]:
+          - generic [ref=e1231]: 想去的目的地（选填）
+          - textbox "想去的目的地（选填）" [ref=e1232]:
+            - /placeholder: 例：北京、云南、桂林
+        - generic [ref=e1233]:
+          - generic [ref=e1234]: 想跟顾问说点什么（选填）
+          - textbox "想跟顾问说点什么（选填）" [ref=e1235]:
+            - /placeholder: 节奏、必去、饮食禁忌，任何对你重要的细节。
+        - textbox [ref=e1236]
+        - paragraph [ref=e1237]: 提交即同意顾问与你联系。当前为示例占位文案，上线前替换为正式隐私声明。
+        - button "发送给顾问" [ref=e1240]
+    - generic [ref=e544]:
+      - generic [ref=e1126]:
+        - paragraph [ref=e1127]: 常见问题
+        - heading "出发前常见问题集合" [level=2] [ref=e1128]
+      - generic [ref=e549]:
+        - heading "需要中国签证吗？" [level=3] [ref=e551]:
+          - button "需要中国签证吗？" [ref=e552]:
+            - text: 需要中国签证吗？
+            - img
+        - heading "需要多早开始计划？" [level=3] [ref=e554]:
+          - button "需要多早开始计划？" [ref=e555]:
+            - text: 需要多早开始计划？
+            - img
+        - heading "一个人 / 一家人去中国安全吗？" [level=3] [ref=e557]:
+          - button "一个人 / 一家人去中国安全吗？" [ref=e558]:
+            - text: 一个人 / 一家人去中国安全吗？
+            - img
+        - heading "可以安排会说英文以外语种的向导吗？" [level=3] [ref=e560]:
+          - button "可以安排会说英文以外语种的向导吗？" [ref=e561]:
+            - text: 可以安排会说英文以外语种的向导吗？
+            - img
+        - heading "怎么付款？" [level=3] [ref=e563]:
+          - button "怎么付款？" [ref=e564]:
+            - text: 怎么付款？
+            - img
+        - heading "取消政策如何？" [level=3] [ref=e566]:
+          - button "取消政策如何？" [ref=e567]:
+            - text: 取消政策如何？
+            - img
+        - heading "中国上网 / VPN 怎么处理？" [level=3] [ref=e569]:
+          - button "中国上网 / VPN 怎么处理？" [ref=e570]:
+            - text: 中国上网 / VPN 怎么处理？
+            - img
+        - heading "能处理特殊需求（饮食 / 无障碍）吗？" [level=3] [ref=e572]:
+          - button "能处理特殊需求（饮食 / 无障碍）吗？" [ref=e573]:
+            - text: 能处理特殊需求（饮食 / 无障碍）吗？
+            - img
+      - generic [ref=e1130]:
+        - paragraph [ref=e1131]: 还没找到答案？把问题写在表单里。
+        - link "直接问顾问" [ref=e1132] [cursor=pointer]:
+          - /url: "#lead-form"
+  - contentinfo [ref=e578]:
+    - generic [ref=e1133]:
+      - generic [ref=e1134]:
+        - generic [ref=e1135]:
+          - paragraph [ref=e1136]: Tourism Landing
+          - paragraph [ref=e1137]: 中国本地顾问真人在线，把你的想法慢慢谈成一条只属于你的路线。
+        - generic [ref=e1138]:
+          - paragraph [ref=e1139]: 探索
+          - list [ref=e1140]:
+            - listitem [ref=e1141]:
+              - link "目的地" [ref=e1142] [cursor=pointer]:
+                - /url: "#destinations"
+            - listitem [ref=e1143]:
+              - link "顾问" [ref=e1144] [cursor=pointer]:
+                - /url: "#specialists"
+            - listitem [ref=e1145]:
+              - link "常见问题" [ref=e1146] [cursor=pointer]:
+                - /url: "#faq"
+            - listitem [ref=e1147]:
+              - link "联系顾问" [ref=e1148] [cursor=pointer]:
+                - /url: "#lead-form"
+        - generic [ref=e1149]:
+          - paragraph [ref=e1150]: 联系顾问
+          - list [ref=e1151]:
+            - listitem [ref=e1152]:
+              - link "邮件联系顾问占位" [ref=e1153] [cursor=pointer]:
+                - /url: mailto:hello@example-tourism.demo
+            - listitem [ref=e1154]:
+              - link "WhatsApp 联系顾问占位" [ref=e1155] [cursor=pointer]:
+                - /url: https://wa.me/8613000000000
+            - listitem [ref=e1156]:
+              - link "电话联系北京办公室占位" [ref=e1157] [cursor=pointer]:
+                - /url: tel:+861000000000
+            - listitem [ref=e1158]:
+              - link "微信（国内优先）占位" [ref=e1159] [cursor=pointer]:
+                - /url: weixin://contacts/profile/demo
+        - generic [ref=e1160]:
+          - paragraph [ref=e1161]: 小字
+          - list [ref=e1162]:
+            - listitem [ref=e1163]:
+              - link "隐私" [ref=e1164] [cursor=pointer]:
+                - /url: /legal/privacy
+            - listitem [ref=e1165]:
+              - link "条款" [ref=e1166] [cursor=pointer]:
+                - /url: /legal/terms
+            - listitem [ref=e1167]:
+              - link "ICP 占位" [ref=e1168] [cursor=pointer]:
+                - /url: /legal/icp
+          - paragraph [ref=e1169]: 可在页面顶部切换语言。
+      - generic [ref=e1170]:
+        - generic [ref=e1171]: © 2026 Tourism Landing Demo · 版权所有
+        - generic [ref=e1172]: ·
+        - generic [ref=e1173]: 示例占位内容 —— 上线前替换
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e626] [cursor=pointer]:
+    - img [ref=e627]
+  - alert [ref=e1174]
