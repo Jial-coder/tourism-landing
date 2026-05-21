@@ -198,7 +198,7 @@ export function TopNav() {
             </div>
 
             {/* M-LANG */}
-            <div className="relative">
+            <div className="relative hidden md:block">
               <LocaleSwitch />
             </div>
 

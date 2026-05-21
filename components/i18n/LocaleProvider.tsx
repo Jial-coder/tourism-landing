@@ -8,6 +8,14 @@ import { readStoredLocale, writeStoredLocale } from '@/lib/i18n/storage';
 
 const dictionaries = { en, zh } as const;
 
+const COOKIE_NAME = 'locale';
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+const writeLocaleCookie = (next: Locale) => {
+  if (typeof document === 'undefined') return;
+  document.cookie = `${COOKIE_NAME}=${next}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+};
+
 interface LocaleContextValue {
   locale: Locale;
   setLocale: (next: Locale) => void;
@@ -29,12 +37,17 @@ export const LocaleProvider = ({
 
   useEffect(() => {
     const stored = readStoredLocale();
-    if (stored && stored !== locale) setLocaleState(stored);
+    if (stored && stored !== locale) {
+      setLocaleState(stored);
+      writeLocaleCookie(stored);
+      if (typeof document !== 'undefined') document.documentElement.lang = stored;
+    }
   }, []);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
     writeStoredLocale(next);
+    writeLocaleCookie(next);
     if (typeof document !== 'undefined') document.documentElement.lang = next;
   }, []);
 
