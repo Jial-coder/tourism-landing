@@ -4,6 +4,7 @@ import { headers, cookies } from "next/headers";
 import { detectLocaleFromAcceptLanguage } from "@/lib/i18n/detect";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/data/locales";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -44,6 +45,7 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">
         <LocaleProvider initialLocale={initialLocale}>{children}</LocaleProvider>
+        <Toaster richColors closeButton position="top-right" />
       </body>
     </html>
   );
