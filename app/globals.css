@@ -143,3 +143,14 @@
     box-shadow: 0 8px 32px rgba(15, 23, 42, 0.4);
   }
 }
+
+/* BorderBeam: animated conic-gradient angle for hover-glow border on cards. */
+@property --border-beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-beam {
+  to { --border-beam-angle: 360deg; }
+}

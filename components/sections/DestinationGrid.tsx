@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useDictionary, useLocale } from '@/components/i18n/LocaleProvider';
 import { Reveal } from '@/components/motion/Reveal';
 import { CardStack } from '@/components/motion/CardStack';
+import { Tilt3D } from '@/components/motion/Tilt3D';
+import { BorderBeam } from '@/components/motion/BorderBeam';
 
 export function DestinationGrid() {
   const dict = useDictionary();
@@ -32,34 +34,37 @@ export function DestinationGrid() {
         <ul className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
           {t.items.map((item) => (
             <li key={item.slug}>
-              <CardStack className="h-full">
-                <a
-                  href="#lead-form"
-                  aria-label={`${planLabel} ${item.name}`}
-                  className="group relative block aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-ink/10 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade hover:shadow-xl hover:ring-jade/40"
-                >
-                  <Image
-                    src={`/landmarks/${item.slug}.jpg`}
-                    alt={item.name}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-deep-slate/85 via-deep-slate/20 to-deep-slate/0"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5">
-                    <h3 className="font-serif text-2xl leading-tight tracking-tight text-soft-ivory drop-shadow-[0_2px_8px_rgba(15,23,42,0.5)] transition-transform duration-400 ease-out group-hover:-translate-y-1">
-                      {item.name}
-                    </h3>
-                    <p className="text-sm leading-snug text-soft-ivory/85">{item.hook}</p>
-                    <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-jade-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      {planLabel} {item.name} →
-                    </p>
-                  </div>
-                </a>
-              </CardStack>
+              <Tilt3D className="h-full">
+                <CardStack className="h-full">
+                  <a
+                    href="#lead-form"
+                    aria-label={`${planLabel} ${item.name}`}
+                    className="group relative block aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-ink/10 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade hover:shadow-xl hover:ring-jade/40"
+                  >
+                    <Image
+                      src={`/landmarks/${item.slug}.jpg`}
+                      alt={item.name}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-deep-slate/85 via-deep-slate/20 to-deep-slate/0"
+                    />
+                    <BorderBeam className="opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5">
+                      <h3 className="font-serif text-2xl leading-tight tracking-tight text-soft-ivory drop-shadow-[0_2px_8px_rgba(15,23,42,0.5)] transition-transform duration-400 ease-out group-hover:-translate-y-1">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm leading-snug text-soft-ivory/85">{item.hook}</p>
+                      <p className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-jade-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {planLabel} {item.name} →
+                      </p>
+                    </div>
+                  </a>
+                </CardStack>
+              </Tilt3D>
             </li>
           ))}
         </ul>
