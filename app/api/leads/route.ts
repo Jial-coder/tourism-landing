@@ -151,7 +151,6 @@ export async function POST(request: NextRequest) {
   let rowId: string;
   try {
     const db = getDb();
-    const interests = [...(data.travelStyle ?? []), ...(data.destinations ?? [])];
     const [row] = await db
       .insert(schema.leads)
       .values({
@@ -162,7 +161,7 @@ export async function POST(request: NextRequest) {
         travelDates: data.travelMonth,
         duration: data.durationDays,
         partySize: data.partySize,
-        interests: interests.length ? interests : null,
+        interests: null,
         budgetRange: data.budgetRange || null,
         preferredContact: data.preferredChannel,
         message: data.notes || null,

@@ -9,8 +9,6 @@ export type LeadFieldId =
   | 'travelMonth'
   | 'durationDays'
   | 'partySize'
-  | 'travelStyle'
-  | 'destinations'
   | 'budgetRange'
   | 'notes';
 
@@ -31,8 +29,6 @@ export const LEAD_FIELDS: LeadFieldSpec[] = [
   { id: 'travelMonth', required: true, type: 'text', maxLength: 40 },
   { id: 'durationDays', required: true, type: 'number' },
   { id: 'partySize', required: true, type: 'number' },
-  { id: 'travelStyle', required: false, type: 'multiselect' },
-  { id: 'destinations', required: false, type: 'multiselect' },
   { id: 'budgetRange', required: false, type: 'select' },
   { id: 'notes', required: false, type: 'textarea', maxLength: 2000 },
 ];
@@ -64,8 +60,6 @@ export const leadFormSchema = z.object({
   travelMonth: z.string().trim().min(1).max(40),
   durationDays: z.coerce.number().int().min(1).max(365),
   partySize: z.coerce.number().int().min(1).max(50),
-  travelStyle: z.array(z.string()).default([]),
-  destinations: z.array(z.string()).default([]),
   budgetRange: z.string().optional().or(z.literal('')),
   notes: z.string().max(2000).optional().or(z.literal('')),
   company_website: z.string().max(0, { message: 'honeypot_hit' }).optional(),

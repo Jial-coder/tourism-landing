@@ -5,6 +5,15 @@ import { Reveal } from '@/components/motion/Reveal';
 import { HeroParallax } from '@/components/motion/HeroParallax';
 import { HeroBackdrop } from '@/components/motion/HeroBackdrop';
 import { MagneticCta } from '@/components/motion/MagneticCta';
+import { ContactChannelList } from '@/components/contact/ContactChannelList';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 export function HomeHero() {
   const dict = useDictionary();
@@ -44,7 +53,7 @@ export function HomeHero() {
               {t.subheadline}
             </p>
           </Reveal>
-          <Reveal delay={0.45}>
+          <Reveal delay={0.25}>
             <div className="mt-2 flex flex-wrap items-center gap-4">
               <MagneticCta>
                 <a
@@ -54,12 +63,32 @@ export function HomeHero() {
                   {t.primaryCta}
                 </a>
               </MagneticCta>
-              <a
-                href="#specialists"
-                className="inline-flex items-center justify-center rounded-full border border-soft-ivory/30 bg-soft-ivory/5 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-soft-ivory/60 hover:bg-soft-ivory/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
-              >
-                {t.secondaryCta}
-              </a>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-full border border-soft-ivory/30 bg-soft-ivory/5 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-soft-ivory/60 hover:bg-soft-ivory/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
+                  >
+                    {t.secondaryCta}
+                  </button>
+                </DialogTrigger>
+                <DialogContent
+                  aria-label={t.contactModalTitle}
+                  className="max-h-[85vh] overflow-y-auto sm:max-w-lg"
+                >
+                  <DialogHeader>
+                    <DialogTitle className="font-serif text-2xl text-ink">
+                      {t.contactModalTitle}
+                    </DialogTitle>
+                    <DialogDescription className="text-ink-soft">
+                      {t.contactModalDescription}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="mt-2">
+                    <ContactChannelList variant="list" />
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </Reveal>
         </div>

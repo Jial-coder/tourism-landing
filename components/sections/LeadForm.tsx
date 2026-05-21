@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
@@ -21,7 +21,6 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-  FormDescription,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -40,13 +39,91 @@ type ApiResponse =
   | { ok: true; id: string }
   | { ok: false; error?: string };
 
+const REQUIRED_FIELDS = new Set([
+  'name',
+  'email',
+  'preferredChannel',
+  'travelMonth',
+  'durationDays',
+  'partySize',
+]);
+
+type ErrorDict = ReturnType<typeof useLocale>['t']['home']['leadForm']['errors'];
+
+const localizeFromIssue = (
+  message: string | undefined,
+  type: string | undefined,
+  errors: ErrorDict,
+): string => {
+  const raw = message ?? '';
+  if (raw === 'turnstile_missing') return errors.turnstileMissing;
+  if (raw === 'honeypot_hit') return errors.generic;
+
+  // zod v4 issue codes routed via @hookform/resolvers as `type` on the field error.
+  // For `string().min(1)` (used as our required marker) the type is `too_small` with minimum 1.
+  if (type === 'too_small' && /to have >=1\b/.test(raw)) return errors.required;
+  if (type === 'invalid_type' && /received undefined|expected string|nullable/i.test(raw)) {
+    return errors.required;
+  }
+  if (type === 'invalid_format' && /email/i.test(raw)) return errors.invalidEmail;
+  if (type === 'invalid_string' && /email/i.test(raw)) return errors.invalidEmail;
+  if (type === 'too_small') return errors.tooShort;
+  if (type === 'too_big') return errors.tooLong;
+  if (/email/i.test(raw)) return errors.invalidEmail;
+  if (type === 'invalid_type' || /number|integer|nan|finite/i.test(raw)) return errors.invalidNumber;
+  return errors.generic;
+};
+
+const localizeErrors = (
+  errors: Record<string, unknown>,
+  dict: ErrorDict,
+): Record<string, unknown> => {
+  const out: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(errors)) {
+    if (!value || typeof value !== 'object') {
+      out[key] = value;
+      continue;
+    }
+    const v = value as { message?: string; type?: string };
+    out[key] = {
+      ...value,
+      message: localizeFromIssue(v.message, v.type, dict),
+    };
+  }
+  return out;
+};
+
+const RequiredMark = ({ ariaLabel }: { ariaLabel: string }) => (
+  <>
+    <span aria-hidden className="ml-1 text-jade">*</span>
+    <span className="sr-only"> ({ariaLabel})</span>
+  </>
+);
+
 export function LeadForm({ source }: { source: LeadSource }) {
   const { locale, t } = useLocale();
   const ld = t.home.leadForm;
   const [state, setState] = useState<LeadFormState>({ kind: 'idle' });
 
+  const localizedResolver = useMemo(() => {
+    const base = zodResolver(leadFormSchema);
+    const wrapped = async (
+      values: Parameters<typeof base>[0],
+      ctx: Parameters<typeof base>[1],
+      options: Parameters<typeof base>[2],
+    ) => {
+      const result = await base(values, ctx, options);
+      if (!result.errors) return result;
+      return {
+        ...result,
+        errors: localizeErrors(result.errors as Record<string, unknown>, ld.errors),
+      };
+    };
+    return wrapped as typeof base;
+  }, [ld.errors]);
+
   const form = useForm<LeadFormInput>({
-    resolver: zodResolver(leadFormSchema),
+    resolver: localizedResolver,
     mode: 'onBlur',
     defaultValues: {
       source,
@@ -59,8 +136,6 @@ export function LeadForm({ source }: { source: LeadSource }) {
       travelMonth: '',
       durationDays: 7,
       partySize: 2,
-      travelStyle: [],
-      destinations: [],
       budgetRange: '',
       notes: '',
       company_website: '',
@@ -118,6 +193,15 @@ export function LeadForm({ source }: { source: LeadSource }) {
   }
 
   const submitting = state.kind === 'submitting';
+  const renderLabel = (fieldId: string, label: string) => {
+    const required = REQUIRED_FIELDS.has(fieldId);
+    return (
+      <FormLabel className="text-ink">
+        {label}
+        {required && <RequiredMark ariaLabel={ld.requiredAria} />}
+      </FormLabel>
+    );
+  };
 
   return (
     <section
@@ -150,7 +234,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.name}</FormLabel>
+                      {renderLabel('name', ld.labels.name)}
                       <FormControl>
                         <Input
                           placeholder={ld.placeholders.name}
@@ -168,7 +252,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.email}</FormLabel>
+                      {renderLabel('email', ld.labels.email)}
                       <FormControl>
                         <Input
                           type="email"
@@ -190,7 +274,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="travelMonth"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.travelMonth}</FormLabel>
+                      {renderLabel('travelMonth', ld.labels.travelMonth)}
                       <FormControl>
                         <Input
                           placeholder={ld.placeholders.travelMonth}
@@ -207,7 +291,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="durationDays"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.durationDays}</FormLabel>
+                      {renderLabel('durationDays', ld.labels.durationDays)}
                       <FormControl>
                         <Input
                           type="number"
@@ -231,7 +315,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="partySize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.partySize}</FormLabel>
+                      {renderLabel('partySize', ld.labels.partySize)}
                       <FormControl>
                         <Input
                           type="number"
@@ -258,7 +342,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="preferredChannel"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.preferredChannel}</FormLabel>
+                      {renderLabel('preferredChannel', ld.labels.preferredChannel)}
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="h-11 w-full bg-paper text-ink">
@@ -282,7 +366,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   name="budgetRange"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-ink">{ld.labels.budgetRange}</FormLabel>
+                      {renderLabel('budgetRange', ld.labels.budgetRange)}
                       <Select onValueChange={field.onChange} value={field.value ?? ''}>
                         <FormControl>
                           <SelectTrigger className="h-11 w-full bg-paper text-ink">
@@ -305,54 +389,10 @@ export function LeadForm({ source }: { source: LeadSource }) {
 
               <FormField
                 control={form.control}
-                name="travelStyle"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-ink">{ld.labels.travelStyle}</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        readOnly
-                        placeholder={ld.placeholders.travelStyle}
-                        className="min-h-12 bg-paper text-ink-soft"
-                        value={Array.isArray(field.value) ? field.value.join(', ') : ''}
-                      />
-                    </FormControl>
-                    <FormDescription className="text-xs text-ink-soft">
-                      Multi-select coming later — describe your style in the notes below for now.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="destinations"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-ink">{ld.labels.destinations}</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        readOnly
-                        placeholder={ld.placeholders.destinations}
-                        className="min-h-12 bg-paper text-ink-soft"
-                        value={Array.isArray(field.value) ? field.value.join(', ') : ''}
-                      />
-                    </FormControl>
-                    <FormDescription className="text-xs text-ink-soft">
-                      Multi-select coming later — list interest areas in the notes below for now.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
                 name="notes"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-ink">{ld.labels.notes}</FormLabel>
+                    {renderLabel('notes', ld.labels.notes)}
                     <FormControl>
                       <Textarea
                         rows={5}
