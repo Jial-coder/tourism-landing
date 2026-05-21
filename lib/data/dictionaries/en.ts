@@ -40,10 +40,10 @@ export default {
     },
     trustStrip: {
       items: [
-        { stat: '10,000+', label: "Travelers we've planned for" },
-        { stat: '98.8%', label: '5-star reviews (sample)' },
-        { stat: '8 yrs', label: 'Average specialist tenure' },
-        { stat: '24 h', label: 'Reply within (China holidays excluded)' },
+        { value: 10000, suffix: '+', label: "Travelers we've planned for" },
+        { value: 98.8, decimals: 1, suffix: '%', label: '5-star reviews (sample)' },
+        { value: 8, suffix: ' yrs', label: 'Average specialist tenure' },
+        { value: 24, suffix: ' h', label: 'Reply within (China holidays excluded)' },
       ],
     },
     howWeWork: {

@@ -39,10 +39,10 @@ export default {
     },
     trustStrip: {
       items: [
-        { stat: '10,000+', label: '已为 10,000+ 位旅客做过定制' },
-        { stat: '98.8%', label: '五星好评率（样本）' },
-        { stat: '8 年', label: '顾问平均从业年限' },
-        { stat: '24 小时', label: '内回复（中国节假日除外）' },
+        { value: 10000, suffix: '+', label: '已为 10,000+ 位旅客做过定制' },
+        { value: 98.8, decimals: 1, suffix: '%', label: '五星好评率（样本）' },
+        { value: 8, suffix: ' 年', label: '顾问平均从业年限' },
+        { value: 24, suffix: ' 小时', label: '内回复（中国节假日除外）' },
       ],
     },
     howWeWork: {
