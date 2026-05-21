@@ -42,11 +42,7 @@ export function HowWeWork() {
                   className="rounded-2xl border border-ink/10 bg-paper p-8 transition-colors hover:border-ink/20"
                 >
                   <div className="font-serif text-5xl leading-none text-jade tabular-nums">
-                    <NumberTicker
-                      value={idx + 1}
-                      prefix="0"
-                      duration={0.8}
-                    />
+                    <NumberTicker value={idx + 1} prefix="0" />
                   </div>
                   <h3 className="mt-6 font-serif text-2xl leading-snug tracking-tight text-ink">
                     {step.title}
@@ -68,15 +64,13 @@ export function HowWeWork() {
               fromRef={step1Ref}
               toRef={step2Ref}
               curvature={-30}
-              duration={2.6}
             />
             <AnimatedBeam
               containerRef={containerRef}
               fromRef={step2Ref}
               toRef={step3Ref}
               curvature={-30}
-              duration={2.6}
-              delay={0.6}
+              delay={0.4}
             />
           </div>
         </div>

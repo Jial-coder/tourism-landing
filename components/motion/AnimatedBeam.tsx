@@ -20,6 +20,8 @@ interface PathState {
   d: string;
   width: number;
   height: number;
+  midX: number;
+  midY: number;
 }
 
 export function AnimatedBeam({
@@ -27,16 +29,22 @@ export function AnimatedBeam({
   fromRef,
   toRef,
   curvature = 0,
-  duration = 2.4,
+  duration = 1.4,
   delay = 0,
   pathColor = 'var(--color-ink-soft)',
-  pathOpacity = 0.18,
-  gradientStartColor = 'var(--color-jade)',
+  pathOpacity = 0.32,
+  gradientStartColor = '#3DA866',
   gradientStopColor = 'var(--color-gold)',
 }: AnimatedBeamProps) {
   const id = useId();
   const reduce = useReducedMotion();
-  const [path, setPath] = useState<PathState>({ d: '', width: 0, height: 0 });
+  const [path, setPath] = useState<PathState>({
+    d: '',
+    width: 0,
+    height: 0,
+    midX: 0,
+    midY: 0,
+  });
 
   useEffect(() => {
     function update() {
@@ -54,7 +62,9 @@ export function AnimatedBeam({
       const cx = (x1 + x2) / 2;
       const cy = (y1 + y2) / 2 - curvature;
       const d = `M ${x1},${y1} Q ${cx},${cy} ${x2},${y2}`;
-      setPath({ d, width: cb.width, height: cb.height });
+      const midX = (x1 + 2 * cx + x2) / 4;
+      const midY = (y1 + 2 * cy + y2) / 4;
+      setPath({ d, width: cb.width, height: cb.height, midX, midY });
     }
     update();
     const ro = new ResizeObserver(update);
@@ -97,11 +107,21 @@ export function AnimatedBeam({
       <motion.path
         d={path.d}
         stroke={`url(#${id})`}
-        strokeWidth={2}
+        strokeWidth={3}
         fill="none"
         initial={{ strokeDasharray: '0 1000', strokeDashoffset: 0 }}
-        animate={{ strokeDasharray: '300 1000', strokeDashoffset: -1000 }}
+        animate={{ strokeDasharray: '180 600', strokeDashoffset: -1000 }}
         transition={{ duration, delay, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.circle
+        cx={path.midX}
+        cy={path.midY}
+        fill="none"
+        stroke={gradientStartColor}
+        strokeWidth={1.5}
+        initial={{ r: 0, opacity: 0 }}
+        animate={{ r: [0, 24], opacity: [0.6, 0] }}
+        transition={{ duration, delay, repeat: Infinity, ease: 'easeOut' }}
       />
     </svg>
   );
