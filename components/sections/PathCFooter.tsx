@@ -22,10 +22,13 @@ export function PathCFooter() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col gap-3">
               <p className="font-serif text-2xl tracking-tight text-soft-ivory">
-                Tourism Landing
+                pandatravel
               </p>
               <p className="text-sm leading-relaxed text-soft-ivory/70">
                 {t.brandTagline}
+              </p>
+              <p className="mt-1 text-xs tracking-wider text-soft-ivory/50">
+                pandatravel.com.cn
               </p>
             </div>
 

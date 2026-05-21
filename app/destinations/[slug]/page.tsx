@@ -7,7 +7,15 @@ import { Footer } from "@/components/sections/Footer";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 
-type Slug = "zhangjiajie" | "jiuzhaigou" | "guilin" | "dali";
+type Slug =
+  | "beijing"
+  | "xian"
+  | "shanghai"
+  | "guilin"
+  | "zhangjiajie"
+  | "jiuzhaigou"
+  | "dali"
+  | "huangshan";
 
 const DESTINATIONS: Record<Slug, {
   en: string;
@@ -18,6 +26,36 @@ const DESTINATIONS: Record<Slug, {
   iata: string;
   gps: string;
 }> = {
+  beijing: {
+    en: "Beijing",
+    cn: "北京",
+    tagline: "故宫红墙 · 长城秋色 · 胡同晨光",
+    intro:
+      "故宫的清晨没什么人，光从太和殿一侧斜进来，红墙黄瓦特别沉。10-11 月秋色压住整座城，长城慕田峪段的金黄能看一整天。我们会帮你跳过八达岭那种排队景点，安排一段需要走两小时的野长城，再回胡同里吃一顿熟人家的家常菜。",
+    src: "/landmarks/beijing.jpg",
+    iata: "PEK",
+    gps: "39.9042° N · 116.4074° E",
+  },
+  xian: {
+    en: "Xi'an",
+    cn: "西安",
+    tagline: "兵马俑 · 城墙 · 回坊夜市",
+    intro:
+      "十三朝古都，地下两米就可能埋着唐代的瓦。秦始皇陵兵马俑值得一上午，但更好玩的是骑车绕城墙一圈，14 公里的明城墙在脚下一直延伸。3-5 月或 9-10 月最舒服，傍晚去回坊吃一顿羊肉泡馍，顺便看看老城的烟火。",
+    src: "/landmarks/xian.jpg",
+    iata: "XIY",
+    gps: "34.3416° N · 108.9398° E",
+  },
+  shanghai: {
+    en: "Shanghai",
+    cn: "上海",
+    tagline: "外滩天际线 · 法租界梧桐 · 弄堂早茶",
+    intro:
+      "黄浦江两岸是两个时代叠在一起。傍晚走外滩看陆家嘴亮灯，第二天清晨去武康路喝杯咖啡，下午钻进弄堂看晾衣杆下的真实生活。4-5 月或 10-11 月气候最稳，我们会安排一个本地建筑师带你走老租界，听老房子背后的故事。",
+    src: "/landmarks/shanghai.jpg",
+    iata: "PVG",
+    gps: "31.2304° N · 121.4737° E",
+  },
   zhangjiajie: {
     en: "Zhangjiajie",
     cn: "张家界",
@@ -57,6 +95,16 @@ const DESTINATIONS: Record<Slug, {
     src: "/landmarks/dali.jpg",
     iata: "DLU",
     gps: "25.6065° N · 100.2675° E",
+  },
+  huangshan: {
+    en: "Huangshan",
+    cn: "黄山",
+    tagline: "云海 · 奇松怪石 · 日出之巅",
+    intro:
+      "安徽南部的黄山，老一辈山水画里的样子就是从这儿来的。云海在山腰翻涌，迎客松立在悬崖边，凌晨四点起来去光明顶看日出值得一次失眠。3-5 月或 10-11 月最舒服，山上住一晚才能错开下午的索道人流，下山再去宏村看徽派古村，是很完整的两天。",
+    src: "/landmarks/huangshan.jpg",
+    iata: "TXN",
+    gps: "30.1342° N · 118.1745° E",
   },
 };
 
