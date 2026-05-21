@@ -210,6 +210,82 @@ export const TRUST_PROOFS: TrustProof[] = [
       zh: '24 小时内回复；擅长无障碍与家庭节奏。',
     },
   },
+  {
+    id: 'mock-review-tripadvisor-01',
+    kind: 'A_review',
+    status: 'mock',
+    productionVisible: false,
+    platform: 'tripadvisor',
+    rating: 5,
+    quote: {
+      en: 'Mock review placeholder — real Tripadvisor reviews to be plugged in by ops before launch.',
+      zh: '示例评价占位 —— 上线前由运营替换为真实 Tripadvisor 评价。',
+    },
+    travelType: 'Couple · 12 days',
+    destination: 'Beijing → Xi’an → Guilin → Shanghai',
+  },
+  {
+    id: 'mock-review-google-02',
+    kind: 'A_review',
+    status: 'mock',
+    productionVisible: false,
+    platform: 'google',
+    rating: 5,
+    quote: {
+      en: 'Mock review placeholder — real Google reviews to be plugged in by ops before launch.',
+      zh: '示例评价占位 —— 上线前由运营替换为真实 Google 评价。',
+    },
+    travelType: 'Multi-gen family · 15 days',
+    destination: 'Beijing → Chengdu → Zhangjiajie',
+  },
+  {
+    id: 'sample-licensed-tour-operator-cn',
+    kind: 'D_credential',
+    status: 'mock',
+    productionVisible: false,
+    category: 'license',
+    displayName: {
+      en: 'Sample Licensed Tour Operator Placeholder',
+      zh: '示例合规旅行业资质占位',
+    },
+    description: {
+      en: 'Placeholder for a Chinese tour operator license. Replace with the verified license number and authority before launch.',
+      zh: '中国旅行社业务许可的占位文案，上线前替换为真实许可证号与发证机关。',
+    },
+    publicAllowed: false,
+  },
+  {
+    id: 'sample-payment-stripe-placeholder',
+    kind: 'D_credential',
+    status: 'mock',
+    productionVisible: false,
+    category: 'payment',
+    displayName: {
+      en: 'Sample Payment Partner Placeholder',
+      zh: '示例支付合作占位',
+    },
+    description: {
+      en: 'Placeholder for the verified card / Stripe payment partner badge. Awaiting brand-usage approval.',
+      zh: '银行卡 / Stripe 支付合作徽章的占位文案，待品牌使用授权后替换。',
+    },
+    publicAllowed: false,
+  },
+  {
+    id: 'sample-privacy-gdpr-placeholder',
+    kind: 'D_credential',
+    status: 'mock',
+    productionVisible: false,
+    category: 'privacy',
+    displayName: {
+      en: 'Sample Privacy Stance Placeholder',
+      zh: '示例隐私声明占位',
+    },
+    description: {
+      en: 'Placeholder for the GDPR / data-handling stance. Replace with the published privacy notice URL once legal signs off.',
+      zh: 'GDPR 与数据处理声明占位，待法务确认后替换为正式隐私政策链接。',
+    },
+    publicAllowed: false,
+  },
 ];
 
 export const renderableProofs = (
@@ -229,3 +305,9 @@ export const demoAdvisors = (proofs: TrustProof[] = TRUST_PROOFS): AdvisorProof[
   proofs.filter(
     (p): p is AdvisorProof => p.kind === 'B_advisor' && p.id.startsWith('demo-advisor-')
   );
+
+export const reviewProofs = (proofs: TrustProof[] = TRUST_PROOFS): ReviewProof[] =>
+  proofs.filter((p): p is ReviewProof => p.kind === 'A_review');
+
+export const credentialProofs = (proofs: TrustProof[] = TRUST_PROOFS): CredentialProof[] =>
+  proofs.filter((p): p is CredentialProof => p.kind === 'D_credential');

@@ -72,4 +72,5 @@ export const leadFormSchema = z.object({
   turnstileToken: z.string().min(1, { message: 'turnstile_missing' }),
 });
 
-export type LeadFormInput = z.infer<typeof leadFormSchema>;
+export type LeadFormInput = z.input<typeof leadFormSchema>;
+export type LeadFormOutput = z.output<typeof leadFormSchema>;

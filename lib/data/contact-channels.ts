@@ -10,11 +10,51 @@ export interface ContactChannel {
   note?: { en: string; zh: string };
 }
 
-// Entries to be filled in Task 3.1 by migrating from
-// components/floating/ChatLauncher.tsx, components/sections/Footer.tsx,
-// and components/sections/DualCTA.tsx. Order per spec §4.8:
+// Mock placeholders for Path C lead generation. Real numbers/handles to be
+// substituted by ops in Task 7.5 before launch. Order per spec §4.8:
 // form > email > whatsapp > phone > wechat > social.
-export const CONTACT_CHANNELS: ContactChannel[] = [];
+export const CONTACT_CHANNELS: ContactChannel[] = [
+  {
+    id: 'mock-form',
+    kind: 'form',
+    label: { en: 'Custom plan request', zh: '提交定制需求' },
+    href: '#lead-form',
+    visibility: 'always',
+    status: 'mock',
+  },
+  {
+    id: 'mock-email',
+    kind: 'email',
+    label: { en: 'Email a specialist', zh: '邮件联系顾问' },
+    href: 'mailto:hello@example-tourism.demo',
+    visibility: 'always',
+    status: 'mock',
+  },
+  {
+    id: 'mock-whatsapp',
+    kind: 'whatsapp',
+    label: { en: 'WhatsApp our desk', zh: 'WhatsApp 联系顾问' },
+    href: 'https://wa.me/8613000000000',
+    visibility: 'overseas-priority',
+    status: 'mock',
+  },
+  {
+    id: 'mock-phone',
+    kind: 'phone',
+    label: { en: 'Call Beijing office', zh: '电话联系北京办公室' },
+    href: 'tel:+861000000000',
+    visibility: 'always',
+    status: 'mock',
+  },
+  {
+    id: 'mock-wechat',
+    kind: 'wechat',
+    label: { en: 'WeChat (CN priority)', zh: '微信（国内优先）' },
+    href: 'weixin://contacts/profile/demo',
+    visibility: 'cn-priority',
+    status: 'mock',
+  },
+];
 
 const priority = (c: ContactChannel): number => {
   if (c.visibility === 'hidden') return 99;
