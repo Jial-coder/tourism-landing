@@ -9,6 +9,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 import { useRef, useState, type ReactNode } from 'react';
+import { useMounted } from './use-mounted';
 
 interface Tilt3DProps {
   children: ReactNode;
@@ -19,6 +20,7 @@ interface Tilt3DProps {
 export function Tilt3D({ children, className, max = 12 }: Tilt3DProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const mounted = useMounted();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 220, damping: 22 });
@@ -36,8 +38,12 @@ export function Tilt3D({ children, className, max = 12 }: Tilt3DProps) {
 
   const [hovered, setHovered] = useState(false);
 
-  if (reduce) {
-    return <div className={className}>{children}</div>;
+  if (reduce || !mounted) {
+    return (
+      <div className={className} suppressHydrationWarning>
+        {children}
+      </div>
+    );
   }
 
   return (

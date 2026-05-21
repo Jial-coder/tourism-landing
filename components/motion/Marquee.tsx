@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState, type ReactNode } from 'react';
+import { useMounted } from './use-mounted';
 
 interface MarqueeProps {
   items: ReactNode[];
@@ -12,12 +13,13 @@ interface MarqueeProps {
 
 export function Marquee({ items, speed = 30, className, itemClassName }: MarqueeProps) {
   const reduce = useReducedMotion();
+  const mounted = useMounted();
   const [paused, setPaused] = useState(false);
   const doubled = [...items, ...items];
 
-  if (reduce) {
+  if (reduce || !mounted) {
     return (
-      <div className={className}>
+      <div className={className} suppressHydrationWarning>
         <div className="flex flex-wrap items-center justify-center gap-8">
           {items.map((item, idx) => (
             <span key={idx} className={itemClassName}>

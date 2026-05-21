@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
+import { useMounted } from './use-mounted';
 
 interface MagneticCtaProps {
   children: ReactNode;
@@ -29,13 +30,14 @@ export function MagneticCta({ children, className, href, type, ariaLabel, asChil
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const canHover = useHoverCapability();
+  const mounted = useMounted();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 220, damping: 18, mass: 0.4 });
   const sy = useSpring(y, { stiffness: 220, damping: 18, mass: 0.4 });
 
-  const enabled = canHover && !reduce;
+  const enabled = mounted && canHover && !reduce;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!enabled || !ref.current) return;

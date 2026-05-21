@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Children, type ReactNode } from 'react';
+import { useMounted } from './use-mounted';
 
 interface AccordionItemMotionProps {
   children: ReactNode;
@@ -26,9 +27,14 @@ const childVariants: Variants = {
 
 export function AccordionItemMotion({ children, className }: AccordionItemMotionProps) {
   const reduce = useReducedMotion();
+  const mounted = useMounted();
 
-  if (reduce) {
-    return <div className={className}>{children}</div>;
+  if (reduce || !mounted) {
+    return (
+      <div className={className} suppressHydrationWarning>
+        {children}
+      </div>
+    );
   }
 
   return (
