@@ -140,6 +140,24 @@ j. **前端栈与界面工作模式**
      6. 图标只用 `lucide-react`；不引入 heroicons / phosphor / tabler。
    - 界面工作模式：每个 section / 新组件改造遵循 **read → 改 → `pnpm run dev` → 浏览器桌面+移动 QA → 截图给 team-lead → user 确认 → commit** 七步循环。Phase 4 / 5 / 6 中所有动到 UI 的 task 必须在 Step 列表里追加「dev server 验证 + 截图记录到 `docs/qa/2026-05-21/<section-name>/`」步骤；不允许「一次性写几百行不验证再 commit」。截图命名建议：`<task-id>-desktop-before.png` / `<task-id>-desktop-after.png` / 同名 `-mobile-` 系列。
 
+k. **Path C IA 重做**（2026-05-21 由 user 拍板，team-lead 落地）
+   - 触发原因：竞品 mood board（`docs/qa/2026-05-21/competitor-mood/MOODBOARD.md`）8 家竞品中无一家走「8 段同色深底 + 诊断式 chip hero + 单顾问独白」路线；当前首页与 spec §4 「人工承接的中国定制旅行获客网站」差距过大，不可单稿微调。
+   - 选定 archetype：Editorial Magazine（主体框架）+ Cinematic Bold（hero 局部）；视觉锚 = Trufflepig / Steppes / Black Tomato。完整决策依据详见 `docs/DESIGN.md` §2。
+   - **旧 sections 处置**：`Hero.tsx` / `DiagnosticSection.tsx` / `ConciergeBand.tsx` / `DestinationTilesSection.tsx` / `VisaSection.tsx` / `AdvisorCard.tsx` / `ConciergeNote.tsx` / `DualCTA.tsx` / `TrustFootnote.tsx` 文件**保留不删**，但 `app/page.tsx` 不再装配。如未来需要复活某段，从 git 历史恢复 import 即可；本期不做主动清理。
+   - **新 sections 边界**：`components/sections/` 下新建 9 个 Path C section（HomeHero / TrustStrip / HowWeWork / DestinationGrid / SampleItineraries / Specialists / TrustProofGrid / LeadFormSection / FAQ）+ 重写 Footer；新 IA 顺序见 `docs/DESIGN.md` §6。
+   - **联动**：Phase 4 整段重写为 Path C IA 重做（Task 4.1-4.5）；Phase 5 / 6 / 7 范围不变（lead form / trust proof grid / qa），但目标 section 名从旧 `LeadForm`/`TrustFootnote` 改为新 `LeadFormSection` / `TrustProofGrid`。
+
+l. **色板从 deep-slate-only 切到 cream-editorial + cinematic dark hero 局部**
+   - 主体页面默认底色 = `--color-cream`（`oklch(0.98 0.005 80)`）；卡片 / 次级 section = `--color-paper`；主文本 = `--color-ink`；muted = `--color-ink-soft`；主 CTA = `--color-jade` + hover `--color-jade-soft`；mock badge = `--color-gold`。
+   - 仅 HomeHero（IA #1） / Specialists（IA #6） / Footer（IA #10）三段保留 `--color-deep-slate` + `--color-soft-ivory`；其余 7 段必须 light，不允许连续 3 段同色深底（实施时由 4.5 视觉验收兜底）。
+   - 现有 token `--color-deep-slate` / `--color-soft-ivory` 不变；新增 7 个 token 在 Task 4.1 注入 `app/globals.css` 的 `:root` + Tailwind v4 `@theme` 映射。
+   - 反 AI Slop 一票否决清单见 `docs/DESIGN.md` §8。
+
+m. **表单库不变，仅重排 LeadFormSection 在 IA 中的位置**
+   - 表单栈与决策 j 完全一致：rhf + zod + shadcn form + sonner + 蜜罐（决策 i）+ Cloudflare Turnstile（决策 i）+ sliding window 限流（决策 i）；本次 Path C **不重新讨论表单库选型**，不引入新依赖。
+   - IA 位置变化：从「mid 区单 form 占位」改为「专属 LeadFormSection（IA #8） + HomeHero 主 CTA anchor + Footer 链接」三处可达；锚点 id `#lead-form` 不变，client 已用此 id 的代码无需改动。
+   - Phase 5 范围与字段 / schema 完全不变（`leadFormSchema` 在 `lib/data/lead-form.ts` 单一来源）；仅 LeadFormSection 容器组件按 `docs/DESIGN.md` §6 IA #8 的 cream 底 + 段落式叙事重写外壳。
+
 ---
 
 ## Phase 0 — 文档校对与脚本基线
@@ -1012,110 +1030,234 @@ git commit -m "refactor(contact): replace hardcoded channels with single-source 
 
 ---
 
-## Phase 4 — 首页 sections 接入字典
+## Phase 4 — Path C IA 重做
 
-> **界面工作模式（Phase 0 决策 j）**：本 Phase 内每个改动 UI 的 task 必须按 read → 改 → `pnpm run dev` → 桌面 + 移动 QA → 截图 `docs/qa/2026-05-21/<section-name>/` → user 确认 → commit 七步循环；不允许「一次写完不验证再 commit」。每个 task 在 commit 前必须输出 `<task-id>-desktop-before.png` / `-after.png` 与对应 `-mobile-` 系列。
+> **路径 C 边界**（Phase 0 决策 k/l/m，详见决策记录段尾）：本 Phase 推翻旧首页 IA，按 `docs/DESIGN.md` §6 的 10 段 IA 新建 sections 并接字典；旧 sections 保留文件不删，仅在 `app/page.tsx` 不再装配，留作 archive。
+> **界面工作模式（Phase 0 决策 j）**：本 Phase 内每个改动 UI 的 task 必须按 read → 改 → `pnpm run dev` → 桌面 + 移动 QA → 截图 `docs/qa/2026-05-21/path-c/<section-name>/` → user 确认 → commit 七步循环；不允许「一次写完不验证再 commit」。每个 task 在 commit 前必须输出 `<task-id>-desktop-before.png` / `-after.png` 与对应 `-mobile-` 系列。
 
-### Task 4.1: 填充 Hero / DualCTA / ConciergeBand 字典
+### Task 4.1: 注入 Path C 视觉 token 到 `app/globals.css`
 
 **Files:**
 
-- Modify: `lib/data/dictionaries/en.ts`
-- Modify: `lib/data/dictionaries/zh.ts`
-- Modify: `components/sections/Hero.tsx`
-- Modify: `components/sections/DualCTA.tsx`
-- Modify: `components/sections/ConciergeBand.tsx`
+- Modify: `app/globals.css`
 
-- [ ] **Step 1: 用 spec §4.2 与 §5 替换占位文案**
+- [ ] **Step 1: 注入 OKLCH tokens**
 
-在 `dictionaries/en.ts` 的 `hero`, `dualCta`, `conciergeBand` 命名空间下写入英文文案，覆盖：
-- Hero headline / subheadline / primary CTA / secondary CTA。
-- Dual CTA 主 CTA 锚定到 `#lead-form`，次 CTA 锚定到 `#trust`。
-- ConciergeBand 文案与 spec §4.6 一致，CTA 文案点向 LeadForm。
+按 `docs/DESIGN.md` §3 在 `:root` 下加入新 tokens：`--color-cream` / `--color-paper` / `--color-ink` / `--color-ink-soft` / `--color-jade` / `--color-jade-soft` / `--color-gold`；保留现有 `--color-deep-slate` / `--color-soft-ivory`（Path C 决策 l：cinematic dark hero 局部继续用）。
 
-中文版同形写入。
+注入 Tailwind v4 `@theme` 映射，把 token 暴露成 `bg-cream` / `text-ink` / `bg-jade` / `text-soft-ivory` 等 utility。
 
-- [ ] **Step 2: 改组件读字典**
+- [ ] **Step 2: 切默认 body 色**
 
-把 `Hero.tsx`、`DualCTA.tsx`、`ConciergeBand.tsx` 中所有展示文本改为 `const t = useDictionary()` + `t.hero.title` 等。`<a href>` 改为 `#lead-form` / `#trust`。
+把 `body` 的默认 `background-color` 切到 `var(--color-cream)`，`color` 切到 `var(--color-ink)`；移除任何「全站默认 deep-slate」遗留样式。Hero / Specialists / Footer 三段后续在组件里显式声明 `bg-deep-slate text-soft-ivory`。
 
-- [ ] **Step 3: build + dev QA**
+- [ ] **Step 3: dev QA**
 
 ```bash
-pnpm run build
 pnpm run dev
 ```
 
-切换 EN/ZH 验证文案随之变化、CTA 滚动到正确锚点。
+打开任意旧 section 浏览，确认主体底色变成 cream（不再是 deep-slate），旧 sections 不动也仍可读（暂用 cream 底，留待 4.4 替换 page.tsx 后整体下线）。截图存 `docs/qa/2026-05-21/path-c/4.1-tokens/`。
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add lib/data/dictionaries components/sections/Hero.tsx components/sections/DualCTA.tsx components/sections/ConciergeBand.tsx
-git commit -m "feat(home): wire hero/dualCta/conciergeBand to locale dictionaries"
+git add app/globals.css
+git commit -m "feat(design): inject path C OKLCH tokens (cream/paper/ink/jade) and switch body to editorial light"
 ```
 
-### Task 4.2: 接入 Diagnostic / DestinationTiles / Visa / AdvisorCard / TrustFootnote / Footer
+### Task 4.2: layout.tsx 接入 next/font Newsreader + Inter
 
 **Files:**
 
-- Modify: `lib/data/dictionaries/en.ts`
-- Modify: `lib/data/dictionaries/zh.ts`
-- Modify: `components/sections/DiagnosticSection.tsx`
-- Modify: `components/sections/DestinationTilesSection.tsx`
-- Modify: `components/sections/VisaSection.tsx`
-- Modify: `components/sections/AdvisorCard.tsx`
-- Modify: `components/sections/TrustFootnote.tsx`
-- Modify: `components/sections/Footer.tsx`
+- Modify: `app/layout.tsx`
+- Modify: `app/globals.css`（如已有 font-family 声明）
 
-- [ ] **Step 1: 字典补全**
+- [ ] **Step 1: next/font 引入**
 
-按各 section 的现有文本结构在两份字典中补 keys。`AdvisorCard` 文案中所有具体顾问个人信息只允许引用 `lib/data/trust-proofs.ts` 中 status=verified 的条目；status=mock 时显示 `[demo advisor]` 徽标 + 中性占位文案。
+按 `docs/DESIGN.md` §4 接入：
 
-- [ ] **Step 2: 改各 section 读字典**
+```tsx
+import { Newsreader, Inter } from "next/font/google";
 
-逐个文件替换，禁止保留任何硬编码英文/中文字符串（除 aria-label 中的纯英文标签）。
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+```
 
-- [ ] **Step 3: build + dev QA**
+把 `<html>` 加 `className={`${newsreader.variable} ${inter.variable}`}`；保留现有 MiSans `@font-face`。
+
+- [ ] **Step 2: globals.css 字体栈**
+
+加入：
+
+```css
+:root {
+  --font-serif: var(--font-newsreader), 'MiSans', Georgia, serif;
+  --font-sans: var(--font-inter), 'MiSans', system-ui, -apple-system, sans-serif;
+}
+body { font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); letter-spacing: -0.01em; }
+```
+
+新 sections 主标用 `<h1 className="font-serif ...">`，正文默认 `font-sans`。
+
+- [ ] **Step 3: dev QA**
 
 ```bash
-pnpm run build
 pnpm run dev
 ```
 
-逐 section 视觉走查，DOM 中无残留硬编码文案（搜索 `Tripadvisor`、`5-star`、`licensed` 等关键词不应出现在 .tsx 中，应只在数据层）。
+DevTools Network 面板确认 Newsreader / Inter `.woff2` 自 next/font 同源加载（不应见 fonts.googleapis.com 跨域请求）。截图存 `docs/qa/2026-05-21/path-c/4.2-fonts/`。
 
 - [ ] **Step 4: Commit**
 
 ```bash
-git add lib/data/dictionaries components/sections
-git commit -m "feat(home): localize diagnostic/destinations/visa/advisor/trust/footer sections"
+git add app/layout.tsx app/globals.css
+git commit -m "feat(design): wire next/font Newsreader + Inter for path C typography"
 ```
 
-### Task 4.3: 重排 `app/page.tsx` 以前置 trust proof
+### Task 4.3: 新建 6 个 Path C section
+
+**Files:**
+
+- Create: `components/sections/HomeHero.tsx`
+- Create: `components/sections/TrustStrip.tsx`
+- Create: `components/sections/HowWeWork.tsx`
+- Create: `components/sections/DestinationGrid.tsx`
+- Create: `components/sections/SampleItineraries.tsx`
+- Create: `components/sections/Specialists.tsx`
+- Modify: `lib/data/dictionaries/en.ts`
+- Modify: `lib/data/dictionaries/zh.ts`
+
+> 本 task 子步按 6 个 section 拆，每个 section 一个独立 dev-QA + 截图循环（七步）；不要把 6 个 section 合并成一个 commit。每个 section 完成都要在 `docs/qa/2026-05-21/path-c/<section-lower>/` 下出桌面 + 移动 before/after 截图。
+
+- [ ] **Step 1: 字典骨架**
+
+按 `docs/DESIGN.md` §6 在 `dictionaries/en.ts` 与 `zh.ts` 下加入命名空间：`home.hero` / `home.trustStrip` / `home.howWeWork` / `home.destinations` / `home.sampleItineraries` / `home.specialists`。每个命名空间至少包含 heading / subheading / cta / items[] 字段。
+
+- [ ] **Step 2: HomeHero.tsx**
+
+`bg-deep-slate text-soft-ivory h-[100svh] md:h-[100svh] h-[88svh]`；放一张 hero 大图（先用 `public/landmarks/hero-gen/v4-a.webp`，无可用候选时回落 `public/landmarks/huangshan.jpg`），叠加 `bg-gradient-to-b from-deep-slate/55 to-deep-slate/5` 保证反白可读；居中 `<h1 className="font-serif text-5xl md:text-7xl">{t.home.hero.headline}</h1>` + 副标 + 主 CTA pill jade `<a href="#lead-form">{t.home.hero.primaryCta}</a>` + 次 CTA outline。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 3: TrustStrip.tsx**
+
+`bg-cream py-16 lg:py-20`；4 列网格（移动 2 列），每格 `<dt className="font-serif text-3xl text-ink tabular-nums">` 数字 + `<dd className="text-ink-soft text-sm">` 标签；数据来自 `lib/data/trust-proofs.ts` `category: 'stats'` 的 4 条 mock（年限 / 客户数 / 评分 / 顾问数）；每条 stat 卡角加 `<MockBadge />`（status=mock 时强制可见）。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 4: HowWeWork.tsx**
+
+`bg-cream py-20 lg:py-28`；3 列卡片（移动 1 列），每卡 `border border-ink/10 rounded-2xl p-8 bg-paper`，序号大 serif + 步骤标题 + 说明 + 步骤间距用 `gap-8`；底部居中次 CTA → `#lead-form`。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 5: DestinationGrid.tsx**
+
+`bg-cream py-20 lg:py-28`；4 列网格（lg）/ 2 列（md）/ 1 列（sm）；每张卡 `aspect-[4/5] rounded-2xl overflow-hidden relative` + `<Image fill>` 引用 `public/landmarks/{slug}.jpg` + 底部渐变遮罩 + `<h3 className="font-serif text-xl text-soft-ivory">{name}</h3>`；hover 显示 jade 边框 + "Plan a trip to X" 浮层链向 `#lead-form`。展示 8 个目的地（北京 / 西安 / 上海 / 桂林 / 张家界 / 九寨沟 / 大理 / 凤凰；凤凰若 `public/landmarks` 没有则替换为 `huangshan` 或 `chengdu`）。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 6: SampleItineraries.tsx**
+
+`bg-paper py-20 lg:py-28`；3 列卡片（移动 1 列）；每卡顶部 `<MockBadge>example</MockBadge>` + 行程标题 + 天数 + 路线 + "Customized for X-day China loop"；数据来自 `lib/data/trust-proofs.ts` `category: 'C'` 中至少 3 条 `example-trip-*` 条目；底部 CTA → `#lead-form`。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 7: Specialists.tsx**
+
+`bg-deep-slate text-soft-ivory py-20 lg:py-28`；3-4 列顾问网格；每张顾问卡片头像用首字母圆形 `<div className="w-20 h-20 rounded-full bg-gradient-to-br from-deep-slate to-jade flex items-center justify-center text-2xl font-serif">YL</div>`（**禁用真人头像或 AI 生成头像**）+ 姓名 + 角色 + 服务语言 + 熟悉目的地 + `<MockBadge>demo</MockBadge>`；底部居中 jade CTA → `#lead-form`。数据来自 `lib/data/trust-proofs.ts` `category: 'B'` 中至少 4 条 `demo-advisor-*` 条目。dev → 截图 → 移动 → commit。
+
+- [ ] **Step 8: 全 Path C QA round**
+
+```bash
+pnpm run typecheck
+pnpm run dev
+```
+
+把 6 个 section 临时挂到 `app/page-preview.tsx`（仅本地预览，不动 `app/page.tsx`）或在 dev 用 hash 路由 / 临时挂载点过一遍，桌面 + 移动各一遍，留 `docs/qa/2026-05-21/path-c/4.3-overview-desktop.png` + `-mobile.png`。
+
+### Task 4.4: 替换 `app/page.tsx`，旧 sections 保留为 archive
 
 **Files:**
 
 - Modify: `app/page.tsx`
 
-- [ ] **Step 1: 调整顺序**
+> 旧 sections（`Hero.tsx` / `DiagnosticSection.tsx` / `ConciergeBand.tsx` / `DestinationTilesSection.tsx` / `VisaSection.tsx` / `AdvisorCard.tsx` / `ConciergeNote.tsx` / `DualCTA.tsx` / `TrustFootnote.tsx`）**保留文件不删**，仅停止在 `app/page.tsx` 装配（Phase 0 决策 k）。如未来需要复活某段，从 git 历史恢复 import 即可。
 
-按 spec §4.3「信任证明应在首屏后尽早出现」要求，把 `TrustProofGrid`（Phase 6 创建）紧贴 Hero 之后；保留 `ConciergeBand`、`DiagnosticSection`、`DestinationTilesSection`、`VisaSection` 等顺序；`LeadForm` 至少在 hero、mid、footer 三处可达（hero 内主 CTA 锚定、mid 区直接渲染 `<LeadForm id="lead-form" />`、Footer 链接）。
+- [ ] **Step 1: 重写 page.tsx 装配**
 
-- [ ] **Step 2: build + dev QA**
+按 `docs/DESIGN.md` §6 的 10 段顺序装配新 sections；引入：
+
+```tsx
+import HomeHero from "@/components/sections/HomeHero";
+import TrustStrip from "@/components/sections/TrustStrip";
+import HowWeWork from "@/components/sections/HowWeWork";
+import DestinationGrid from "@/components/sections/DestinationGrid";
+import SampleItineraries from "@/components/sections/SampleItineraries";
+import Specialists from "@/components/sections/Specialists";
+// 后续 Phase 提供：
+// import TrustProofGrid from "@/components/sections/TrustProofGrid";
+// import LeadFormSection from "@/components/sections/LeadFormSection";
+// import FAQ from "@/components/sections/FAQ";
+import Footer from "@/components/sections/Footer";
+```
+
+10 段顺序：HomeHero → TrustStrip → HowWeWork → DestinationGrid → SampleItineraries → Specialists → TrustProofGrid (Phase 6) → LeadFormSection (Phase 5) → FAQ (Phase 6 末尾或 Phase 7) → Footer。本 task 只挂 6 个新 sections + Footer，其余三段在对应 Phase 落地后由 Phase 5 / 6 / 7 各自的 task 续接。
+
+旧 sections import **全部移除**；不要保留 `Hero` / `DualCTA` / `ConciergeBand` 等的 import 与渲染。
+
+- [ ] **Step 2: dev + 桌面 + 移动 QA**
 
 ```bash
-pnpm run build
+pnpm run typecheck
 pnpm run dev
 ```
 
-桌面 + 移动端各确认一次。
+确认默认底色 cream，Hero / Specialists 三段深底，主 CTA pill jade 反白，三处主 CTA 路径在 hero / 占位 LeadFormSection / Footer 都能滚到 `#lead-form` 锚点（即便 LeadFormSection 还是 Phase 5 的占位 div，也要先放 `<section id="lead-form" />` 占位避免 anchor 失效）。截图存 `docs/qa/2026-05-21/path-c/4.4-page-tsx/`，桌面 + 移动各 1 张 fold1 + 1 张 full。
 
 - [ ] **Step 3: Commit**
 
 ```bash
 git add app/page.tsx
-git commit -m "refactor(home): reorder sections to surface trust proof above the fold"
+git commit -m "refactor(home): replace IA with path C 10-section layout (old sections archived in repo)"
+```
+
+### Task 4.5: Path C 整体视觉验收
+
+**Files:** *(no code changes — review only)*
+
+- [ ] **Step 1: 浏览器端 sweep**
+
+```bash
+pnpm run dev
+```
+
+桌面 1440 + 移动 390 各跑一遍，对照 `docs/DESIGN.md` §8 反 AI Slop 清单一票否决：
+
+- 没有 chip hero / 顾问独白式 hero / 无主 CTA hero
+- 没有连续 3 段同色深底
+- 没有假人脸头像 / AI 生成中国元素插画
+- 没有 5-star reviews 泛化无来源声明
+- 主 CTA 三处可达（hero / mid / footer）
+
+- [ ] **Step 2: 整体截图**
+
+`docs/qa/2026-05-21/path-c/4.5-final/` 下放：
+- `desktop-fold1.png`（hero 首屏）
+- `desktop-full.png`（全页滚动截图）
+- `mobile-fold1.png` + `mobile-full.png`
+
+把 8 张截图 path 列在 SendMessage 给 team-lead 的 task 完成简报里。
+
+- [ ] **Step 3: Commit （如有 doc 改动）**
+
+如本 task 顺手补了 `docs/DESIGN.md` 或 mood board 链接，分开 commit：
+
+```bash
+git add docs/
+git commit -m "docs(design): record path C visual review evidence"
 ```
 
 ---
