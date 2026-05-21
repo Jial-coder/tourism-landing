@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useDictionary } from '@/components/i18n/LocaleProvider';
 import { Reveal } from '@/components/motion/Reveal';
 import { HeroParallax } from '@/components/motion/HeroParallax';
+import { HeroBackdrop } from '@/components/motion/HeroBackdrop';
 import { MagneticCta } from '@/components/motion/MagneticCta';
 
 export function HomeHero() {
@@ -16,15 +16,7 @@ export function HomeHero() {
       className="relative isolate overflow-hidden bg-deep-slate text-soft-ivory min-h-[88svh] md:min-h-screen"
     >
       <HeroParallax>
-        <Image
-          src="/landmarks/hero-gen/v4-a.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={90}
-          className="object-cover"
-        />
+        <HeroBackdrop src="/landmarks/hero-gen/v4-a.webp" />
       </HeroParallax>
       <div
         aria-hidden="true"
