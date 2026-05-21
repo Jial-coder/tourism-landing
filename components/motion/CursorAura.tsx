@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
+import { useMounted } from './use-mounted';
 
 const useHoverCapability = () => {
   const [canHover, setCanHover] = useState(false);
@@ -19,6 +20,7 @@ const useHoverCapability = () => {
 export function CursorAura() {
   const reduce = useReducedMotion();
   const canHover = useHoverCapability();
+  const mounted = useMounted();
   const [variant, setVariant] = useState<'default' | 'link' | 'text'>('default');
   const [visible, setVisible] = useState(false);
 
@@ -67,7 +69,7 @@ export function CursorAura() {
     };
   }, [canHover, reduce, x, y]);
 
-  if (!canHover || reduce) return null;
+  if (!mounted || !canHover || reduce) return null;
 
   const scale = variant === 'link' ? 2.5 : variant === 'text' ? 0.5 : 1;
 

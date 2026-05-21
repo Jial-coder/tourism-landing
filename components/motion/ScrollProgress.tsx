@@ -1,9 +1,11 @@
 'use client';
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
+import { useMounted } from './use-mounted';
 
 export function ScrollProgress() {
   const reduce = useReducedMotion();
+  const mounted = useMounted();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 220,
@@ -11,7 +13,7 @@ export function ScrollProgress() {
     restDelta: 0.001,
   });
 
-  if (reduce) return null;
+  if (!mounted || reduce) return null;
 
   return (
     <motion.div

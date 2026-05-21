@@ -8,6 +8,7 @@ import {
   useSpring,
   useReducedMotion,
 } from 'framer-motion';
+import { useMounted } from './use-mounted';
 
 interface NumberTickerProps {
   value: number;
@@ -38,6 +39,7 @@ export function NumberTicker({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const reduce = useReducedMotion();
+  const mounted = useMounted();
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, {
     duration: duration * 1000,
@@ -69,6 +71,16 @@ export function NumberTicker({
       unsubscribe();
     };
   }, [inView, reduce, value, decimals, delay, duration, motionValue, spring]);
+
+  if (!mounted) {
+    return (
+      <span ref={ref} className={className} suppressHydrationWarning>
+        {prefix}
+        {formatNumber(0, decimals)}
+        {suffix}
+      </span>
+    );
+  }
 
   return (
     <motion.span

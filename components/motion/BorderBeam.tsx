@@ -2,6 +2,7 @@
 
 import { useReducedMotion } from 'framer-motion';
 import type { CSSProperties } from 'react';
+import { useMounted } from './use-mounted';
 
 interface BorderBeamProps {
   size?: number;
@@ -22,7 +23,10 @@ export function BorderBeam({
   accent = 'normal',
 }: BorderBeamProps) {
   const reduce = useReducedMotion();
-  if (reduce) return null;
+  const mounted = useMounted();
+  // SSR + first client render: render nothing.  Only after mount + hydrate
+  // do we know whether reduce is true; this avoids hydration mismatch.
+  if (!mounted || reduce) return null;
 
   const strokeWidth = accent === 'subtle' ? '1px' : '1.5px';
 
