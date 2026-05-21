@@ -1,0 +1,15 @@
+{
+  "_doc": "Add files here ONLY when mock is intentional and time-bound. Each entry must have expires (YYYY-MM-DD). Mock guard ignores expired entries (and they will start failing the build).",
+  "entries": [
+    {
+      "path": "lib/data/trust-proofs.ts",
+      "reason": "Phase 2.x demo data, replaced before launch",
+      "expires": "2026-06-30"
+    },
+    {
+      "path": "lib/data/contact-channels.ts",
+      "reason": "Phase 2.x demo channels, replaced before launch",
+      "expires": "2026-06-30"
+    }
+  ]
+}

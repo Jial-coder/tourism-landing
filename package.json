@@ -8,6 +8,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "check:i18n": "tsx scripts/check-i18n-parity.ts",
+    "prelaunch-check": "tsx scripts/prelaunch-mock-guard.ts --enforce-production",
     "prebuild": "tsx scripts/prelaunch-mock-guard.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
