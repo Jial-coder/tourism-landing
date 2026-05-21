@@ -32,9 +32,15 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+!.env.local.example
 
 # vercel
 .vercel
+
+# package managers — repo standardizes on pnpm; do not commit npm or yarn lockfiles
+package-lock.json
+yarn.lock
 
 # typescript
 *.tsbuildinfo
