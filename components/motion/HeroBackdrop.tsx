@@ -12,10 +12,10 @@ interface HeroBackdropProps {
 }
 
 const DEFAULT_SLIDES = [
-  '/landmarks/hero-gen/v4-a.webp',
-  '/landmarks/hero-gen/v3-a.webp',
-  '/landmarks/hero-gen/v2-c.webp',
-  '/landmarks/hero-gen/v3-c.webp',
+  '/landmarks/beijing.jpg',
+  '/landmarks/guilin.jpg',
+  '/landmarks/zhangjiajie.jpg',
+  '/landmarks/jiuzhaigou.jpg',
 ];
 
 const PARTICLES = [
@@ -43,7 +43,7 @@ export function HeroBackdrop({
   src,
   slides,
   alt = '',
-  intervalMs = 7000,
+  intervalMs = 4500,
 }: HeroBackdropProps) {
   const reduce = useReducedMotion();
   const list =
@@ -84,17 +84,17 @@ export function HeroBackdrop({
         <motion.div
           key={list[index]}
           className="absolute inset-0 will-change-transform"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: 'easeInOut' }}
+          initial={{ opacity: 0, scale: 1.04, x: 24 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          exit={{ opacity: 0, scale: 0.98, x: -24 }}
+          transition={{ duration: 1.0, ease: 'easeInOut' }}
         >
           <motion.div
             className="absolute inset-0"
             style={{ transformOrigin: '50% 55%' }}
             initial={{ scale: 1.04 }}
             animate={{ scale: [1.0, 1.18, 1.0] }}
-            transition={{ duration: 18, ease: 'easeInOut', repeat: Infinity }}
+            transition={{ duration: 12, ease: 'easeInOut', repeat: Infinity }}
           >
             <Image
               src={list[index]}
@@ -108,6 +108,21 @@ export function HeroBackdrop({
           </motion.div>
         </motion.div>
       </AnimatePresence>
+
+      {/* slide indicators (md+) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-2 md:flex"
+      >
+        {list.map((_, i) => (
+          <span
+            key={i}
+            className={`h-[3px] rounded-full transition-all duration-500 ${
+              i === index ? 'w-10 bg-jade' : 'w-4 bg-soft-ivory/40'
+            }`}
+          />
+        ))}
+      </div>
 
       <div
         aria-hidden="true"
