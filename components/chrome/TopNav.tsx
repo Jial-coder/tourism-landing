@@ -85,7 +85,12 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
             aria-label={nav.brand}
             className="inline-flex items-center gap-2 shrink-0 text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm"
           >
-            <PandaMark className="h-7 w-7 lg:h-8 lg:w-8" />
+            <span
+              aria-hidden
+              className="inline-flex items-center justify-center rounded-[4px] bg-vermilion ring-1 ring-vermilion-deep/40 p-[3px] lg:p-[4px] shadow-sm shadow-deep-slate/30"
+            >
+              <PandaMark className="h-6 w-6 lg:h-7 lg:w-7" />
+            </span>
             <span className="font-misans-bold text-[20px] lg:text-[22px] tracking-tight">
               {nav.brand}
             </span>
@@ -348,21 +353,34 @@ function PandaMark({ className }: { className?: string }) {
       className={className}
       role="img"
     >
+      {/* 印章方框 — 中国元素外圈，仿汉印盖章感 */}
+      <g transform="rotate(-2 16 16)">
+        <rect
+          x="2"
+          y="2"
+          width="28"
+          height="28"
+          rx="2"
+          fill="none"
+          stroke="#C8102E"
+          strokeWidth="1.5"
+        />
+      </g>
       {/* Head */}
-      <circle cx="16" cy="17" r="10" fill="#FAF7EE" />
+      <circle cx="16" cy="17" r="9" fill="#FAF7EE" />
       {/* Ears */}
-      <ellipse cx="7.5" cy="9.5" rx="3.6" ry="3.2" fill="#1F1F1F" />
-      <ellipse cx="24.5" cy="9.5" rx="3.6" ry="3.2" fill="#1F1F1F" />
+      <ellipse cx="8.5" cy="10.5" rx="3.2" ry="2.8" fill="#1F1F1F" />
+      <ellipse cx="23.5" cy="10.5" rx="3.2" ry="2.8" fill="#1F1F1F" />
       {/* Eye patches */}
-      <ellipse cx="12" cy="16" rx="2.4" ry="3" fill="#1F1F1F" transform="rotate(-15 12 16)" />
-      <ellipse cx="20" cy="16" rx="2.4" ry="3" fill="#1F1F1F" transform="rotate(15 20 16)" />
+      <ellipse cx="12.4" cy="16.4" rx="2.1" ry="2.7" fill="#1F1F1F" transform="rotate(-15 12.4 16.4)" />
+      <ellipse cx="19.6" cy="16.4" rx="2.1" ry="2.7" fill="#1F1F1F" transform="rotate(15 19.6 16.4)" />
       {/* Eyes */}
-      <circle cx="12.4" cy="16.6" r="0.9" fill="#FAF7EE" />
-      <circle cx="19.6" cy="16.6" r="0.9" fill="#FAF7EE" />
+      <circle cx="12.7" cy="16.9" r="0.8" fill="#FAF7EE" />
+      <circle cx="19.3" cy="16.9" r="0.8" fill="#FAF7EE" />
       {/* Nose */}
-      <ellipse cx="16" cy="20" rx="1.4" ry="1" fill="#1F1F1F" />
+      <ellipse cx="16" cy="20" rx="1.3" ry="0.9" fill="#1F1F1F" />
       {/* Red accent — 中国元素 */}
-      <circle cx="16" cy="6.5" r="1.6" fill="#C8102E" />
+      <circle cx="16" cy="6.8" r="1.4" fill="#C8102E" />
     </svg>
   );
 }

@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "landscape-primary"
   },
-  "timestamp": "2026-05-22T10:20:46.486Z",
+  "timestamp": "2026-05-22T14:16:17.877Z",
   "url": "http://localhost:3001/itineraries/sample-10d",
   "toolOptions": {
     "runOnly": {
@@ -935,6 +935,32 @@
             }
           ],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "aria-allowed-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA attributes are used correctly for the defined role"
+            }
+          ],
+          "none": [
+            {
+              "id": "aria-unsupported-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA attribute is supported"
+            }
+          ],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -1013,9 +1039,9 @@
             }
           ],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -1221,9 +1247,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<svg viewBox=\"0 0 32 32\" aria-hidden=\"true\" class=\"h-7 w-7 lg:h-8 lg:w-8\" role=\"img\">",
+          "html": "<svg viewBox=\"0 0 32 32\" aria-hidden=\"true\" class=\"h-6 w-6 lg:h-7 lg:w-7\" role=\"img\">",
           "target": [
-            ".h-7"
+            ".w-6"
           ]
         },
         {
@@ -1492,6 +1518,24 @@
           ],
           "none": [],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "aria-conditional-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "ARIA attribute is allowed"
+            }
+          ],
+          "none": [],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -1546,9 +1590,9 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -1866,9 +1910,9 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<svg viewBox=\"0 0 32 32\" aria-hidden=\"true\" class=\"h-7 w-7 lg:h-8 lg:w-8\" role=\"img\">",
+          "html": "<span aria-hidden=\"true\" class=\"inline-flex items-center justify-center rounded-[4px] bg-vermilion ring-1 ring-vermilion-deep/40 p-[3px] lg:p-[4px] shadow-sm shadow-deep-slate/30\">",
           "target": [
-            ".h-7"
+            ".rounded-\\[4px\\]"
           ]
         },
         {
@@ -2221,6 +2265,70 @@
           "html": "<span class=\"size-1.5 rounded-full bg-gold\" aria-hidden=\"true\"></span>",
           "target": [
             ".bg-soft-ivory\\/15 > .bg-gold.size-1\\.5.rounded-full"
+          ]
+        },
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "focusable-modal-open",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements while a modal is open"
+            },
+            {
+              "id": "focusable-disabled",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements contained within element"
+            },
+            {
+              "id": "focusable-not-tabbable",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements contained within element"
+            }
+          ],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"size-1.5 rounded-full bg-gold\" aria-hidden=\"true\"></span>",
+          "target": [
+            ".gap-2.items-center.flex > .bg-gold\\/20.ring-gold\\/40.py-0\\.5 > .bg-gold.size-1\\.5.rounded-full"
+          ]
+        },
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "focusable-modal-open",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements while a modal is open"
+            },
+            {
+              "id": "focusable-disabled",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements contained within element"
+            },
+            {
+              "id": "focusable-not-tabbable",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "No focusable elements contained within element"
+            }
+          ],
+          "none": [],
+          "impact": null,
+          "html": "<span aria-hidden=\"true\">→</span>",
+          "target": [
+            ".focus-visible\\:ring-offset-paper > span[aria-hidden=\"true\"]"
           ]
         },
         {
@@ -5215,6 +5323,24 @@
             }
           ],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "aria-prohibited-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "ARIA attribute is allowed"
+            }
+          ],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -5269,9 +5395,9 @@
             }
           ],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -5922,6 +6048,38 @@
           ],
           "none": [],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "aria-valid-attr-value",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA attribute values are valid"
+            },
+            {
+              "id": "aria-errormessage",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+            },
+            {
+              "id": "aria-level",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-level values are valid"
+            }
+          ],
+          "none": [],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -6018,9 +6176,9 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -6391,6 +6549,24 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "aria-valid-attr",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "ARIA attribute name is valid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -6445,9 +6621,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -6840,6 +7016,13 @@
         {
           "any": [
             {
+              "id": "internal-link-present",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Valid skip link found"
+            },
+            {
               "id": "header-present",
               "data": null,
               "relatedNodes": [
@@ -6981,6 +7164,384 @@
                 "fgColor": "#31573f",
                 "bgColor": "#faf8f5",
                 "contrastRatio": 7.72,
+                "fontSize": "8.3pt (11px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 7.72"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span id=\"price-anchor-title\" class=\"text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade\">起价区间</span>",
+          "target": [
+            "#price-anchor-title"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#0f171f",
+                "bgColor": "#f4e9da",
+                "contrastRatio": 15.06,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 15.06"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"inline-flex items-center gap-1.5 rounded-full bg-gold/20 px-2 py-0.5 text-xs font-medium text-ink ring-1 ring-gold/40\"><span class=\"size-1.5 rounded-full bg-gold\" aria-hidden=\"true\"></span>样板价位</span>",
+          "target": [
+            ".gap-2.items-center.flex > .bg-gold\\/20.ring-gold\\/40.py-0\\.5"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#0f171f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 17.03,
+                "fontSize": "19.5pt (26px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "3:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 17.03"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"text-[22px] lg:text-[26px] font-misans-heavy tracking-tight text-ink\">USD <!-- -->2,800<!-- --> 起 / 人</p>",
+          "target": [
+            ".text-\\[22px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">3 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#cc2827",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 5.07,
+                "fontSize": "11.3pt (15px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.07"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->110</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">4 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#cc2827",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 5.07,
+                "fontSize": "11.3pt (15px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.07"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->220</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">5 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#cc2827",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 5.07,
+                "fontSize": "11.3pt (15px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 5.07"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->420</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#565a5f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 6.55,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 6.55"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] font-misans-regular leading-snug text-ink/70\">最终成交价 1:1 沟通后给出</span>",
+          "target": [
+            ".leading-snug"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#31573f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 7.72,
+                "fontSize": "9.8pt (13px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1",
+                "shadowColor": null
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has sufficient color contrast of 7.72"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"#price-title\" class=\"inline-flex items-center gap-1 text-[13px] font-misans-bold text-jade underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm\">",
+          "target": [
+            ".focus-visible\\:ring-offset-paper"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#31573f",
+                "bgColor": "#faf8f5",
+                "contrastRatio": 7.72,
                 "fontSize": "9.0pt (12px)",
                 "fontWeight": "normal",
                 "messageKey": null,
@@ -7051,7 +7612,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">第一次来中国不要赶 12 站。这条 10 天样板是我们写过最稳的入门节奏：北京两天古都厚重感，西安两天秦汉骨架，张家界两天峰林透气，桂林两天山水抒情，上海两天现代收尾。每一段你都有半天的留白，回酒店休息或者随便走走。</p>",
           "target": [
-            "section[aria-labelledby=\"glance-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"glance-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -7105,7 +7666,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">Cities</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -7132,7 +7693,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3\">Highlights</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > th:nth-child(3)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > th:nth-child(3)"
           ]
         },
         {
@@ -7159,7 +7720,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->1</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7186,7 +7747,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7213,7 +7774,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">抵达北京 · 胡同安顿</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(1) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7240,7 +7801,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->2</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7267,7 +7828,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7294,7 +7855,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">故宫开门即入 · 长城慕田峪段</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(2) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7321,7 +7882,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->3</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(3) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7348,7 +7909,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing → Xi'an</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(3) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7375,7 +7936,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">高铁 4.5h 转西安 · 城墙骑行</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(3) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7402,7 +7963,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->4</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(4) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7429,7 +7990,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Xi'an</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(4) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7456,7 +8017,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">兵马俑半日 · 回民街晚饭</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(4) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7483,7 +8044,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->5</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(5) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7510,7 +8071,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Xi'an → Zhangjiajie</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(5) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7537,7 +8098,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞张家界 · 进山休整</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(5) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7564,7 +8125,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->6</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(6) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7591,7 +8152,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Zhangjiajie</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(6) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7618,7 +8179,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">袁家界峰林 · 玻璃栈道</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(6) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7645,7 +8206,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->7</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(7) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7672,7 +8233,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Zhangjiajie → Guilin</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(7) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7699,7 +8260,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞桂林 · 漓江日落</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(7) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7726,7 +8287,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->8</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(8) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7753,7 +8314,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Guilin → Yangshuo</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(8) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7780,7 +8341,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">漓江竹筏 · 阳朔骑行</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(8) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -7807,7 +8368,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->9</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(9) > .text-vermilion.align-top"
           ]
         },
         {
@@ -7834,7 +8395,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Guilin → Shanghai</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(9) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -7861,7 +8422,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞上海 · 外滩夜色</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(9) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -8023,7 +8584,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">展开任一天看具体节奏。第一天默认展开。所有时段都按真实可执行的节奏写，不是百科条目堆砌。</p>",
           "target": [
-            "section[aria-labelledby=\"dayby-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"dayby-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -9697,7 +10258,7 @@
           "impact": null,
           "html": "<div class=\"text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade\">Tour Price</div>",
           "target": [
-            "section[aria-labelledby=\"price-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .text-jade.text-\\[12px\\].tracking-\\[0\\.18em\\]"
+            ".scroll-mt-24 > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .text-jade.text-\\[12px\\].tracking-\\[0\\.18em\\]"
           ]
         },
         {
@@ -9832,7 +10393,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">酒店等级</th>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -9859,7 +10420,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 text-right\">USD / 晚 / 人</th>",
           "target": [
-            ".text-ink\\/70 > .text-right"
+            "thead > tr > .text-right"
           ]
         },
         {
@@ -9886,7 +10447,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 hidden md:table-cell\">说明</th>",
           "target": [
-            ".text-ink\\/70 > .md\\:table-cell"
+            "thead > tr > .md\\:table-cell"
           ]
         },
         {
@@ -9913,7 +10474,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">3 星</td>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(1) > td:nth-child(1)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(1) > td:nth-child(1)"
           ]
         },
         {
@@ -9940,7 +10501,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->110</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-\\[16px\\].text-right.text-vermilion"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-\\[16px\\].text-right.text-vermilion"
           ]
         },
         {
@@ -9967,7 +10528,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">本地老牌三星 · 干净安静</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .md\\:table-cell.hidden.text-ink\\/65"
+            ".border-ink\\/10.border-b:nth-child(1) > .md\\:table-cell.hidden.text-ink\\/65"
           ]
         },
         {
@@ -9994,7 +10555,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">4 星</td>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(2) > td:nth-child(1)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(2) > td:nth-child(1)"
           ]
         },
         {
@@ -10021,7 +10582,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->220</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-\\[16px\\].text-right.text-vermilion"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-\\[16px\\].text-right.text-vermilion"
           ]
         },
         {
@@ -10048,7 +10609,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">国际品牌四星 · 中央区位</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .md\\:table-cell.hidden.text-ink\\/65"
+            ".border-ink\\/10.border-b:nth-child(2) > .md\\:table-cell.hidden.text-ink\\/65"
           ]
         },
         {
@@ -10534,7 +11095,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
           "target": [
-            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
           ]
         },
         {
@@ -10642,7 +11203,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">每条都是顾问真实带过的取舍。看完之后告诉 Lin 你想换哪一段，方案在 1 个工作日内回到你邮箱。</p>",
           "target": [
-            "section[aria-labelledby=\"tailor-tips-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"tailor-tips-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -11668,7 +12229,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
           "target": [
-            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
           ]
         },
         {
@@ -11902,6 +12463,24 @@
           "html": "<h1 id=\"it-hero-title\" class=\"text-[36px] md:text-[52px] lg:text-[68px] font-misans-heavy tracking-tight leading-[1.05] text-soft-ivory drop-shadow-[0_2px_8px_rgba(15,23,42,0.4)]\">10 天第一次来中国 · 文化与山水平衡线</h1>",
           "target": [
             "#it-hero-title"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "duplicate-id-aria",
+              "data": "price-anchor-title",
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Document has no elements referenced with ARIA or labels that share the same id attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span id=\"price-anchor-title\" class=\"text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade\">起价区间</span>",
+          "target": [
+            "#price-anchor-title"
           ]
         },
         {
@@ -12359,7 +12938,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">Cities</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -12377,7 +12956,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3\">Highlights</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > th:nth-child(3)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > th:nth-child(3)"
           ]
         },
         {
@@ -12395,7 +12974,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">酒店等级</th>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -12413,7 +12992,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 text-right\">USD / 晚 / 人</th>",
           "target": [
-            ".text-ink\\/70 > .text-right"
+            "thead > tr > .text-right"
           ]
         },
         {
@@ -12431,7 +13010,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 hidden md:table-cell\">说明</th>",
           "target": [
-            ".text-ink\\/70 > .md\\:table-cell"
+            "thead > tr > .md\\:table-cell"
           ]
         }
       ]
@@ -12497,12 +13076,6 @@
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(2) > div > div:nth-child(1) > h2:nth-child(2)"
-                    ],
-                    "level": 2
-                  },
-                  {
-                    "ancestry": [
                       "html > body > main:nth-child(5) > section:nth-child(3) > div > div:nth-child(1) > h2:nth-child(2)"
                     ],
                     "level": 2
@@ -12533,43 +13106,49 @@
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(7) > div > div:nth-child(2) > article:nth-child(1) > div:nth-child(1) > h3:nth-child(1)"
-                    ],
-                    "level": 3
-                  },
-                  {
-                    "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(7) > div > div:nth-child(2) > article:nth-child(2) > div:nth-child(1) > h3:nth-child(1)"
-                    ],
-                    "level": 3
-                  },
-                  {
-                    "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(7) > div > div:nth-child(2) > article:nth-child(3) > div:nth-child(1) > h3:nth-child(1)"
-                    ],
-                    "level": 3
-                  },
-                  {
-                    "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(7) > div > div:nth-child(2) > article:nth-child(4) > div:nth-child(1) > h3:nth-child(1)"
-                    ],
-                    "level": 3
-                  },
-                  {
-                    "ancestry": [
                       "html > body > main:nth-child(5) > section:nth-child(8) > div > div:nth-child(1) > h2:nth-child(2)"
                     ],
                     "level": 2
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(8) > div > article:nth-child(2) > div:nth-child(2) > div:nth-child(1) > h3:nth-child(2)"
+                      "html > body > main:nth-child(5) > section:nth-child(8) > div > div:nth-child(2) > article:nth-child(1) > div:nth-child(1) > h3:nth-child(1)"
                     ],
                     "level": 3
                   },
                   {
                     "ancestry": [
-                      "html > body > main:nth-child(5) > section:nth-child(9) > div > div > div:nth-child(1) > h2:nth-child(2)"
+                      "html > body > main:nth-child(5) > section:nth-child(8) > div > div:nth-child(2) > article:nth-child(2) > div:nth-child(1) > h3:nth-child(1)"
+                    ],
+                    "level": 3
+                  },
+                  {
+                    "ancestry": [
+                      "html > body > main:nth-child(5) > section:nth-child(8) > div > div:nth-child(2) > article:nth-child(3) > div:nth-child(1) > h3:nth-child(1)"
+                    ],
+                    "level": 3
+                  },
+                  {
+                    "ancestry": [
+                      "html > body > main:nth-child(5) > section:nth-child(8) > div > div:nth-child(2) > article:nth-child(4) > div:nth-child(1) > h3:nth-child(1)"
+                    ],
+                    "level": 3
+                  },
+                  {
+                    "ancestry": [
+                      "html > body > main:nth-child(5) > section:nth-child(9) > div > div:nth-child(1) > h2:nth-child(2)"
+                    ],
+                    "level": 2
+                  },
+                  {
+                    "ancestry": [
+                      "html > body > main:nth-child(5) > section:nth-child(9) > div > article:nth-child(2) > div:nth-child(2) > div:nth-child(1) > h3:nth-child(2)"
+                    ],
+                    "level": 3
+                  },
+                  {
+                    "ancestry": [
+                      "html > body > main:nth-child(5) > section:nth-child(10) > div > div > div:nth-child(1) > h2:nth-child(2)"
                     ],
                     "level": 2
                   }
@@ -13474,6 +14053,27 @@
               "id": "landmark-is-unique",
               "data": {
                 "role": "region",
+                "accessibleText": "起价区间"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "landmark-is-unique",
+              "data": {
+                "role": "region",
                 "accessibleText": "10 天怎么走 · 一张表先看节奏"
               },
               "relatedNodes": [],
@@ -13547,9 +14147,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -13913,7 +14513,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-9 px-5 text-[13px]\" href=\"/plan\">",
           "target": [
-            ".lg\\:flex.hidden.gap-4 > .bg-vermilion.shadow-md[href$=\"plan\"]"
+            ".lg\\:flex.hidden.gap-4 > .shadow-md.shadow-vermilion\\/20[href$=\"plan\"]"
           ]
         },
         {
@@ -13996,9 +14596,9 @@
             }
           ],
           "impact": null,
-          "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
+          "html": "<a href=\"#price-title\" class=\"inline-flex items-center gap-1 text-[13px] font-misans-bold text-jade underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm\">",
           "target": [
-            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".focus-visible\\:ring-offset-paper"
           ]
         },
         {
@@ -14024,7 +14624,33 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
           "target": [
-            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has text that is visible to screen readers"
+            }
+          ],
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is not in tab order or has accessible text"
+            }
+          ],
+          "impact": null,
+          "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
+          "target": [
+            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
           ]
         },
         {
@@ -14576,6 +15202,24 @@
             }
           ],
           "impact": null,
+          "html": "<ul class=\"flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-misans-regular text-ink/75 lg:gap-x-6\">",
+          "target": [
+            ".gap-x-5"
+          ]
+        },
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "only-listitems",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "List element only has direct children that are allowed inside <li> elements"
+            }
+          ],
+          "impact": null,
           "html": "<ul class=\"flex flex-col gap-4\">",
           "target": [
             "section[aria-labelledby=\"dayby-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .gap-4"
@@ -14813,6 +15457,60 @@
       "help": "<li> elements must be contained in a <ul> or <ol>",
       "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/listitem?application=axeAPI",
       "nodes": [
+        {
+          "any": [
+            {
+              "id": "listitem",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">3 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->110</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "listitem",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">4 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->220</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "listitem",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "List item has a <ul>, <ol> or role=\"list\" parent element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">5 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->420</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3)"
+          ]
+        },
         {
           "any": [
             {
@@ -16559,7 +17257,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-9 px-5 text-[13px]\" href=\"/plan\">",
           "target": [
-            ".lg\\:flex.hidden.gap-4 > .bg-vermilion.shadow-md[href$=\"plan\"]"
+            ".lg\\:flex.hidden.gap-4 > .shadow-md.shadow-vermilion\\/20[href$=\"plan\"]"
           ]
         },
         {
@@ -16997,6 +17695,486 @@
           "all": [],
           "none": [],
           "impact": null,
+          "html": "<section aria-labelledby=\"price-anchor-title\" class=\"relative w-full bg-paper border-b border-ink/8\">",
+          "target": [
+            ".border-ink\\/8"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"mx-auto w-full max-w-[1440px] px-6 lg:px-16 py-5 lg:py-6\">",
+          "target": [
+            ".py-5.lg\\:py-6.mx-auto"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"flex flex-col gap-4 rounded-[12px] bg-cream px-5 py-5 ring-1 ring-ink/15 lg:flex-row lg:items-center lg:gap-8 lg:px-7 lg:py-6\">",
+          "target": [
+            ".ring-ink\\/15"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"flex flex-col gap-1\">",
+          "target": [
+            ".ring-ink\\/15 > .gap-1.flex-col.flex:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"flex items-center gap-2\">",
+          "target": [
+            ".gap-2.items-center.flex"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span id=\"price-anchor-title\" class=\"text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade\">起价区间</span>",
+          "target": [
+            "#price-anchor-title"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"inline-flex items-center gap-1.5 rounded-full bg-gold/20 px-2 py-0.5 text-xs font-medium text-ink ring-1 ring-gold/40\"><span class=\"size-1.5 rounded-full bg-gold\" aria-hidden=\"true\"></span>样板价位</span>",
+          "target": [
+            ".gap-2.items-center.flex > .bg-gold\\/20.ring-gold\\/40.py-0\\.5"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<p class=\"text-[22px] lg:text-[26px] font-misans-heavy tracking-tight text-ink\">USD <!-- -->2,800<!-- --> 起 / 人</p>",
+          "target": [
+            ".text-\\[22px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<ul class=\"flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-misans-regular text-ink/75 lg:gap-x-6\">",
+          "target": [
+            ".gap-x-5"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">3 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->110</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">3 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->110</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(1) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">4 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->220</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">4 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->220</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(2) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<li class=\"flex items-baseline gap-1.5\"><span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">5 星</span><span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->420</span><span class=\"text-[12px] text-ink/70\">/ 晚</span></li>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] tracking-[0.1em] uppercase text-ink/70\">5 星</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .tracking-\\[0\\.1em\\].text-ink\\/70.text-\\[12px\\]"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[15px] font-misans-bold tabular-nums text-vermilion\">USD <!-- -->420</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .tabular-nums.text-\\[15px\\].text-vermilion"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] text-ink/70\">/ 晚</span>",
+          "target": [
+            ".items-baseline.gap-1\\.5:nth-child(3) > .text-ink\\/70.text-\\[12px\\]:nth-child(3)"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<div class=\"flex flex-col gap-1 lg:ml-auto lg:items-end\">",
+          "target": [
+            ".lg\\:ml-auto"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<span class=\"text-[12px] font-misans-regular leading-snug text-ink/70\">最终成交价 1:1 沟通后给出</span>",
+          "target": [
+            ".leading-snug"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
+          "html": "<a href=\"#price-title\" class=\"inline-flex items-center gap-1 text-[13px] font-misans-bold text-jade underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm\">",
+          "target": [
+            ".focus-visible\\:ring-offset-paper"
+          ]
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "All page content is contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": null,
           "html": "<section aria-labelledby=\"glance-title\" class=\"relative w-full bg-cream py-16 lg:py-24\">",
           "target": [
             "section[aria-labelledby=\"glance-title\"]"
@@ -17099,7 +18277,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">第一次来中国不要赶 12 站。这条 10 天样板是我们写过最稳的入门节奏：北京两天古都厚重感，西安两天秦汉骨架，张家界两天峰林透气，桂林两天山水抒情，上海两天现代收尾。每一段你都有半天的留白，回酒店休息或者随便走走。</p>",
           "target": [
-            "section[aria-labelledby=\"glance-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"glance-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -17179,7 +18357,7 @@
           "impact": null,
           "html": "<tr class=\"bg-cream text-[12px] tracking-[0.18em] uppercase text-ink/70\"><th scope=\"col\" class=\"w-16 px-4 py-3\">Day</th><th scope=\"col\" class=\"w-1/3 px-4 py-3\">Cities</th><th scope=\"col\" class=\"px-4 py-3\">Highlights</th></tr>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr"
           ]
         },
         {
@@ -17219,7 +18397,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">Cities</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -17239,7 +18417,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3\">Highlights</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > th:nth-child(3)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > th:nth-child(3)"
           ]
         },
         {
@@ -17279,7 +18457,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > tbody > .border-b.border-ink\\/10:nth-child(1)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > tbody > .border-ink\\/10.border-b:nth-child(1)"
           ]
         },
         {
@@ -17299,7 +18477,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->1</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17319,7 +18497,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17339,7 +18517,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">抵达北京 · 胡同安顿</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(1) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17359,7 +18537,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > tbody > .border-b.border-ink\\/10:nth-child(2)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > tbody > .border-ink\\/10.border-b:nth-child(2)"
           ]
         },
         {
@@ -17379,7 +18557,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->2</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17399,7 +18577,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17419,7 +18597,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">故宫开门即入 · 长城慕田峪段</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(2) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17439,7 +18617,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(3)"
           ]
         },
         {
@@ -17459,7 +18637,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->3</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(3) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17479,7 +18657,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Beijing → Xi'an</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(3) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17499,7 +18677,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">高铁 4.5h 转西安 · 城墙骑行</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(3) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(3) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17519,7 +18697,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4)"
+            ".border-ink\\/10.border-b:nth-child(4)"
           ]
         },
         {
@@ -17539,7 +18717,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->4</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(4) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17559,7 +18737,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Xi'an</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(4) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17579,7 +18757,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">兵马俑半日 · 回民街晚饭</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(4) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(4) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17599,7 +18777,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5)"
+            ".border-ink\\/10.border-b:nth-child(5)"
           ]
         },
         {
@@ -17619,7 +18797,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->5</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(5) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17639,7 +18817,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Xi'an → Zhangjiajie</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(5) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17659,7 +18837,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞张家界 · 进山休整</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(5) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(5) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17679,7 +18857,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6)"
+            ".border-ink\\/10.border-b:nth-child(6)"
           ]
         },
         {
@@ -17699,7 +18877,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->6</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(6) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17719,7 +18897,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Zhangjiajie</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(6) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17739,7 +18917,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">袁家界峰林 · 玻璃栈道</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(6) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(6) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17759,7 +18937,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7)"
+            ".border-ink\\/10.border-b:nth-child(7)"
           ]
         },
         {
@@ -17779,7 +18957,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->7</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(7) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17799,7 +18977,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Zhangjiajie → Guilin</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(7) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17819,7 +18997,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞桂林 · 漓江日落</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(7) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(7) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17839,7 +19017,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8)"
+            ".border-ink\\/10.border-b:nth-child(8)"
           ]
         },
         {
@@ -17859,7 +19037,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->8</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(8) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17879,7 +19057,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Guilin → Yangshuo</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(8) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17899,7 +19077,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">漓江竹筏 · 阳朔骑行</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(8) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(8) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -17919,7 +19097,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\">",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9)"
+            ".border-ink\\/10.border-b:nth-child(9)"
           ]
         },
         {
@@ -17939,7 +19117,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-bold text-vermilion\">D<!-- -->9</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .text-vermilion.align-top"
+            ".border-ink\\/10.border-b:nth-child(9) > .text-vermilion.align-top"
           ]
         },
         {
@@ -17959,7 +19137,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/85\">Guilin → Shanghai</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .text-ink\\/85.align-top"
+            ".border-ink\\/10.border-b:nth-child(9) > .text-ink\\/85.align-top"
           ]
         },
         {
@@ -17979,7 +19157,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 align-top text-[13px] font-misans-regular text-ink/75\">飞上海 · 外滩夜色</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(9) > .align-top:nth-child(3)"
+            ".border-ink\\/10.border-b:nth-child(9) > .align-top:nth-child(3)"
           ]
         },
         {
@@ -18179,7 +19357,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">展开任一天看具体节奏。第一天默认展开。所有时段都按真实可执行的节奏写，不是百科条目堆砌。</p>",
           "target": [
-            "section[aria-labelledby=\"dayby-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"dayby-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -20877,9 +22055,9 @@
           "all": [],
           "none": [],
           "impact": null,
-          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24\">",
+          "html": "<section aria-labelledby=\"price-title\" class=\"relative w-full bg-paper py-16 lg:py-24 scroll-mt-24\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"]"
+            ".scroll-mt-24"
           ]
         },
         {
@@ -20899,7 +22077,7 @@
           "impact": null,
           "html": "<div class=\"mx-auto w-full max-w-[1440px] px-6 lg:px-16\">",
           "target": [
-            "section[aria-labelledby=\"price-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16"
+            ".scroll-mt-24 > .mx-auto.max-w-\\[1440px\\].lg\\:px-16"
           ]
         },
         {
@@ -20919,7 +22097,7 @@
           "impact": null,
           "html": "<div class=\"mb-10 flex flex-col gap-3 lg:mb-14\"><div class=\"text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade\">Tour Price</div><h2 id=\"price-title\" class=\"text-[28px] lg:text-[40px] font-misans-heavy tracking-tight text-ink\">价格区间 · 真实成交价 1:1 算给你</h2></div>",
           "target": [
-            "section[aria-labelledby=\"price-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3"
+            ".scroll-mt-24 > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3"
           ]
         },
         {
@@ -20939,7 +22117,7 @@
           "impact": null,
           "html": "<div class=\"text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade\">Tour Price</div>",
           "target": [
-            "section[aria-labelledby=\"price-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .text-jade.text-\\[12px\\].tracking-\\[0\\.18em\\]"
+            ".scroll-mt-24 > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .text-jade.text-\\[12px\\].tracking-\\[0\\.18em\\]"
           ]
         },
         {
@@ -21159,7 +22337,7 @@
           "impact": null,
           "html": "<tr class=\"text-[12px] tracking-[0.18em] uppercase text-ink/70\"><th scope=\"col\" class=\"w-1/3 px-4 py-3\">酒店等级</th><th scope=\"col\" class=\"px-4 py-3 text-right\">USD / 晚 / 人</th><th scope=\"col\" class=\"px-4 py-3 hidden md:table-cell\">说明</th></tr>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > .text-ink\\/70"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > tr"
           ]
         },
         {
@@ -21179,7 +22357,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">酒店等级</th>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -21199,7 +22377,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 text-right\">USD / 晚 / 人</th>",
           "target": [
-            ".text-ink\\/70 > .text-right"
+            "thead > tr > .text-right"
           ]
         },
         {
@@ -21219,7 +22397,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 hidden md:table-cell\">说明</th>",
           "target": [
-            ".text-ink\\/70 > .md\\:table-cell"
+            "thead > tr > .md\\:table-cell"
           ]
         },
         {
@@ -21259,7 +22437,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\"><td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">3 星</td><td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->110</td><td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">本地老牌三星 · 干净安静</td></tr>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(1)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(1)"
           ]
         },
         {
@@ -21279,7 +22457,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">3 星</td>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(1) > td:nth-child(1)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(1) > td:nth-child(1)"
           ]
         },
         {
@@ -21299,7 +22477,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->110</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .text-\\[16px\\].text-right.text-vermilion"
+            ".border-ink\\/10.border-b:nth-child(1) > .text-\\[16px\\].text-right.text-vermilion"
           ]
         },
         {
@@ -21319,7 +22497,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">本地老牌三星 · 干净安静</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(1) > .md\\:table-cell.hidden.text-ink\\/65"
+            ".border-ink\\/10.border-b:nth-child(1) > .md\\:table-cell.hidden.text-ink\\/65"
           ]
         },
         {
@@ -21339,7 +22517,7 @@
           "impact": null,
           "html": "<tr class=\"border-b border-ink/10\"><td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">4 星</td><td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->220</td><td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">国际品牌四星 · 中央区位</td></tr>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(2)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(2)"
           ]
         },
         {
@@ -21359,7 +22537,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] font-misans-bold text-ink\">4 星</td>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-b.border-ink\\/10:nth-child(2) > td:nth-child(1)"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > tbody > .border-ink\\/10.border-b:nth-child(2) > td:nth-child(1)"
           ]
         },
         {
@@ -21379,7 +22557,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-right text-[16px] font-misans-bold text-vermilion\">USD <!-- -->220</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .text-\\[16px\\].text-right.text-vermilion"
+            ".border-ink\\/10.border-b:nth-child(2) > .text-\\[16px\\].text-right.text-vermilion"
           ]
         },
         {
@@ -21399,7 +22577,7 @@
           "impact": null,
           "html": "<td class=\"px-4 py-3 text-[13px] text-ink/65 hidden md:table-cell\">国际品牌四星 · 中央区位</td>",
           "target": [
-            ".border-b.border-ink\\/10:nth-child(2) > .md\\:table-cell.hidden.text-ink\\/65"
+            ".border-ink\\/10.border-b:nth-child(2) > .md\\:table-cell.hidden.text-ink\\/65"
           ]
         },
         {
@@ -22099,7 +23277,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
           "target": [
-            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".sm\\:flex-row.sm\\:items-center.mt-10 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
           ]
         },
         {
@@ -22239,7 +23417,7 @@
           "impact": null,
           "html": "<p class=\"max-w-[680px] text-[14px] font-misans-regular leading-relaxed text-ink/70 lg:text-[15px]\">每条都是顾问真实带过的取舍。看完之后告诉 Lin 你想换哪一段，方案在 1 个工作日内回到你邮箱。</p>",
           "target": [
-            "section[aria-labelledby=\"tailor-tips-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-ink\\/70"
+            "section[aria-labelledby=\"tailor-tips-title\"] > .mx-auto.max-w-\\[1440px\\].lg\\:px-16 > .mb-10.lg\\:mb-14.gap-3 > .max-w-\\[680px\\].lg\\:text-\\[15px\\].text-\\[14px\\]"
           ]
         },
         {
@@ -23579,7 +24757,7 @@
           "impact": null,
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 text-[15px] font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-11 px-6\" href=\"/plan?itinerary=sample-10d\">",
           "target": [
-            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.bg-vermilion[href=\"/plan?itinerary=sample-10d\"]"
+            ".gap-5 > .sm\\:flex-row.sm\\:items-center.gap-3 > .h-11.shadow-md[href=\"/plan?itinerary=sample-10d\"]"
           ]
         },
         {
@@ -24939,7 +26117,7 @@
           "impact": null,
           "html": "<div class=\"mx-auto w-full max-w-[1440px] px-6 lg:px-16 py-6 flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8 justify-between\">",
           "target": [
-            ".lg\\:gap-8"
+            ".py-6.lg\\:gap-8.lg\\:flex-row"
           ]
         },
         {
@@ -25299,7 +26477,7 @@
           "impact": null,
           "html": "<div class=\"h-6\"></div>",
           "target": [
-            ".h-6"
+            ".relative > .h-6"
           ]
         },
         {
@@ -25425,7 +26603,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">Cities</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -25450,7 +26628,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3\">Highlights</th>",
           "target": [
-            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > .text-ink\\/70 > th:nth-child(3)"
+            ".overflow-hidden.rounded-\\[12px\\].bg-paper > table > thead > tr > th:nth-child(3)"
           ]
         },
         {
@@ -25475,7 +26653,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"w-1/3 px-4 py-3\">酒店等级</th>",
           "target": [
-            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > .text-ink\\/70 > .w-1\\/3"
+            ".bg-cream.overflow-hidden.rounded-\\[12px\\] > table > thead > tr > .w-1\\/3"
           ]
         },
         {
@@ -25500,7 +26678,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 text-right\">USD / 晚 / 人</th>",
           "target": [
-            ".text-ink\\/70 > .text-right"
+            "thead > tr > .text-right"
           ]
         },
         {
@@ -25525,7 +26703,7 @@
           "impact": null,
           "html": "<th scope=\"col\" class=\"px-4 py-3 hidden md:table-cell\">说明</th>",
           "target": [
-            ".text-ink\\/70 > .md\\:table-cell"
+            "thead > tr > .md\\:table-cell"
           ]
         }
       ]
@@ -26239,7 +27417,7 @@
                 {
                   "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-9 px-5 text-[13px]\" href=\"/plan\">",
                   "target": [
-                    ".lg\\:flex.hidden.gap-4 > .bg-vermilion.shadow-md[href$=\"plan\"]"
+                    ".lg\\:flex.hidden.gap-4 > .shadow-md.shadow-vermilion\\/20[href$=\"plan\"]"
                   ]
                 }
               ],
@@ -26252,7 +27430,7 @@
           "impact": "serious",
           "html": "<a class=\"inline-flex items-center justify-center rounded-full bg-vermilion text-soft-ivory shadow-md shadow-vermilion/20 font-misans-bold motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream h-9 px-5 text-[13px]\" href=\"/plan\">",
           "target": [
-            ".lg\\:flex.hidden.gap-4 > .bg-vermilion.shadow-md[href$=\"plan\"]"
+            ".lg\\:flex.hidden.gap-4 > .shadow-md.shadow-vermilion\\/20[href$=\"plan\"]"
           ],
           "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
         },
@@ -26716,6 +27894,27 @@
             ".bg-soft-ivory\\/15"
           ],
           "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "messageKey": "nonBmp"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element content contains only non-text characters"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span aria-hidden=\"true\">→</span>",
+          "target": [
+            ".focus-visible\\:ring-offset-paper > span[aria-hidden=\"true\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
         },
         {
           "any": [

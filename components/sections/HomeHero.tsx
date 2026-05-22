@@ -9,6 +9,7 @@ import { HeroBackdrop } from '@/components/motion/HeroBackdrop';
 import { MagneticCta } from '@/components/motion/MagneticCta';
 import { ContactChannelList } from '@/components/contact/ContactChannelList';
 import { MockBadge } from '@/components/trust/MockBadge';
+import { ChineseSeal } from '@/components/brand/ChineseSeal';
 import {
   Dialog,
   DialogContent,
@@ -71,7 +72,7 @@ export function HomeHero() {
                 <DialogTrigger asChild>
                   <button
                     type="button"
-                    className="inline-flex items-center justify-center rounded-full border border-soft-ivory/30 bg-soft-ivory/5 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-soft-ivory/60 hover:bg-soft-ivory/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
+                    className="inline-flex items-center justify-center rounded-full border border-vermilion/60 bg-vermilion/10 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-vermilion hover:bg-vermilion/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
                   >
                     {t.secondaryCta}
                   </button>
@@ -129,6 +130,18 @@ export function HomeHero() {
           </Reveal>
         </div>
       </div>
+
+      <Reveal
+        delay={0.3}
+        className="pointer-events-none absolute bottom-10 left-10 z-10 hidden lg:block"
+      >
+        <ChineseSeal
+          text="熊猫"
+          size={64}
+          ariaLabel="pandatravel seal"
+          className="rotate-[-6deg] opacity-95"
+        />
+      </Reveal>
 
       <Reveal
         delay={0.5}

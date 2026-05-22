@@ -1,4 +1,8 @@
 export default {
+  meta: {
+    title: 'pandatravel · 北京顾问的中国定制旅行',
+    description: '北京本地顾问，4 小时内为你写出第一版中国行程。不是模板套餐，是为你画一张你自己的中国地图。',
+  },
   // TODO_COPY
   nav: {},
   // TODO_COPY
@@ -129,10 +133,16 @@ export default {
       ],
     },
     sampleItineraries: {
-      eyebrow: '范例行程',
-      heading: '别人这样和我们一起出发',
-      body: '概念性范例 —— 你的行程从对话出发，不从货架上选。',
-      cta: '定制类似行程',
+      eyebrow: '已经写过的样板',
+      heading: '我们已经写过的样板行程 · 可以是你的起点',
+      body: '5 条 mock 样板行程，每条 10 章节深度，节奏按真实可执行的顾问视角写。挑一条像你的，告诉 Lin 你想加 / 减 / 换的细节。',
+      cta: '看完整行程',
+      seeAll: '看完整 5 条样板列表',
+      meta: {
+        days: '天',
+        priceFromUsd: 'USD {price} 起',
+        bestMonths: '最佳 {months}',
+      },
     },
     itineraries: {
       eyebrow: 'Itineraries',

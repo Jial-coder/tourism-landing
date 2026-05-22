@@ -114,7 +114,7 @@ export function DestinationListInteractive({
                     <h3 className="text-[20px] font-misans-bold leading-snug text-ink">
                       {d.cn} · {d.en}
                     </h3>
-                    <p className="text-[13px] font-misans-regular leading-relaxed text-ink/70">
+                    <p className="text-[15px] font-misans-regular leading-relaxed text-ink/75">
                       {d.tagline.zh}
                     </p>
                     <ul className="flex flex-wrap gap-1.5 pt-1">
@@ -127,9 +127,15 @@ export function DestinationListInteractive({
                         </li>
                       ))}
                     </ul>
-                    <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[13px] font-misans-regular text-jade group-hover:underline">
-                      看 8 章节深度 <ArrowRight aria-hidden size={12} />
-                    </span>
+                    <div className="mt-auto flex flex-col gap-1.5 pt-3 border-t border-ink/8">
+                      <span className="text-[12px] font-misans-regular leading-snug text-ink/70 motion-safe:transition-all motion-safe:duration-200 motion-reduce:transition-none">
+                        建议停留 {recommendedDays} 天 · 安排 1-2 个 wow point
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[13px] font-misans-bold text-jade group-hover:underline underline-offset-4">
+                        Plan a trip to {d.en}
+                        <ArrowRight aria-hidden size={12} />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </li>

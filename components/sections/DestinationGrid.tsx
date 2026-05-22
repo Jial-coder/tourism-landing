@@ -19,7 +19,7 @@ export function DestinationGrid() {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
         <Reveal>
           <div className="flex max-w-3xl flex-col gap-3">
-            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
+            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-vermilion-deep">
               {t.eyebrow}
             </p>
             <h2 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">

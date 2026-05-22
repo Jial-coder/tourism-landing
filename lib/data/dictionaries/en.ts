@@ -1,4 +1,8 @@
 export default {
+  meta: {
+    title: 'pandatravel · China trips designed by a Beijing local',
+    description: 'A Beijing-based human advisor designs your China trip in 4 hours, not a chatbot in 1 working day.',
+  },
   // TODO_COPY
   nav: {},
   // TODO_COPY
@@ -131,10 +135,16 @@ export default {
       ],
     },
     sampleItineraries: {
-      eyebrow: 'Sample journeys',
-      heading: 'How others have travelled with us',
-      body: 'Conceptual examples — your itinerary is built from your conversation, not picked off a shelf.',
-      cta: 'Plan a similar trip',
+      eyebrow: 'Sample lines we have already drafted',
+      heading: 'Sample itineraries · could be your starting point',
+      body: 'Five mock sample lines, ten chapters of depth each, written by advisors at the real cadence we run. Pick the one closest to yours, then tell Lin what to add, drop, or swap.',
+      cta: 'See full itinerary',
+      seeAll: 'See all 5 sample itineraries',
+      meta: {
+        days: 'days',
+        priceFromUsd: 'From USD {price}',
+        bestMonths: 'Best in {months}',
+      },
     },
     itineraries: {
       eyebrow: 'Itineraries',

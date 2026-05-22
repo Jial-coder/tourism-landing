@@ -15,7 +15,7 @@ export function HowWeWork() {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
         <Reveal>
           <div className="flex flex-col items-start gap-3">
-            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
+            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-vermilion-deep">
               {t.eyebrow}
             </p>
             <h2 className="max-w-3xl font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
@@ -28,8 +28,8 @@ export function HowWeWork() {
           <div className="grid gap-6 md:grid-cols-3 md:gap-8">
             {t.steps.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 0.1}>
-                <article className="rounded-2xl border border-ink/10 bg-paper p-8 transition-colors hover:border-ink/20">
-                  <div className="font-serif text-5xl leading-none text-jade tabular-nums">
+                <article className="rounded-2xl border border-ink/10 bg-paper p-8 transition-colors hover:border-vermilion/30">
+                  <div className="font-serif text-6xl leading-none text-vermilion tabular-nums">
                     <span style={{ fontWeight: 700 }}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
@@ -50,7 +50,7 @@ export function HowWeWork() {
           <div className="mt-12 flex justify-center md:mt-16">
             <a
               href="#lead-form"
-              className="inline-flex items-center justify-center rounded-full bg-jade px-7 py-3 text-sm font-semibold text-cream shadow-md shadow-jade/15 transition-colors hover:bg-jade-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              className="inline-flex items-center justify-center rounded-full bg-vermilion px-7 py-3 text-sm font-semibold text-soft-ivory shadow-lg shadow-vermilion/25 transition-colors hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vermilion focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               {t.cta}
             </a>

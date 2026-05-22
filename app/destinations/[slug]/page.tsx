@@ -7,6 +7,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 import { MockBadge } from "@/components/trust/MockBadge";
+import { ChineseSeal } from "@/components/brand/ChineseSeal";
 import { WowPointsList } from "@/components/destinations/WowPointsList";
 import { BestTimeStrip } from "@/components/destinations/BestTimeStrip";
 import { DurationCards } from "@/components/destinations/DurationCards";
@@ -22,6 +23,17 @@ export function generateStaticParams() {
   return DESTINATION_SLUGS.map((slug) => ({ slug }));
 }
 
+const DEST_SEAL_CHAR: Record<string, string> = {
+  beijing: '北',
+  xian: '西',
+  shanghai: '上',
+  guilin: '桂',
+  zhangjiajie: '张',
+  jiuzhaigou: '九',
+  dali: '大',
+  huangshan: '黄',
+};
+
 export default async function DestinationPage({
   params,
 }: {
@@ -34,6 +46,7 @@ export default async function DestinationPage({
   const planHref = `/plan?destination=${encodeURIComponent(d.slug)}`;
   const waMsg = `想聊聊 ${d.cn} ${d.en}`;
   const waHref = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+  const sealChar = DEST_SEAL_CHAR[d.slug] ?? d.cn.charAt(0);
 
   return (
     <>
@@ -66,9 +79,9 @@ export default async function DestinationPage({
               <ArrowLeft size={14} aria-hidden /> 回首页
             </Link>
             <div className="flex flex-col gap-3 max-w-[760px]">
-              <div className="flex items-center gap-3 text-[12px] font-misans-regular tracking-widest text-soft-ivory/60">
+              <div className="flex items-center gap-3 text-[12px] font-misans-regular tracking-widest text-soft-ivory/65">
                 <span>{d.gps}</span>
-                <span aria-hidden>·</span>
+                <span aria-hidden className="text-vermilion">·</span>
                 <span>{d.iata}</span>
               </div>
               <h1
@@ -82,6 +95,12 @@ export default async function DestinationPage({
               </p>
             </div>
           </SectionInner>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-6 right-6 z-10 hidden md:block opacity-85"
+          >
+            <ChineseSeal text={sealChar} size={72} variant="solid" />
+          </div>
         </section>
 
         {/* 2. Why Visit Now */}
@@ -92,7 +111,7 @@ export default async function DestinationPage({
           <SectionInner>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-20">
               <div className="flex flex-col gap-5 max-w-[680px]">
-                <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+                <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                   这一站值得去吗
                 </div>
                 <h2
@@ -110,7 +129,7 @@ export default async function DestinationPage({
               </div>
               <div className="flex h-fit flex-col gap-4 rounded-[10px] bg-paper p-6 ring-1 ring-ink/10">
                 <div className="flex items-center gap-3">
-                  <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+                  <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                     下一步
                   </span>
                   <MockBadge>sample data</MockBadge>
@@ -139,7 +158,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Wow Points · 在 {d.cn} 真正会被记住的几件事
               </div>
               <h2
@@ -171,7 +190,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Best Time
               </div>
               <h2
@@ -184,7 +203,7 @@ export default async function DestinationPage({
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)]">
               <BestTimeStrip bestTime={d.bestTime} slug={d.slug} />
               <div className="flex h-fit flex-col gap-3 rounded-[10px] bg-paper p-5 ring-1 ring-ink/10">
-                <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+                <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                   气候提示
                 </div>
                 <p className="text-[13px] font-misans-regular leading-relaxed text-ink/75">
@@ -203,7 +222,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 How Long to Stay
               </div>
               <h2
@@ -235,7 +254,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Nearby & Combine
               </div>
               <h2
@@ -259,7 +278,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Sample Itineraries
               </div>
               <h2
@@ -312,7 +331,7 @@ export default async function DestinationPage({
                       className={`group ${cardClasses} transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream`}
                     >
                       <div className="flex flex-col gap-3">
-                        <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+                        <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                           已写好
                         </div>
                         <h3 className="text-[18px] font-misans-bold text-ink lg:text-[20px]">
@@ -340,7 +359,7 @@ export default async function DestinationPage({
         >
           <SectionInner>
             <div className="mb-10 flex flex-col gap-3 lg:mb-14">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Tailor-Make
               </div>
               <h2
