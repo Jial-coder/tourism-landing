@@ -48,6 +48,14 @@ export type NearbyRef = {
   reason: Bilingual;
 };
 
+export type DestinationTheme =
+  | 'nature'
+  | 'history'
+  | 'food'
+  | 'slow'
+  | 'city'
+  | 'outdoor';
+
 export type Destination = {
   slug: DestinationSlug;
   cn: string;
@@ -63,8 +71,38 @@ export type Destination = {
   nearby: NearbyRef[];
   matchedItineraries: { slug: string; label: Bilingual; available: boolean }[];
   advisorAnchor: string;
+  themes?: DestinationTheme[];
   status: 'mock';
 };
+
+export const DESTINATION_THEMES: Record<DestinationSlug, DestinationTheme[]> = {
+  beijing: ['history', 'city', 'food'],
+  xian: ['history', 'food'],
+  shanghai: ['city', 'food'],
+  guilin: ['nature', 'slow'],
+  zhangjiajie: ['nature', 'outdoor'],
+  jiuzhaigou: ['nature', 'slow'],
+  dali: ['nature', 'slow'],
+  huangshan: ['nature', 'outdoor'],
+};
+
+export const DESTINATION_THEME_LABELS: Record<DestinationTheme, Bilingual> = {
+  nature: { zh: '自然山水', en: 'Nature & Landscape' },
+  history: { zh: '历史文化', en: 'History & Culture' },
+  food: { zh: '美食', en: 'Food' },
+  slow: { zh: '慢节奏', en: 'Slow Pace' },
+  city: { zh: '城市现代', en: 'City Life' },
+  outdoor: { zh: '户外步行', en: 'Outdoor & Hiking' },
+};
+
+export const DESTINATION_THEME_ORDER: DestinationTheme[] = [
+  'nature',
+  'history',
+  'food',
+  'slow',
+  'city',
+  'outdoor',
+];
 
 export const MONTH_LABELS: Record<Month, Bilingual> = {
   jan: { zh: '1 月', en: 'Jan' },
