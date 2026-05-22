@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 import { MockBadge } from "@/components/trust/MockBadge";
+import { ChineseSeal } from "@/components/brand/ChineseSeal";
 import { PromiseList } from "@/components/about/PromiseList";
 import { EarlyStatusBanner } from "@/components/reviews/EarlyStatusBanner";
 import {
@@ -47,7 +48,7 @@ export default function ReviewsPage() {
         >
           <SectionInner>
             <div className="flex max-w-[860px] flex-col gap-5">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 Reviews · early-cohort transparency
               </div>
               <h1
@@ -61,6 +62,12 @@ export default function ReviewsPage() {
               </p>
             </div>
           </SectionInner>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-6 right-6 z-10 hidden md:block opacity-85"
+          >
+            <ChineseSeal text="信" size={72} variant="outline" />
+          </div>
         </section>
 
         {/* 2. Status block */}

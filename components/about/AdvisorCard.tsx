@@ -4,7 +4,7 @@ import type { Advisor } from "@/lib/data/advisors";
 
 const BG_CLASSES: Record<NonNullable<Advisor["avatar"]["placeholder"]["bg"]>, string> = {
   vermilion: "bg-vermilion-soft text-vermilion-deep ring-vermilion/30",
-  jade: "bg-jade/15 text-jade ring-jade/30",
+  jade: "bg-vermilion-soft text-vermilion-deep ring-vermilion/30",
   gold: "bg-gold/20 text-ink ring-gold/35",
 };
 

@@ -41,11 +41,10 @@ export default {
         { href: '/destinations', label: 'Destinations', soft404: false },
         { href: '/itineraries', label: 'Itineraries', soft404: false },
         { href: '/visa-free', label: 'Visa-free', soft404: false },
-        { href: '/advisors', label: 'Specialists', soft404: false },
+        { href: '/about#team', label: 'Specialists', soft404: false },
         { href: '/stories', label: 'Stories', soft404: true },
         { href: '/about', label: 'About', soft404: false },
       ],
-      more: 'More',
       ctaPlan: 'Plan my trip',
       whatsappLabel: 'WhatsApp · on-call',
       whatsappAria: 'WhatsApp on-call specialist',
@@ -65,6 +64,56 @@ export default {
       soft404Notify: 'Notify me · 通知我',
       soft404Close: 'Esc to close',
       contactSpecialist: 'Talk to a specialist',
+      softLinks: {
+        auth: {
+          title: 'Accounts open in v1.5',
+          body: 'For now we keep drafts and replies in sync via email and WhatsApp; account login is on the way. Want the sign-in link the day it ships?',
+        },
+        themes: {
+          title: 'Themed routes coming in v1.5',
+          body: 'We are splitting family, nature, business add-on and heritage into their own landing pages. v1.5 will take you straight to the sample routes for each.',
+        },
+        legalPrivacy: {
+          title: 'Privacy policy in legal review',
+          body: 'Our legal team is finalising a PIPL + GDPR aligned privacy policy. The placeholder will be replaced with the formal page before launch.',
+        },
+        legalTerms: {
+          title: 'Terms of service in legal review',
+          body: 'Formal terms of service are in final lawyer review. The placeholder will be replaced with the formal page before launch.',
+        },
+        legalIcp: {
+          title: 'ICP filing pending',
+          body: 'The China ICP filing is being processed; once we have the number this placeholder line will be replaced.',
+        },
+        bestTime: {
+          title: '“Best time to visit” guide in progress',
+          body: 'We are folding every destination’s best months into one filterable guide. Until then, each destination detail page already has a “Best Time to Visit” section.',
+        },
+        careers: {
+          title: 'Careers not open yet',
+          body: 'In v1 we deliberately signed only 3 full-time specialists. The next hiring round will be posted here. Want a heads-up?',
+        },
+        press: {
+          title: 'Press page in progress',
+          body: 'Until the press page is live, please email hello@example.com with the subject “Press inquiry” — we reply within one business day.',
+        },
+        wechat: {
+          title: 'WeChat contact card in progress',
+          body: 'Lin’s personal QR code and WeChat ID will be posted here before launch; for now please reach us via WhatsApp or email.',
+        },
+        aboutPromise: {
+          title: '“Brand promise” page in progress',
+          body: 'The 6 promises currently live in the “Our promise” section on /about. A standalone page will be split out in v1.5.',
+        },
+        aboutResponsible: {
+          title: '“Responsible travel” policy in progress',
+          body: 'Our sustainability stance gets its own page in v1.5, with partner hotels and community programs listed.',
+        },
+        aboutVoices: {
+          title: '“Traveler voices” page in progress',
+          body: 'Once our first cohort returns home we will collect their voices and photos here. Until then, /reviews already has the promise and samples.',
+        },
+      },
     },
     hero: {
       eyebrow: 'Tailor-made China',
@@ -581,7 +630,7 @@ export default {
           links: [
             { label: 'Itineraries', href: '/itineraries' },
             { label: 'Sample 10 days', href: '/itineraries/sample-10d' },
-            { label: 'Themes (coming v1.5)', href: '/themes' },
+            { label: 'Themes (coming v1.5)', href: '/themes', soft: 'themes' as const },
           ],
         },
         about: {
@@ -595,9 +644,9 @@ export default {
         channels: {
           heading: 'Fine print',
           links: [
-            { label: 'Privacy (placeholder)', href: '/legal/privacy' },
-            { label: 'Terms (placeholder)', href: '/legal/terms' },
-            { label: 'ICP placeholder', href: '/legal/icp' },
+            { label: 'Privacy (placeholder)', href: '/legal/privacy', soft: 'legalPrivacy' as const },
+            { label: 'Terms (placeholder)', href: '/legal/terms', soft: 'legalTerms' as const },
+            { label: 'ICP placeholder', href: '/legal/icp', soft: 'legalIcp' as const },
           ],
         },
       },

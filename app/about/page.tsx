@@ -4,6 +4,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 import { MockBadge } from "@/components/trust/MockBadge";
+import { ChineseSeal } from "@/components/brand/ChineseSeal";
 import { AdvisorCard } from "@/components/about/AdvisorCard";
 import { PromiseList } from "@/components/about/PromiseList";
 import { HowWeWorkSteps } from "@/components/about/HowWeWorkSteps";
@@ -27,7 +28,7 @@ export default function AboutPage() {
         >
           <SectionInner>
             <div className="flex max-w-[860px] flex-col gap-5">
-              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-vermilion-deep">
                 About pandatravel
               </div>
               <h1
@@ -41,6 +42,12 @@ export default function AboutPage() {
               </p>
             </div>
           </SectionInner>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-6 right-6 z-10 hidden md:block opacity-85"
+          >
+            <ChineseSeal text="和" size={72} variant="outline" />
+          </div>
         </section>
 
         {/* 2. Why we started */}
@@ -78,8 +85,9 @@ export default function AboutPage() {
 
         {/* 3. Meet our team */}
         <section
+          id="team"
           aria-labelledby="about-team-title"
-          className="relative w-full bg-cream py-16 lg:py-24"
+          className="relative w-full bg-cream py-16 lg:py-24 scroll-mt-24"
         >
           <SectionInner>
             <div className="mb-10 flex max-w-[760px] flex-col gap-3 lg:mb-14">

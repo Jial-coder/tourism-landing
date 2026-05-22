@@ -1,0 +1,719 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic:
+      - img
+    - generic [ref=e3]:
+      - link "pandatravel" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "pandatravel" [ref=e5]
+      - navigation "Primary navigation" [ref=e6]:
+        - link "Destinations" [ref=e7] [cursor=pointer]:
+          - /url: /destinations
+        - link "Itineraries" [ref=e8] [cursor=pointer]:
+          - /url: /itineraries
+        - link "Visa-free" [ref=e9] [cursor=pointer]:
+          - /url: /visa-free
+        - link "Specialists" [ref=e10] [cursor=pointer]:
+          - /url: /about#team
+        - button "Stories" [ref=e11]
+        - link "About" [ref=e12] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - link "Plan my trip" [ref=e15] [cursor=pointer]:
+            - /url: /plan
+          - link "WhatsApp on-call specialist" [ref=e16] [cursor=pointer]:
+            - /url: https://wa.me/
+            - img [ref=e17]
+            - text: WhatsApp · on-call
+        - button "Sign in" [ref=e20]:
+          - img [ref=e22]
+          - text: Sign in
+          - img [ref=e25]
+        - group "language switch" [ref=e28]:
+          - button "EN" [pressed] [ref=e29]
+          - button "中文" [ref=e30]
+  - main [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e38]:
+        - paragraph [ref=e771]: Tailor-made China
+        - heading "Plan your private China trip with local experts" [level=1] [ref=e773]
+        - paragraph [ref=e775]: From the Forbidden City sunrises to a private Yunnan loop — every itinerary is a real conversation between you and a Beijing-based specialist.
+        - generic [ref=e777]:
+          - link "Start planning" [ref=e779] [cursor=pointer]:
+            - /url: "#lead-form"
+          - button "Talk to a specialist" [ref=e780]
+      - generic:
+        - img "pandatravel seal":
+          - generic:
+            - generic: 熊
+            - generic: 猫
+      - link "10-day first-timer China · Culture & landscape balanced Sample route · tweak it your way 10-day first-timer China · Culture & landscape balanced 10 days · from USD 4,200 · best Apr–May / Sep–Oct 样板价位 See full itinerary" [ref=e781] [cursor=pointer]:
+        - /url: /itineraries/sample-10d
+        - generic [ref=e782]:
+          - img "10-day first-timer China · Culture & landscape balanced" [ref=e783]
+          - generic [ref=e785]: Sample route · tweak it your way
+        - generic [ref=e786]:
+          - paragraph [ref=e787]: 10-day first-timer China · Culture & landscape balanced
+          - generic [ref=e788]:
+            - generic [ref=e789]: 10 days · from USD 4,200 · best Apr–May / Sep–Oct
+            - generic [ref=e790]: 样板价位
+          - generic [ref=e792]:
+            - text: See full itinerary
+            - generic [ref=e793]: →
+    - generic [ref=e64]:
+      - list "Trust statistics (sample)" [ref=e65]:
+        - listitem [ref=e66]:
+          - generic [ref=e794]:
+            - generic [ref=e796]: 0+
+            - generic [ref=e797]: Travelers we've planned for
+            - generic [ref=e798]: sample
+        - listitem [ref=e73]:
+          - generic [ref=e800]:
+            - generic [ref=e802]: 0.0%
+            - generic [ref=e803]: 5-star reviews (sample)
+            - generic [ref=e804]: sample
+        - listitem [ref=e80]:
+          - generic [ref=e806]:
+            - generic [ref=e808]: 0 yrs
+            - generic [ref=e809]: Average specialist tenure
+            - generic [ref=e810]: sample
+        - listitem [ref=e87]:
+          - generic [ref=e812]:
+            - generic [ref=e814]: 0 h
+            - generic [ref=e815]: Reply within (China holidays excluded)
+            - generic [ref=e816]: sample
+      - generic [ref=e818]:
+        - generic [ref=e819]: Beijing-based specialists
+        - generic [ref=e820]: Tailor-made, never packaged
+        - generic [ref=e821]: Real specialists, named replies
+        - generic [ref=e822]: 24h reply window
+        - generic [ref=e823]: 5-star sample reviews
+        - generic [ref=e824]: On-the-ground crisis support
+        - generic [ref=e825]: Beijing-based specialists
+        - generic [ref=e826]: Tailor-made, never packaged
+        - generic [ref=e827]: Real specialists, named replies
+        - generic [ref=e828]: 24h reply window
+        - generic [ref=e829]: 5-star sample reviews
+        - generic [ref=e830]: On-the-ground crisis support
+    - region "Foreign passports can transit through Beijing, Shanghai or Guangzhou for up to 240 hours visa-free." [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - paragraph [ref=e106]: 240h Visa-Free
+          - heading "Foreign passports can transit through Beijing, Shanghai or Guangzhou for up to 240 hours visa-free." [level=2] [ref=e107]
+          - paragraph [ref=e108]: 55 countries · 65 ports · 24 provinces. We have ready-made 10-day routes for transit travelers — pick one and tweak with a Beijing specialist.
+        - link "See visa-free trips" [ref=e109] [cursor=pointer]:
+          - /url: /visa-free
+          - text: See visa-free trips
+          - img [ref=e110]
+    - generic [ref=e113]:
+      - generic [ref=e832]:
+        - paragraph [ref=e833]: How we work
+        - heading "Three steps from idea to itinerary" [level=2] [ref=e834]
+      - generic [ref=e119]:
+        - article [ref=e836]:
+          - generic [ref=e837]: "01"
+          - heading "Talk to a specialist" [level=3] [ref=e838]
+          - paragraph [ref=e839]: Tell us your travel month, party size, pace and the China you imagine. No package menu.
+        - article [ref=e841]:
+          - generic [ref=e842]: "02"
+          - heading "Tailor-make a route" [level=3] [ref=e843]
+          - paragraph [ref=e844]: Your specialist drafts a private route, hotels, guides and pace; we refine until it fits.
+        - article [ref=e846]:
+          - generic [ref=e847]: "03"
+          - heading "Travel with backup" [level=3] [ref=e848]
+          - paragraph [ref=e849]: On-the-ground support from Beijing — flights delayed, plans changed, food allergies — handled in your timezone.
+      - link "Start planning" [ref=e852] [cursor=pointer]:
+        - /url: "#lead-form"
+    - generic [ref=e139]:
+      - generic [ref=e854]:
+        - paragraph [ref=e855]: Destinations
+        - heading "Start with one place that pulls you" [level=2] [ref=e856]
+        - paragraph [ref=e857]: Pick the one you've imagined — we'll thread the rest of China around it.
+      - list [ref=e145]:
+        - listitem [ref=e146]:
+          - link "Plan a trip to Beijing" [ref=e859] [cursor=pointer]:
+            - /url: /destinations/beijing
+            - img "Beijing" [ref=e860]
+            - generic [ref=e863]:
+              - heading "Beijing" [level=3] [ref=e864]
+              - paragraph [ref=e865]: The Forbidden City at sunrise
+              - paragraph [ref=e866]: Plan a trip to Beijing →
+        - listitem [ref=e156]:
+          - link "Plan a trip to Xi'an" [ref=e868] [cursor=pointer]:
+            - /url: /destinations/xian
+            - img "Xi'an" [ref=e869]
+            - generic [ref=e872]:
+              - heading "Xi'an" [level=3] [ref=e873]
+              - paragraph [ref=e874]: Terracotta army & Tang dynasty markets
+              - paragraph [ref=e875]: Plan a trip to Xi'an →
+        - listitem [ref=e166]:
+          - link "Plan a trip to Shanghai" [ref=e877] [cursor=pointer]:
+            - /url: /destinations/shanghai
+            - img "Shanghai" [ref=e878]
+            - generic [ref=e881]:
+              - heading "Shanghai" [level=3] [ref=e882]
+              - paragraph [ref=e883]: Bund nights & lane breakfasts
+              - paragraph [ref=e884]: Plan a trip to Shanghai →
+        - listitem [ref=e176]:
+          - link "Plan a trip to Guilin" [ref=e886] [cursor=pointer]:
+            - /url: /destinations/guilin
+            - img "Guilin" [ref=e887]
+            - generic [ref=e890]:
+              - heading "Guilin" [level=3] [ref=e891]
+              - paragraph [ref=e892]: Karst rivers & bamboo rafts
+              - paragraph [ref=e893]: Plan a trip to Guilin →
+        - listitem [ref=e186]:
+          - link "Plan a trip to Zhangjiajie" [ref=e895] [cursor=pointer]:
+            - /url: /destinations/zhangjiajie
+            - img "Zhangjiajie" [ref=e896]
+            - generic [ref=e899]:
+              - heading "Zhangjiajie" [level=3] [ref=e900]
+              - paragraph [ref=e901]: Avatar peaks above the cloud
+              - paragraph [ref=e902]: Plan a trip to Zhangjiajie →
+        - listitem [ref=e196]:
+          - link "Plan a trip to Jiuzhaigou" [ref=e904] [cursor=pointer]:
+            - /url: /destinations/jiuzhaigou
+            - img "Jiuzhaigou" [ref=e905]
+            - generic [ref=e908]:
+              - heading "Jiuzhaigou" [level=3] [ref=e909]
+              - paragraph [ref=e910]: Tibetan valleys & turquoise pools
+              - paragraph [ref=e911]: Plan a trip to Jiuzhaigou →
+        - listitem [ref=e206]:
+          - link "Plan a trip to Dali" [ref=e913] [cursor=pointer]:
+            - /url: /destinations/dali
+            - img "Dali" [ref=e914]
+            - generic [ref=e917]:
+              - heading "Dali" [level=3] [ref=e918]
+              - paragraph [ref=e919]: Slow lakeside Yunnan
+              - paragraph [ref=e920]: Plan a trip to Dali →
+        - listitem [ref=e216]:
+          - link "Plan a trip to Huangshan" [ref=e922] [cursor=pointer]:
+            - /url: /destinations/huangshan
+            - img "Huangshan" [ref=e923]
+            - generic [ref=e926]:
+              - heading "Huangshan" [level=3] [ref=e927]
+              - paragraph [ref=e928]: Cloud sea & ink-painting peaks
+              - paragraph [ref=e929]: Plan a trip to Huangshan →
+    - generic [ref=e227]:
+      - generic [ref=e931]:
+        - paragraph [ref=e932]: Sample lines we have already drafted
+        - heading "Sample itineraries · could be your starting point" [level=2] [ref=e933]
+        - paragraph [ref=e934]: Five mock sample lines, ten chapters of depth each, written by advisors at the real cadence we run. Pick the one closest to yours, then tell Lin what to add, drop, or swap.
+      - list [ref=e233]:
+        - listitem [ref=e234]:
+          - link "Mutianyu Great Wall winding through autumn forest near Beijing Nature 样板 10-day first-timer China · Culture & landscape balanced Walk an original-masonry stretch of Mutianyu, far from Badaling crowds 10 days From USD 2,800 Apr / May / Sep See full itinerary" [ref=e936] [cursor=pointer]:
+            - /url: /itineraries/sample-10d
+            - generic [ref=e937]:
+              - img "Mutianyu Great Wall winding through autumn forest near Beijing" [ref=e938]
+              - generic [ref=e940]: Nature
+              - generic [ref=e942]: 样板
+            - generic [ref=e944]:
+              - heading "10-day first-timer China · Culture & landscape balanced" [level=3] [ref=e945]
+              - paragraph [ref=e946]: Walk an original-masonry stretch of Mutianyu, far from Badaling crowds
+              - paragraph [ref=e947]:
+                - generic [ref=e948]: 10 days
+                - generic [ref=e949]: ·
+                - generic [ref=e950]: From USD 2,800
+                - generic [ref=e951]: ·
+                - generic [ref=e952]: Apr / May / Sep
+              - generic [ref=e953]:
+                - text: See full itinerary
+                - img [ref=e954]
+        - listitem [ref=e256]:
+          - 'link "Hall of Prayer for Good Harvests at the Temple of Heaven, Beijing Visa-free 样板 240h transit visa-free · Beijing–Tianjin–Hebei in 10 days 240h fully compliant: exit from an in-zone port 10 days From USD 2,400 Apr / May / Sep See full itinerary" [ref=e957] [cursor=pointer]':
+            - /url: /itineraries/visa-free-240h-beijing
+            - generic [ref=e958]:
+              - img "Hall of Prayer for Good Harvests at the Temple of Heaven, Beijing" [ref=e959]
+              - generic [ref=e961]: Visa-free
+              - generic [ref=e963]: 样板
+            - generic [ref=e965]:
+              - heading "240h transit visa-free · Beijing–Tianjin–Hebei in 10 days" [level=3] [ref=e966]
+              - paragraph [ref=e967]: "240h fully compliant: exit from an in-zone port"
+              - paragraph [ref=e968]:
+                - generic [ref=e969]: 10 days
+                - generic [ref=e970]: ·
+                - generic [ref=e971]: From USD 2,400
+                - generic [ref=e972]: ·
+                - generic [ref=e973]: Apr / May / Sep
+              - generic [ref=e974]:
+                - text: See full itinerary
+                - img [ref=e975]
+        - listitem [ref=e278]:
+          - link "Sandstone pillars rising from morning mist in Zhangjiajie National Forest Park Family 样板 12-day family with kids · Beijing, Xi'an, Zhangjiajie & Shanghai Three nights per city — fewer packing mornings, more child sleep 12 days From USD 4,200 Apr / May / Jun See full itinerary" [ref=e978] [cursor=pointer]:
+            - /url: /itineraries/family-12d
+            - generic [ref=e979]:
+              - img "Sandstone pillars rising from morning mist in Zhangjiajie National Forest Park" [ref=e980]
+              - generic [ref=e982]: Family
+              - generic [ref=e984]: 样板
+            - generic [ref=e986]:
+              - heading "12-day family with kids · Beijing, Xi'an, Zhangjiajie & Shanghai" [level=3] [ref=e987]
+              - paragraph [ref=e988]: Three nights per city — fewer packing mornings, more child sleep
+              - paragraph [ref=e989]:
+                - generic [ref=e990]: 12 days
+                - generic [ref=e991]: ·
+                - generic [ref=e992]: From USD 4,200
+                - generic [ref=e993]: ·
+                - generic [ref=e994]: Apr / May / Jun
+              - generic [ref=e995]:
+                - text: See full itinerary
+                - img [ref=e996]
+        - listitem [ref=e300]:
+          - link "Lijiang old town at night, red lanterns reflected on the Sifang canal Honeymoon 样板 9-day honeymoon · Hangzhou, Guilin, Dali & Shanghai Private West Lake rowing boat · only you two in the mist 9 days From USD 5,400 Apr / May / Sep See full itinerary" [ref=e999] [cursor=pointer]:
+            - /url: /itineraries/honeymoon-9d
+            - generic [ref=e1000]:
+              - img "Lijiang old town at night, red lanterns reflected on the Sifang canal" [ref=e1001]
+              - generic [ref=e1003]: Honeymoon
+              - generic [ref=e1005]: 样板
+            - generic [ref=e1007]:
+              - heading "9-day honeymoon · Hangzhou, Guilin, Dali & Shanghai" [level=3] [ref=e1008]
+              - paragraph [ref=e1009]: Private West Lake rowing boat · only you two in the mist
+              - paragraph [ref=e1010]:
+                - generic [ref=e1011]: 9 days
+                - generic [ref=e1012]: ·
+                - generic [ref=e1013]: From USD 5,400
+                - generic [ref=e1014]: ·
+                - generic [ref=e1015]: Apr / May / Sep
+              - generic [ref=e1016]:
+                - text: See full itinerary
+                - img [ref=e1017]
+        - listitem [ref=e322]:
+          - link "Five Flower Lake in Jiuzhaigou, autumn forest mirrored on jade water Nature 样板 14-day nature & photography · Jiuzhaigou, Zhangjiajie, Huangshan & Guilin Jiuzhaigou jade water · the 05:00 entry reward 14 days From USD 5,800 Apr / May / Sep See full itinerary" [ref=e1020] [cursor=pointer]:
+            - /url: /itineraries/nature-14d
+            - generic [ref=e1021]:
+              - img "Five Flower Lake in Jiuzhaigou, autumn forest mirrored on jade water" [ref=e1022]
+              - generic [ref=e1024]: Nature
+              - generic [ref=e1026]: 样板
+            - generic [ref=e1028]:
+              - heading "14-day nature & photography · Jiuzhaigou, Zhangjiajie, Huangshan & Guilin" [level=3] [ref=e1029]
+              - paragraph [ref=e1030]: Jiuzhaigou jade water · the 05:00 entry reward
+              - paragraph [ref=e1031]:
+                - generic [ref=e1032]: 14 days
+                - generic [ref=e1033]: ·
+                - generic [ref=e1034]: From USD 5,800
+                - generic [ref=e1035]: ·
+                - generic [ref=e1036]: Apr / May / Sep
+              - generic [ref=e1037]:
+                - text: See full itinerary
+                - img [ref=e1038]
+      - link "See all 5 sample itineraries" [ref=e345] [cursor=pointer]:
+        - /url: /itineraries
+        - text: See all 5 sample itineraries
+        - img [ref=e346]
+    - generic [ref=e349]:
+      - generic [ref=e1041]:
+        - paragraph [ref=e1042]: Your specialists
+        - heading "Real people behind every reply" [level=2] [ref=e1043]
+        - paragraph [ref=e1044]: Beijing / Chengdu / Shanghai-based, full-time, on contract. No outsourced agents.
+      - generic [ref=e1045]:
+        - generic [ref=e1046]: Yiwen Lu
+        - generic [ref=e1047]: Senior China Specialist · Beijing
+        - generic [ref=e1048]: English · 中文
+        - generic [ref=e1049]: Beijing · Xi'an · Inner Mongolia · Pingyao
+        - generic [ref=e1050]: Bo Chen
+        - generic [ref=e1051]: Yunnan & Sichuan Specialist · Chengdu
+        - generic [ref=e1052]: English · 中文 · Français
+        - generic [ref=e1053]: Chengdu · Dali · Lijiang · Shangri-La · Jiuzhaigou
+        - generic [ref=e1054]: Mei Zhang
+        - generic [ref=e1055]: East China & Shanghai Specialist
+        - generic [ref=e1056]: English · 中文 · 日本語
+        - generic [ref=e1057]: Shanghai · Hangzhou · Suzhou · Huangshan
+        - generic [ref=e1058]: Jian Li
+        - generic [ref=e1059]: Family & Multi-gen Specialist · Beijing
+        - generic [ref=e1060]: English · 中文
+        - generic [ref=e1061]: Beijing · Zhangjiajie · Guilin · Hangzhou
+        - generic [ref=e1062]: Yiwen Lu
+        - generic [ref=e1063]: Senior China Specialist · Beijing
+        - generic [ref=e1064]: English · 中文
+        - generic [ref=e1065]: Beijing · Xi'an · Inner Mongolia · Pingyao
+        - generic [ref=e1066]: Bo Chen
+        - generic [ref=e1067]: Yunnan & Sichuan Specialist · Chengdu
+        - generic [ref=e1068]: English · 中文 · Français
+        - generic [ref=e1069]: Chengdu · Dali · Lijiang · Shangri-La · Jiuzhaigou
+        - generic [ref=e1070]: Mei Zhang
+        - generic [ref=e1071]: East China & Shanghai Specialist
+        - generic [ref=e1072]: English · 中文 · 日本語
+        - generic [ref=e1073]: Shanghai · Hangzhou · Suzhou · Huangshan
+        - generic [ref=e1074]: Jian Li
+        - generic [ref=e1075]: Family & Multi-gen Specialist · Beijing
+        - generic [ref=e1076]: English · 中文
+        - generic [ref=e1077]: Beijing · Zhangjiajie · Guilin · Hangzhou
+      - list [ref=e374]:
+        - listitem [ref=e375]:
+          - article [ref=e1079]:
+            - generic [ref=e1080]: demo
+            - generic [ref=e1082]: YL
+            - generic [ref=e1083]:
+              - heading "Yiwen Lu" [level=3] [ref=e1084]
+              - paragraph [ref=e1085]: Senior China Specialist · Beijing
+            - list [ref=e1086]:
+              - listitem [ref=e1087]: English
+              - listitem [ref=e1088]: 中文
+            - paragraph [ref=e1089]: Beijing · Xi'an · Inner Mongolia
+        - listitem [ref=e388]:
+          - article [ref=e1091]:
+            - generic [ref=e1092]: demo
+            - generic [ref=e1094]: BC
+            - generic [ref=e1095]:
+              - heading "Bo Chen" [level=3] [ref=e1096]
+              - paragraph [ref=e1097]: Yunnan & Sichuan Specialist · Chengdu
+            - list [ref=e1098]:
+              - listitem [ref=e1099]: English
+              - listitem [ref=e1100]: 中文
+              - listitem [ref=e1101]: Français
+            - paragraph [ref=e1102]: Chengdu · Dali · Lijiang
+        - listitem [ref=e402]:
+          - article [ref=e1104]:
+            - generic [ref=e1105]: demo
+            - generic [ref=e1107]: MZ
+            - generic [ref=e1108]:
+              - heading "Mei Zhang" [level=3] [ref=e1109]
+              - paragraph [ref=e1110]: East China & Shanghai Specialist
+            - list [ref=e1111]:
+              - listitem [ref=e1112]: English
+              - listitem [ref=e1113]: 中文
+              - listitem [ref=e1114]: 日本語
+            - paragraph [ref=e1115]: Shanghai · Hangzhou · Suzhou
+        - listitem [ref=e416]:
+          - article [ref=e1117]:
+            - generic [ref=e1118]: demo
+            - generic [ref=e1120]: JL
+            - generic [ref=e1121]:
+              - heading "Jian Li" [level=3] [ref=e1122]
+              - paragraph [ref=e1123]: Family & Multi-gen Specialist · Beijing
+            - list [ref=e1124]:
+              - listitem [ref=e1125]: English
+              - listitem [ref=e1126]: 中文
+            - paragraph [ref=e1127]: Beijing · Zhangjiajie · Guilin
+      - link "Speak to a specialist" [ref=e1130] [cursor=pointer]:
+        - /url: "#lead-form"
+    - generic [ref=e433]:
+      - generic [ref=e1132]:
+        - paragraph [ref=e1133]: Why travelers stay with us
+        - heading "Specialists, examples, reviews and the small print" [level=2] [ref=e1134]
+        - paragraph [ref=e1135]: Mock placeholder content for now — every block below is wired to typed proof data so ops can swap real material in one place.
+      - generic [ref=e439]:
+        - generic [ref=e1137]:
+          - heading "Real specialists, not call-center scripts" [level=3] [ref=e1138]
+          - paragraph [ref=e1139]: Full-time, on contract, named on every reply.
+          - list [ref=e1140]:
+            - listitem [ref=e1141]:
+              - article [ref=e1142]:
+                - generic [ref=e1143]: demo
+                - generic [ref=e1145]: YL
+                - generic [ref=e1146]:
+                  - heading "Yiwen Lu" [level=4] [ref=e1147]
+                  - paragraph [ref=e1148]: Senior China Specialist · Beijing
+                - list [ref=e1149]:
+                  - listitem [ref=e1150]: English
+                  - listitem [ref=e1151]: 中文
+                - paragraph [ref=e1152]: Beijing · Xi'an · Inner Mongolia · Pingyao
+                - paragraph [ref=e1153]: Replies within 24h, weekdays Beijing time.
+            - listitem [ref=e1154]:
+              - article [ref=e1155]:
+                - generic [ref=e1156]: demo
+                - generic [ref=e1158]: BC
+                - generic [ref=e1159]:
+                  - heading "Bo Chen" [level=4] [ref=e1160]
+                  - paragraph [ref=e1161]: Yunnan & Sichuan Specialist · Chengdu
+                - list [ref=e1162]:
+                  - listitem [ref=e1163]: English
+                  - listitem [ref=e1164]: 中文
+                  - listitem [ref=e1165]: Français
+                - paragraph [ref=e1166]: Chengdu · Dali · Lijiang · Shangri-La
+                - paragraph [ref=e1167]: Replies within 24h; on-trip support in Chengdu timezone.
+            - listitem [ref=e1168]:
+              - article [ref=e1169]:
+                - generic [ref=e1170]: demo
+                - generic [ref=e1172]: MZ
+                - generic [ref=e1173]:
+                  - heading "Mei Zhang" [level=4] [ref=e1174]
+                  - paragraph [ref=e1175]: East China & Shanghai Specialist
+                - list [ref=e1176]:
+                  - listitem [ref=e1177]: English
+                  - listitem [ref=e1178]: 中文
+                  - listitem [ref=e1179]: 日本語
+                - paragraph [ref=e1180]: Shanghai · Hangzhou · Suzhou · Huangshan
+                - paragraph [ref=e1181]: Replies within 24h; reachable on WeChat during the trip.
+            - listitem [ref=e1182]:
+              - article [ref=e1183]:
+                - generic [ref=e1184]: demo
+                - generic [ref=e1186]: JL
+                - generic [ref=e1187]:
+                  - heading "Jian Li" [level=4] [ref=e1188]
+                  - paragraph [ref=e1189]: Family & Multi-gen Specialist · Beijing
+                - list [ref=e1190]:
+                  - listitem [ref=e1191]: English
+                  - listitem [ref=e1192]: 中文
+                - paragraph [ref=e1193]: Beijing · Zhangjiajie · Guilin · Hangzhou
+                - paragraph [ref=e1194]: Replies within 24h; specialised in accessible & family pacing.
+        - generic [ref=e1196]:
+          - heading "Example journeys we’ve drafted" [level=3] [ref=e1197]
+          - paragraph [ref=e1198]: Conceptual sketches — your trip is rebuilt from your conversation.
+          - list [ref=e1199]:
+            - listitem [ref=e1200]:
+              - article [ref=e1201]:
+                - generic [ref=e1202]: example
+                - generic [ref=e1204]:
+                  - generic [ref=e1205]: First-time couple from the US
+                  - generic [ref=e1206]: ·
+                  - generic [ref=e1207]: 12 days
+                  - generic [ref=e1208]: ·
+                  - generic [ref=e1209]: Party of 2
+                - paragraph [ref=e1210]: Beijing · Xi'an · Guilin · Shanghai
+                - paragraph [ref=e1211]: Private guides in each city, Forbidden City sunrise slot, slow Li River bamboo morning, lane breakfast walk in Shanghai.
+                - paragraph [ref=e1212]: Wanted the classic China loop but no group bus, no rushed museum stops, and a real food day in each city.
+            - listitem [ref=e1213]:
+              - article [ref=e1214]:
+                - generic [ref=e1215]: example
+                - generic [ref=e1217]:
+                  - generic [ref=e1218]: Slow-travel couple from the UK
+                  - generic [ref=e1219]: ·
+                  - generic [ref=e1220]: 9 days
+                  - generic [ref=e1221]: ·
+                  - generic [ref=e1222]: Party of 2
+                - paragraph [ref=e1223]: Kunming · Dali · Lijiang · Shangri-La
+                - paragraph [ref=e1224]: Private driver loop, lakeside Dali stay, Naxi village lunch with a local family, gradual altitude pacing.
+                - paragraph [ref=e1225]: Wanted Yunnan, but allergic to packaged old-town tours and big-bus altitude transfers.
+            - listitem [ref=e1226]:
+              - article [ref=e1227]:
+                - generic [ref=e1228]: example
+                - generic [ref=e1230]:
+                  - generic [ref=e1231]: Multi-gen family of 5 from Australia
+                  - generic [ref=e1232]: ·
+                  - generic [ref=e1233]: 15 days
+                  - generic [ref=e1234]: ·
+                  - generic [ref=e1235]: Party of 5
+                - paragraph [ref=e1236]: Beijing · Xi'an · Chengdu · Zhangjiajie · Shanghai
+                - paragraph [ref=e1237]: Wheelchair-accessible hotels, panda morning slot, Zhangjiajie elevator route, slower city days, family-style dinners booked.
+                - paragraph [ref=e1238]: Three generations, mixed pace, one wheelchair user; wanted pandas, peaks, and the Bund without losing grandma.
+        - generic [ref=e1240]:
+          - heading "What travelers say" [level=3] [ref=e1241]
+          - paragraph [ref=e1242]: Mock placeholder reviews — real Tripadvisor and Google reviews to be wired in by ops.
+          - list [ref=e1243]:
+            - listitem [ref=e1244]:
+              - article [ref=e1245]:
+                - generic [ref=e1246]: mock
+                - generic [ref=e1248]: “
+                - paragraph [ref=e1249]: Mock review placeholder — real Tripadvisor reviews to be plugged in by ops before launch.
+                - generic [ref=e1250]:
+                  - generic [ref=e1251]: Tripadvisor placeholder
+                  - generic [ref=e1252]: Couple · 12 days · Beijing → Xi’an → Guilin → Shanghai
+            - listitem [ref=e1253]:
+              - article [ref=e1254]:
+                - generic [ref=e1255]: mock
+                - generic [ref=e1257]: “
+                - paragraph [ref=e1258]: Mock review placeholder — real Google reviews to be plugged in by ops before launch.
+                - generic [ref=e1259]:
+                  - generic [ref=e1260]: Google placeholder
+                  - generic [ref=e1261]: Multi-gen family · 15 days · Beijing → Chengdu → Zhangjiajie
+        - generic [ref=e1263]:
+          - heading "The boring but useful small print" [level=3] [ref=e1264]
+          - paragraph [ref=e1265]: Licenses, payment partners and privacy stance — placeholders until legal sign-off.
+          - list [ref=e1267]:
+            - listitem [ref=e1268]:
+              - generic [ref=e1269]: placeholder
+              - generic [ref=e1271]: License
+              - heading "Sample Licensed Tour Operator Placeholder" [level=4] [ref=e1272]
+              - paragraph [ref=e1273]: Placeholder for a Chinese tour operator license. Replace with the verified license number and authority before launch.
+            - listitem [ref=e1274]:
+              - generic [ref=e1275]: placeholder
+              - generic [ref=e1277]: Payment
+              - heading "Sample Payment Partner Placeholder" [level=4] [ref=e1278]
+              - paragraph [ref=e1279]: Placeholder for the verified card / Stripe payment partner badge. Awaiting brand-usage approval.
+            - listitem [ref=e1280]:
+              - generic [ref=e1281]: placeholder
+              - generic [ref=e1283]: Privacy
+              - heading "Sample Privacy Stance Placeholder" [level=4] [ref=e1284]
+              - paragraph [ref=e1285]: Placeholder for the GDPR / data-handling stance. Replace with the published privacy notice URL once legal signs off.
+    - generic [ref=e591]:
+      - generic [ref=e1287]:
+        - paragraph [ref=e1288]: Plan with a specialist
+        - heading "Tell us your trip — Lin replies within 4h" [level=2] [ref=e1289]
+        - paragraph [ref=e1290]: No obligation. We use these details to draft a private route, not a sales call.
+      - generic [ref=e1293]:
+        - generic [ref=e1294]:
+          - generic [ref=e1295]:
+            - generic [ref=e1296]:
+              - text: Your name
+              - generic [ref=e1297]: "*"
+              - generic [ref=e1298]: (required field)
+            - textbox "Your name (required field)" [ref=e1299]:
+              - /placeholder: Jane Traveler
+          - generic [ref=e1300]:
+            - generic [ref=e1301]:
+              - text: Email
+              - generic [ref=e1302]: "*"
+              - generic [ref=e1303]: (required field)
+            - textbox "Email (required field)" [ref=e1304]:
+              - /placeholder: you@email.com
+        - generic [ref=e1305]:
+          - generic [ref=e1306]:
+            - generic [ref=e1307]:
+              - text: Travel month
+              - generic [ref=e1308]: "*"
+              - generic [ref=e1309]: (required field)
+            - textbox "Travel month (required field)" [ref=e1310]:
+              - /placeholder: e.g. October 2026
+          - generic [ref=e1311]:
+            - generic [ref=e1312]:
+              - text: Trip length (days)
+              - generic [ref=e1313]: "*"
+              - generic [ref=e1314]: (required field)
+            - spinbutton "Trip length (days) (required field)" [ref=e1315]: "7"
+          - generic [ref=e1316]:
+            - generic [ref=e1317]:
+              - text: Travelers
+              - generic [ref=e1318]: "*"
+              - generic [ref=e1319]: (required field)
+            - spinbutton "Travelers (required field)" [ref=e1320]: "2"
+        - generic [ref=e1321]:
+          - generic [ref=e1322]:
+            - generic [ref=e1323]:
+              - text: Preferred reply channel
+              - generic [ref=e1324]: "*"
+              - generic [ref=e1325]: (required field)
+            - combobox "Preferred reply channel" [ref=e1326]:
+              - generic: Preferred reply channel
+              - img
+            - combobox [ref=e1327]
+          - generic [ref=e1328]:
+            - generic [ref=e1329]: Budget per person (optional)
+            - combobox "Budget per person (optional)" [ref=e1330]:
+              - generic: Budget per person (optional)
+              - img
+            - combobox [ref=e1331]
+        - generic [ref=e1332]:
+          - generic [ref=e1333]: Tell us about your trip (optional)
+          - textbox "Tell us about your trip (optional)" [ref=e1334]:
+            - /placeholder: Pace, must-sees, dietary needs, destinations of interest, travel style — anything that matters.
+        - textbox [ref=e1335]
+        - paragraph [ref=e1336]: By submitting you agree to be contacted by a specialist. Mock placeholder — replace with verified privacy notice before launch.
+        - button "Send to a specialist" [ref=e1339]
+    - generic [ref=e647]:
+      - generic [ref=e1341]:
+        - paragraph [ref=e1342]: FAQ
+        - heading "Common questions before your China trip" [level=2] [ref=e1343]
+      - generic [ref=e652]:
+        - heading "Do I need a visa to visit China?" [level=3] [ref=e654]:
+          - button "Do I need a visa to visit China?" [ref=e655]:
+            - text: Do I need a visa to visit China?
+            - img
+        - heading "How early should I plan?" [level=3] [ref=e657]:
+          - button "How early should I plan?" [ref=e658]:
+            - text: How early should I plan?
+            - img
+        - heading "Is China safe for solo / family travelers?" [level=3] [ref=e660]:
+          - button "Is China safe for solo / family travelers?" [ref=e661]:
+            - text: Is China safe for solo / family travelers?
+            - img
+        - heading "Can you arrange Mandarin-speaking guides?" [level=3] [ref=e663]:
+          - button "Can you arrange Mandarin-speaking guides?" [ref=e664]:
+            - text: Can you arrange Mandarin-speaking guides?
+            - img
+        - heading "How do payments work?" [level=3] [ref=e666]:
+          - button "How do payments work?" [ref=e667]:
+            - text: How do payments work?
+            - img
+        - heading "What is the cancellation policy?" [level=3] [ref=e669]:
+          - button "What is the cancellation policy?" [ref=e670]:
+            - text: What is the cancellation policy?
+            - img
+        - heading "How is internet / VPN handled in China?" [level=3] [ref=e672]:
+          - button "How is internet / VPN handled in China?" [ref=e673]:
+            - text: How is internet / VPN handled in China?
+            - img
+        - heading "Can you handle special requests (dietary, accessibility)?" [level=3] [ref=e675]:
+          - button "Can you handle special requests (dietary, accessibility)?" [ref=e676]:
+            - text: Can you handle special requests (dietary, accessibility)?
+            - img
+      - generic [ref=e1345]:
+        - paragraph [ref=e1346]: Still unsure? Send your question with the form.
+        - link "Ask a specialist" [ref=e1347] [cursor=pointer]:
+          - /url: "#lead-form"
+  - contentinfo [ref=e681]:
+    - generic [ref=e1348]:
+      - generic [ref=e1349]:
+        - generic [ref=e1350]:
+          - paragraph [ref=e1351]: pandatravel
+          - paragraph [ref=e1352]: Tailor-made China travel, drafted with a Beijing-based specialist who actually picks up.
+          - paragraph [ref=e1353]: pandatravel.com.cn
+        - navigation "Site map" [ref=e1354]:
+          - generic [ref=e1355]:
+            - paragraph [ref=e1356]: Plan
+            - list [ref=e1357]:
+              - listitem [ref=e1358]:
+                - link "Plan my trip" [ref=e1359] [cursor=pointer]:
+                  - /url: /plan
+              - listitem [ref=e1360]:
+                - link "Visa-free 240h" [ref=e1361] [cursor=pointer]:
+                  - /url: /visa-free
+              - listitem [ref=e1362]:
+                - link "Destinations" [ref=e1363] [cursor=pointer]:
+                  - /url: /destinations
+          - generic [ref=e1364]:
+            - paragraph [ref=e1365]: Discover
+            - list [ref=e1366]:
+              - listitem [ref=e1367]:
+                - link "Itineraries" [ref=e1368] [cursor=pointer]:
+                  - /url: /itineraries
+              - listitem [ref=e1369]:
+                - link "Sample 10 days" [ref=e1370] [cursor=pointer]:
+                  - /url: /itineraries/sample-10d
+              - listitem [ref=e1371]:
+                - button "Themes (coming v1.5)" [ref=e1372]
+          - generic [ref=e1373]:
+            - paragraph [ref=e1374]: About
+            - list [ref=e1375]:
+              - listitem [ref=e1376]:
+                - link "About pandatravel" [ref=e1377] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e1378]:
+                - link "Reviews" [ref=e1379] [cursor=pointer]:
+                  - /url: /reviews
+              - listitem [ref=e1380]:
+                - link "Contact (coming v1.5)" [ref=e1381] [cursor=pointer]:
+                  - /url: /about#contact
+          - generic [ref=e1382]:
+            - paragraph [ref=e1383]: Fine print
+            - list [ref=e1384]:
+              - listitem [ref=e1385]:
+                - button "Privacy (placeholder)" [ref=e1386]
+              - listitem [ref=e1387]:
+                - button "Terms (placeholder)" [ref=e1388]
+              - listitem [ref=e1389]:
+                - button "ICP placeholder" [ref=e1390]
+      - generic [ref=e1391]:
+        - generic [ref=e1392]:
+          - paragraph [ref=e1393]: Trust network
+          - paragraph [ref=e1394]: We will plug verified review widgets in here as our first cohort lands.
+          - list "Trust network" [ref=e1395]:
+            - listitem [ref=e1396]:
+              - generic [ref=e1397]: Tripadvisor
+              - generic [ref=e1398]: pending
+            - listitem [ref=e1399]:
+              - generic [ref=e1400]: Google Reviews
+              - generic [ref=e1401]: pending
+            - listitem [ref=e1402]:
+              - generic [ref=e1403]: Feefo
+              - generic [ref=e1404]: pending
+            - listitem [ref=e1405]:
+              - generic [ref=e1406]: Trustindex
+              - generic [ref=e1407]: pending
+        - generic [ref=e1408]:
+          - paragraph [ref=e1409]: Reply promise
+          - paragraph [ref=e1410]: Lin replies in 4 hours from Beijing. No chatbot, no auto-routing.
+          - paragraph [ref=e1411]: Chinese public holidays excluded.
+        - generic [ref=e1412]:
+          - paragraph [ref=e1413]: Why pandatravel
+          - paragraph [ref=e1414]: A small Beijing-based studio that designs private China trips around how you actually travel — not a packaged menu, not a 49-field intake form.
+      - generic [ref=e1415]:
+        - generic [ref=e1416]: © 2026 pandatravel · pandatravel.com.cn · All rights reserved
+        - generic [ref=e1417]: ·
+        - generic [ref=e1418]: Mock data — replace before launch
+        - generic [ref=e1419]: ·
+        - generic [ref=e1420]: Switch language at the top of the page.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e761] [cursor=pointer]:
+    - img [ref=e762]
+  - alert [ref=e1421]

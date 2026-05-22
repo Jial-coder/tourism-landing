@@ -2,10 +2,12 @@
 
 import { useDictionary } from '@/components/i18n/LocaleProvider';
 import { Reveal } from '@/components/motion/Reveal';
+import { SoftLinkButton } from '@/components/chrome/SoftLinkButton';
 
 export function PathCFooter() {
   const dict = useDictionary();
   const t = dict.home.pathCFooter;
+  const softLinks = dict.home.nav.softLinks;
 
   const sitemapColumns = [
     t.sitemap.plan,
@@ -13,6 +15,11 @@ export function PathCFooter() {
     t.sitemap.about,
     t.sitemap.channels,
   ];
+
+  const softLinkClass =
+    'text-soft-ivory/60 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm';
+  const liveLinkClass =
+    'text-soft-ivory/85 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm';
 
   return (
     <footer
@@ -46,16 +53,30 @@ export function PathCFooter() {
                     {col.heading}
                   </p>
                   <ul className="flex flex-col gap-2 text-sm">
-                    {col.links.map((link) => (
-                      <li key={link.href}>
-                        <a
-                          href={link.href}
-                          className="text-soft-ivory/85 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm"
-                        >
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
+                    {col.links.map((link) => {
+                      const softKey = (link as { soft?: keyof typeof softLinks }).soft;
+                      if (softKey && softLinks[softKey]) {
+                        const copy = softLinks[softKey];
+                        return (
+                          <li key={link.href}>
+                            <SoftLinkButton
+                              title={copy.title}
+                              body={copy.body}
+                              className={`text-left ${softLinkClass}`}
+                            >
+                              {link.label}
+                            </SoftLinkButton>
+                          </li>
+                        );
+                      }
+                      return (
+                        <li key={link.href}>
+                          <a href={link.href} className={liveLinkClass}>
+                            {link.label}
+                          </a>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}

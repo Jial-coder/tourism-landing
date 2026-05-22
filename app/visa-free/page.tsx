@@ -4,6 +4,7 @@ import { TopNav } from '@/components/chrome/TopNav';
 import { Footer } from '@/components/sections/Footer';
 import { SectionInner } from '@/components/atoms/SectionContainer';
 import { CTAPrimary } from '@/components/atoms/CTAGhost';
+import { ChineseSeal } from '@/components/brand/ChineseSeal';
 import { DecisionTool } from '@/components/visa-free/DecisionTool';
 import { QuickContactCard } from '@/components/visa-free/QuickContactCard';
 import {
@@ -65,6 +66,12 @@ export default function VisaFreePage() {
               · <VisaFreeHeroLastReviewedLabel /> {NIA_REVIEWED}
             </p>
           </SectionInner>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-6 right-6 z-10 hidden md:block opacity-85"
+          >
+            <ChineseSeal text="客" size={72} variant="solid" />
+          </div>
         </section>
 
         {/* 2. Decision Tool */}

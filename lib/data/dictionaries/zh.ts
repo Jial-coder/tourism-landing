@@ -40,11 +40,10 @@ export default {
         { href: '/destinations', label: '目的地', soft404: false },
         { href: '/itineraries', label: '行程', soft404: false },
         { href: '/visa-free', label: '免签攻略', soft404: false },
-        { href: '/advisors', label: '顾问', soft404: false },
+        { href: '/about#team', label: '顾问', soft404: false },
         { href: '/stories', label: '旅行故事', soft404: true },
         { href: '/about', label: '关于我们', soft404: false },
       ],
-      more: '更多',
       ctaPlan: '免费定制行程',
       whatsappLabel: 'WhatsApp · 值班',
       whatsappAria: 'WhatsApp 值班顾问',
@@ -64,6 +63,56 @@ export default {
       soft404Notify: 'Notify me · 通知我',
       soft404Close: 'Esc 关闭',
       contactSpecialist: '直接联系顾问',
+      softLinks: {
+        auth: {
+          title: '账户系统将在 v1.5 上线',
+          body: '现在草稿与回信会通过邮箱 / WhatsApp 与你保持同步；账户登录正在路上。想第一时间拿到登录链接吗？',
+        },
+        themes: {
+          title: '主题分类页 v1.5 上线',
+          body: '我们正在把家庭、自然、商务延伸、文化遗产等主题拆成独立的入口页。v1.5 上线后会带你直接看到每个主题下的样板路线。',
+        },
+        legalPrivacy: {
+          title: '隐私政策正文整理中',
+          body: '法务正在按中国 PIPL + GDPR 联合口径整理正式文本。上线前会替换为正式隐私页面。',
+        },
+        legalTerms: {
+          title: '服务条款正文整理中',
+          body: '正式服务条款正在律师终审中。上线前会替换为正式条款页面。',
+        },
+        legalIcp: {
+          title: 'ICP 备案号待补',
+          body: '中国境内备案手续办理中，备案号下来后会替换这一行的占位。',
+        },
+        bestTime: {
+          title: '“最佳出行时间”专题筹备中',
+          body: '我们正在把每个目的地的最佳月份汇总成一张可筛选的指南页。在那之前，目的地详情页内已有“Best Time to Visit”模块可看。',
+        },
+        careers: {
+          title: '招聘还没开放',
+          body: 'v1 阶段我们刻意只签 3 位全职顾问。下一轮招聘会写在这里。想被通知到吗？',
+        },
+        press: {
+          title: '媒体询问页筹备中',
+          body: '在媒体页上线前，请直接邮件 hello@example.com，主题写「Press inquiry」，我们会在 1 个工作日内回复。',
+        },
+        wechat: {
+          title: '微信联系卡正在做',
+          body: '上线前会在这里放出 Lin 本人的二维码与个人微信号；目前请先用 WhatsApp 或邮箱联系我们。',
+        },
+        aboutPromise: {
+          title: '“品牌承诺”单页整理中',
+          body: '6 条承诺当前写在 /about 页的“Our promise”一节里。独立页会在 v1.5 时拆出。',
+        },
+        aboutResponsible: {
+          title: '“Responsible travel”政策整理中',
+          body: '我们的可持续旅行立场会在 v1.5 单独成页，包含合作酒店与社区项目清单。',
+        },
+        aboutVoices: {
+          title: '“客户原话”集合页筹备中',
+          body: '首批旅客回家后我们会把原话与照片汇总到这一页。在那之前，/reviews 已有承诺与示例。',
+        },
+      },
     },
     hero: {
       eyebrow: '中国定制旅行',
@@ -572,7 +621,7 @@ export default {
           links: [
             { label: '行程一览', href: '/itineraries' },
             { label: '样板 10 天', href: '/itineraries/sample-10d' },
-            { label: '主题（v1.5 上线）', href: '/themes' },
+            { label: '主题（v1.5 上线）', href: '/themes', soft: 'themes' as const },
           ],
         },
         about: {
@@ -586,9 +635,9 @@ export default {
         channels: {
           heading: '小字',
           links: [
-            { label: '隐私（占位）', href: '/legal/privacy' },
-            { label: '条款（占位）', href: '/legal/terms' },
-            { label: 'ICP 占位', href: '/legal/icp' },
+            { label: '隐私（占位）', href: '/legal/privacy', soft: 'legalPrivacy' as const },
+            { label: '条款（占位）', href: '/legal/terms', soft: 'legalTerms' as const },
+            { label: 'ICP 占位', href: '/legal/icp', soft: 'legalIcp' as const },
           ],
         },
       },

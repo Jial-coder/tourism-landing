@@ -1,51 +1,26 @@
+"use client";
+
+import { useDictionary } from "@/components/i18n/LocaleProvider";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
+import { SoftLinkButton } from "@/components/chrome/SoftLinkButton";
 import { NewsletterForm } from "./NewsletterForm";
 
 /**
- * Footer — M-FOOTER（编辑型目录 + Newsletter + 多语言展示行 + 法务）。
- * brief: docs/modules/M-FOOTER.md
+ * Footer — site-wide footer for non-home pages.
  *
- * 4 列 / 移动 accordion；不替代 M-LANG 的顶栏切换器。
+ * Dead-link pass (2026-05-23):
+ *   - Sitemap data sourced from `dict.home.pathCFooter.sitemap` (single source of
+ *     truth, shared with PathCFooter on /).
+ *   - Soft-flagged links (themes / legal / etc.) render as <SoftLinkButton>;
+ *     bodies come from `dict.home.nav.softLinks.*`.
+ *   - Removed hardcoded dead routes: /best-time, /careers, /press, /contact/wechat,
+ *     /about/promise, /about/responsible-travel, /about/voices.
+ *   - Auth links removed (now soft-routed in TopNav only).
+ *   - Newsletter sign-up + multilingual display row + manifesto strip kept.
+ *
+ * brief: docs/modules/M-FOOTER.md (revised)
  */
-
-const COLUMNS = [
-  {
-    title: "Brand & Promise",
-    items: [
-      { label: "我们是谁", href: "/about" },
-      { label: "品牌承诺", href: "/about/promise" },
-      { label: "Responsible travel", href: "/about/responsible-travel" },
-    ],
-  },
-  {
-    title: "Travel",
-    items: [
-      { label: "目的地 · Destinations", href: "/destinations" },
-      { label: "行程 · Itineraries", href: "/itineraries" },
-      { label: "签证 · Visa", href: "/visa" },
-      { label: "旅行故事 · Stories", href: "/stories", soft404: true },
-      { label: "Best time", href: "/best-time", soft404: true },
-    ],
-  },
-  {
-    title: "People",
-    items: [
-      { label: "顾问 · Advisors", href: "/advisors" },
-      { label: "客户原话", href: "/about/voices" },
-      { label: "Careers", href: "/careers", soft404: true },
-    ],
-  },
-  {
-    title: "Get in touch",
-    items: [
-      { label: "WhatsApp · 值班", href: "https://wa.me/" },
-      { label: "Email · hello@example.com", href: "mailto:hello@example.com" },
-      { label: "WeChat · 扫码加 Lin", href: "/contact/wechat" },
-      { label: "Press inquiries", href: "/press" },
-    ],
-  },
-];
 
 const LANG_DISPLAY = [
   { code: "ZH", label: "中文" },
@@ -59,6 +34,22 @@ const LANG_DISPLAY = [
 ];
 
 export function Footer() {
+  const dict = useDictionary();
+  const t = dict.home.pathCFooter;
+  const softLinks = dict.home.nav.softLinks;
+
+  const sitemapColumns = [
+    t.sitemap.plan,
+    t.sitemap.discover,
+    t.sitemap.about,
+    t.sitemap.channels,
+  ];
+
+  const liveLinkClass =
+    "text-[13px] font-misans-regular text-soft-ivory/85 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm";
+  const softLinkClass =
+    "text-left text-[13px] font-misans-regular text-soft-ivory/60 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm";
+
   return (
     <footer
       data-feedback-id="FOOTER-01"
@@ -80,8 +71,8 @@ export function Footer() {
 
         {/* Columns + Newsletter */}
         <SectionInner className="py-12 lg:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-            {/* Newsletter (occupies col 1) */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
+            {/* Newsletter (col 1) */}
             <div className="lg:col-span-1 flex flex-col gap-3">
               <div className="text-[12px] font-misans-regular uppercase tracking-[0.18em] text-alpine-blue/80">
                 Newsletter
@@ -92,27 +83,37 @@ export function Footer() {
               <NewsletterForm />
             </div>
 
-            {COLUMNS.map((col) => (
-              <div key={col.title} className="flex flex-col gap-3">
+            {/* Sitemap (4 columns, mirrors PathCFooter) */}
+            {sitemapColumns.map((col) => (
+              <div key={col.heading} className="flex flex-col gap-3">
                 <div className="text-[12px] font-misans-regular uppercase tracking-[0.18em] text-soft-ivory/55">
-                  {col.title}
+                  {col.heading}
                 </div>
                 <ul className="flex flex-col gap-2">
-                  {col.items.map((it) => (
-                    <li key={it.label}>
-                      <a
-                        href={it.href}
-                        className={
-                          "text-[13px] font-misans-regular underline-offset-4 hover:underline " +
-                          ("soft404" in it && it.soft404
-                            ? "text-soft-ivory/60"
-                            : "text-soft-ivory/85")
-                        }
-                      >
-                        {it.label}
-                      </a>
-                    </li>
-                  ))}
+                  {col.links.map((link) => {
+                    const softKey = (link as { soft?: keyof typeof softLinks }).soft;
+                    if (softKey && softLinks[softKey]) {
+                      const copy = softLinks[softKey];
+                      return (
+                        <li key={link.href}>
+                          <SoftLinkButton
+                            title={copy.title}
+                            body={copy.body}
+                            className={softLinkClass}
+                          >
+                            {link.label}
+                          </SoftLinkButton>
+                        </li>
+                      );
+                    }
+                    return (
+                      <li key={link.href}>
+                        <a href={link.href} className={liveLinkClass}>
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -140,16 +141,28 @@ export function Footer() {
               ))}
             </div>
             <div className="flex flex-wrap items-center gap-4 text-[11px] font-misans-regular text-soft-ivory/45">
-              <span>© 2026 [Brand] · 中国本地旅行顾问</span>
-              <a href="/legal/privacy" className="hover:text-soft-ivory/65">
+              <span>{t.copyright}</span>
+              <SoftLinkButton
+                title={softLinks.legalPrivacy.title}
+                body={softLinks.legalPrivacy.body}
+                className="hover:text-soft-ivory/65"
+              >
                 Privacy
-              </a>
-              <a href="/legal/terms" className="hover:text-soft-ivory/65">
+              </SoftLinkButton>
+              <SoftLinkButton
+                title={softLinks.legalTerms.title}
+                body={softLinks.legalTerms.body}
+                className="hover:text-soft-ivory/65"
+              >
                 Terms
-              </a>
-              <a href="/legal/icp" className="hover:text-soft-ivory/65">
-                ICP 备案 · ICP-XXXXXXX
-              </a>
+              </SoftLinkButton>
+              <SoftLinkButton
+                title={softLinks.legalIcp.title}
+                body={softLinks.legalIcp.body}
+                className="hover:text-soft-ivory/65"
+              >
+                ICP
+              </SoftLinkButton>
             </div>
           </SectionInner>
         </div>

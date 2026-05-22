@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu, MessageCircle, User, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -9,9 +10,16 @@ import { DropdownSurface } from "@/components/atoms/DropdownSurface";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
 import { LocaleSwitch } from "@/components/i18n/LocaleSwitch";
 import { useDictionary } from "@/components/i18n/LocaleProvider";
+import { SoftLinkDialog } from "@/components/chrome/SoftLinkDialog";
 
 /**
  * TopNav v2 — chrome 三件套整合（M-NAV + M-LANG + M-AUTH-ENTRY）
+ *
+ * Dead-link pass (2026-05-23):
+ *   - Removed /more (route never existed; no real "More" content).
+ *   - /advisors moved to /about#team (real advisor cards live on About §3).
+ *   - /auth/sign-in & /auth/sign-up wired to SoftLinkDialog (Phase 2).
+ *   - SoftFourOhFourDialog extracted to <SoftLinkDialog> for reuse.
  *
  * 6 项 codex 5.5 cross-validation 修复均命中（chrome v1 → v2）：
  *   1. scrolled 阈值 = window.innerHeight * 0.9（不是 >10），hero 内不变暗
@@ -36,6 +44,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
   const [authOpen, setAuthOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [storyModalOpen, setStoryModalOpen] = useState(false);
+  const [authSoftOpen, setAuthSoftOpen] = useState(false);
 
   const authTriggerRef = useRef<HTMLButtonElement | null>(null);
 
@@ -69,7 +78,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
       <header
         role="banner"
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 h-[72px]",
+          "fixed top-0 left-0 right-0 z-50 h-[88px] md:h-[92px]",
           "motion-safe:transition-all motion-safe:duration-300 motion-reduce:transition-none",
           "font-[var(--font-sans)]",
           isScrolled
@@ -79,21 +88,24 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
       >
         {isScrolled && <FilmGrain opacity={0.04} />}
         <div className="relative mx-auto flex h-full w-full max-w-[1440px] items-center px-6 lg:px-16">
-          {/* Brand wordmark */}
+          {/* Brand wordmark — H1 horizontal lockup (mark + wordmark)
+              Hero variant uses cream-on-transparent light variant for readability
+              on dark imagery; scrolled / always-chromed switches back to the
+              vermilion+ink original on the charcoal navbar. */}
           <Link
             href="/"
             aria-label={nav.brand}
-            className="inline-flex items-center gap-2 shrink-0 text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm"
+            className="inline-flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm motion-safe:transition-opacity motion-safe:duration-150 hover:opacity-90"
           >
-            <span
-              aria-hidden
-              className="inline-flex items-center justify-center rounded-[4px] bg-vermilion ring-1 ring-vermilion-deep/40 p-[3px] lg:p-[4px] shadow-sm shadow-deep-slate/30"
-            >
-              <PandaMark className="h-6 w-6 lg:h-7 lg:w-7" />
-            </span>
-            <span className="font-misans-bold text-[20px] lg:text-[22px] tracking-tight">
-              {nav.brand}
-            </span>
+            <Image
+              src={isScrolled ? "/brand/lockup.png" : "/brand/lockup-light.png"}
+              alt={nav.brand}
+              width={800}
+              height={275}
+              priority
+              sizes="(max-width: 640px) 200px, (max-width: 1024px) 240px, 280px"
+              className="h-12 w-auto md:h-14 lg:h-16"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -109,7 +121,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
                   type="button"
                   onClick={() => setStoryModalOpen(true)}
                   className={cn(
-                    "text-[14px] font-misans-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm",
+                    "text-[14px] font-misans-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm whitespace-nowrap",
                     "motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none",
                     "text-soft-ivory/60 hover:text-soft-ivory/75",
                   )}
@@ -121,7 +133,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-[14px] font-misans-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm",
+                    "text-[14px] font-misans-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm whitespace-nowrap",
                     "motion-safe:transition-colors motion-safe:duration-150 motion-reduce:transition-none",
                     "text-soft-ivory/90 hover:text-soft-ivory",
                   )}
@@ -130,12 +142,6 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
                 </Link>
               ),
             )}
-            <Link
-              href="/more"
-              className="inline-flex items-center gap-1 text-[14px] font-misans-regular text-soft-ivory/90 hover:text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 rounded-sm"
-            >
-              {nav.more} <ChevronDown size={14} aria-hidden />
-            </Link>
           </nav>
 
           {/* Right cluster */}
@@ -150,7 +156,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
               </CTAPrimary>
               <a
                 href="https://wa.me/"
-                className="inline-flex items-center gap-1.5 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/80 motion-safe:transition-colors"
+                className="inline-flex items-center gap-1.5 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/80 motion-safe:transition-colors whitespace-nowrap"
                 aria-label={nav.whatsappAria}
               >
                 <MessageCircle size={14} aria-hidden />
@@ -168,7 +174,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
                 }}
                 aria-haspopup="menu"
                 aria-expanded={authOpen}
-                className="inline-flex items-center gap-2 rounded-full px-2 py-1 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70"
+                className="inline-flex items-center gap-2 rounded-full px-2 py-1 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 whitespace-nowrap"
               >
                 <span
                   aria-hidden
@@ -191,15 +197,25 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
                   <div className="text-[14px] font-misans-bold text-soft-ivory">
                     {nav.authWelcome}
                   </div>
-                  <CTAPrimary href="/auth/sign-in" className="w-full h-10 text-[13px]">
+                  <CTAPrimary
+                    onClick={() => {
+                      setAuthOpen(false);
+                      setAuthSoftOpen(true);
+                    }}
+                    className="w-full h-10 text-[13px]"
+                  >
                     {nav.authSignIn}
                   </CTAPrimary>
-                  <a
-                    href="/auth/sign-up"
-                    className="text-[13px] font-misans-regular text-soft-ivory underline-offset-4 hover:underline"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthOpen(false);
+                      setAuthSoftOpen(true);
+                    }}
+                    className="text-left text-[13px] font-misans-regular text-soft-ivory underline-offset-4 hover:underline"
                   >
                     {nav.authSignUp}
-                  </a>
+                  </button>
                   <p className="text-[12px] font-misans-regular text-soft-ivory/60 leading-relaxed">
                     {nav.authNote}
                   </p>
@@ -232,11 +248,22 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
           setMobileOpen(false);
           setStoryModalOpen(true);
         }}
+        onAuthSoft={() => {
+          setMobileOpen(false);
+          setAuthSoftOpen(true);
+        }}
       />
 
       <SoftFourOhFourDialog
         open={storyModalOpen}
         onClose={() => setStoryModalOpen(false)}
+      />
+
+      <SoftLinkDialog
+        open={authSoftOpen}
+        onClose={() => setAuthSoftOpen(false)}
+        title={nav.softLinks.auth.title}
+        body={nav.softLinks.auth.body}
       />
     </>
   );
@@ -247,10 +274,12 @@ function MobileDrawer({
   open,
   onClose,
   onSoft404,
+  onAuthSoft,
 }: {
   open: boolean;
   onClose: () => void;
   onSoft404: () => void;
+  onAuthSoft: () => void;
 }) {
   const dict = useDictionary();
   const nav = dict.home.nav;
@@ -331,59 +360,20 @@ function MobileDrawer({
           </div>
         </div>
         <div className="mt-auto pt-6">
-          <Link
-            href="/auth/sign-in"
-            onClick={onClose}
+          <button
+            type="button"
+            onClick={onAuthSoft}
             className="text-[15px] font-misans-regular text-soft-ivory underline-offset-4 hover:underline"
           >
             {nav.authMobileLink}
-          </Link>
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-/* ----- Brand mark ----- */
-function PandaMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      aria-hidden
-      className={className}
-      role="img"
-    >
-      {/* 印章方框 — 中国元素外圈，仿汉印盖章感 */}
-      <g transform="rotate(-2 16 16)">
-        <rect
-          x="2"
-          y="2"
-          width="28"
-          height="28"
-          rx="2"
-          fill="none"
-          stroke="#C8102E"
-          strokeWidth="1.5"
-        />
-      </g>
-      {/* Head */}
-      <circle cx="16" cy="17" r="9" fill="#FAF7EE" />
-      {/* Ears */}
-      <ellipse cx="8.5" cy="10.5" rx="3.2" ry="2.8" fill="#1F1F1F" />
-      <ellipse cx="23.5" cy="10.5" rx="3.2" ry="2.8" fill="#1F1F1F" />
-      {/* Eye patches */}
-      <ellipse cx="12.4" cy="16.4" rx="2.1" ry="2.7" fill="#1F1F1F" transform="rotate(-15 12.4 16.4)" />
-      <ellipse cx="19.6" cy="16.4" rx="2.1" ry="2.7" fill="#1F1F1F" transform="rotate(15 19.6 16.4)" />
-      {/* Eyes */}
-      <circle cx="12.7" cy="16.9" r="0.8" fill="#FAF7EE" />
-      <circle cx="19.3" cy="16.9" r="0.8" fill="#FAF7EE" />
-      {/* Nose */}
-      <ellipse cx="16" cy="20" rx="1.3" ry="0.9" fill="#1F1F1F" />
-      {/* Red accent — 中国元素 */}
-      <circle cx="16" cy="6.8" r="1.4" fill="#C8102E" />
-    </svg>
-  );
-}
+/* ----- Brand mark (legacy SVG removed — now using /brand/lockup.png via next/image) ----- */
 function SoftFourOhFourDialog({
   open,
   onClose,

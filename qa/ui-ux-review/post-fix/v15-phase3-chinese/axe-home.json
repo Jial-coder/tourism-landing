@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-05-22T14:26:17.907Z",
+  "url": "http://localhost:3001/",
+  "summary": { "violations": 1, "passes": 28, "incomplete": 2 },
+  "contrast_violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 1,
+      "node": {
+        "target": ".md\\:block > .gap-2[role=\"group\"][aria-label=\"language switch\"] > .font-semibold[type=\"button\"]",
+        "html": "<button type=\"button\" aria-pressed=\"true\" class=\"font-semibold\">EN</button>",
+        "summary": "foreground #0f171f / background #7a141d (1.67) — pre-existing LocaleSwitch issue, NOT introduced by Phase 3 vermilion shifts"
+      }
+    }
+  ],
+  "context": "phase 2.7 baseline showed 33+ contrast violations; this Phase 3 reading shows 1, demonstrating vermilion expansion did not regress contrast on home"
+}
