@@ -390,6 +390,130 @@ export default {
         },
       },
     },
+    visaFree: {
+      eyebrow: '240 小时过境免签',
+      headline: '在中国 240 小时不用签证。把它玩好。',
+      lede:
+        '选你的护照、入境口岸、第三国去向，30 秒之内告诉你能不能用、能玩什么、不能去哪。',
+      sourceLabel: '来源 · 国家移民管理局 2025-11-04 公告',
+      lastReviewedLabel: '最后核验',
+      tool: {
+        heading: '决策工具',
+        body: '四步问答，无承诺。每季度回到 NIA 公告核对一次。',
+        steps: {
+          a: {
+            label: '第 1 步 · 护照',
+            heading: '选你的护照国',
+            help: 'NIA 现行 55 国白单都在这里。',
+            placeholder: '搜索国家',
+          },
+          b: {
+            label: '第 2 步 · 入境口岸',
+            heading: '选你入境的口岸',
+            help: '65 个口岸 — 机场、高铁、跨境大桥、陆港、海港。',
+            placeholder: '搜索口岸',
+          },
+          c: {
+            label: '第 3 步 · 离境去向',
+            heading: '从中国离开后你飞去哪？',
+            help: '必须前往第三国 / 地区。香港、澳门、台湾都算。',
+            placeholder: '搜索国家 / 地区',
+          },
+          d: {
+            label: '第 4 步 · 停留时长',
+            heading: '需要多长？',
+            help: '部分口岸即使不开放 240h，仍允许 24h 直接过境。',
+            options24: '24 小时直接过境',
+            options24Help: '不入境，留在国际中转区，不需要走移民柜台。',
+            options240: '240 小时过境免签',
+            options240Help: '在获批的省级区域内最多停留 10 天。',
+          },
+        },
+      },
+      result: {
+        eligibleHeading: '符合 ✓',
+        ineligibleHeading: '不符合 — 原因如下',
+        regionsLabel: '可游览的省级区域',
+        portsLabel: '同区域内可用于离境的口岸',
+        risksHeading: '风险与提示',
+        risks: [
+          '只能从所选区域内的合规口岸离境，不能跨到非获批省份再走。',
+          '240 小时计时一旦开始无法延长，回程航班请保留余量。',
+          '过境免签期间不允许工作、留学、长期居住或投资活动。',
+          '如果回程航班直接飞回出发国，可能不被算作"前往第三国"，被拒入境。',
+          '中国免签政策每季度调整，飞之前请按本页底部链接到 NIA 再核一次。',
+        ],
+        cta: {
+          plan: '让 Lin 给我画一条这个路线',
+          chat: 'WhatsApp 直接问 Lin',
+        },
+      },
+      caveats: {
+        heading: '老实说的细则',
+        items: [
+          {
+            title: '时间从什么时候开始算',
+            body: '240h 从入境次日 0 时起算，不是落地那一刻。各口岸可能略有差异，进关时确认一遍。',
+          },
+          {
+            title: '能去哪里',
+            body: '24 个省级区域。不能跨越到没列入你入境区域的省份，除非先离境再回来。',
+          },
+          {
+            title: '不能做的事',
+            body: '不允许打工、留学、长期居住、投资活动。商务洽谈处于灰色地带，建议轻量。',
+          },
+          {
+            title: '可能被拒入境的情况',
+            body: '回程机票直接飞回出发国 / 同护照频繁重复入境 / 离境文件不清晰，都可能在边检被拒。',
+          },
+          {
+            title: '政策变动很快',
+            body: '2024–2025 中国持续放宽（从 24 → 55 国，144 → 240 小时）。预订前以本页 lastReviewed 时间戳为准，再到 NIA 官网核对。',
+          },
+        ],
+      },
+      readymade: {
+        heading: '我们已经写过的 240h 路线',
+        body: '四条 10 天框架。Lin 会按你的同行人 / 节奏 / 回程航班把它改成你的版本。',
+        comingSoonBadge: '筹建中',
+        cta: '请 Lin 写这条给我',
+      },
+      contact: {
+        heading: '还是拿不准？跳过表单。',
+        body: '北京顾问 Lin 在你的时区上午第一件事看 WhatsApp。',
+        whatsappCta: 'WhatsApp 直接找 Lin',
+        embassyCta: '需要更长？申请 L 类签证 →',
+        embassyHref: 'https://bj.china-embassy.gov.cn/chn/',
+        notOnListCta: '护照不在 55 国名单？也可以聊聊 →',
+      },
+      tailorMake: {
+        heading: '或者，把刚才的回答交给定制顾问',
+        body: '我们会把你的入境口岸 / 第三国 / 停留时长预填进询价表，对话从这里继续。',
+        cta: '帮我定制免签行程',
+      },
+      sample: {
+        passport: '护照',
+        port: '入境口岸',
+        onward: '离境去',
+        stay: '停留',
+      },
+      placeholders: {
+        passport: '选择国家',
+        port: '选择口岸',
+        onward: '选择国家 / 地区',
+      },
+      reasons: {
+        pendingInput: '填完四步才能给出结论。',
+        passportNotEligible: '你的护照不在 55 国白单里。',
+        portNotInPassportList: '这个口岸对你的护照不开放。',
+        portNotApplicableForStay: '这个口岸目前不开放你选的停留时长。',
+        durationNotEligibleForPassport: '你的护照不在该停留时长的名单中。',
+        onwardSameAsPassport: '你选的离境目的地就是你的护照国，不算"前往第三国"。',
+        onwardNotRecognised: '这个目的地未被现行 NIA 规则视为合规第三国 / 地区。',
+        eligible: '四项检查全部通过。',
+      },
+    },
     pathCFooter: {
       brandTagline: '中国本地顾问真人在线，把你的想法慢慢谈成一条只属于你的路线。',
       quickLinksHeading: '探索',

@@ -398,6 +398,130 @@ export default {
         },
       },
     },
+    visaFree: {
+      eyebrow: '240h transit visa-free',
+      headline: '240 hours in China without a visa. Use them well.',
+      lede:
+        'Pick a passport, a port and where you fly to next. We tell you in plain language whether you qualify, what you can see, and where you cannot go.',
+      sourceLabel: 'Source · NIA 2025-11-04',
+      lastReviewedLabel: 'Last reviewed',
+      tool: {
+        heading: 'Decision tool',
+        body: 'Four short answers, no commitment. We update this tool quarterly against the National Immigration Administration source.',
+        steps: {
+          a: {
+            label: 'Step a · Passport',
+            heading: 'Pick your passport country',
+            help: 'We list the 55 countries on the NIA whitelist.',
+            placeholder: 'Search countries',
+          },
+          b: {
+            label: 'Step b · Entry port',
+            heading: 'Pick your entry port',
+            help: '65 ports — airports, rail stations, bridges and land/sea ports.',
+            placeholder: 'Search ports',
+          },
+          c: {
+            label: 'Step c · Onward destination',
+            heading: 'Where do you fly next?',
+            help: 'You must onward to a third country / region. Hong Kong, Macao and Taiwan all count.',
+            placeholder: 'Search countries / regions',
+          },
+          d: {
+            label: 'Step d · Stay',
+            heading: 'How long do you need?',
+            help: 'Some ports allow 24h direct transit even when 240h is unavailable.',
+            options24: '24h direct transit',
+            options24Help: 'Stay airside or in the inspection zone — no need to clear immigration.',
+            options240: '240h transit visa-free',
+            options240Help: 'Up to 10 full days in approved provincial regions.',
+          },
+        },
+      },
+      result: {
+        eligibleHeading: 'You qualify',
+        ineligibleHeading: 'Not eligible — here is why',
+        regionsLabel: 'Provinces and regions you can visit',
+        portsLabel: 'Ports in this region you can also use to exit',
+        risksHeading: 'Caveats and risks',
+        risks: [
+          'You must exit through a port within the same approved region — no leaving from a non-approved province.',
+          'You cannot extend the 240-hour clock once granted. Plan your onward flight conservatively.',
+          'Working, studying, long-term living and investment activities are not allowed under the transit visa-free programme.',
+          'If your onward ticket flies back to your departure country, immigration may treat it as a round trip and refuse entry.',
+          'Policy is being revised quarterly. Check the NIA source linked above before flying.',
+        ],
+        cta: {
+          plan: 'Tailor-make my route with Lin',
+          chat: 'WhatsApp Lin now',
+        },
+      },
+      caveats: {
+        heading: 'The fine print, written like a person',
+        items: [
+          {
+            title: 'How the clock starts',
+            body: 'For 240h, the timer starts at 00:00 on the day after entry, not at the moment your plane lands. Each port may interpret this differently — confirm at inspection.',
+          },
+          {
+            title: 'Where you can go',
+            body: '24 provincial-level regions. You may not cross into a province that is outside your entry region without first leaving China.',
+          },
+          {
+            title: 'What you cannot do',
+            body: 'No paid work, study, investment or long-term residence. Business meetings sit in a grey zone — keep them light.',
+          },
+          {
+            title: 'When you may be refused',
+            body: 'A return ticket back to your departure country, frequent re-entry on the same passport, or unclear onward documentation can each end the trip at the border.',
+          },
+          {
+            title: 'Policy changes fast',
+            body: 'China widened transit visa-free in 2024 and 2025 (24 → 55 countries, 144 → 240 hours). Always re-check before booking.',
+          },
+        ],
+      },
+      readymade: {
+        heading: 'Already-drafted 240h routes',
+        body: 'Four ready-made starting points. Each is a 10-day frame Lin can rearrange to your group, pace and return flight.',
+        comingSoonBadge: 'coming soon',
+        cta: 'Ask Lin for this route',
+      },
+      contact: {
+        heading: 'Still confused? Skip the form.',
+        body: 'Lin (Beijing) reads WhatsApp first thing in the morning, in your timezone.',
+        whatsappCta: 'WhatsApp Lin now',
+        embassyCta: 'Need a longer stay? Apply for an L visa →',
+        embassyHref: 'https://bj.china-embassy.gov.cn/eng/',
+        notOnListCta: 'Passport not on the 55-country list? Talk to us anyway →',
+      },
+      tailorMake: {
+        heading: 'Or build a custom route from these answers',
+        body: 'We will pre-fill the planner with your visa-free choices so the conversation can start where you left off.',
+        cta: 'Tailor-make my visa-free trip',
+      },
+      sample: {
+        passport: 'Passport',
+        port: 'Entry port',
+        onward: 'Onward to',
+        stay: 'Stay',
+      },
+      placeholders: {
+        passport: 'Choose a country',
+        port: 'Choose a port',
+        onward: 'Choose a country / region',
+      },
+      reasons: {
+        pendingInput: 'Fill in all four steps to see your answer.',
+        passportNotEligible: 'Your passport is not on the 55-country whitelist.',
+        portNotInPassportList: 'This port is not allowed for your passport.',
+        portNotApplicableForStay: 'This port does not currently support the stay length you picked.',
+        durationNotEligibleForPassport: 'Your passport is not on the list for this stay length.',
+        onwardSameAsPassport: 'Your onward destination is the same as your passport country, so it does not count as a third country.',
+        onwardNotRecognised: 'This destination is not recognised as a third country / region.',
+        eligible: 'All four checks pass.',
+      },
+    },
     pathCFooter: {
       brandTagline:
         'Tailor-made China travel, drafted with a Beijing-based specialist who actually picks up.',
