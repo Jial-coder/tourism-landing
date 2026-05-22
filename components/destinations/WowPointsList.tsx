@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Mountain,
   Sunrise,
@@ -63,14 +64,41 @@ export function WowPointsList({
   lang?: "zh" | "en";
 }) {
   return (
-    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
       {points.map((p, i) => {
         const text = lang === "zh" ? p.zh : p.en;
         const icon = ICONS[p.icon] ?? fallback();
+        if (p.image) {
+          const altText = lang === "zh" ? p.image.alt.zh : p.image.alt.en;
+          return (
+            <li
+              key={p.icon + i}
+              className="flex flex-col overflow-hidden rounded-[12px] bg-paper ring-1 ring-ink/10"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={p.image.src}
+                  alt={altText}
+                  fill
+                  sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-start gap-3 p-5">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-vermilion-soft text-vermilion-deep">
+                  {icon}
+                </span>
+                <p className="text-[14px] font-misans-regular leading-relaxed text-ink/85 lg:text-[15px]">
+                  {text}
+                </p>
+              </div>
+            </li>
+          );
+        }
         return (
           <li
             key={p.icon + i}
-            className="flex items-start gap-4 rounded-[10px] bg-paper p-5 ring-1 ring-ink/10"
+            className="flex items-start gap-4 rounded-[12px] bg-paper p-5 ring-1 ring-ink/10"
           >
             <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-vermilion-soft text-vermilion-deep">
               {icon}

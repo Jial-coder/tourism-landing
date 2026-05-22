@@ -72,6 +72,12 @@ export default {
       contactModalTitle: 'Talk to a specialist',
       contactModalDescription:
         'Pick the channel that suits you. A Beijing specialist replies within 24 hours (Chinese holidays excluded).',
+      anchorCard: {
+        eyebrow: 'Sample route · tweak it your way',
+        title: '10-day first-timer China · Culture & landscape balanced',
+        meta: '10 days · from USD 4,200 · best Apr–May / Sep–Oct',
+        cta: 'See full itinerary',
+      },
     },
     trustStrip: {
       items: [

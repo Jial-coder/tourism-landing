@@ -70,6 +70,12 @@ export default {
       secondaryCta: '直接联系顾问',
       contactModalTitle: '直接联系顾问',
       contactModalDescription: '挑一个你顺手的渠道，北京顾问会在 24 小时内回复（中国节假日除外）。',
+      anchorCard: {
+        eyebrow: '样板路线 · 改成你的版本',
+        title: '10 天第一次来中国 · 文化与山水平衡线',
+        meta: '10 天 · USD 4,200 起 · 4–5 月 / 9–10 月最佳',
+        cta: '看完整行程',
+      },
     },
     trustStrip: {
       items: [

@@ -1,0 +1,52 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "url": "http://localhost:3001/",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "itineraries-sample-10d",
+      "url": "http://localhost:3001/itineraries/sample-10d",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "destinations-beijing",
+      "url": "http://localhost:3001/destinations/beijing",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "destinations-xian",
+      "url": "http://localhost:3001/destinations/xian",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    }
+  ]
+}

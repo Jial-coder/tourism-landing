@@ -4,12 +4,17 @@ import { TailorMakeTip } from "./TailorMakeTip";
 
 function ActivityRow({ activity }: { activity: DayActivity }) {
   return (
-    <li className="flex gap-3 text-[13px] font-misans-regular leading-relaxed text-ink/80">
-      <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-ink/30" />
+    <li className="flex gap-3 text-[13px] font-misans-regular leading-relaxed text-ink/80 lg:text-[14px]">
+      <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-vermilion/50" />
       <div className="flex flex-col gap-1">
-        <p className="text-ink">{activity.activity.zh}</p>
+        <p className="text-ink">
+          <span className="text-[11px] tracking-[0.12em] uppercase text-ink/75">
+            {activity.minutes}m ·{" "}
+          </span>
+          {activity.activity.zh}
+        </p>
         {activity.note ? (
-          <p className="text-[12px] text-ink/70 italic">
+          <p className="text-[12px] text-ink/65 leading-relaxed">
             tip · {activity.note.zh}
           </p>
         ) : null}
@@ -18,14 +23,21 @@ function ActivityRow({ activity }: { activity: DayActivity }) {
   );
 }
 
+const DAY_PART_TONE: Record<string, string> = {
+  Morning: "bg-cream/70 ring-jade/15",
+  Afternoon: "bg-paper ring-ink/10",
+  Evening: "bg-vermilion-soft/40 ring-vermilion/15",
+};
+
 function DayPart({ label, items }: { label: string; items: DayActivity[] }) {
   if (!items.length) return null;
+  const tone = DAY_PART_TONE[label] ?? "bg-paper ring-ink/10";
   return (
-    <div className="flex flex-col gap-2">
-      <div className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+    <div className={`flex flex-col gap-3 rounded-[10px] p-4 ring-1 ${tone}`}>
+      <div className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade-deep">
         {label}
       </div>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-3">
         {items.map((it, i) => (
           <ActivityRow key={i} activity={it} />
         ))}
@@ -58,17 +70,25 @@ export function DayByDayAccordion({ days }: { days: DayBlock[] }) {
               />
             </summary>
 
-            <div className="grid grid-cols-1 gap-6 px-5 pb-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,260px)] lg:gap-8">
-              <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-6 px-5 pb-6">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
                 <DayPart label="Morning" items={d.morning} />
                 <DayPart label="Afternoon" items={d.afternoon} />
                 <DayPart label="Evening" items={d.evening} />
-                {d.tailorMakeTip ? (
-                  <TailorMakeTip tip={d.tailorMakeTip} />
-                ) : null}
               </div>
+              {d.tailorMakeTip ? (
+                <TailorMakeTip tip={d.tailorMakeTip} />
+              ) : null}
               {d.images.length ? (
-                <div className="flex flex-col gap-3">
+                <div
+                  className={
+                    d.images.length === 1
+                      ? "grid grid-cols-1 gap-3"
+                      : d.images.length === 2
+                        ? "grid grid-cols-1 gap-3 sm:grid-cols-2"
+                        : "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+                  }
+                >
                   {d.images.map((img) => (
                     <div
                       key={img.src + img.alt.zh}
@@ -78,7 +98,7 @@ export function DayByDayAccordion({ days }: { days: DayBlock[] }) {
                         src={img.src}
                         alt={img.alt.zh}
                         fill
-                        sizes="(min-width:1024px) 260px, 100vw"
+                        sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                         className="object-cover"
                       />
                     </div>

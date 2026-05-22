@@ -217,30 +217,48 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '抵达首都机场，司机在出口举名牌接你', en: 'Land at PEK · advisor-arranged driver meets you with a name card' },
           minutes: 60,
-          note: { zh: '海关高峰期可以走电子通道，免排长队', en: 'Use the e-channel at peak hours to skip the long queue' },
+          note: { zh: '海关高峰期可以走电子通道，免排长队；如果你有加急，顾问会提前发短信告知队伍状态', en: 'Use the e-channel at peak hours to skip the long queue; the advisor texts you the line status before you land if it spikes' },
+        },
+        {
+          activity: { zh: '车上喝顾问准备的清茶 + 一份当天行程便签', en: 'Sip jasmine tea on the way in · the advisor leaves a one-page schedule on the seat' },
+          minutes: 30,
         },
       ],
       afternoon: [
         {
           activity: { zh: '入住胡同精品酒店 · 短暂午休', en: 'Check in at a hutong boutique hotel · short rest' },
           minutes: 90,
+          note: { zh: '我们会预留早入住，房间提前打扫好；若航班严重晚点，顾问可改成隔日补课方案', en: 'We block early check-in so the room is ready; if your flight slips dramatically the advisor reshuffles day one without losing time' },
         },
         {
           activity: { zh: '钟鼓楼一带轻散步，找一家本地面馆吃第一顿', en: 'Easy stroll around the Bell & Drum Tower; first meal at a neighbourhood noodle shop' },
-          minutes: 120,
+          minutes: 90,
           note: { zh: '走路别走太远，倒时差第一天体力先存着', en: 'Keep distance short — save energy for jet-lag day one' },
+        },
+        {
+          activity: { zh: '南锣鼓巷北端书店半小时 · 让眼睛习惯北京的字体', en: 'Drop into a calm bookshop on the quiet north end of Nanluoguxiang for thirty minutes' },
+          minutes: 30,
         },
       ],
       evening: [
         {
           activity: { zh: '什刹海湖边晚饭，看老北京晚课鸽哨', en: 'Dinner by Shichahai lake — listen for the dusk pigeon whistles of old Beijing' },
           minutes: 90,
+          note: { zh: '湖边是北京最像电影的一段；选靠水侧的桌子，鸽哨从屋顶飘过来时停下吃半口', en: 'The lakeside is the most cinematic block in Beijing — pick a table by the water and pause when the pigeon whistles drift over the rooftops' },
+        },
+        {
+          activity: { zh: '回酒店泡温水澡 · 顾问微信发明早叫醒和早餐时间', en: 'Warm bath at the hotel · advisor pings tomorrow\'s wake-up and breakfast time on WeChat' },
+          minutes: 60,
         },
       ],
       images: [
         {
           src: '/landmarks/beijing.jpg',
           alt: { zh: '北京胡同清晨光线', en: 'Morning light filtering through a Beijing hutong' },
+        },
+        {
+          src: '/landmarks/beijing.jpg',
+          alt: { zh: '什刹海黄昏的渔船和鸽群', en: 'Fishing boats and pigeon flocks at dusk on Shichahai lake' },
         },
       ],
       tailorMakeTip: {
@@ -256,26 +274,48 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '7:30 进故宫午门，赶在团客之前走完三大殿', en: 'At the Meridian Gate by 7:30 — finish the three main halls before tour groups arrive' },
           minutes: 180,
-          note: { zh: '导览预约必须提前 7 天，我们会替你抢', en: 'Slots open 7 days ahead; we book the moment they release' },
+          note: { zh: '导览预约必须提前 7 天，我们会替你抢；顾问还会准备一张折页讲解每殿的功能与脊兽含义', en: 'Slots open 7 days ahead and we book the moment they release; the guide hands you a leaflet that decodes each hall and the roof beasts above it' },
+        },
+        {
+          activity: { zh: '从神武门出 · 景山万春亭俯看故宫中轴线', en: 'Exit via Shenwumen · climb to Wanchun Pavilion on Jingshan to see the full Forbidden City axis' },
+          minutes: 60,
         },
       ],
       afternoon: [
         {
           activity: { zh: '驱车 90 分钟到慕田峪长城，缆车上去走 4–10 号烽火台', en: 'Drive 90 min to Mutianyu · cable car up, walk towers 4–10' },
           minutes: 240,
-          note: { zh: '比八达岭少一半人，城墙原状更完整', en: 'Half the crowds of Badaling, more original masonry' },
+          note: { zh: '比八达岭少一半人，城墙原状更完整；缆车上下都可选，膝盖不舒服的旅客直接坐缆车', en: 'Half the crowds of Badaling, more original masonry; cable car works both ways for travellers with knee concerns' },
+        },
+        {
+          activity: { zh: '滑车下山 · 体验段不算景点的"非典型长城"亮点', en: 'Toboggan back down — an off-script highlight that isn\'t in the official brochure' },
+          minutes: 30,
+          note: { zh: '滑车是孩子和成年人都偷偷喜欢的部分；雨天会停运，顾问当天定', en: 'Both kids and adults secretly love the toboggan; we confirm same-day since it pauses in heavy rain' },
         },
       ],
       evening: [
         {
           activity: { zh: '回城路上吃顺义本地烤鸭店 · 不是观光街那家', en: 'Stop at a Shunyi-side roast duck spot on the way back — not the tourist branch' },
           minutes: 90,
+          note: { zh: '我们带去的店连侍者都用筷子帮你切鸭皮蘸糖；前门那家的等位你不会想排', en: 'The waiter cuts the crisp skin to dip in sugar at our pick — you do not want the Qianmen tourist queue' },
+        },
+        {
+          activity: { zh: '酒店附近老茶馆喝一壶花茶 · 简短聊明早行程', en: 'Wind down with a pot of jasmine tea at a hotel-side teahouse · advisor walks you through tomorrow\'s rail leg' },
+          minutes: 60,
         },
       ],
       images: [
         {
           src: '/landmarks/beijing.jpg',
           alt: { zh: '故宫太和殿前广场清晨', en: 'Empty courtyard before the Hall of Supreme Harmony at dawn' },
+        },
+        {
+          src: '/landmarks/beijing.jpg',
+          alt: { zh: '慕田峪长城原状段秋色', en: 'Unrestored Mutianyu Wall in autumn light' },
+        },
+        {
+          src: '/landmarks/beijing.jpg',
+          alt: { zh: '景山万春亭俯瞰故宫中轴线', en: 'Forbidden City central axis seen from Wanchun Pavilion' },
         },
       ],
     },
@@ -287,6 +327,7 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '北京南站 9:00 高铁出发 · 4.5 小时到西安北', en: '09:00 bullet train from Beijing South · 4.5h to Xi\'an North' },
           minutes: 270,
+          note: { zh: '商务座单人 USD 110，一等座 USD 70；推荐一等座，餐车走一趟看高铁怎么穿过华北平原', en: 'Business pod is USD 110, first class USD 70; we suggest first class — walk to the dining car at least once to watch the train slice through the North China plain' },
         },
       ],
       afternoon: [
@@ -297,20 +338,36 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '城墙上租自行车骑一圈 13.7 公里 · 城外是夜市，城内是回族老坊', en: 'Rent a bike on top of the wall · 13.7km loop, dusk markets outside and Hui-quarter alleys inside' },
           minutes: 150,
-          note: { zh: '黄昏前上城墙最舒服，避开正午暴晒', en: 'Climb up before dusk — avoid the midday glare' },
+          note: { zh: '黄昏前上城墙最舒服，避开正午暴晒；老人和孩子可以租电瓶车环城，半小时绕完', en: 'Climb up before dusk to dodge the midday glare; older travellers and kids can take the electric carts and finish the loop in half an hour' },
+        },
+        {
+          activity: { zh: '城墙下永宁门看一段唐礼仪式表演 · 免费露天', en: 'Stop at the foot of Yongning Gate for the open-air Tang court ritual · free, full kit' },
+          minutes: 30,
         },
       ],
       evening: [
         {
           activity: { zh: '回民街吃 biangbiang 面 + 葫芦头泡馍', en: 'Muslim Quarter dinner — biangbiang noodles and hulutou paomo' },
           minutes: 90,
-          note: { zh: '主街太挤，我们带你绕进侧巷的本地铺', en: 'Skip the main drag — we take you to the side-alley shops locals queue at' },
+          note: { zh: '主街太挤，我们带你绕进侧巷的本地铺；点单用顾问写好的中文便签直接递给老板', en: 'Skip the main drag — we take you to the side-alley spots locals queue at, and your advisor pre-writes a Chinese order slip you hand the cook' },
+        },
+        {
+          activity: { zh: '回酒店楼下打包一壶西凤酒 · 晚上跟同行人小酌一杯', en: 'Pick up a flask of Xifeng spirits on the way back · share a small toast with your travel partners' },
+          minutes: 30,
         },
       ],
       images: [
         {
           src: '/landmarks/xian.jpg',
           alt: { zh: '西安古城墙黄昏骑行', en: 'Cycling on top of the Xi\'an city wall at dusk' },
+        },
+        {
+          src: '/landmarks/xian.jpg',
+          alt: { zh: '西安回民街夜灯下的人潮', en: 'Lantern-lit crowds in the Xi\'an Muslim Quarter' },
+        },
+        {
+          src: '/landmarks/xian.jpg',
+          alt: { zh: '永宁门唐礼仪式表演', en: 'Tang dynasty ritual reenactment at Yongning Gate' },
         },
       ],
       tailorMakeTip: {
@@ -399,25 +456,47 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '6:00 进山 · 百龙天梯上袁家界 · 看哈利路亚山日出后的雾', en: '06:00 enter park · Bailong elevator up to Yuanjiajie · watch the post-dawn mist around the Hallelujah pillar' },
           minutes: 240,
+          note: { zh: '6 点开闸的人是当天最少的；天梯垂直 326 米只要 1 分 58 秒，建议站缆厢中段以减晕眩', en: 'A 6 a.m. arrival hits the lightest crowd window of the day; the lift climbs 326 m in 1 min 58 s — stand mid-cabin to ease the swing' },
+        },
+        {
+          activity: { zh: '迷魂台 · 御笔峰 · 几个不挤的小观景台轮一圈', en: 'Loop the quieter viewpoints — Mihun, Yubi and a couple of side terraces' },
+          minutes: 60,
         },
       ],
       afternoon: [
         {
           activity: { zh: '天子山高山线 · 步行 6 公里看 6 个观景台', en: 'Tianzi mountain ridge trail · 6km past 6 viewpoints' },
           minutes: 180,
+          note: { zh: '走完一段在贺龙公园歇脚 · 那里有少见的角度看砂岩从林海里冒出来', en: 'Take the break at He Long Park — it offers a less-photographed angle on the pillars rising out of the canopy' },
+        },
+        {
+          activity: { zh: '景区内吃湘西土家米饭团 + 腌菜简餐', en: 'In-park lunch — a Tujia rice ball with pickled greens · the only honest meal inside the gates' },
+          minutes: 60,
         },
       ],
       evening: [
         {
           activity: { zh: '回酒店泡澡 · 不安排表演 · 让山的安静收尾', en: "Back to hotel for a soak · no shows tonight · let the mountain quiet land" },
           minutes: 90,
-          note: { zh: '魅力湘西大型表演口碑两极，我们默认不排，需要可以加', en: "We skip the 'Charming Xiangxi' show by default — opinions split, easy to add if you want" },
+          note: { zh: '魅力湘西大型表演口碑两极，我们默认不排，需要可以加；今晚把空白还给山的余响', en: 'Opinions on the "Charming Xiangxi" mega-show are split — we keep the night blank by default so the mountain stays in your head' },
+        },
+        {
+          activity: { zh: '酒店阳台听蛙声 · 顾问发明天天气 + 出发时间', en: 'Listen to frogs from the balcony · advisor pings tomorrow\'s weather and call time' },
+          minutes: 30,
         },
       ],
       images: [
         {
           src: '/landmarks/zhangjiajie.jpg',
           alt: { zh: '袁家界天子山观景台峰林', en: 'Sandstone pillars seen from the Tianzi ridge viewpoint' },
+        },
+        {
+          src: '/landmarks/zhangjiajie.jpg',
+          alt: { zh: '哈利路亚山雾中露出的尖峰', en: 'Hallelujah pillar emerging through morning mist' },
+        },
+        {
+          src: '/landmarks/zhangjiajie.jpg',
+          alt: { zh: '百龙天梯垂直上升画面', en: 'The Bailong elevator rising along the cliff face' },
         },
       ],
     },
@@ -429,29 +508,44 @@ const sample10d: Itinerary = {
         {
           activity: { zh: '张家界荷花机场早班飞桂林 · 飞行 1.5 小时', en: 'Early flight from Zhangjiajie to Guilin · 1.5h' },
           minutes: 90,
+          note: { zh: '建议靠左侧靠窗位 · 飞越喀斯特云贵接界处时风景比片子还好看', en: 'Ask for a left-window seat — crossing the karst belt at the Yunnan-Guizhou edge is more cinematic than any drone reel' },
+        },
+        {
+          activity: { zh: '桂林两江机场 · 司机直接送阳朔 · 1 小时高速', en: 'Guilin Liangjiang airport · driver heads straight to Yangshuo · 1h on the expressway' },
+          minutes: 60,
         },
       ],
       afternoon: [
         {
           activity: { zh: '入住阳朔西街酒店 · 不留在桂林市区', en: 'Check in at a Yangshuo West Street hotel · skip Guilin city, base in Yangshuo' },
-          minutes: 90,
-          note: { zh: '阳朔住一晚比桂林市住三晚有趣', en: 'One night in Yangshuo beats three in Guilin city — that\'s where the karst lives' },
+          minutes: 60,
+          note: { zh: '阳朔住一晚比桂林市住三晚有趣；我们选离西街 5 分钟但拐进竹林的小酒店，避开酒吧街声音', en: 'One night in Yangshuo beats three in Guilin city — that\'s where the karst lives; we book a small hotel five minutes off West Street, tucked behind bamboo, away from the bar lane noise' },
         },
         {
           activity: { zh: '遇龙河竹筏漂流半日 · 比漓江主流人少', en: 'Half-day bamboo raft on the Yulong River · quieter than the main Li River route' },
           minutes: 180,
+          note: { zh: '阳朔遇龙河比桂林漓江主航道少 60% 人；筏工是顾问签约长期合作的，会带你停在 4 个本地拍照点', en: 'Yulong runs about 60 % less crowded than the main Guilin–Yangshuo Li River route, and our long-term raft pilots stop at four photo points other crews skip' },
         },
       ],
       evening: [
         {
           activity: { zh: '阳朔西街 · 不去酒吧街，找城南本地餐馆吃啤酒鱼', en: 'Yangshuo West Street · avoid the bar lane, head south to a local spot for beer fish' },
           minutes: 120,
+          note: { zh: '啤酒鱼用的是漓江野生剑骨鱼 + 漓泉啤酒；本地店把鱼现杀，整鱼半小时上桌，皮焦肉嫩', en: 'Beer fish uses wild Lijiang dagger fish with Lijiang Spring beer; the local spot prepares it on the spot — half an hour from kitchen to table, crisp skin and silky flesh' },
+        },
+        {
+          activity: { zh: '回酒店阳台 · 山的轮廓在月光下变成剪影', en: 'Back to the hotel balcony · karst silhouettes against moonlight' },
+          minutes: 30,
         },
       ],
       images: [
         {
           src: '/landmarks/guilin.jpg',
           alt: { zh: '漓江竹筏与喀斯特山', en: 'Bamboo raft drifting past karst peaks on the Li River' },
+        },
+        {
+          src: '/landmarks/guilin.jpg',
+          alt: { zh: '阳朔西街拐进竹林的小巷', en: 'Bamboo lane just off Yangshuo West Street' },
         },
       ],
     },
@@ -654,26 +748,39 @@ const visaFree240hBeijing: Itinerary = {
         {
           activity: { zh: '抵达 PEK · 边检前出示 240h 资格三件套（机票第三国 + 酒店 + 行程）', en: 'Land at PEK · at immigration show the 240h trio: onward third-country ticket, hotel booking, itinerary' },
           minutes: 90,
-          note: { zh: '走 240h 专用通道，边检会盖一个红章并写明你必须在 10 天内从同区域口岸离境', en: 'Use the 240h channel — the officer stamps a red seal noting you must exit within 10 days from an in-zone port' },
+          note: { zh: '走 240h 专用通道，边检会盖一个红章并写明你必须在 10 天内从同区域口岸离境；红章下方手写日期是关键，离境时要核对', en: 'Use the 240h channel — the officer stamps a red seal noting you must exit within 10 days from an in-zone port, and the hand-written date below the stamp is the one immigration matches on departure' },
+        },
+        {
+          activity: { zh: '出关 · 顾问微信确认你已成功用 240h · 司机举名牌等你', en: 'After clearance · advisor pings WeChat to confirm a clean 240h entry · driver waits with a name card at arrivals' },
+          minutes: 30,
         },
       ],
       afternoon: [
         {
           activity: { zh: '司机送酒店 · 选王府井或东四胡同片区，方便走路觅食', en: 'Driver drops you at the hotel · we recommend Wangfujing or Dongsi hutong area for walkable dinner options' },
           minutes: 60,
+          note: { zh: '我们故意不选机场酒店或 CBD · 240h 第一晚住胡同片区，第二天醒来推开门就是真实北京', en: 'We deliberately skip airport hotels and the CBD — your 240h first night should be in a hutong block so you wake up inside real Beijing, not a glass tower' },
         },
         {
           activity: { zh: '短午休 · 顾问微信确认你已成功用 240h 入境', en: 'Brief nap · advisor pings on WeChat to confirm successful 240h entry' },
           minutes: 90,
+        },
+        {
+          activity: { zh: '附近便利店买北冰洋汽水 + 小零食 · 北京独有口味', en: 'Walk to a corner store for a Beibingyang orange soda and a snack — a flavour you cannot get back home' },
+          minutes: 30,
         },
       ],
       evening: [
         {
           activity: { zh: '附近吃一顿便当晚饭 · 早睡', en: 'Casual dinner nearby · early bed' },
           minutes: 60,
+          note: { zh: '240h 第一晚务必早睡 · 明天 7:30 故宫开门要赶在团客之前进去，第一天熬夜会拖累整周节奏', en: 'Sleep early on 240h day one — the 7:30 Forbidden City opening tomorrow needs you ahead of the tour groups, and a late first night drags the whole week' },
         },
       ],
-      images: [{ src: '/landmarks/beijing.jpg', alt: { zh: '北京东四胡同夜', en: 'Dongsi hutong at night, Beijing' } }],
+      images: [
+        { src: '/landmarks/beijing.jpg', alt: { zh: '北京东四胡同夜', en: 'Dongsi hutong at night, Beijing' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '王府井小吃街灯笼', en: 'Lanterns over Wangfujing snack street' } },
+      ],
       tailorMakeTip: {
         zh: '想直接利用 240h 玩遍京津冀 + 上长城？我们会按你的回程航班反推节奏。',
         en: 'Want to maximize 240h across all three regions and add the Wall? We schedule backwards from your onward flight.',
@@ -715,29 +822,45 @@ const visaFree240hBeijing: Itinerary = {
         {
           activity: { zh: '6:00 出发 · 90 分钟到慕田峪长城', en: '06:00 departure · 90 min drive to Mutianyu' },
           minutes: 90,
+          note: { zh: '6 点出发能赶在第一缆车开舱时上山，比 8 点出发的人少 70%；车上司机会给你递保温瓶和小笼包', en: 'Leaving at 6 puts you on the first cable car of the day — about 70% fewer people than the 8 a.m. wave, and the driver hands you a thermos and steamed buns en route' },
         },
         {
           activity: { zh: '缆车上 · 4-10 号烽火台 + 14 号原状烽火台往返', en: 'Cable car up · towers 4–10 plus the unrestored tower 14 round trip' },
           minutes: 240,
+          note: { zh: '14 号是少修过的原状段，砖块磨损能看清明朝戍守的脚印；保留这段是慕田峪比八达岭更值得去的关键', en: 'Tower 14 sits on the unrestored section — you can read Ming garrison footprints worn into the bricks; that detail is why Mutianyu beats the polished Badaling stretch' },
         },
       ],
       afternoon: [
         {
           activity: { zh: '回程经过怀柔虹鳟鱼一条街吃午饭', en: 'Lunch on the Huairou trout street on the way back' },
           minutes: 90,
+          note: { zh: '怀柔虹鳟养殖场都用山泉水放养 · 整鱼烤盐烤 + 蘸雁栖湖辣椒酱，是长城下来最稳的一顿', en: 'The Huairou trout are raised in mountain-spring runs · whole-fish salt bake plus Yanqi Lake chili paste — the most reliable meal you\'ll get on a Wall day' },
         },
         {
           activity: { zh: '回酒店泡澡补眠', en: 'Hotel soak and nap' },
           minutes: 120,
+        },
+        {
+          activity: { zh: '酒店附近茶馆喝一壶花茶 · 整理今天 200+ 张照片', en: 'Tea house nearby · sort the 200+ photos you took this morning' },
+          minutes: 60,
         },
       ],
       evening: [
         {
           activity: { zh: '烤鸭晚餐 · 选东四附近的非旅游店', en: 'Roast duck dinner at a non-tourist spot near Dongsi' },
           minutes: 90,
+          note: { zh: '我们选的店 75 年历史，木炭挂炉 · 鸭子按 3 段切（皮 + 半瘦肉 + 整鸭骨架熬汤），跟前门那家全切薄片完全不同', en: 'Our pick has been roasting on charcoal hooks for 75 years; they cut the duck three ways — skin, semi-lean meat, then carcass into soup — completely different from the all-slice tourist branches' },
+        },
+        {
+          activity: { zh: '回酒店看顾问发的 D4 颐和园 + 798 路线图', en: 'Back at hotel · review the advisor\'s map for D4 Summer Palace + 798' },
+          minutes: 30,
         },
       ],
-      images: [{ src: '/landmarks/beijing.jpg', alt: { zh: '慕田峪长城原状段秋色', en: 'Unrestored Mutianyu Wall in autumn' } }],
+      images: [
+        { src: '/landmarks/beijing.jpg', alt: { zh: '慕田峪长城原状段秋色', en: 'Unrestored Mutianyu Wall in autumn' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '14 号烽火台砖块磨损', en: 'Worn brickwork at unrestored tower 14' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '怀柔虹鳟鱼盐烤', en: 'Salt-baked Huairou trout' } },
+      ],
       tailorMakeTip: {
         zh: '想看更野的长城？司马台或箭扣需要专业领队，可以加 1 天替换慕田峪。',
         en: 'Want a wilder Wall? Simatai or Jiankou needs a guided lead — we can swap in a +1 day for that.',
@@ -775,29 +898,46 @@ const visaFree240hBeijing: Itinerary = {
         {
           activity: { zh: '北京南站 9:00 城际高铁去天津 · 30 分钟到', en: '09:00 inter-city bullet train to Tianjin · 30-min ride' },
           minutes: 30,
+          note: { zh: '京津城际高铁 350km/h，提前 15 分钟到南站候车 · 顾问会发车次截图给你', en: 'The Beijing–Tianjin line runs at 350 km/h; arrive at South Station 15 min early — your advisor sends the train number screenshot' },
         },
         {
           activity: { zh: '五大道租自行车骑老租界 · 看英法德意四国老建筑', en: 'Cycle the Five Avenues old concession area · British, French, German and Italian architecture' },
           minutes: 150,
+          note: { zh: '五大道是天津最完整的近代史街区 · 230+ 栋老洋房，骑车 1.5 小时穿过，比走路看 4 条已是高效', en: 'The Five Avenues hold the most intact Republican-era streetscape in Tianjin — 230+ old mansions; cycling four streets in 1.5h is the efficient way' },
         },
       ],
       afternoon: [
         {
           activity: { zh: '南市食品街吃天津早茶 · 狗不理别去观光店，去南门口本地店', en: "Tianjin breakfast lane in Nanshi · for goubuli skip the tourist branch, head to the Nanmen-area local one" },
           minutes: 90,
+          note: { zh: '南门口的狗不理是 1858 年原址 · 18 个褶儿 + 滚汤鸡汤 + 现包；前门外那家全是预制冷冻包', en: 'The Nanmen branch occupies the 1858 original site — 18 folds, fresh chicken broth, hand-wrapped on the spot; the Qianmen-style outlets are pre-formed and frozen' },
         },
         {
           activity: { zh: '海河边步行 + 解放桥 + 古文化街', en: 'Walk along the Hai River, cross the Jiefang Bridge, end at Guwenhua Street' },
           minutes: 180,
+          note: { zh: '解放桥每天傍晚 6 点开桥让大型船过 · 留意时间能看到老桥实际抬升 30 米的瞬间', en: 'The Jiefang Bridge lifts at 6 p.m. each evening to let large vessels through — time it right to watch the old span actually rise 30 m' },
+        },
+        {
+          activity: { zh: '古文化街买一个泥人张', en: 'Pick up a Niren Zhang clay figurine in Guwenhua Street' },
+          minutes: 30,
         },
       ],
       evening: [
         {
           activity: { zh: '末班高铁回北京 · 半小时到南站', en: 'Last bullet train back to Beijing · 30 min to South Station' },
           minutes: 30,
+          note: { zh: '21:30 末班车回京 · 不要赶 22 点之后，间隔变成 1 小时一班 · 顾问把座位定靠走廊好下车', en: 'Take the 21:30 service — after that frequency drops to one per hour; we book aisle seats so you can disembark fast' },
+        },
+        {
+          activity: { zh: '南站打车回酒店 · 顾问已下单接驾', en: 'Cab from South Station — advisor pre-orders a Didi to your hotel' },
+          minutes: 30,
         },
       ],
-      images: [{ src: '/landmarks/beijing.jpg', alt: { zh: '天津五大道老租界街角', en: 'Five Avenues concession-era streetscape, Tianjin' } }],
+      images: [
+        { src: '/landmarks/beijing.jpg', alt: { zh: '天津五大道老租界街区', en: 'Five Avenues old concession block in Tianjin' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '海河解放桥傍晚开桥', en: 'Jiefang Bridge lifting at dusk over the Hai River' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '古文化街泥人张作坊', en: 'Niren Zhang clay figurine workshop in Guwenhua Street' } },
+      ],
     },
     {
       day: 6,
@@ -1044,33 +1184,43 @@ const family12d: Itinerary = {
       city: 'Beijing',
       cityCn: '北京',
       morning: [
-        { activity: { zh: '8:30 进故宫 · 选孩子能记住的几件事 · 不试图全看', en: '08:30 Forbidden City · pick a few things the kids will remember · don\'t try to do it all' }, minutes: 150, note: { zh: '故宫 90 分钟为限，超过孩子注意力崩溃', en: '90 minutes max — beyond that the kids melt down' } },
+        { activity: { zh: '8:30 进故宫 · 选孩子能记住的几件事 · 不试图全看', en: '08:30 Forbidden City · pick a few things the kids will remember · don\'t try to do it all' }, minutes: 150, note: { zh: '故宫 90 分钟为限，超过孩子注意力崩溃 · 我们准备一张"找一找"任务清单（金缸、九龙壁、滴水兽）让孩子边走边玩', en: 'Cap the Forbidden City at 90 min for kids — beyond that, attention collapses; we hand out a kid-sized scavenger sheet (gilded cauldrons, the Nine Dragon Wall, drain dragons) so they hunt as they walk' } },
+        { activity: { zh: '出神武门 · 在景山小坡上吃北冰洋汽水 · 短暂解放', en: 'Exit at Shenwumen · sit on the slope of Jingshan with a Beibingyang orange soda · short release' }, minutes: 30 },
       ],
       afternoon: [
-        { activity: { zh: '酒店午休 2 小时', en: 'Two-hour hotel nap' }, minutes: 120 },
-        { activity: { zh: '什刹海湖边喂鸽子 + 吃冰糖葫芦', en: 'Lakeside at Shichahai · pigeons + sugar-glazed haw skewers' }, minutes: 90 },
+        { activity: { zh: '酒店午休 2 小时', en: 'Two-hour hotel nap' }, minutes: 120, note: { zh: '中午回胡同酒店午休是孩子能撑过下半天的关键 · 不要塞景点', en: 'A real midday nap back at the hutong hotel is what gets kids through the afternoon — do not cram more sights in here' } },
+        { activity: { zh: '什刹海湖边喂鸽子 + 吃冰糖葫芦', en: 'Lakeside at Shichahai · pigeons + sugar-glazed haw skewers' }, minutes: 90, note: { zh: '冰糖葫芦买一串两人分 · 整串小朋友一手拿不稳 · 顾问会准备湿纸巾', en: 'Buy one tanghulu skewer to share — small hands cannot grip a full one; the advisor brings wet wipes' } },
+        { activity: { zh: '湖边租电瓶船 30 分钟 · 孩子掌舵', en: 'Rent a 30-min electric paddle boat on the lake · let the kid steer' }, minutes: 30 },
       ],
       evening: [
-        { activity: { zh: '本地家庭友好烤鸭店 · 不要去前门旅游店', en: 'Family-friendly roast duck · skip the Qianmen tourist spots' }, minutes: 90 },
+        { activity: { zh: '本地家庭友好烤鸭店 · 不要去前门旅游店', en: 'Family-friendly roast duck · skip the Qianmen tourist spots' }, minutes: 90, note: { zh: '我们选东城的店 · 有儿童碗 + 高脚椅 + 不是切薄片那种 · 孩子可以自己卷饼', en: 'Our Dongcheng pick keeps kid bowls and high chairs, and the duck is sliced thicker so kids can roll their own pancakes' } },
       ],
-      images: [{ src: '/landmarks/beijing.jpg', alt: { zh: '什刹海湖边老北京冰糖葫芦', en: 'Sugar-glazed haw skewers by Shichahai lake' } }],
+      images: [
+        { src: '/landmarks/beijing.jpg', alt: { zh: '什刹海湖边老北京冰糖葫芦', en: 'Sugar-glazed haw skewers by Shichahai lake' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '故宫鎏金大缸前小朋友找九龙', en: 'Kid hunting dragons by a gilded cauldron in the Forbidden City' } },
+      ],
     },
     {
       day: 3,
       city: 'Beijing',
       cityCn: '北京',
       morning: [
-        { activity: { zh: '7:00 出发慕田峪 · 司机准备孩子的简易早餐盒', en: '07:00 to Mutianyu · driver brings a kid-sized breakfast box' }, minutes: 90 },
-        { activity: { zh: '缆车上山 · 走到 14 号烽火台原状段 · 滑车下山', en: 'Cable car up · walk to unrestored tower 14 · toboggan down' }, minutes: 180, note: { zh: '滑车是孩子最爱的部分 · 大人也能玩', en: 'The toboggan is the kids\' favorite part — adults love it too' } },
+        { activity: { zh: '7:00 出发慕田峪 · 司机准备孩子的简易早餐盒', en: '07:00 to Mutianyu · driver brings a kid-sized breakfast box' }, minutes: 90, note: { zh: '早餐盒含小馒头 + 茶叶蛋 + 黄瓜条 · 孩子在车上吃完省去早晨饿哭风险', en: 'The box has small mantou, a tea egg and cucumber sticks — kids finish in the car so no morning meltdown' } },
+        { activity: { zh: '缆车上山 · 走到 14 号烽火台原状段 · 滑车下山', en: 'Cable car up · walk to unrestored tower 14 · toboggan down' }, minutes: 180, note: { zh: '滑车是孩子最爱的部分 · 大人也能玩；6 岁以下必须跟成年人共乘一辆，刹车在右手', en: 'The toboggan is the kids\' favorite part — adults love it too; under-6s must share a sled with an adult, brake on the right' } },
       ],
       afternoon: [
-        { activity: { zh: '回程经怀柔吃午饭 · 农家虹鳟鱼', en: 'Lunch on the Huairou trout street en route home' }, minutes: 90 },
+        { activity: { zh: '回程经怀柔吃午饭 · 农家虹鳟鱼', en: 'Lunch on the Huairou trout street en route home' }, minutes: 90, note: { zh: '虹鳟鱼现捞现做 · 孩子可以在池边喂鱼半小时打发等菜的时间', en: 'Trout is netted and cooked fresh; kids can feed the pond fish for half an hour while the meal grills' } },
         { activity: { zh: '回酒店午休', en: 'Hotel nap' }, minutes: 120 },
+        { activity: { zh: '酒店泳池放风 30 分钟', en: 'Half-hour decompression in the hotel pool' }, minutes: 30 },
       ],
       evening: [
-        { activity: { zh: '王府井小吃街买点零食带回酒店吃', en: 'Wangfujing snack street · take treats back to the hotel' }, minutes: 90 },
+        { activity: { zh: '王府井小吃街买点零食带回酒店吃', en: 'Wangfujing snack street · take treats back to the hotel' }, minutes: 90, note: { zh: '不在小吃街现场吃 · 人太挤 · 带回酒店把零食摊在床上挑着吃才是孩子最爽的体验', en: 'Don\'t eat on the snack lane itself — too crowded; the real kid bliss is laying everything out on the hotel bed and picking through' } },
       ],
-      images: [{ src: '/landmarks/beijing.jpg', alt: { zh: '慕田峪长城滑车下山', en: 'Toboggan ride down from Mutianyu Wall' } }],
+      images: [
+        { src: '/landmarks/beijing.jpg', alt: { zh: '慕田峪长城滑车下山', en: 'Toboggan ride down from Mutianyu Wall' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '怀柔虹鳟鱼餐厅小池子', en: 'Trout pond at a Huairou restaurant' } },
+        { src: '/landmarks/beijing.jpg', alt: { zh: '王府井小吃街灯笼下', en: 'Wangfujing snack street under lanterns' } },
+      ],
       tailorMakeTip: { zh: '6 岁以下孩子建议直接坐缆车上下，不走 6 公里山路。', en: 'For kids under 6, take the cable car both ways — skip the 6km hike.' },
     },
     {
@@ -1110,16 +1260,23 @@ const family12d: Itinerary = {
       city: "Xi'an",
       cityCn: '西安',
       morning: [
-        { activity: { zh: '秦岭野生动物园看大熊猫', en: 'Qinling Panda Centre · giant pandas in their conservation habitat' }, minutes: 240, note: { zh: '比成都熊猫基地小但人少 · 上午孩子精力够', en: 'Smaller than Chengdu but quieter — works for fresh-morning energy' } },
+        { activity: { zh: '秦岭野生动物园看大熊猫', en: 'Qinling Panda Centre · giant pandas in their conservation habitat' }, minutes: 240, note: { zh: '比成都熊猫基地小但人少 · 上午孩子精力够 · 园方允许 50cm 距离观察吃竹叶的瞬间', en: 'Smaller than Chengdu but quieter — works for fresh-morning energy; the centre allows 50 cm observation of bamboo-feeding panda cubs' } },
+        { activity: { zh: '园内午餐 · 孩子还可以看一段熊猫纪录片', en: 'On-site lunch · screen a 20-min panda doc to keep them anchored' }, minutes: 60 },
       ],
       afternoon: [
         { activity: { zh: '回酒店午休', en: 'Hotel rest' }, minutes: 120 },
-        { activity: { zh: '面食工作坊 · 学做 biangbiang 面 + 葫芦头泡馍', en: 'Noodle-making workshop · biangbiang and hulutou paomo' }, minutes: 120 },
+        { activity: { zh: '面食工作坊 · 学做 biangbiang 面 + 葫芦头泡馍', en: 'Noodle-making workshop · biangbiang and hulutou paomo' }, minutes: 120, note: { zh: '面食师傅会让孩子摔面 · biangbiang 名字本身就是这个动作的拟声字 · 父母拍视频留念', en: 'The master lets the kid slap the noodle dough — biangbiang is the onomatopoeia of that exact slap; parents film for the highlight reel' } },
+        { activity: { zh: '工作坊隔壁书店买一本写给孩子的丝路绘本', en: 'Pop into the bookshop next door · pick up a Silk Road kids\' picture book' }, minutes: 30 },
       ],
       evening: [
-        { activity: { zh: '吃自己做的面 · 顾问发视频证据', en: 'Eat what you made · advisor records video evidence' }, minutes: 60 },
+        { activity: { zh: '吃自己做的面 · 顾问发视频证据', en: 'Eat what you made · advisor records video evidence' }, minutes: 60, note: { zh: '吃自己做的面对孩子的成就感是这趟旅行的高分时刻 · 顾问现场剪 30 秒短片发到家庭群', en: 'Kids eating noodles they slapped themselves is one of the trip\'s peak moments — your advisor cuts a 30-sec reel for your family group chat right then' } },
+        { activity: { zh: '回酒店泡澡 + 早睡', en: 'Hotel bath · early bed' }, minutes: 60 },
       ],
-      images: [{ src: '/landmarks/xian.jpg', alt: { zh: '西安面食工作坊孩子学做 biangbiang 面', en: 'Kid learning to make biangbiang noodles in a Xi\'an workshop' } }],
+      images: [
+        { src: '/landmarks/xian.jpg', alt: { zh: '西安面食工作坊孩子学做 biangbiang 面', en: 'Kid learning to make biangbiang noodles in a Xi\'an workshop' } },
+        { src: '/landmarks/xian.jpg', alt: { zh: '秦岭野生动物园大熊猫吃竹', en: 'Giant panda eating bamboo at the Qinling Panda Centre' } },
+        { src: '/landmarks/xian.jpg', alt: { zh: '工作坊孩子摔面瞬间', en: 'Kid slapping noodle dough in the workshop' } },
+      ],
       tailorMakeTip: { zh: '想看真大熊猫繁育基地？飞成都加 2 天可以串进来。', en: 'Want the real panda breeding base? Add a 2-day Chengdu loop.' },
     },
     {
@@ -1331,16 +1488,23 @@ const honeymoon9d: Itinerary = {
       city: 'Hangzhou',
       cityCn: '杭州',
       morning: [
-        { activity: { zh: '6:30 西湖私人摇橹船 · 雾里看雷峰塔倒影', en: '06:30 private rowing boat · Leifeng Pagoda mirrored in mist' }, minutes: 120, note: { zh: '私船 + 一名摇船师傅，我们提前包定', en: 'Private boat with one boatman, pre-booked exclusively for you' } },
-        { activity: { zh: '湖畔早餐 · 杭州小笼 + 江南粥', en: 'Lakeside breakfast · Hangzhou xiaolongbao + congee' }, minutes: 60 },
+        { activity: { zh: '6:30 西湖私人摇橹船 · 雾里看雷峰塔倒影', en: '06:30 private rowing boat · Leifeng Pagoda mirrored in mist' }, minutes: 120, note: { zh: '私船 + 一名摇船师傅，我们提前包定 · 这位师傅家三代摇船，对每片荷叶后头藏着哪个角度的取景都门儿清', en: 'Private boat with one boatman, pre-booked exclusively for you; our boatman is third-generation — he knows the camera angle hiding behind every lotus leaf' } },
+        { activity: { zh: '湖畔早餐 · 杭州小笼 + 江南粥', en: 'Lakeside breakfast · Hangzhou xiaolongbao + congee' }, minutes: 60, note: { zh: '吃早餐的茶馆 1923 年开始营业 · 老板娘会主动给你拍一张俩人的合照，挂上墙', en: 'The teahouse has been open since 1923; the owner always insists on a couple shot to add to her wall' } },
+        { activity: { zh: '茶馆主屋包间留 30 分钟 · 看老相册', en: '30 min in the teahouse private room · flip through her century of customer photo albums' }, minutes: 30 },
       ],
       afternoon: [
-        { activity: { zh: '龙井村茶山下午茶 · 包间 · 老茶师演示采茶炒茶', en: 'Private tea-house in a Longjing tea village · master demonstrates picking and pan-firing' }, minutes: 180 },
+        { activity: { zh: '龙井村茶山下午茶 · 包间 · 老茶师演示采茶炒茶', en: 'Private tea-house in a Longjing tea village · master demonstrates picking and pan-firing' }, minutes: 180, note: { zh: '老茶师 60+ 年龙井经验 · 现摘 + 现炒 + 现泡的 90 分钟从你们一起体验 · 顾问拍 30 秒视频做纪念', en: 'Our master has 60+ years pan-firing Longjing — pluck, fire, brew, all 90 min hands-on for you both; advisor films a 30-sec keepsake reel' } },
+        { activity: { zh: '茶山步道散步 · 拍婚纱补拍备选机位', en: 'Walk the tea-terrace lanes · scout post-wedding photo angles for tomorrow' }, minutes: 60 },
       ],
       evening: [
-        { activity: { zh: '晚餐 · 顾问推荐西湖南山路一家慢餐厅', en: 'Dinner at an unhurried place on Nanshan Road, west bank of the lake' }, minutes: 120 },
+        { activity: { zh: '晚餐 · 顾问推荐西湖南山路一家慢餐厅', en: 'Dinner at an unhurried place on Nanshan Road, west bank of the lake' }, minutes: 120, note: { zh: '主厨用龙井虾仁 + 莼菜汤 + 西湖醋鱼三道菜复述 1000 年杭帮菜 · 现场配你们点的私人晚酒', en: 'The chef threads Longjing shrimp, water-shield soup and West Lake vinegar fish into a thousand-year Hangzhou-cuisine narrative paired with your private wine' } },
+        { activity: { zh: '湖边夜步 · 桥灯倒影', en: 'Night walk along the lake · bridge lanterns reflected on dark water' }, minutes: 60 },
       ],
-      images: [{ src: '/landmarks/hangzhou.jpg', alt: { zh: '西湖摇橹船晨雾', en: 'Rowing boat in West Lake morning mist' } }],
+      images: [
+        { src: '/landmarks/hangzhou.jpg', alt: { zh: '西湖摇橹船晨雾', en: 'Rowing boat in West Lake morning mist' } },
+        { src: '/landmarks/hangzhou.jpg', alt: { zh: '龙井村茶山现摘茶叶', en: 'Hand-plucked Longjing leaves in the tea village' } },
+        { src: '/landmarks/hangzhou.jpg', alt: { zh: '南山路私人慢餐厅烛光晚餐', en: 'Candlelit private dinner on Nanshan Road' } },
+      ],
     },
     {
       day: 3,
@@ -1363,16 +1527,22 @@ const honeymoon9d: Itinerary = {
       city: 'Yangshuo',
       cityCn: '阳朔',
       morning: [
-        { activity: { zh: '6:30 私人竹筏 · 漓江精华段 · 雾散时拍照最美', en: '06:30 private bamboo raft · Li River signature stretch · best light when the mist lifts' }, minutes: 180 },
+        { activity: { zh: '6:30 私人竹筏 · 漓江精华段 · 雾散时拍照最美', en: '06:30 private bamboo raft · Li River signature stretch · best light when the mist lifts' }, minutes: 180, note: { zh: '私筏老板是顾问 5 年合作伙伴 · 包定 6:30 是漓江雾散光开的黄金窗口 · 他知道哪 4 个停顿点拍出来不像普通游客', en: 'Our private rafter has worked with the advisor for 5 years — 06:30 is the golden window when the Li River mist lifts and the light opens; he knows four pauses that don\'t look like every other tourist photo' } },
+        { activity: { zh: '筏上早餐 · 顾问准备的本地点心 + 茶', en: 'Breakfast on the raft · local pastries and tea packed by your advisor' }, minutes: 60 },
       ],
       afternoon: [
-        { activity: { zh: '兴坪老镇午饭 · 吃啤酒鱼 · 私人厨房', en: 'Lunch in Xingping old town · beer fish in a private kitchen' }, minutes: 120 },
+        { activity: { zh: '兴坪老镇午饭 · 吃啤酒鱼 · 私人厨房', en: 'Lunch in Xingping old town · beer fish in a private kitchen' }, minutes: 120, note: { zh: '私人厨房不在主街上 · 老房子改的 · 用漓江野生剑骨鱼 + 本地漓泉啤酒 + 院子里现摘的紫苏', en: 'The private kitchen is off the main lane in a converted old house — wild Lijiang dagger fish, local Lijiang Spring beer, perilla picked from the courtyard' } },
         { activity: { zh: '回酒店午休', en: 'Hotel rest' }, minutes: 120 },
       ],
       evening: [
-        { activity: { zh: '兴坪段日落 · 20 元人民币背面那个位置 · 顾问陪同', en: 'Xingping sunset at the exact 20-yuan note bend · advisor accompanies' }, minutes: 90 },
+        { activity: { zh: '兴坪段日落 · 20 元人民币背面那个位置 · 顾问陪同', en: 'Xingping sunset at the exact 20-yuan note bend · advisor accompanies' }, minutes: 90, note: { zh: '20 元背面那段是漓江最经典的 frame · 顾问会在你拍完后留下来给你们拍一张俩人合影 · 不收额外费', en: 'The 20-yuan note view is the Li River\'s most iconic frame; after your shot the advisor stays to take a clean couple photo at no extra charge' } },
+        { activity: { zh: '回酒店阳台喝当地米酒 · 月光下的山', en: 'Hotel balcony with a local rice wine · karst silhouettes under moonlight' }, minutes: 60 },
       ],
-      images: [{ src: '/landmarks/guilin.jpg', alt: { zh: '兴坪漓江日落', en: 'Li River sunset at Xingping' } }],
+      images: [
+        { src: '/landmarks/guilin.jpg', alt: { zh: '兴坪漓江日落', en: 'Li River sunset at Xingping' } },
+        { src: '/landmarks/guilin.jpg', alt: { zh: '漓江清晨竹筏雾散', en: 'Bamboo raft on the Li River as morning mist lifts' } },
+        { src: '/landmarks/guilin.jpg', alt: { zh: '兴坪私人厨房院落啤酒鱼', en: 'Beer fish in a private courtyard kitchen, Xingping' } },
+      ],
       tailorMakeTip: { zh: '想 2 人独享印象刘三姐 VIP 包间？需要 USD 200 加价 · 提前 5 天预订。', en: 'Want a 2-seat VIP box at the Impression Sanjie Liu show? +USD 200 · 5-day pre-booking.' },
     },
     {
@@ -1396,16 +1566,22 @@ const honeymoon9d: Itinerary = {
       city: 'Dali',
       cityCn: '大理',
       morning: [
-        { activity: { zh: '桂林两江机场飞大理 · 2 小时', en: 'Flight from Guilin to Dali · 2h' }, minutes: 120 },
+        { activity: { zh: '桂林两江机场飞大理 · 2 小时', en: 'Flight from Guilin to Dali · 2h' }, minutes: 120, note: { zh: '建议右窗 · 飞经云贵高原能看到山脉俯瞰画面 · 顾问准备一张本地白族音乐播放清单给你们路上听', en: 'Right-window seat is best — you cross the Yunnan-Guizhou plateau and see the mountains from above; advisor preloads a Bai-music playlist for the ride' } },
       ],
       afternoon: [
         { activity: { zh: '入住洱海西岸精品酒店 · 主卧朝湖', en: 'Check in at an Erhai west-shore boutique · master bedroom faces the lake' }, minutes: 60 },
-        { activity: { zh: '酒店私人庭院午茶 · 苍山做背景', en: 'Hotel private courtyard tea · Cangshan range as backdrop' }, minutes: 120 },
+        { activity: { zh: '酒店私人庭院午茶 · 苍山做背景', en: 'Hotel private courtyard tea · Cangshan range as backdrop' }, minutes: 120, note: { zh: '酒店主厨用本地三道茶（苦/甜/回味）作为下午茶 · 配大理金花糕 · 庭院里有 200 年老海棠', en: 'The chef serves the local three-course tea (bitter / sweet / aftertaste) with Dali jinhua cake under a 200-year-old crabapple in the courtyard' } },
+        { activity: { zh: '酒店阳台躺一会 · 看洱海下午光线变化', en: 'Lie on the balcony · watch how Erhai\'s afternoon light shifts' }, minutes: 60 },
       ],
       evening: [
-        { activity: { zh: '酒店主厨白族餐 · 在湖畔露台开 · 私人桌', en: 'Bai-cuisine dinner from the hotel chef · lakeside terrace · private table' }, minutes: 120 },
+        { activity: { zh: '酒店主厨白族餐 · 在湖畔露台开 · 私人桌', en: 'Bai-cuisine dinner from the hotel chef · lakeside terrace · private table' }, minutes: 120, note: { zh: '主厨白族出身 · 4 道主菜（生皮 + 砂锅鱼 + 乳扇 + 雕梅扣肉）+ 顾问预订露台位 · 看洱海日落同步进行', en: 'The chef is Bai-born — four mains (raw pork carpaccio, claypot fish, milk-fan cheese, plum-glazed pork belly) served on the terrace as the Erhai sunset runs alongside' } },
+        { activity: { zh: '湖畔散步 · 月光下的洱海', en: 'Lakeside walk · Erhai under moonlight' }, minutes: 30 },
       ],
-      images: [{ src: '/landmarks/dali.jpg', alt: { zh: '洱海西岸日落', en: 'Sunset on the western shore of Erhai Lake' } }],
+      images: [
+        { src: '/landmarks/dali.jpg', alt: { zh: '洱海西岸日落', en: 'Sunset on the western shore of Erhai Lake' } },
+        { src: '/landmarks/dali.jpg', alt: { zh: '酒店庭院三道茶', en: 'Three-course Bai tea in the hotel courtyard' } },
+        { src: '/landmarks/dali.jpg', alt: { zh: '苍山做背景的露台白族晚餐', en: 'Bai dinner on the terrace with the Cangshan range behind' } },
+      ],
     },
     {
       day: 7,
@@ -1591,15 +1767,22 @@ const nature14d: Itinerary = {
       city: 'Jiuzhaigou',
       cityCn: '九寨沟',
       morning: [
-        { activity: { zh: '6:00 进九寨沟 · 树正沟 · 摄影最佳光线', en: '06:00 enter Jiuzhaigou · Shuzheng valley · best photography light' }, minutes: 240 },
+        { activity: { zh: '6:00 进九寨沟 · 树正沟 · 摄影最佳光线', en: '06:00 enter Jiuzhaigou · Shuzheng valley · best photography light' }, minutes: 240, note: { zh: '6 点是 Y 沟核心区一天里光线最干净的窗口 · 顾问预订景区第一班观光车 · 比 8 点排队的人少 80%', en: '06:00 is the cleanest light window of the day in the Y-valley core; advisor pre-books the first park shuttle, putting you 80% ahead of the 8 a.m. queues' } },
+        { activity: { zh: '诺日朗瀑布等彩虹 · 配 ND 滤镜慢门拍水', en: 'Nuorilang Falls — wait for a rainbow, fit an ND filter for slow-shutter water' }, minutes: 60 },
       ],
       afternoon: [
-        { activity: { zh: '则查洼沟 · 五花海 · 翡翠水拍摄', en: 'Zechawa valley · Five Flower Lake · jade-water shoot' }, minutes: 180, note: { zh: '上午 11 点前最美 · 下午光线变硬', en: 'Best light is before 11:00 · light gets harsh in the afternoon' } },
+        { activity: { zh: '则查洼沟 · 五花海 · 翡翠水拍摄', en: 'Zechawa valley · Five Flower Lake · jade-water shoot' }, minutes: 180, note: { zh: '上午 11 点前最美 · 下午光线变硬；用 CPL 滤镜消除水面反光，能看清水底彩色钙化层', en: 'Best before 11:00 — light gets harsh after; a CPL filter cuts the surface glare so you can read the coloured calcified bed underneath' } },
+        { activity: { zh: '景区内午餐 · 在长海餐厅吃藏族手抓饭 + 酥油茶', en: 'In-park lunch — Tibetan hand-grabbed rice and butter tea at the Long Lake canteen' }, minutes: 60 },
       ],
       evening: [
-        { activity: { zh: '回酒店 · 整理摄影素材', en: 'Back to hotel · review the day\'s photographs' }, minutes: 90 },
+        { activity: { zh: '回酒店 · 整理摄影素材', en: 'Back to hotel · review the day\'s photographs' }, minutes: 90, note: { zh: '一天 600+ 张片子 · 顾问帮你按时段 + 沟段标签整理 · 离开九寨前导出工程文件', en: 'Today\'s 600+ files — your advisor helps tag them by time of day and valley segment, then exports the project before you leave' } },
+        { activity: { zh: '酒店阳台一杯青稞酒 · 看星空（海拔 2,000m 无光污染）', en: 'A pour of barley liquor on the balcony · star-watching at 2,000 m with zero light pollution' }, minutes: 30 },
       ],
-      images: [{ src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '九寨沟五花海翡翠水', en: 'Jade water of Five Flower Lake, Jiuzhaigou' } }],
+      images: [
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '九寨沟五花海翡翠水', en: 'Jade water of Five Flower Lake, Jiuzhaigou' } },
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '诺日朗瀑布慢门水雾', en: 'Slow-shutter mist at Nuorilang Falls' } },
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '九寨沟树正沟早晨光线', en: 'Morning light in Shuzheng valley, Jiuzhaigou' } },
+      ],
     },
     {
       day: 4,
@@ -1622,16 +1805,21 @@ const nature14d: Itinerary = {
       city: 'Jiuzhaigou',
       cityCn: '九寨沟',
       morning: [
-        { activity: { zh: '6:30 出发黄龙 · 1.5h 车程 · 海拔 3,500m', en: '06:30 to Huanglong · 1.5h drive · altitude 3,500m' }, minutes: 90 },
-        { activity: { zh: '索道上 · 走钙化彩池栈道下 · 4h', en: 'Cable car up · walk down through travertine pool boardwalks · 4h' }, minutes: 240, note: { zh: '高原徒步 · 慢走 · 携带氧气罐', en: 'High-altitude trek · go slow · pack oxygen' } },
+        { activity: { zh: '6:30 出发黄龙 · 1.5h 车程 · 海拔 3,500m', en: '06:30 to Huanglong · 1.5h drive · altitude 3,500m' }, minutes: 90, note: { zh: '车上备好红景天 + 葡萄糖 · 海拔从 2,000 到 3,500 一小时内拉升，需要循序适应', en: 'Have rhodiola tablets and glucose ready — climbing from 2,000 to 3,500 m within an hour means you should ease the body into it' } },
+        { activity: { zh: '索道上 · 走钙化彩池栈道下 · 4h', en: 'Cable car up · walk down through travertine pool boardwalks · 4h' }, minutes: 240, note: { zh: '高原徒步 · 慢走 · 携带氧气罐；钙化池上午 10–12 点光线最好，五彩池色彩饱和度最高', en: 'High-altitude trek · slow pace · carry an oxygen canister; the travertine pools peak 10:00–12:00 when colour saturation hits its highest at the top Multicolored Pond' } },
       ],
       afternoon: [
-        { activity: { zh: '回九寨沟县城 · 酒店午休', en: 'Back to Jiuzhaigou county · hotel rest' }, minutes: 120 },
+        { activity: { zh: '回九寨沟县城 · 酒店午休', en: 'Back to Jiuzhaigou county · hotel rest' }, minutes: 120, note: { zh: '黄龙下来后必须真正午休 2 小时 · 多人轻微高反，不要立即坐车出发去藏寨', en: 'A real two-hour nap after Huanglong is non-negotiable — mild altitude reactions are common, do not immediately drive to a Tibetan village' } },
+        { activity: { zh: '酒店附近藏寨手作店 · 看本地银匠打银 30 分钟', en: 'Tibetan handicraft shop near the hotel · watch a local silversmith forge 30 min' }, minutes: 60 },
       ],
       evening: [
-        { activity: { zh: '酒店简餐 · 早睡', en: 'Hotel simple dinner · early bed' }, minutes: 60 },
+        { activity: { zh: '酒店简餐 · 早睡', en: 'Hotel simple dinner · early bed' }, minutes: 60, note: { zh: '明天飞张家界要 6 点起 · 今晚 9 点必须躺床 · 顾问在 8:30 发明早叫醒 + 行李整理清单', en: 'Tomorrow needs a 6 a.m. start for the Zhangjiajie flight; lights out by 9 p.m.; the advisor pings the wake-up + luggage checklist at 8:30' } },
       ],
-      images: [{ src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '黄龙钙化彩池', en: 'Travertine pools at Huanglong' } }],
+      images: [
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '黄龙钙化彩池', en: 'Travertine pools at Huanglong' } },
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '黄龙五彩池正午光线', en: 'Multicolored Pond at midday, Huanglong' } },
+        { src: '/landmarks/jiuzhaigou.jpg', alt: { zh: '九寨沟县藏寨银匠铺', en: 'Tibetan silversmith workshop in Jiuzhaigou county' } },
+      ],
     },
     {
       day: 6,
@@ -1654,15 +1842,22 @@ const nature14d: Itinerary = {
       city: 'Zhangjiajie',
       cityCn: '张家界',
       morning: [
-        { activity: { zh: '5:30 进山 · 百龙天梯上 · 6:30 上袁家界看日出 + 雾', en: '05:30 enter · Bailong elevator · arrive Yuanjiajie 06:30 for sunrise + mist' }, minutes: 180, note: { zh: '雾里峰林是这条路线的关键画面 · 不能错过', en: 'Mist + pillars is the iconic shot of this trip — do not miss' } },
+        { activity: { zh: '5:30 进山 · 百龙天梯上 · 6:30 上袁家界看日出 + 雾', en: '05:30 enter · Bailong elevator · arrive Yuanjiajie 06:30 for sunrise + mist' }, minutes: 180, note: { zh: '雾里峰林是这条路线的关键画面 · 不能错过；日出后 30 分钟雾气最厚，光从云缝里斜进来', en: 'Mist + pillars is the iconic shot of this trip — do not miss; the mist is heaviest 30 min after sunrise when light slices through the cloud gaps' } },
+        { activity: { zh: '迷魂台 + 后花园 · 不挤的备选机位', en: 'Mihun Terrace + Back Garden · less-photographed alternates' }, minutes: 60 },
       ],
       afternoon: [
-        { activity: { zh: '哈利路亚山观景台 · 不同角度 3-4 个机位', en: 'Hallelujah pillar viewpoint · 3–4 different angles' }, minutes: 180 },
+        { activity: { zh: '哈利路亚山观景台 · 不同角度 3-4 个机位', en: 'Hallelujah pillar viewpoint · 3–4 different angles' }, minutes: 180, note: { zh: '哈利路亚山有 4 个观景台 · 顺时针走能拍到 3 种不同的雾散节奏 · 顾问提供机位地图', en: 'Four viewpoints around the Hallelujah pillar — going clockwise catches three distinct mist-clearing rhythms; advisor hands you a pre-marked angles map' } },
+        { activity: { zh: '景区内简餐 · 米饭团 + 腌菜', en: 'Park snack — rice ball with pickled greens' }, minutes: 30 },
       ],
       evening: [
-        { activity: { zh: '回酒店 · 整理素材', en: 'Hotel · review files' }, minutes: 60 },
+        { activity: { zh: '回酒店 · 整理素材', en: 'Hotel · review files' }, minutes: 60, note: { zh: '把今天的雾景片子按 RAW + 时间戳归档 · 重要：今晚备份 SD 卡到笔记本', en: 'Archive today\'s misty RAWs by timestamp; important — back the SD card up to your laptop tonight' } },
+        { activity: { zh: '酒店附近土家小馆 · 山珍菇汤 + 腊肉', en: 'Tujia hole-in-the-wall near hotel — wild mushroom soup and cured pork' }, minutes: 60 },
       ],
-      images: [{ src: '/landmarks/zhangjiajie.jpg', alt: { zh: '袁家界哈利路亚山雾', en: 'Hallelujah pillar in mist, Yuanjiajie' } }],
+      images: [
+        { src: '/landmarks/zhangjiajie.jpg', alt: { zh: '袁家界哈利路亚山雾', en: 'Hallelujah pillar in mist, Yuanjiajie' } },
+        { src: '/landmarks/zhangjiajie.jpg', alt: { zh: '迷魂台后花园隐蔽机位', en: 'Hidden viewpoint at Mihun Back Garden, Zhangjiajie' } },
+        { src: '/landmarks/zhangjiajie.jpg', alt: { zh: '袁家界日出后雾散瞬间', en: 'Mist clearing 30 min after sunrise at Yuanjiajie' } },
+      ],
     },
     {
       day: 8,

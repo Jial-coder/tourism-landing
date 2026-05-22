@@ -24,6 +24,7 @@ export type WowPoint = {
   icon: string;
   zh: string;
   en: string;
+  image?: { src: string; alt: Bilingual };
 };
 
 export type MonthRating = 'best' | 'good' | 'avoid';
@@ -149,11 +150,25 @@ const beijing: Destination = {
       icon: 'wall',
       zh: '走一段没修过的长城',
       en: 'Walk an unrestored stretch of the Great Wall',
+      image: {
+        src: '/landmarks/beijing.jpg',
+        alt: {
+          zh: '慕田峪长城原状段，金黄秋林夹城而上',
+          en: 'Unrestored Mutianyu Wall climbing through autumn forest',
+        },
+      },
     },
     {
       icon: 'sunrise',
       zh: '太和殿开门那一刻进故宫',
       en: 'Step into the Forbidden City the moment the gates open',
+      image: {
+        src: '/landmarks/beijing.jpg',
+        alt: {
+          zh: '故宫太和殿前广场清晨光线',
+          en: 'Empty courtyard before the Hall of Supreme Harmony at dawn',
+        },
+      },
     },
     {
       icon: 'tea',
@@ -283,11 +298,25 @@ const xian: Destination = {
       icon: 'army',
       zh: '兵马俑开馆第一拨进去',
       en: 'Walk in with the very first wave at the Terracotta Army',
+      image: {
+        src: '/landmarks/xian.jpg',
+        alt: {
+          zh: '西安兵马俑一号坑全景',
+          en: 'Panorama of pit one at the Terracotta Warriors site',
+        },
+      },
     },
     {
       icon: 'bike',
       zh: '骑车绕明城墙 14 公里一圈',
       en: 'Cycle the 14-km loop on the Ming city wall',
+      image: {
+        src: '/landmarks/xian.jpg',
+        alt: {
+          zh: '西安古城墙黄昏骑行',
+          en: "Cycling on top of the Xi'an city wall at dusk",
+        },
+      },
     },
     {
       icon: 'noodle',
@@ -396,11 +425,25 @@ const shanghai: Destination = {
       icon: 'skyline',
       zh: '日落 30 分钟前站上外滩源',
       en: 'Stand on the Rockbund 30 minutes before sunset',
+      image: {
+        src: '/landmarks/shanghai.jpg',
+        alt: {
+          zh: '上海外滩夜景与浦东天际线',
+          en: 'Shanghai Bund at night with the Pudong skyline',
+        },
+      },
     },
     {
       icon: 'tree',
       zh: '法租界梧桐下找一家本地咖啡',
       en: 'Hunt down a local coffee under the plane trees of the old French Concession',
+      image: {
+        src: '/landmarks/shanghai.jpg',
+        alt: {
+          zh: '上海法租界武康大楼旁的梧桐街',
+          en: 'Plane tree avenue beside Wukang Mansion in the French Concession',
+        },
+      },
     },
     {
       icon: 'shrimp',
@@ -517,11 +560,25 @@ const guilin: Destination = {
       icon: 'river',
       zh: '清晨竹筏顺漓江漂半小时',
       en: 'Drift the Li River by raft for the first 30 minutes of light',
+      image: {
+        src: '/landmarks/guilin.jpg',
+        alt: {
+          zh: '漓江竹筏与喀斯特山',
+          en: 'Bamboo raft drifting past karst peaks on the Li River',
+        },
+      },
     },
     {
       icon: 'bike',
       zh: '阳朔乡间骑行穿过稻田和水牛',
       en: "Cycle the Yangshuo backroads past paddies and water buffalo",
+      image: {
+        src: '/landmarks/guilin.jpg',
+        alt: {
+          zh: '阳朔月亮山下骑行',
+          en: 'Cycling past Moon Hill, Yangshuo',
+        },
+      },
     },
     {
       icon: 'climb',
@@ -630,11 +687,25 @@ const zhangjiajie: Destination = {
       icon: 'peak',
       zh: '在山顶民宿住一晚看云海漫上来',
       en: 'Spend one night at a peak-top inn so the cloud sea finds you',
+      image: {
+        src: '/landmarks/zhangjiajie.jpg',
+        alt: {
+          zh: '张家界峰林晨雾',
+          en: 'Sandstone pillars in morning mist, Zhangjiajie',
+        },
+      },
     },
     {
       icon: 'glass',
       zh: '走一段不那么吓人的玻璃栈道',
       en: 'Walk a glass plank trail with a guide who knows the calmer ones',
+      image: {
+        src: '/landmarks/zhangjiajie.jpg',
+        alt: {
+          zh: '袁家界天子山观景台峰林',
+          en: 'Sandstone pillars seen from the Tianzi ridge viewpoint',
+        },
+      },
     },
     {
       icon: 'monkey',
@@ -743,11 +814,25 @@ const jiuzhaigou: Destination = {
       icon: 'lake',
       zh: '清晨第一班车进沟看五花海',
       en: 'Catch the first shuttle to Five-Flower Lake before the crowds',
+      image: {
+        src: '/landmarks/jiuzhaigou.jpg',
+        alt: {
+          zh: '九寨沟五花海秋色',
+          en: 'Five Flower Lake in Jiuzhaigou, autumn forest mirrored on jade water',
+        },
+      },
     },
     {
       icon: 'falls',
       zh: '诺日朗瀑布旁等一次彩虹',
       en: 'Wait for a rainbow over Nuorilang Falls',
+      image: {
+        src: '/landmarks/jiuzhaigou.jpg',
+        alt: {
+          zh: '九寨沟瀑布与翡翠水面',
+          en: 'Cascading falls feeding a jade pool in Jiuzhaigou',
+        },
+      },
     },
     {
       icon: 'temple',
@@ -856,11 +941,25 @@ const dali: Destination = {
       icon: 'lake',
       zh: '清晨在洱海西岸看渔船出港',
       en: 'Watch the fishing boats leave Erhai before sunrise',
+      image: {
+        src: '/landmarks/dali.jpg',
+        alt: {
+          zh: '大理洱海岸边白族村寨清晨',
+          en: 'A Bai village on the shore of Erhai Lake at dawn',
+        },
+      },
     },
     {
       icon: 'tea',
       zh: '白族人家做一次三道茶',
       en: 'Sit through a three-course Bai tea ceremony in a family home',
+      image: {
+        src: '/landmarks/dali.jpg',
+        alt: {
+          zh: '苍山下大理古城白墙青瓦',
+          en: 'Bai-style courtyards beneath the Cangshan range, Dali',
+        },
+      },
     },
     {
       icon: 'mountain',
@@ -969,11 +1068,25 @@ const huangshan: Destination = {
       icon: 'sunrise',
       zh: '光明顶清晨四点等日出',
       en: 'Wait for sunrise at Bright Top from 4 a.m.',
+      image: {
+        src: '/landmarks/huangshan.jpg',
+        alt: {
+          zh: '黄山光明顶云海日出',
+          en: 'Sunrise breaking over a cloud sea from Bright Top, Huangshan',
+        },
+      },
     },
     {
       icon: 'pine',
       zh: '迎客松前等一阵风把云推过来',
       en: 'Stand by the Welcoming Pine and wait for the wind to push the clouds over',
+      image: {
+        src: '/landmarks/huangshan.jpg',
+        alt: {
+          zh: '黄山迎客松悬崖边云海',
+          en: 'The Welcoming Pine at the edge of the cliff with cloud sea below',
+        },
+      },
     },
     {
       icon: 'village',
