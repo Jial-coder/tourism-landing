@@ -21,7 +21,7 @@ export function DurationCards({
               <span className="text-[28px] font-misans-heavy leading-none text-vermilion">
                 {d.days}
               </span>
-              <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-ink/55">
+              <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-ink/70">
                 {lang === "zh" ? "天" : d.days === 1 ? "day" : "days"}
               </span>
             </div>

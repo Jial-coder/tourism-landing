@@ -302,7 +302,7 @@ function WizardSummary({
   ].filter((row) => row.v);
 
   return (
-    <aside className="rounded-3xl border border-ink/10 bg-soft-ivory p-5 shadow-sm md:sticky md:top-28">
+    <div className="rounded-3xl border border-ink/10 bg-soft-ivory p-5 shadow-sm md:sticky md:top-28">
       <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-jade">
         {dict.filledHeading}
       </p>
@@ -322,7 +322,7 @@ function WizardSummary({
           ))}
         </dl>
       )}
-    </aside>
+    </div>
   );
 }
 
@@ -370,7 +370,7 @@ function Step1({
             dispatch({ type: 'set', field: 'tripLength', value: value as TripLengthOption })
           }
         >
-          <SelectTrigger className={selectClass}>
+          <SelectTrigger className={selectClass} aria-label={dict.step1.lengthLabel}>
             <SelectValue placeholder={dict.step1.lengthLabel} />
           </SelectTrigger>
           <SelectContent>
@@ -417,7 +417,7 @@ function Step2({
           value={String(state.adultsCount ?? 2)}
           onValueChange={(value) => dispatch({ type: 'set', field: 'adultsCount', value: Number(value) })}
         >
-          <SelectTrigger className={selectClass}>
+          <SelectTrigger className={selectClass} aria-label={dict.step2.adultsLabel}>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -515,7 +515,7 @@ function Step4({
               dispatch({ type: 'set', field: 'budgetTier', value: value as BudgetTier })
             }
           >
-            <SelectTrigger className={selectClass}>
+            <SelectTrigger className={selectClass} aria-label={dict.step4.budgetLabel}>
               <SelectValue placeholder={dict.step4.budgetLabel} />
             </SelectTrigger>
             <SelectContent>
@@ -535,7 +535,7 @@ function Step4({
               dispatch({ type: 'set', field: 'hotelClass', value: value as HotelClass })
             }
           >
-            <SelectTrigger className={selectClass}>
+            <SelectTrigger className={selectClass} aria-label={dict.step4.hotelLabel}>
               <SelectValue placeholder={dict.step4.hotelLabel} />
             </SelectTrigger>
             <SelectContent>
@@ -625,7 +625,7 @@ function Step5({
             value={state.countryCode ?? 'US'}
             onValueChange={(value) => dispatch({ type: 'set', field: 'countryCode', value })}
           >
-            <SelectTrigger className={selectClass}>
+            <SelectTrigger className={selectClass} aria-label={dict.step5.countryCodeLabel}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

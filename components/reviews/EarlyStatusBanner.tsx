@@ -30,7 +30,7 @@ export function EarlyStatusBanner() {
               / 5 组首批旅客
             </span>
           </div>
-          <p className="text-[12px] font-misans-regular leading-relaxed text-ink/55">
+          <p className="text-[12px] font-misans-regular leading-relaxed text-ink/70">
             首批 5 组旅客行程结束后开放真实评价聚合（Trustindex / Tripadvisor）。
           </p>
         </div>

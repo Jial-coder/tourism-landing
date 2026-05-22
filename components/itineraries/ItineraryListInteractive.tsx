@@ -130,7 +130,7 @@ export function ItineraryListInteractive({ items }: { items: Itinerary[] }) {
                   <div className="mt-auto flex items-center justify-between gap-3">
                     <span className="flex items-baseline gap-1 text-[15px] font-misans-bold text-vermilion">
                       USD {it.priceFromUsd.toLocaleString()}-
-                      <span className="text-[11px] font-misans-regular text-ink/55">/ 人 起</span>
+                      <span className="text-[11px] font-misans-regular text-ink/70">/ 人 起</span>
                     </span>
                     <MockBadge>样板价位</MockBadge>
                   </div>
@@ -160,7 +160,7 @@ function FilterRow<T extends string>({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-ink/55">
+      <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-ink/70">
         {label}
       </span>
       <div className="flex flex-wrap gap-2">

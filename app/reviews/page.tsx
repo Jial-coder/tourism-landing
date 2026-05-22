@@ -38,7 +38,7 @@ const PARTNERS = [
 export default function ReviewsPage() {
   return (
     <>
-      <TopNav />
+      <TopNav variant="always-chromed" />
       <main className="flex-1 bg-cream">
         {/* 1. Hero */}
         <section
@@ -122,7 +122,7 @@ export default function ReviewsPage() {
                 <p className="text-[14px] font-misans-regular leading-relaxed text-ink/75 lg:text-[15px]">
                   v1 阶段的 pandatravel 没拿过任何旅游业奖项。Travel + Leisure、Conde Nast Traveler、TTG、ITB 这些榜单，我们一个都没上。我们打算等到正式接客 12 个月后再去申请——那时候我们才有资格说话。
                 </p>
-                <p className="text-[13px] font-misans-regular leading-relaxed text-ink/55">
+                <p className="text-[13px] font-misans-regular leading-relaxed text-ink/70">
                   如果有任何同业网站现在就在「Awards & Recognition」栏挂了一排你没听说过的 logo——你大概也猜到那是怎么来的。
                 </p>
               </div>
@@ -157,7 +157,7 @@ export default function ReviewsPage() {
                   className="flex h-full flex-col gap-3 rounded-[12px] bg-cream p-5 ring-1 ring-ink/10"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[16px] font-misans-bold tracking-tight text-ink/45 grayscale">
+                    <span className="text-[16px] font-misans-bold tracking-tight text-ink/70 grayscale">
                       {p.name}
                     </span>
                     <MockBadge>pending</MockBadge>

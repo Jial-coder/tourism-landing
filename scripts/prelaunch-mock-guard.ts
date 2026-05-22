@@ -12,6 +12,7 @@
  * Scans:
  *   - lib/data/**\/*.ts          → status: 'mock' | mock: true | known placeholder URIs
  *   - components/**\/*.tsx       → <MockBadge ...> JSX
+ *   - app/**\/*.tsx              → <MockBadge ...> JSX (route-level usages)
  *
  * Allowlist:
  *   mock-allowlist.json at repo root. Each entry:
@@ -149,6 +150,24 @@ for (const file of listFiles('components', '.tsx')) {
   const content = readFileSync(path.join(ROOT, file), 'utf-8');
   // Skip the MockBadge component definition itself — that's the implementation.
   if (file.endsWith('components/trust/MockBadge.tsx')) continue;
+  const lines = content.split('\n');
+  lines.forEach((line, idx) => {
+    const m = line.match(/<MockBadge\b/);
+    if (m) {
+      violations.push({
+        file,
+        line: idx + 1,
+        col: (m.index ?? 0) + 1,
+        rule: 'mock-badge',
+        message: '<MockBadge> JSX found — should be hidden in production',
+      });
+    }
+  });
+}
+
+for (const file of listFiles('app', '.tsx')) {
+  if (isAllowed(file)) continue;
+  const content = readFileSync(path.join(ROOT, file), 'utf-8');
   const lines = content.split('\n');
   lines.forEach((line, idx) => {
     const m = line.match(/<MockBadge\b/);

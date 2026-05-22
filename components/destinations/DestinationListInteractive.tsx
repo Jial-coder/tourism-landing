@@ -42,7 +42,7 @@ export function DestinationListInteractive({
   return (
     <div className="flex flex-col gap-10 lg:gap-14">
       <div className="flex flex-col gap-3">
-        <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-ink/55">
+        <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-ink/70">
           按主题筛选
         </span>
         <div className="flex flex-wrap gap-2">

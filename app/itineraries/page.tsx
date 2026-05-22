@@ -10,7 +10,7 @@ export default function ItinerariesPage() {
 
   return (
     <>
-      <TopNav />
+      <TopNav variant="always-chromed" />
       <main className="flex-1 bg-cream">
         <section
           aria-labelledby="it-list-hero-title"

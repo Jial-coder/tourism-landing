@@ -1,17 +1,19 @@
 'use client';
 
-import { useDictionary, useLocale } from '@/components/i18n/LocaleProvider';
-import { CONTACT_CHANNELS, overseasOrder } from '@/lib/data/contact-channels';
+import { useDictionary } from '@/components/i18n/LocaleProvider';
 import { Reveal } from '@/components/motion/Reveal';
 
 export function PathCFooter() {
   const dict = useDictionary();
-  const { locale } = useLocale();
   const t = dict.home.pathCFooter;
-  const channels = overseasOrder(CONTACT_CHANNELS).filter(
-    (c) => c.kind !== 'form' && c.visibility !== 'hidden'
-  );
-  const mockLabel = locale === 'zh' ? '占位' : 'mock';
+
+  const sitemapColumns = [
+    t.sitemap.plan,
+    t.sitemap.discover,
+    t.sitemap.about,
+    t.sitemap.channels,
+  ];
+
   return (
     <footer
       data-feedback-id="HOME-PATH-C-FOOTER-01"
@@ -19,7 +21,8 @@ export function PathCFooter() {
     >
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
         <Reveal>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Section 1 — Brand block */}
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
             <div className="flex flex-col gap-3">
               <p className="font-serif text-2xl tracking-tight text-soft-ivory">
                 pandatravel
@@ -32,72 +35,94 @@ export function PathCFooter() {
               </p>
             </div>
 
+            {/* Section 2 — Sitemap (4 columns) */}
+            <nav
+              aria-label="Site map"
+              className="grid grid-cols-2 gap-8 md:grid-cols-4"
+            >
+              {sitemapColumns.map((col) => (
+                <div key={col.heading} className="flex flex-col gap-3">
+                  <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-soft-ivory/55">
+                    {col.heading}
+                  </p>
+                  <ul className="flex flex-col gap-2 text-sm">
+                    {col.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          className="text-soft-ivory/85 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alpine-blue/70 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate rounded-sm"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </nav>
+          </div>
+
+          {/* Section 3 — Site-level trust trio */}
+          <div className="mt-14 grid grid-cols-1 gap-8 border-t border-soft-ivory/10 pt-12 md:grid-cols-3">
+            {/* Trust network */}
             <div className="flex flex-col gap-3">
               <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-soft-ivory/55">
-                {t.quickLinksHeading}
+                {t.trustNetwork.heading}
               </p>
-              <ul className="flex flex-col gap-2 text-sm">
-                {t.quickLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-soft-ivory/85 underline-offset-4 hover:underline"
-                    >
-                      {link.label}
-                    </a>
+              <p className="text-sm leading-relaxed text-soft-ivory/70">
+                {t.trustNetwork.body}
+              </p>
+              <ul
+                className="mt-2 flex flex-wrap gap-2"
+                aria-label={t.trustNetwork.heading}
+              >
+                {t.trustNetwork.partners.map((partner) => (
+                  <li
+                    key={partner.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-soft-ivory/15 bg-soft-ivory/[0.04] px-3 py-1"
+                  >
+                    <span className="text-[12px] font-misans-regular text-soft-ivory/85">
+                      {partner.label}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-gold/85">
+                      {t.trustNetwork.partnerStatusLabel}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Reply promise */}
             <div className="flex flex-col gap-3">
               <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-soft-ivory/55">
-                {t.contactHeading}
+                {t.replyPromise.heading}
               </p>
-              <ul className="flex flex-col gap-2 text-sm">
-                {channels.map((channel) => (
-                  <li key={channel.id}>
-                    <a
-                      href={channel.href}
-                      className="text-soft-ivory/85 underline-offset-4 hover:underline"
-                      rel="noopener noreferrer"
-                    >
-                      {channel.label[locale] ?? channel.label.en}
-                      {channel.status === 'mock' && (
-                        <span className="ml-2 text-[10px] uppercase tracking-wider text-gold/80">
-                          {mockLabel}
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm leading-relaxed text-soft-ivory/85">
+                {t.replyPromise.body}
+              </p>
+              <p className="mt-1 text-xs text-soft-ivory/55">
+                {t.replyPromise.meta}
+              </p>
             </div>
 
+            {/* Why pandatravel */}
             <div className="flex flex-col gap-3">
               <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-soft-ivory/55">
-                {t.legalHeading}
+                {t.whyPanda.heading}
               </p>
-              <ul className="flex flex-col gap-2 text-sm">
-                {t.legal.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-soft-ivory/70 underline-offset-4 hover:underline"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-2 text-xs text-soft-ivory/60">{t.languageHint}</p>
+              <p className="text-sm leading-relaxed text-soft-ivory/70">
+                {t.whyPanda.body}
+              </p>
             </div>
           </div>
 
+          {/* Section 4 — Legal row */}
           <div className="mt-12 flex flex-col items-start gap-2 border-t border-soft-ivory/10 pt-6 text-xs text-soft-ivory/55 md:flex-row md:items-center md:gap-4">
             <span>{t.copyright}</span>
             <span aria-hidden="true" className="hidden md:inline">·</span>
             <span className="text-gold/85">{t.mockNotice}</span>
+            <span aria-hidden="true" className="hidden md:inline">·</span>
+            <span>{t.languageHint}</span>
           </div>
         </Reveal>
       </div>

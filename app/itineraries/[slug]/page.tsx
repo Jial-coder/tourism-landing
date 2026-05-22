@@ -143,7 +143,7 @@ export default async function ItineraryPage({
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-[15px] font-misans-bold text-ink">{h.zh}</p>
-                  <p className="text-[12px] font-misans-regular leading-relaxed text-ink/55">{h.en}</p>
+                  <p className="text-[12px] font-misans-regular leading-relaxed text-ink/70">{h.en}</p>
                 </li>
               ))}
             </ul>

@@ -41,7 +41,7 @@ export function QuickContactCard() {
         </a>
         <a
           href="#not-on-list"
-          className="text-[13px] font-misans-regular text-ink/55 underline-offset-4 hover:text-jade hover:underline"
+          className="text-[13px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"
         >
           {dict.contact.notOnListCta}
         </a>

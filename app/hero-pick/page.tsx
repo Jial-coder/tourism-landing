@@ -137,7 +137,7 @@ export default function HeroPickPage() {
         ))}
       </div>
 
-      <footer className="px-6 lg:px-16 py-8 text-[12px] text-ink/55">
+      <footer className="px-6 lg:px-16 py-8 text-[12px] text-ink/70">
         <div className="mx-auto max-w-[1440px]">
           5 张并排所见即所得 · v4 重点看右半是否干净 + 左半黄山是否未被破坏 · 选完 lead 把 Hero.tsx 主图换到对应文件并叠 ChinaMapOverlay
         </div>

@@ -345,7 +345,10 @@ export function LeadForm({ source }: { source: LeadSource }) {
                       {renderLabel('preferredChannel', ld.labels.preferredChannel)}
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger className="h-11 w-full bg-paper text-ink">
+                          <SelectTrigger
+                            aria-label={ld.labels.preferredChannel}
+                            className="h-11 w-full bg-paper text-ink"
+                          >
                             <SelectValue placeholder={ld.labels.preferredChannel} />
                           </SelectTrigger>
                         </FormControl>
@@ -369,7 +372,10 @@ export function LeadForm({ source }: { source: LeadSource }) {
                       {renderLabel('budgetRange', ld.labels.budgetRange)}
                       <Select onValueChange={field.onChange} value={field.value ?? ''}>
                         <FormControl>
-                          <SelectTrigger className="h-11 w-full bg-paper text-ink">
+                          <SelectTrigger
+                            aria-label={ld.labels.budgetRange}
+                            className="h-11 w-full bg-paper text-ink"
+                          >
                             <SelectValue placeholder={ld.labels.budgetRange} />
                           </SelectTrigger>
                         </FormControl>

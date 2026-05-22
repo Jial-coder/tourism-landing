@@ -18,7 +18,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <TopNav />
+      <TopNav variant="always-chromed" />
       <main className="flex-1 bg-cream">
         {/* 1. Hero */}
         <section
@@ -199,7 +199,7 @@ export default function AboutPage() {
                     body="是的，我们也要赚钱。但这一栏的占比写在合同里，不动手脚。"
                   />
                 </ul>
-                <p className="text-[12px] font-misans-regular leading-relaxed text-ink/55">
+                <p className="text-[12px] font-misans-regular leading-relaxed text-ink/70">
                   对比同业「礼包打包售价 + 隐形回扣点」的做法，这一页是我们最偏执的差异化。如果你看到任何一项不舒服，我们都可以单独和你聊。
                 </p>
               </div>

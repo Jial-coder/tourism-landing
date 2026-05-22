@@ -65,7 +65,7 @@ export function TailorMakePullCta({
           </a>
           <Link
             href={destination.advisorAnchor}
-            className="text-[13px] font-misans-regular text-ink/55 underline-offset-4 hover:text-jade hover:underline"
+            className="text-[13px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"
           >
             {lang === "zh" ? "看 Lin 是谁" : "Meet Lin"}
           </Link>

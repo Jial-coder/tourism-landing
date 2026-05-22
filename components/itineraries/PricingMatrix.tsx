@@ -25,7 +25,7 @@ export function PricingMatrix({ pricing, days }: { pricing: Itinerary["pricing"]
         <div className="overflow-hidden rounded-[12px] bg-cream ring-1 ring-ink/10">
           <table className="w-full text-left text-[14px] font-misans-regular">
             <thead className="bg-paper">
-              <tr className="text-[12px] tracking-[0.18em] uppercase text-ink/55">
+              <tr className="text-[12px] tracking-[0.18em] uppercase text-ink/70">
                 <th scope="col" className="w-1/3 px-4 py-3">酒店等级</th>
                 <th scope="col" className="px-4 py-3 text-right">USD / 晚 / 人</th>
                 <th scope="col" className="px-4 py-3 hidden md:table-cell">说明</th>
@@ -53,7 +53,7 @@ export function PricingMatrix({ pricing, days }: { pricing: Itinerary["pricing"]
         </div>
       </div>
 
-      <aside className="flex h-fit flex-col gap-3 rounded-[12px] bg-paper p-5 ring-1 ring-ink/10">
+      <div className="flex h-fit flex-col gap-3 rounded-[12px] bg-paper p-5 ring-1 ring-ink/10">
         <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
           含 / 不含
         </div>
@@ -79,10 +79,10 @@ export function PricingMatrix({ pricing, days }: { pricing: Itinerary["pricing"]
             ))}
           </ul>
         </div>
-        <p className="mt-2 text-[12px] font-misans-regular text-ink/55">
+        <p className="mt-2 text-[12px] font-misans-regular text-ink/70">
           全程 {days} 天 · 人均区间在 1:1 沟通后给定
         </p>
-      </aside>
+      </div>
     </div>
   );
 }

@@ -21,10 +21,10 @@ export function SampleReviewCard({ review }: { review: SampleReview }) {
       <p className="text-[13px] font-misans-regular italic leading-relaxed text-ink/70 lg:text-[14px]">
         “{review.body}”
       </p>
-      <p className="mt-auto text-[12px] font-misans-regular text-ink/55">
+      <p className="mt-auto text-[12px] font-misans-regular text-ink/70">
         Scenario · {review.scenario}
         <br />
-        <span className="text-ink/40">
+        <span className="text-ink/70">
           Hypothetical traveller profile (not a real customer): {review.hypotheticalAuthor}
         </span>
       </p>

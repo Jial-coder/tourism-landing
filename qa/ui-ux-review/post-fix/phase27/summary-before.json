@@ -1,0 +1,274 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "url": "http://localhost:3001/",
+      "violations": 4,
+      "by_impact": {
+        "critical": 1,
+        "serious": 3,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "help": "Buttons must have discernible text",
+          "nodes": 2,
+          "first_target": [
+            "#_r_8_-form-item"
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 4,
+          "first_target": [
+            ".shrink-0[aria-hidden=\"false\"]:nth-child(1) > .text-ink-soft\\/70.tracking-\\[0\\.22em\\].text-xs"
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "nodes": 1,
+          "first_target": [
+            "dl"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "nodes": 8,
+          "first_target": [
+            "div:nth-child(1) > .text-center.flex-col.items-center > dt"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "destinations",
+      "url": "http://localhost:3001/destinations",
+      "violations": 1,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 13,
+          "first_target": [
+            ".lg\\:text-\\[22px\\]"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "destinations-beijing",
+      "url": "http://localhost:3001/destinations/beijing",
+      "violations": 2,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 1,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 18,
+          "first_target": [
+            ".text-ink\\/55.leading-relaxed"
+          ]
+        },
+        {
+          "id": "landmark-complementary-is-top-level",
+          "impact": "moderate",
+          "help": "Aside should not be contained in another landmark",
+          "nodes": 2,
+          "first_target": [
+            ".lg\\:grid-cols-\\[minmax\\(0\\,1fr\\)_minmax\\(0\\,420px\\)\\] > aside"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "itineraries",
+      "url": "http://localhost:3001/itineraries",
+      "violations": 1,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 19,
+          "first_target": [
+            ".lg\\:text-\\[22px\\]"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "itineraries-sample-10d",
+      "url": "http://localhost:3001/itineraries/sample-10d",
+      "violations": 2,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 1,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 15,
+          "first_target": [
+            ".w-16"
+          ]
+        },
+        {
+          "id": "landmark-complementary-is-top-level",
+          "impact": "moderate",
+          "help": "Aside should not be contained in another landmark",
+          "nodes": 1,
+          "first_target": [
+            "aside"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "plan",
+      "url": "http://localhost:3001/plan",
+      "violations": 3,
+      "by_impact": {
+        "critical": 1,
+        "serious": 1,
+        "moderate": 1,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "help": "Buttons must have discernible text",
+          "nodes": 1,
+          "first_target": [
+            ".rounded-lg"
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 11,
+          "first_target": [
+            ".text-\\[20px\\]"
+          ]
+        },
+        {
+          "id": "landmark-complementary-is-top-level",
+          "impact": "moderate",
+          "help": "Aside should not be contained in another landmark",
+          "nodes": 1,
+          "first_target": [
+            "aside"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "visa-free",
+      "url": "http://localhost:3001/visa-free",
+      "violations": 2,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 1,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 8,
+          "first_target": [
+            "fieldset:nth-child(2) > .text-ink\\/55"
+          ]
+        },
+        {
+          "id": "landmark-complementary-is-top-level",
+          "impact": "moderate",
+          "help": "Aside should not be contained in another landmark",
+          "nodes": 1,
+          "first_target": [
+            "aside"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "url": "http://localhost:3001/about",
+      "violations": 1,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 15,
+          "first_target": [
+            ".text-\\[20px\\].lg\\:text-\\[22px\\].tracking-tight"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "url": "http://localhost:3001/reviews",
+      "violations": 1,
+      "by_impact": {
+        "critical": 0,
+        "serious": 1,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 21,
+          "first_target": [
+            ".text-\\[20px\\]"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,8 +10,8 @@ import {
 
 const TONE: Record<BestTime["months"][Month], string> = {
   best: "bg-jade text-soft-ivory ring-jade/30",
-  good: "bg-vermilion-soft text-vermilion-deep ring-vermilion/20",
-  avoid: "bg-paper text-ink/45 ring-ink/10",
+  good: "bg-vermilion-soft text-ink ring-vermilion/20",
+  avoid: "bg-paper text-ink/70 ring-ink/15",
 };
 
 const TONE_LABEL: Record<BestTime["months"][Month], { zh: string; en: string }> = {
@@ -22,7 +22,7 @@ const TONE_LABEL: Record<BestTime["months"][Month], { zh: string; en: string }> 
 
 export function BestTimeStrip({
   bestTime,
-  slug,
+  slug: _slug,
   lang = "zh",
 }: {
   bestTime: BestTime;
@@ -48,7 +48,7 @@ export function BestTimeStrip({
               <span className="text-[12px] font-misans-bold leading-none lg:text-[13px]">
                 {lang === "zh" ? label.zh : label.en}
               </span>
-              <span className="text-[10px] font-misans-regular tracking-wide opacity-80 lg:text-[11px]">
+              <span className="text-[10px] font-misans-regular tracking-wide lg:text-[11px]">
                 {lang === "zh" ? TONE_LABEL[tone].zh : TONE_LABEL[tone].en}
               </span>
             </Link>
@@ -60,7 +60,7 @@ export function BestTimeStrip({
         {lang === "zh" ? bestTime.summary.zh : bestTime.summary.en}
       </p>
 
-      <p className="text-[12px] font-misans-regular text-ink/55">
+      <p className="text-[12px] font-misans-regular text-ink/70">
         <Link
           href="/best-time"
           className="inline-flex items-center gap-1 underline-offset-4 hover:underline hover:text-jade focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
@@ -68,7 +68,6 @@ export function BestTimeStrip({
           {lang === "zh" ? "看 12 月份完整建议" : "See full 12-month guide"}
           <ArrowRight aria-hidden size={12} />
         </Link>
-        <span className="ml-2 opacity-60">/destinations/{slug}</span>
       </p>
     </div>
   );

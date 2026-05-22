@@ -35,6 +35,7 @@ export default {
       items: [
         { href: '/destinations', label: '目的地', soft404: false },
         { href: '/itineraries', label: '行程', soft404: false },
+        { href: '/visa-free', label: '免签攻略', soft404: false },
         { href: '/advisors', label: '顾问', soft404: false },
         { href: '/stories', label: '旅行故事', soft404: true },
         { href: '/about', label: '关于我们', soft404: false },
@@ -77,6 +78,12 @@ export default {
         { value: 8, suffix: ' 年', label: '顾问平均从业年限' },
         { value: 24, suffix: ' 小时', label: '内回复（中国节假日除外）' },
       ],
+    },
+    visaFreeBanner: {
+      eyebrow: '240 小时免签',
+      headline: '海外护照可在北京 / 上海 / 广州过境免签 240 小时',
+      body: '55 国 · 65 口岸 · 24 省。我们已经做好了多条 10 天过境路线，选一条让北京顾问帮你改细节。',
+      cta: '看免签路线',
     },
     howWeWork: {
       eyebrow: '我们的工作方式',
@@ -535,23 +542,63 @@ export default {
     },
     pathCFooter: {
       brandTagline: '中国本地顾问真人在线，把你的想法慢慢谈成一条只属于你的路线。',
-      quickLinksHeading: '探索',
-      contactHeading: '联系顾问',
-      legalHeading: '小字',
+      sitemap: {
+        plan: {
+          heading: '开始规划',
+          links: [
+            { label: '免费定制行程', href: '/plan' },
+            { label: '240 小时免签', href: '/visa-free' },
+            { label: '目的地', href: '/destinations' },
+          ],
+        },
+        discover: {
+          heading: '看看路线',
+          links: [
+            { label: '行程一览', href: '/itineraries' },
+            { label: '样板 10 天', href: '/itineraries/sample-10d' },
+            { label: '主题（v1.5 上线）', href: '/themes' },
+          ],
+        },
+        about: {
+          heading: '关于我们',
+          links: [
+            { label: '关于 pandatravel', href: '/about' },
+            { label: '旅客评价', href: '/reviews' },
+            { label: '联系顾问（v1.5）', href: '/about#contact' },
+          ],
+        },
+        channels: {
+          heading: '小字',
+          links: [
+            { label: '隐私（占位）', href: '/legal/privacy' },
+            { label: '条款（占位）', href: '/legal/terms' },
+            { label: 'ICP 占位', href: '/legal/icp' },
+          ],
+        },
+      },
+      trustNetwork: {
+        heading: '信任网络',
+        body: '首批旅客确认后，我们会在这里接入真实的评价 widget。',
+        partners: [
+          { label: 'Tripadvisor', status: '待接入' },
+          { label: 'Google Reviews', status: '待接入' },
+          { label: 'Feefo', status: '待接入' },
+          { label: 'Trustindex', status: '待接入' },
+        ],
+        partnerStatusLabel: '待接入',
+      },
+      replyPromise: {
+        heading: '回复承诺',
+        body: 'Lin 在北京 4 小时内人工回复，不是机器人，也不会被随机分派。',
+        meta: '中国公共节假日除外。',
+      },
+      whyPanda: {
+        heading: '为什么是 pandatravel',
+        body: '我们是北京的小工作室，按你想要的旅行节奏帮你画一条专属路线，没有打包菜单，也没有 49 字段的询价表。',
+      },
       languageHint: '可在页面顶部切换语言。',
-      legal: [
-        { label: '隐私', href: '/legal/privacy' },
-        { label: '条款', href: '/legal/terms' },
-        { label: 'ICP 占位', href: '/legal/icp' },
-      ],
       mockNotice: '示例占位内容 —— 上线前替换',
-      copyright: '© 2026 Tourism Landing Demo · 版权所有',
-      quickLinks: [
-        { label: '目的地', href: '#destinations' },
-        { label: '顾问', href: '#specialists' },
-        { label: '常见问题', href: '#faq' },
-        { label: '联系顾问', href: '#lead-form' },
-      ],
+      copyright: '© 2026 pandatravel · pandatravel.com.cn · 版权所有',
     },
   },
 } as const;

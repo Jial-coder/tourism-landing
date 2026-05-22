@@ -150,7 +150,7 @@ export default function VisaFreePage() {
                 </CTAPrimary>
                 <Link
                   href="/"
-                  className="text-[13px] font-misans-regular text-ink/55 underline-offset-4 hover:text-jade hover:underline"
+                  className="text-[13px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"
                 >
                   ← <VisaFreeBackHome />
                 </Link>

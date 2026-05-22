@@ -1,0 +1,112 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "url": "http://localhost:3001/",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "destinations",
+      "url": "http://localhost:3001/destinations",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "destinations-beijing",
+      "url": "http://localhost:3001/destinations/beijing",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "itineraries",
+      "url": "http://localhost:3001/itineraries",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "itineraries-sample-10d",
+      "url": "http://localhost:3001/itineraries/sample-10d",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "plan",
+      "url": "http://localhost:3001/plan",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "visa-free",
+      "url": "http://localhost:3001/visa-free",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "about",
+      "url": "http://localhost:3001/about",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    },
+    {
+      "slug": "reviews",
+      "url": "http://localhost:3001/reviews",
+      "violations": 0,
+      "by_impact": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "rules": []
+    }
+  ]
+}

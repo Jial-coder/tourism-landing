@@ -1,0 +1,43 @@
+# Deploy Gate (template)
+#
+# This workflow is a CI template — actual deploy pipeline activates when the
+# product is ready to ship. The intent is to lock in the prelaunch checks now
+# so they cannot be silently skipped later. See spec §6.5 + §8 Phase 2.7.
+
+name: Deploy Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  prelaunch-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: TypeScript typecheck
+        run: pnpm typecheck
+
+      - name: i18n parity check
+        run: pnpm check:i18n
+
+      - name: Mock data release gate
+        run: pnpm prelaunch-check
+
+      - name: Production build
+        run: pnpm build

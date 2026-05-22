@@ -79,7 +79,7 @@ export function ConciergeBand() {
                   <CTAPrimary type="submit" className="h-10 px-6 text-[13px]">
                     {submitting ? "Sending…" : "Send to Lin"}
                   </CTAPrimary>
-                  <p className="text-[12px] font-misans-regular text-ink/55">
+                  <p className="text-[12px] font-misans-regular text-ink/70">
                     4 小时内回复 · 不主动外发 · 不订阅营销
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export function ConciergeBand() {
                 <div className="text-[12px] font-misans-regular text-ink/65 leading-relaxed">
                   English · 中文 · 1 more
                 </div>
-                <div className="text-[12px] font-misans-regular text-ink/55 leading-relaxed">
+                <div className="text-[12px] font-misans-regular text-ink/70 leading-relaxed">
                   专长：自然 · 家庭 · 西南山地
                 </div>
               </div>
@@ -146,7 +146,7 @@ function Field({
 }) {
   return (
     <label className={cn("flex flex-col gap-2", className)}>
-      <span className="text-[12px] font-misans-regular tracking-widest uppercase text-ink/55">
+      <span className="text-[12px] font-misans-regular tracking-widest uppercase text-ink/70">
         {label}
       </span>
       <input

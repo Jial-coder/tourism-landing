@@ -28,11 +28,11 @@ import { useDictionary } from "@/components/i18n/LocaleProvider";
  *   DESIGN.md §7.7-§7.10
  */
 
-export function TopNav() {
+export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "always-chromed" } = {}) {
   const dict = useDictionary();
   const nav = dict.home.nav;
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(variant === "always-chromed");
   const [authOpen, setAuthOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [storyModalOpen, setStoryModalOpen] = useState(false);
@@ -40,14 +40,19 @@ export function TopNav() {
   const authTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   // Fix 1: scrolled threshold = 90vh (NOT >10) — hero 内不触发
+  // variant="always-chromed" pins scrolled=true to keep contrast on light-bg pages.
   useEffect(() => {
+    if (variant === "always-chromed") {
+      setIsScrolled(true);
+      return;
+    }
     const handleScroll = () => {
       setIsScrolled(window.scrollY > window.innerHeight * 0.9);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [variant]);
 
   // Mobile drawer body lock
   useEffect(() => {

@@ -16,7 +16,7 @@ export default function DestinationsListPage() {
 
   return (
     <>
-      <TopNav />
+      <TopNav variant="always-chromed" />
       <main className="flex-1 bg-cream">
         {/* 1. Hero */}
         <section
@@ -79,7 +79,7 @@ export default function DestinationsListPage() {
                 <p>
                   比起一份 28 城的产品目录，我们更想给你一份 8 城的诚实地图：去过哪几个清晨、住过哪几家小院、哪一段路坐高铁不坐飞机更舒服。等首批旅客回来反馈之后，我们再决定要不要把第 9 个、第 10 个加进来。
                 </p>
-                <p className="text-[13px] text-ink/55">
+                <p className="text-[13px] text-ink/70">
                   不在这 8 个里面的目的地（比如成都、杭州、敦煌、新疆），我们仍然能替你串进定制行程，只是当前没有独立 8 章节的深度页。直接告诉 Lin 就行。
                 </p>
               </div>

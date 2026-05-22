@@ -329,7 +329,7 @@ export function DecisionTool() {
             placeholder={dict.placeholders.passport}
             locale={locale}
           />
-          <p className="text-[12px] text-ink/55">{dict.tool.steps.a.help}</p>
+          <p className="text-[12px] text-ink/70">{dict.tool.steps.a.help}</p>
         </fieldset>
 
         <fieldset className="flex flex-col gap-2">
@@ -344,7 +344,7 @@ export function DecisionTool() {
             placeholder={dict.placeholders.port}
             locale={locale}
           />
-          <p className="text-[12px] text-ink/55">{dict.tool.steps.b.help}</p>
+          <p className="text-[12px] text-ink/70">{dict.tool.steps.b.help}</p>
         </fieldset>
 
         <fieldset className="flex flex-col gap-2">
@@ -359,7 +359,7 @@ export function DecisionTool() {
             placeholder={dict.placeholders.onward}
             locale={locale}
           />
-          <p className="text-[12px] text-ink/55">{dict.tool.steps.c.help}</p>
+          <p className="text-[12px] text-ink/70">{dict.tool.steps.c.help}</p>
         </fieldset>
 
         <fieldset className="flex flex-col gap-2">
@@ -368,11 +368,11 @@ export function DecisionTool() {
           </legend>
           <h3 className="text-[16px] font-misans-bold text-ink">{dict.tool.steps.d.heading}</h3>
           <StayRadio value={stay} onChange={setStay} rule={rule} port={port} t={dict} />
-          <p className="text-[12px] text-ink/55">{dict.tool.steps.d.help}</p>
+          <p className="text-[12px] text-ink/70">{dict.tool.steps.d.help}</p>
         </fieldset>
       </div>
 
-      <aside
+      <div
         aria-live="polite"
         data-testid="visa-free-result"
         className={cn(
@@ -395,7 +395,7 @@ export function DecisionTool() {
         {result.eligible && (
           <>
             <div className="flex flex-col gap-2">
-              <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/55">
+              <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/70">
                 {dict.result.regionsLabel}
               </span>
               <ul className="flex flex-wrap gap-2">
@@ -410,14 +410,14 @@ export function DecisionTool() {
               </ul>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/55">
+              <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/70">
                 {dict.result.portsLabel}
               </span>
               <ul className="flex flex-col gap-1.5 text-[13px] text-ink/85">
                 {result.allowedPorts.map((p) => (
                   <li key={p.slug} className="flex items-baseline justify-between gap-3">
                     <span>{locale === 'zh' ? p.cn : p.en}</span>
-                    <span className="text-[11px] uppercase tracking-[0.14em] text-ink/55">
+                    <span className="text-[11px] uppercase tracking-[0.14em] text-ink/70">
                       {locale === 'zh' ? PORT_TYPE_LABEL[p.type].zh : PORT_TYPE_LABEL[p.type].en}
                     </span>
                   </li>
@@ -428,7 +428,7 @@ export function DecisionTool() {
         )}
 
         <div className="flex flex-col gap-2">
-          <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/55">
+          <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/70">
             {dict.result.risksHeading}
           </span>
           <ul className="flex flex-col gap-1.5 text-[12px] leading-relaxed text-ink/75">
@@ -455,12 +455,12 @@ export function DecisionTool() {
           </a>
           <Link
             href="/"
-            className="text-[12px] font-misans-regular text-ink/55 underline-offset-4 hover:text-jade hover:underline"
+            className="text-[12px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"
           >
             ← {locale === 'zh' ? '回首页' : 'Back to home'}
           </Link>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }

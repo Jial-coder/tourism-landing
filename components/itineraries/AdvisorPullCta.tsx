@@ -52,7 +52,7 @@ export function AdvisorPullCta({ itinerary }: { itinerary: Itinerary }) {
           </a>
         </div>
 
-        <p className="text-[12px] font-misans-regular text-ink/55">
+        <p className="text-[12px] font-misans-regular text-ink/70">
           所有图片为占位 mock，上线前替换为真实顾问照片与 WhatsApp 号。
         </p>
       </div>

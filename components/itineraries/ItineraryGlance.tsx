@@ -5,7 +5,7 @@ export function ItineraryGlance({ glance }: { glance: GlanceRow[] }) {
     <div className="overflow-hidden rounded-[12px] ring-1 ring-ink/10 bg-paper">
       <table className="w-full text-left text-[14px] font-misans-regular text-ink">
         <thead>
-          <tr className="bg-cream text-[12px] tracking-[0.18em] uppercase text-ink/55">
+          <tr className="bg-cream text-[12px] tracking-[0.18em] uppercase text-ink/70">
             <th scope="col" className="w-16 px-4 py-3">Day</th>
             <th scope="col" className="w-1/3 px-4 py-3">Cities</th>
             <th scope="col" className="px-4 py-3">Highlights</th>

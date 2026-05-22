@@ -25,34 +25,37 @@ export function TrustStrip() {
       className="bg-cream py-16 lg:py-20"
     >
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
-        <dl className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
+        <ul
+          aria-label="Trust statistics (sample)"
+          className="grid list-none grid-cols-2 gap-8 p-0 md:grid-cols-4 md:gap-6"
+        >
           {items.map((item, idx) => {
             const decimals = 'decimals' in item ? item.decimals : 0;
             return (
-              <Reveal key={item.label} delay={idx * 0.1}>
-                <div className="flex flex-col items-center text-center">
-                  <dt className="font-serif text-3xl tabular-nums text-ink md:text-4xl">
+              <li key={item.label} className="flex flex-col items-center text-center">
+                <Reveal delay={idx * 0.1} className="flex flex-col items-center text-center">
+                  <span className="font-serif text-3xl tabular-nums text-ink md:text-4xl">
                     <NumberTicker
                       value={item.value}
                       decimals={decimals}
                       suffix={item.suffix}
                     />
-                  </dt>
-                  <dd className="mt-2 max-w-[180px] text-sm leading-snug text-ink-soft">
+                  </span>
+                  <span className="mt-2 max-w-[180px] text-sm leading-snug text-ink-soft">
                     {item.label}
-                  </dd>
+                  </span>
                   <MockBadge className="mt-3">sample</MockBadge>
-                </div>
-              </Reveal>
+                </Reveal>
+              </li>
             );
           })}
-        </dl>
+        </ul>
 
         <div className="mt-12 border-t border-ink/10 pt-6">
           <Marquee
             speed={36}
             items={marqueeItems.map((label) => (
-              <span className="text-xs font-medium uppercase tracking-[0.22em] text-ink-soft/70">
+              <span className="text-xs font-medium uppercase tracking-[0.22em] text-ink-soft">
                 {label}
               </span>
             ))}

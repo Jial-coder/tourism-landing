@@ -104,11 +104,11 @@ export default async function DestinationPage({
                 <p className="text-[15px] lg:text-[17px] font-misans-regular leading-relaxed text-ink/80">
                   {d.whyVisit.zh}
                 </p>
-                <p className="text-[13px] font-misans-regular leading-relaxed text-ink/55">
+                <p className="text-[13px] font-misans-regular leading-relaxed text-ink/70">
                   详细行程、住宿、最佳时节、签证 + 机票配置都由 Lin 跟你一对一聊完之后给。我们不卖标准包，所以这里不放价格表。
                 </p>
               </div>
-              <aside className="flex h-fit flex-col gap-4 rounded-[10px] bg-paper p-6 ring-1 ring-ink/10">
+              <div className="flex h-fit flex-col gap-4 rounded-[10px] bg-paper p-6 ring-1 ring-ink/10">
                 <div className="flex items-center gap-3">
                   <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
                     下一步
@@ -127,7 +127,7 @@ export default async function DestinationPage({
                 >
                   WhatsApp Lin · 直接聊 →
                 </a>
-              </aside>
+              </div>
             </div>
           </SectionInner>
         </section>
@@ -183,7 +183,7 @@ export default async function DestinationPage({
             </div>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)]">
               <BestTimeStrip bestTime={d.bestTime} slug={d.slug} />
-              <aside className="flex h-fit flex-col gap-3 rounded-[10px] bg-paper p-5 ring-1 ring-ink/10">
+              <div className="flex h-fit flex-col gap-3 rounded-[10px] bg-paper p-5 ring-1 ring-ink/10">
                 <div className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
                   气候提示
                 </div>
@@ -191,7 +191,7 @@ export default async function DestinationPage({
                   数据为多年公开历史平均，具体年份会偏移。Lin 会按你的出发月份，推荐能避开人潮 / 雨季的具体路线。
                 </p>
                 <MockBadge className="self-start">sample averages</MockBadge>
-              </aside>
+              </div>
             </div>
           </SectionInner>
         </section>
@@ -283,7 +283,7 @@ export default async function DestinationPage({
                       <div className={cardClasses}>
                         <div className="flex flex-col gap-3">
                           <div className="flex items-center gap-3">
-                            <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-ink/55">
+                            <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-ink/70">
                               筹建中
                             </span>
                             <MockBadge>coming soon</MockBadge>

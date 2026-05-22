@@ -12,7 +12,7 @@ export default async function PlanPage({
 
   return (
     <>
-      <TopNav />
+      <TopNav variant="always-chromed" />
       <main className="flex-1 bg-cream text-ink">
         <PlanWizard initialVisaFree={type === 'visa-free'} />
       </main>

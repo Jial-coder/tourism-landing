@@ -1,0 +1,8 @@
+{
+  "lcp_ms": 216,
+  "cls": 0.0019,
+  "fcp_ms": 216,
+  "domContentLoaded_ms": 283,
+  "loadEvent_ms": 297,
+  "transferSize_bytes": 20080
+}

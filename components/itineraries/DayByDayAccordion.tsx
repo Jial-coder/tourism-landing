@@ -9,7 +9,7 @@ function ActivityRow({ activity }: { activity: DayActivity }) {
       <div className="flex flex-col gap-1">
         <p className="text-ink">{activity.activity.zh}</p>
         {activity.note ? (
-          <p className="text-[12px] text-ink/55 italic">
+          <p className="text-[12px] text-ink/70 italic">
             tip · {activity.note.zh}
           </p>
         ) : null}

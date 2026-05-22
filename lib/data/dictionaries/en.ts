@@ -36,6 +36,7 @@ export default {
       items: [
         { href: '/destinations', label: 'Destinations', soft404: false },
         { href: '/itineraries', label: 'Itineraries', soft404: false },
+        { href: '/visa-free', label: 'Visa-free', soft404: false },
         { href: '/advisors', label: 'Specialists', soft404: false },
         { href: '/stories', label: 'Stories', soft404: true },
         { href: '/about', label: 'About', soft404: false },
@@ -79,6 +80,12 @@ export default {
         { value: 8, suffix: ' yrs', label: 'Average specialist tenure' },
         { value: 24, suffix: ' h', label: 'Reply within (China holidays excluded)' },
       ],
+    },
+    visaFreeBanner: {
+      eyebrow: '240h Visa-Free',
+      headline: 'Foreign passports can transit through Beijing, Shanghai or Guangzhou for up to 240 hours visa-free.',
+      body: '55 countries · 65 ports · 24 provinces. We have ready-made 10-day routes for transit travelers — pick one and tweak with a Beijing specialist.',
+      cta: 'See visa-free trips',
     },
     howWeWork: {
       eyebrow: 'How we work',
@@ -544,23 +551,63 @@ export default {
     pathCFooter: {
       brandTagline:
         'Tailor-made China travel, drafted with a Beijing-based specialist who actually picks up.',
-      quickLinksHeading: 'Explore',
-      contactHeading: 'Reach a specialist',
-      legalHeading: 'Fine print',
+      sitemap: {
+        plan: {
+          heading: 'Plan',
+          links: [
+            { label: 'Plan my trip', href: '/plan' },
+            { label: 'Visa-free 240h', href: '/visa-free' },
+            { label: 'Destinations', href: '/destinations' },
+          ],
+        },
+        discover: {
+          heading: 'Discover',
+          links: [
+            { label: 'Itineraries', href: '/itineraries' },
+            { label: 'Sample 10 days', href: '/itineraries/sample-10d' },
+            { label: 'Themes (coming v1.5)', href: '/themes' },
+          ],
+        },
+        about: {
+          heading: 'About',
+          links: [
+            { label: 'About pandatravel', href: '/about' },
+            { label: 'Reviews', href: '/reviews' },
+            { label: 'Contact (coming v1.5)', href: '/about#contact' },
+          ],
+        },
+        channels: {
+          heading: 'Fine print',
+          links: [
+            { label: 'Privacy (placeholder)', href: '/legal/privacy' },
+            { label: 'Terms (placeholder)', href: '/legal/terms' },
+            { label: 'ICP placeholder', href: '/legal/icp' },
+          ],
+        },
+      },
+      trustNetwork: {
+        heading: 'Trust network',
+        body: 'We will plug verified review widgets in here as our first cohort lands.',
+        partners: [
+          { label: 'Tripadvisor', status: 'pending' },
+          { label: 'Google Reviews', status: 'pending' },
+          { label: 'Feefo', status: 'pending' },
+          { label: 'Trustindex', status: 'pending' },
+        ],
+        partnerStatusLabel: 'pending',
+      },
+      replyPromise: {
+        heading: 'Reply promise',
+        body: 'Lin replies in 4 hours from Beijing. No chatbot, no auto-routing.',
+        meta: 'Chinese public holidays excluded.',
+      },
+      whyPanda: {
+        heading: 'Why pandatravel',
+        body: 'A small Beijing-based studio that designs private China trips around how you actually travel — not a packaged menu, not a 49-field intake form.',
+      },
       languageHint: 'Switch language at the top of the page.',
-      legal: [
-        { label: 'Privacy', href: '/legal/privacy' },
-        { label: 'Terms', href: '/legal/terms' },
-        { label: 'ICP placeholder', href: '/legal/icp' },
-      ],
       mockNotice: 'Mock data — replace before launch',
-      copyright: '© 2026 Tourism Landing Demo · All rights reserved',
-      quickLinks: [
-        { label: 'Destinations', href: '#destinations' },
-        { label: 'Specialists', href: '#specialists' },
-        { label: 'FAQ', href: '#faq' },
-        { label: 'Contact', href: '#lead-form' },
-      ],
+      copyright: '© 2026 pandatravel · pandatravel.com.cn · All rights reserved',
     },
   },
 } as const;

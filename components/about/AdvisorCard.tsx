@@ -82,7 +82,7 @@ export function AdvisorCard({ advisor }: { advisor: Advisor }) {
         >
           先填一份草稿，让 {advisor.name.zh.split(" · ")[0]} 接手 →
         </Link>
-        <span className="text-[11px] font-misans-regular text-ink/50 sm:ml-auto">
+        <span className="text-[11px] font-misans-regular text-ink/70 sm:ml-auto">
           顾问 vlog 占位 · 上线前接入 30s 视频
         </span>
       </div>
