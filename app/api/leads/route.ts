@@ -1,7 +1,7 @@
 import { after, NextResponse, type NextRequest } from 'next/server';
 import { createHash } from 'node:crypto';
 import { leadFormSchema } from '@/lib/data/lead-form';
-import { getDb, schema } from '@/lib/db';
+import { getSupabaseAdmin } from '@/lib/db';
 import { requiresTurnstileSecret } from '@/lib/security/turnstile-env';
 
 export const runtime = 'nodejs';
@@ -155,27 +155,29 @@ export async function POST(request: NextRequest) {
 
   let rowId: string;
   try {
-    const db = getDb();
-    const [row] = await db
-      .insert(schema.leads)
-      .values({
+    const { data: row, error } = await getSupabaseAdmin()
+      .from('leads')
+      .insert({
         locale: data.locale,
         name: data.name,
         email: data.email,
         country: data.country || null,
-        travelDates: data.travelMonth,
+        travel_dates: data.travelMonth,
         duration: data.durationDays,
-        partySize: data.partySize,
+        party_size: data.partySize,
         interests: null,
-        budgetRange: data.budgetRange || null,
-        preferredContact: data.preferredChannel,
+        budget_range: data.budgetRange || null,
+        preferred_contact: data.preferredChannel,
         message: data.notes || null,
-        sourcePath: data.source,
-        ipHash,
-        userAgent: request.headers.get('user-agent') || null,
+        source_path: data.source,
+        ip_hash: ipHash,
+        user_agent: request.headers.get('user-agent') || null,
       })
-      .returning({ id: schema.leads.id });
-    rowId = row.id;
+      .select('id')
+      .single();
+    if (error) throw error;
+    rowId = (row as { id?: string } | null)?.id ?? '';
+    if (!rowId) throw new Error('Supabase insert returned no row id');
   } catch (err) {
     console.error('[lead-db] insert failed', err);
     return NextResponse.json({ ok: false, error: 'db_insert_failed' }, { status: 500 });
