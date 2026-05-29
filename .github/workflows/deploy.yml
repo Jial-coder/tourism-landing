@@ -18,9 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 11.1.2
 
       - uses: actions/setup-node@v4
         with:
@@ -37,7 +37,7 @@ jobs:
         run: pnpm check:i18n
 
       - name: Mock data release gate
-        run: pnpm prelaunch-check
+        run: pnpm exec tsx scripts/prelaunch-mock-guard.ts --enforce-production
 
       - name: Production build
         run: pnpm build
