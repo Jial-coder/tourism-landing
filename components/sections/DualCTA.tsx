@@ -18,7 +18,7 @@ export function DualCTA() {
             两条入口
           </div>
           <h2 className="text-[28px] lg:text-[40px] font-misans-bold leading-tight text-soft-ivory tracking-tight">
-            想好了再聊，或者现在就 WhatsApp
+            想好了再聊，或者先问一句
           </h2>
           <p className="text-[14px] lg:text-[16px] font-misans-regular text-soft-ivory/75 leading-relaxed">
             主入口给"先想清楚"的你 · 一条副入口给"现在就想问一句"的你。我们不会用同一个表单同时套两件事。
@@ -27,13 +27,13 @@ export function DualCTA() {
             <CTAPrimary href="/plan" className="h-12 px-8 text-[14px]">
               免费定制行程
             </CTAPrimary>
-            <CTAGhost href="https://wa.me/" className="h-12 px-7">
+            <CTAGhost href="/plan?intent=quick-question" className="h-12 px-7">
               <MessageCircle size={14} className="mr-2" aria-hidden />
-              WhatsApp · 值班顾问
+              先问顾问
             </CTAGhost>
           </div>
           <p className="text-[12px] font-misans-regular italic text-soft-ivory/55 mt-1">
-            想看一份现成方案？<a href="/itineraries/sample-10d" className="underline-offset-4 hover:underline">10 天样板行程 →</a>
+            想先看路线节奏？<a href="/itineraries" className="underline-offset-4 hover:underline">行程思路 →</a>
           </p>
         </div>
       </SectionInner>

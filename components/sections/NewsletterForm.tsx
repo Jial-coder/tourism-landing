@@ -1,32 +1,21 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 export function NewsletterForm() {
-  const [done, setDone] = useState(false);
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setDone(true);
-  };
-  if (done) {
-    return (
-      <p className="text-[12px] font-misans-regular text-soft-ivory/75 leading-relaxed">
-        ✓ 收到 · 下次月报上线时通知你。
-      </p>
-    );
-  }
+  const { locale } = useLocale();
+
   return (
-    <form className="flex flex-col gap-2" onSubmit={onSubmit}>
-      <input
-        type="email"
-        required
-        placeholder="you@example.com"
-        className="bg-transparent border-b border-soft-ivory/15 py-2 text-[13px] text-soft-ivory placeholder:text-soft-ivory/35 focus:outline-none focus:border-alpine-blue/60"
-      />
-      <CTAPrimary type="submit" className="h-9 px-4 text-[12px]">
-        Subscribe
+    <div className="flex flex-col gap-2">
+      <p className="text-[12px] font-misans-regular text-soft-ivory/65 leading-relaxed">
+        {locale === "zh"
+          ? "月报订阅会在邮件系统接入后开放；现在可先把通知需求发给顾问。"
+          : "Monthly updates open after the email system is connected. For now, send a notification request to the advisor."}
+      </p>
+      <CTAPrimary href="/plan?intent=newsletter" className="h-9 px-4 text-[12px]">
+        {locale === "zh" ? "请求上线通知" : "Request updates"}
       </CTAPrimary>
-    </form>
+    </div>
   );
 }

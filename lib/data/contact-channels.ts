@@ -6,53 +6,54 @@ export interface ContactChannel {
   label: { en: string; zh: string };
   href: string;
   visibility: 'always' | 'overseas-priority' | 'cn-priority' | 'hidden';
-  status: 'verified' | 'mock' | 'pending';
+  status: 'verified' | 'mock' | 'pending' | 'hidden';
   note?: { en: string; zh: string };
 }
 
-// Mock placeholders for Path C lead generation. Real numbers/handles to be
-// substituted by ops in Task 7.5 before launch. Order per spec §4.8:
+// Public fallback after product decision: keep the lead form visible and hide
+// unverified external channels until ops supplies real numbers/handles.
+// Order per spec §4.8:
 // form > email > whatsapp > phone > wechat > social.
 export const CONTACT_CHANNELS: ContactChannel[] = [
   {
-    id: 'mock-form',
+    id: 'lead-form',
     kind: 'form',
     label: { en: 'Custom plan request', zh: '提交定制需求' },
     href: '#lead-form',
     visibility: 'always',
-    status: 'mock',
+    status: 'verified',
   },
   {
     id: 'mock-email',
     kind: 'email',
     label: { en: 'Email a specialist', zh: '邮件联系顾问' },
     href: 'mailto:hello@example-tourism.demo',
-    visibility: 'always',
-    status: 'mock',
+    visibility: 'hidden',
+    status: 'hidden',
   },
   {
     id: 'mock-whatsapp',
     kind: 'whatsapp',
     label: { en: 'WhatsApp our desk', zh: 'WhatsApp 联系顾问' },
     href: 'https://wa.me/8613000000000',
-    visibility: 'overseas-priority',
-    status: 'mock',
+    visibility: 'hidden',
+    status: 'hidden',
   },
   {
     id: 'mock-phone',
     kind: 'phone',
     label: { en: 'Call Beijing office', zh: '电话联系北京办公室' },
     href: 'tel:+861000000000',
-    visibility: 'always',
-    status: 'mock',
+    visibility: 'hidden',
+    status: 'hidden',
   },
   {
     id: 'mock-wechat',
     kind: 'wechat',
     label: { en: 'WeChat (CN priority)', zh: '微信（国内优先）' },
     href: 'weixin://contacts/profile/demo',
-    visibility: 'cn-priority',
-    status: 'mock',
+    visibility: 'hidden',
+    status: 'hidden',
   },
 ];
 

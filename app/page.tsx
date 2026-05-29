@@ -1,5 +1,6 @@
 import { TopNav } from "@/components/chrome/TopNav";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { AdvisorShortcut } from "@/components/sections/AdvisorShortcut";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { VisaFreeBanner } from "@/components/sections/VisaFreeBanner";
 import { HowWeWork } from "@/components/sections/HowWeWork";
@@ -17,6 +18,7 @@ export default function Home() {
       <TopNav />
       <main className="flex-1">
         <HomeHero />
+        <AdvisorShortcut />
         <TrustStrip />
         <VisaFreeBanner />
         <HowWeWork />

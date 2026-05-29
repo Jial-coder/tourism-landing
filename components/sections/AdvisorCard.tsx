@@ -60,12 +60,12 @@ export function AdvisorCard() {
               "我不是中介。我会跟你一起把行程改三轮，直到你看着它就知道 — 这就是我的旅行。"
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <CTAPrimary href="https://wa.me/" className="h-12 px-7 text-[14px]">
+              <CTAPrimary href="/plan?advisor=lin" className="h-12 px-7 text-[14px]">
                 <MessageCircle size={16} className="mr-2" aria-hidden />
-                Talk to Lin on WhatsApp
+                Ask Lin to review my plan
               </CTAPrimary>
               <a
-                href="/chat?advisor=lin"
+                href="/plan?advisor=lin&intent=chat"
                 className="text-[13px] font-misans-regular text-soft-ivory/85 underline-offset-4 hover:underline"
               >
                 站内聊天 · in-site chat

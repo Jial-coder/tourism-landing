@@ -17,7 +17,6 @@ import {
 import { HoneypotField } from '@/components/forms/HoneypotField';
 import { TurnstileWidget } from '@/components/forms/TurnstileWidget';
 import { LeadFormSuccess } from '@/components/sections/LeadFormSuccess';
-import { MockBadge } from '@/components/trust/MockBadge';
 import { CONTACT_CHANNELS } from '@/lib/data/contact-channels';
 import {
   PLAN_DRAFT_STORAGE_KEY,
@@ -40,6 +39,7 @@ import {
   interestsTextFrom,
   whenTextFrom,
 } from '@/lib/wizard-payload';
+import type { PlanContextItem, PlanInitialContext } from '@/lib/plan-context';
 import { cn } from '@/lib/utils';
 
 type PlanWizardDict = ReturnType<typeof useLocale>['t']['home']['planWizard'];
@@ -59,15 +59,63 @@ type WizardAction =
   | { type: 'toggleInterest'; value: InterestChip }
   | { type: 'toggleChildTier'; value: ChildAgeTier }
   | { type: 'hydrate'; state: Partial<WizardState> }
-  | { type: 'reset'; initialVisaFree: boolean };
+  | {
+      type: 'reset';
+      initialVisaFree: boolean;
+      initialContext: PlanInitialContext | null;
+      locale: Locale;
+    };
 
 const TOTAL_STEPS = 5;
+const turnstileFallbackToken = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+  ? ''
+  : 'dev-turnstile-bypass';
+const requiresTurnstileToken = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
 
-const makeInitialState = (initialVisaFree: boolean): WizardState => ({
-  ...PLAN_WIZARD_DEFAULTS,
-  interests: initialVisaFree ? ['visa-free'] : [],
-  currentStep: initialVisaFree ? 3 : 0,
-});
+const uniqueStrings = <T extends string>(items: readonly T[]): T[] => Array.from(new Set(items));
+
+const textForLocale = (text: { en: string; zh: string }, locale: Locale): string =>
+  locale === 'zh' ? text.zh : text.en;
+
+function buildContextNote(items: readonly PlanContextItem[], locale: Locale): string {
+  if (items.length === 0) return '';
+  const heading = locale === 'zh' ? '来自上一页的线索：' : 'Context from previous page:';
+  const lines = items.map(
+    (item) => `- ${textForLocale(item.label, locale)}: ${textForLocale(item.value, locale)}`,
+  );
+  return [heading, ...lines].join('\n');
+}
+
+function mergeContextNote(contextNote: string, existing: string | undefined): string {
+  const trimmedExisting = existing?.trim() ?? '';
+  if (!contextNote) return trimmedExisting;
+  if (!trimmedExisting) return contextNote;
+  if (
+    trimmedExisting.includes('Context from previous page:') ||
+    trimmedExisting.includes('来自上一页的线索：')
+  ) {
+    return trimmedExisting;
+  }
+  return `${contextNote}\n\n${trimmedExisting}`;
+}
+
+const makeInitialState = (
+  initialVisaFree: boolean,
+  initialContext: PlanInitialContext | null,
+  locale: Locale,
+): WizardState => {
+  const contextChips = initialContext?.interestChips ?? [];
+  const interests = uniqueStrings([
+    ...contextChips,
+    ...(initialVisaFree ? (['visa-free'] as const) : []),
+  ]);
+  return {
+    ...PLAN_WIZARD_DEFAULTS,
+    interests,
+    notesUserText: buildContextNote(initialContext?.items ?? [], locale),
+    currentStep: initialContext?.startStep ?? 0,
+  };
+};
 
 function reducer(state: WizardState, action: WizardAction): WizardState {
   switch (action.type) {
@@ -96,7 +144,7 @@ function reducer(state: WizardState, action: WizardAction): WizardState {
     case 'hydrate':
       return { ...state, ...action.state };
     case 'reset':
-      return makeInitialState(action.initialVisaFree);
+      return makeInitialState(action.initialVisaFree, action.initialContext, action.locale);
     default:
       return state;
   }
@@ -302,7 +350,7 @@ function WizardSummary({
   ].filter((row) => row.v);
 
   return (
-    <div className="rounded-3xl border border-ink/10 bg-soft-ivory p-5 shadow-sm md:sticky md:top-28">
+    <div className="rounded-3xl border border-ink/10 bg-cream p-5 shadow-sm md:sticky md:top-28">
       <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-jade">
         {dict.filledHeading}
       </p>
@@ -500,10 +548,9 @@ function Step4({
   state: WizardState;
   dispatch: React.Dispatch<WizardAction>;
   errors: FieldErrors;
-  whatsappHref: string;
-  whatsappPayload: string;
+  whatsappHref: string | null;
+  whatsappPayload: string | null;
 }) {
-  const mockWhatsapp = CONTACT_CHANNELS.find((c) => c.kind === 'whatsapp')?.status === 'mock';
   return (
     <div className="space-y-7">
       <StepHeading step={4} title={dict.step4.heading} body={dict.step4.body} />
@@ -550,6 +597,7 @@ function Step4({
         </Fieldset>
       </div>
       <DetailsHint label={dict.whyAsk}>{dict.step4.whyAsk}</DetailsHint>
+      {whatsappHref && whatsappPayload ? (
       <div className="rounded-3xl border border-jade/30 bg-soft-ivory p-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
@@ -560,11 +608,6 @@ function Step4({
             <p className="mt-3 break-all rounded-2xl bg-cream px-3 py-2 text-xs text-ink-soft">
               {whatsappPayload}
             </p>
-            {mockWhatsapp && (
-              <p className="mt-3 flex items-center gap-2 text-xs text-ink-soft">
-                <MockBadge>{dict.jumpWhatsAppMockHint}</MockBadge>
-              </p>
-            )}
           </div>
           <a
             href={whatsappHref}
@@ -576,6 +619,7 @@ function Step4({
           </a>
         </div>
       </div>
+      ) : null}
     </div>
   );
 }
@@ -695,8 +739,11 @@ function Step5({
       />
       <TurnstileWidget
         onToken={(token) => dispatch({ type: 'set', field: 'turnstileToken', value: token })}
-        onExpire={() => dispatch({ type: 'set', field: 'turnstileToken', value: '' })}
+        onExpire={() =>
+          dispatch({ type: 'set', field: 'turnstileToken', value: turnstileFallbackToken })
+        }
       />
+      {errorFor(errors, 'turnstileToken')}
       <DetailsHint label={dict.whyAsk}>{dict.step5.whyAsk}</DetailsHint>
     </div>
   );
@@ -743,6 +790,9 @@ function validateStep(
         else if (!e[field]) e[field] = dict.errors.required;
       }
     }
+    if (requiresTurnstileToken && !String(state.turnstileToken ?? '').trim()) {
+      e.turnstileToken = dict.errors.turnstileMissing;
+    }
   }
   return e;
 }
@@ -777,10 +827,19 @@ function clearDraft() {
   window.localStorage.removeItem(PLAN_DRAFT_STORAGE_KEY);
 }
 
-export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: boolean }) {
+export function PlanWizard({
+  initialVisaFree = false,
+  initialContext = null,
+}: {
+  initialVisaFree?: boolean;
+  initialContext?: PlanInitialContext | null;
+}) {
   const { locale, t } = useLocale();
   const dict = t.home.planWizard;
-  const [state, dispatch] = useReducer(reducer, makeInitialState(initialVisaFree));
+  const [state, dispatch] = useReducer(
+    reducer,
+    makeInitialState(initialVisaFree, initialContext, locale),
+  );
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submissionId, setSubmissionId] = useState<string | null>(null);
@@ -789,25 +848,34 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
 
   useEffect(() => {
     const draft = readDraft();
+    const contextState = makeInitialState(initialVisaFree, initialContext, locale);
     if (draft) {
-      const nextStep = initialVisaFree ? 3 : draft.currentStep;
+      const draftStep = isWizardStep(Number(draft.currentStep))
+        ? (Number(draft.currentStep) as WizardStep)
+        : undefined;
+      const nextStep = draftStep ?? contextState.currentStep;
       dispatch({
         type: 'hydrate',
         state: {
           ...draft,
-          interests: initialVisaFree
-            ? Array.from(new Set([...(draft.interests ?? []), 'visa-free']))
-            : draft.interests,
-          currentStep: isWizardStep(Number(nextStep)) ? (Number(nextStep) as WizardStep) : 0,
+          interests: uniqueStrings([
+            ...((draft.interests ?? []) as InterestChip[]),
+            ...((contextState.interests ?? []) as InterestChip[]),
+          ]),
+          notesUserText: mergeContextNote(
+            String(contextState.notesUserText ?? ''),
+            String(draft.notesUserText ?? ''),
+          ),
+          currentStep: nextStep,
         },
       });
       setRestored(true);
     }
-    if (!draft && initialVisaFree) {
-      dispatch({ type: 'hydrate', state: { interests: ['visa-free'], currentStep: 3 } });
+    if (!draft && (initialVisaFree || initialContext)) {
+      dispatch({ type: 'hydrate', state: contextState });
     }
     didHydrate.current = true;
-  }, [initialVisaFree]);
+  }, [initialVisaFree, initialContext, locale]);
 
   useEffect(() => {
     if (!didHydrate.current) return;
@@ -815,8 +883,11 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
   }, [state]);
 
   const advisorPhone = useMemo(() => {
-    const href = CONTACT_CHANNELS.find((c) => c.kind === 'whatsapp')?.href ?? '';
-    return href.replace(/\D/g, '') || '8613000000000';
+    const href =
+      CONTACT_CHANNELS.find(
+        (c) => c.kind === 'whatsapp' && c.status === 'verified' && c.visibility !== 'hidden',
+      )?.href ?? '';
+    return href.replace(/\D/g, '');
   }, []);
 
   const payloadParts = useMemo(() => {
@@ -844,7 +915,7 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
   }, [dict, state]);
 
   const whatsapp = useMemo(
-    () => buildWhatsAppDeepLink(advisorPhone, payloadParts),
+    () => (advisorPhone ? buildWhatsAppDeepLink(advisorPhone, payloadParts) : null),
     [advisorPhone, payloadParts],
   );
 
@@ -866,7 +937,7 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
 
   const reset = () => {
     clearDraft();
-    dispatch({ type: 'reset', initialVisaFree });
+    dispatch({ type: 'reset', initialVisaFree, initialContext, locale });
     setErrors({});
     setRestored(false);
   };
@@ -910,12 +981,12 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
         `Interests: ${interestLabels.join(', ') || '—'}`,
         `Hotels: ${hotelLabel}`,
         state.notesUserText ? `Traveler note: ${state.notesUserText}` : '',
-        `WhatsApp jump payload: ${whatsapp.result.payload}`,
+        whatsapp ? `WhatsApp jump payload: ${whatsapp.result.payload}` : '',
       ]
         .filter(Boolean)
         .join('\n'),
       company_website: String(state.company_website ?? ''),
-      turnstileToken: String(state.turnstileToken || 'dev-turnstile-bypass'),
+      turnstileToken: String(state.turnstileToken || turnstileFallbackToken),
     };
 
     const parsed = leadFormSchema.safeParse(mapped);
@@ -936,6 +1007,16 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
         clearDraft();
         toast.success(t.home.leadForm.toasts.success);
         setSubmissionId(payload.id);
+        return;
+      }
+      if (res.status === 400 && 'error' in payload && payload.error === 'turnstile_failed') {
+        setErrors({ turnstileToken: dict.errors.turnstileMissing });
+        toast.error(t.home.leadForm.toasts.verificationFailed);
+        dispatch({ type: 'set', field: 'turnstileToken', value: turnstileFallbackToken });
+        return;
+      }
+      if (res.status === 429) {
+        toast.error(t.home.leadForm.toasts.rateLimited);
         return;
       }
       toast.error(t.home.leadForm.toasts.genericError);
@@ -976,8 +1057,8 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
           state={state}
           dispatch={dispatch}
           errors={errors}
-          whatsappHref={whatsapp.href}
-          whatsappPayload={whatsapp.result.payload}
+          whatsappHref={whatsapp?.href ?? null}
+          whatsappPayload={whatsapp?.result.payload ?? null}
         />
       );
     }
@@ -985,18 +1066,37 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
   })();
 
   return (
-    <section id="lead-form" className="bg-cream px-4 pb-28 pt-8 text-ink md:px-6 md:pb-20 md:pt-12">
-      <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[minmax(0,1fr)_300px] lg:grid-cols-[minmax(0,720px)_320px]">
+    <section id="lead-form" className="bg-paper px-4 pb-16 pt-8 text-ink md:px-6 md:pb-24 md:pt-14">
+      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[minmax(0,1fr)_300px] lg:grid-cols-[minmax(0,760px)_340px]">
         <div className="md:col-span-2">
           <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
             {dict.eyebrow}
           </p>
-          <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight tracking-tight text-ink md:text-6xl">
+          <h1 className="mt-3 max-w-4xl font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl lg:text-6xl">
             {dict.heading}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
             {dict.body}
           </p>
+          {initialContext && initialContext.items.length > 0 && (
+            <div className="mt-5 rounded-2xl border border-vermilion/20 bg-vermilion-soft/35 px-4 py-3 text-sm text-ink">
+              <p className="font-medium">
+                {locale === 'zh' ? '已带入上一页选择' : 'Carried over from the previous page'}
+              </p>
+              <dl className="mt-2 grid gap-2 sm:grid-cols-2">
+                {initialContext.items.map((item) => (
+                  <div key={item.id} className="min-w-0">
+                    <dt className="text-[11px] uppercase tracking-[0.14em] text-ink-soft">
+                      {textForLocale(item.label, locale)}
+                    </dt>
+                    <dd className="mt-0.5 break-words text-ink">
+                      {textForLocale(item.value, locale)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
           {restored && (
             <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-jade/25 bg-jade/10 px-4 py-3 text-sm text-ink sm:flex-row sm:items-center sm:justify-between">
               <span>{dict.resumeHint}</span>
@@ -1012,7 +1112,7 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
         </div>
 
         <div className="min-w-0">
-          <div className="sticky top-0 z-20 -mx-4 border-b border-ink/10 bg-cream/95 px-4 py-4 backdrop-blur md:static md:mx-0 md:border-b-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-none">
+          <div className="sticky top-[88px] z-20 -mx-4 border-b border-ink/10 bg-paper/95 px-4 py-4 backdrop-blur md:static md:mx-0 md:border-b-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-none">
             <div className="flex items-center justify-between text-sm font-medium text-ink">
               <span className="text-vermilion">
                 {dict.progressLabel} {state.currentStep + 1} {dict.of} {TOTAL_STEPS}
@@ -1027,34 +1127,34 @@ export function PlanWizard({ initialVisaFree = false }: { initialVisaFree?: bool
             </div>
           </div>
 
-          <div className="mt-6 rounded-[2rem] border border-ink/10 bg-paper p-5 shadow-sm md:mt-6 md:p-8">
+          <div className="mt-6 rounded-[2rem] border border-ink/10 bg-cream p-5 shadow-sm md:mt-6 md:p-8">
             {stepNode}
+          </div>
+
+          <div className="-mx-4 mt-6 border-t border-ink/10 bg-paper px-4 py-3 md:mx-0 md:border-t-0 md:bg-transparent md:px-0 md:py-0">
+            <div className="flex gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={goBack}
+                disabled={state.currentStep === 0 || submitting}
+                className="min-h-11 rounded-full border-ink/15 bg-soft-ivory px-5 text-ink hover:bg-paper disabled:opacity-40"
+              >
+                {dict.back}
+              </Button>
+              <Button
+                type="button"
+                onClick={goNext}
+                disabled={submitting}
+                className="min-h-11 flex-1 rounded-full bg-vermilion px-6 font-medium text-soft-ivory shadow-md shadow-vermilion/25 hover:bg-vermilion-deep disabled:opacity-60"
+              >
+                {submitting ? dict.submitting : state.currentStep === 4 ? dict.submit : dict.next}
+              </Button>
+            </div>
           </div>
         </div>
 
         <WizardSummary dict={dict} state={state} locale={locale} />
-      </div>
-
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-ink/10 bg-cream/95 px-4 py-3 shadow-[0_-12px_30px_rgba(15,23,42,0.08)] backdrop-blur md:static md:mx-auto md:mt-6 md:max-w-6xl md:border-t-0 md:bg-transparent md:px-6 md:py-0 md:shadow-none md:backdrop-blur-none">
-        <div className="flex gap-3 md:max-w-[720px]">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={goBack}
-            disabled={state.currentStep === 0 || submitting}
-            className="min-h-11 rounded-full border-ink/15 bg-soft-ivory px-5 text-ink hover:bg-paper disabled:opacity-40"
-          >
-            {dict.back}
-          </Button>
-          <Button
-            type="button"
-            onClick={goNext}
-            disabled={submitting}
-            className="min-h-11 flex-1 rounded-full bg-vermilion px-6 font-medium text-soft-ivory shadow-md shadow-vermilion/25 hover:bg-vermilion-deep disabled:opacity-60"
-          >
-            {submitting ? dict.submitting : state.currentStep === 4 ? dict.submit : dict.next}
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ interface HeroBackdropProps {
   src?: string;
   slides?: string[];
   alt?: string;
+  eager?: boolean;
   intervalMs?: number;
 }
 
@@ -22,6 +23,7 @@ export function HeroBackdrop({
   src,
   slides,
   alt = '',
+  eager = false,
   intervalMs = 6500,
 }: HeroBackdropProps) {
   const reduce = useReducedMotion();
@@ -53,7 +55,8 @@ export function HeroBackdrop({
             src={slide}
             alt={i === index ? alt : ''}
             fill
-            priority={i === 0}
+            loading={eager && i === index ? 'eager' : 'lazy'}
+            fetchPriority={eager && i === index ? 'high' : undefined}
             sizes="100vw"
             quality={90}
             className={`object-cover transition-opacity duration-200 ease-out ${
@@ -114,7 +117,8 @@ export function HeroBackdrop({
               src={list[index]}
               alt={alt}
               fill
-              priority={index === 0}
+              loading={eager ? 'eager' : undefined}
+              fetchPriority={eager && index === 0 ? 'high' : undefined}
               sizes="100vw"
               quality={90}
               className="object-cover"

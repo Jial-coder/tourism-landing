@@ -36,9 +36,15 @@ import { SoftLinkDialog } from "@/components/chrome/SoftLinkDialog";
  *   DESIGN.md §7.7-§7.10
  */
 
+function getWhatsAppHref() {
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, "");
+  return phone ? `https://wa.me/${phone}` : null;
+}
+
 export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "always-chromed" } = {}) {
   const dict = useDictionary();
   const nav = dict.home.nav;
+  const whatsappHref = getWhatsAppHref();
 
   const [isScrolled, setIsScrolled] = useState(variant === "always-chromed");
   const [authOpen, setAuthOpen] = useState(false);
@@ -102,7 +108,6 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
               alt={nav.brand}
               width={800}
               height={275}
-              priority
               sizes="(max-width: 640px) 200px, (max-width: 1024px) 240px, 280px"
               className="h-12 w-auto md:h-14 lg:h-16"
             />
@@ -154,14 +159,16 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
               >
                 {nav.ctaPlan}
               </CTAPrimary>
-              <a
-                href="https://wa.me/"
-                className="inline-flex items-center gap-1.5 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/80 motion-safe:transition-colors whitespace-nowrap"
-                aria-label={nav.whatsappAria}
-              >
-                <MessageCircle size={14} aria-hidden />
-                {nav.whatsappLabel}
-              </a>
+              {whatsappHref && (
+                <a
+                  href={whatsappHref}
+                  className="inline-flex items-center gap-1.5 text-[13px] font-misans-regular text-soft-ivory hover:text-soft-ivory/80 motion-safe:transition-colors whitespace-nowrap"
+                  aria-label={nav.whatsappAria}
+                >
+                  <MessageCircle size={14} aria-hidden />
+                  {nav.whatsappLabel}
+                </a>
+              )}
             </div>
 
             {/* M-AUTH-ENTRY */}
@@ -252,6 +259,7 @@ export function TopNav({ variant = "home-hero" }: { variant?: "home-hero" | "alw
           setMobileOpen(false);
           setAuthSoftOpen(true);
         }}
+        whatsappHref={whatsappHref}
       />
 
       <SoftFourOhFourDialog
@@ -275,11 +283,13 @@ function MobileDrawer({
   onClose,
   onSoft404,
   onAuthSoft,
+  whatsappHref,
 }: {
   open: boolean;
   onClose: () => void;
   onSoft404: () => void;
   onAuthSoft: () => void;
+  whatsappHref: string | null;
 }) {
   const dict = useDictionary();
   const nav = dict.home.nav;
@@ -343,13 +353,15 @@ function MobileDrawer({
           <CTAPrimary href="/plan" className="w-full h-12">
             {nav.ctaPlan}
           </CTAPrimary>
-          <a
-            href="https://wa.me/"
-            className="inline-flex items-center justify-center gap-2 text-[15px] font-misans-regular text-soft-ivory"
-          >
-            <MessageCircle size={16} aria-hidden />
-            {nav.whatsappLabel}
-          </a>
+          {whatsappHref && (
+            <a
+              href={whatsappHref}
+              className="inline-flex items-center justify-center gap-2 text-[15px] font-misans-regular text-soft-ivory"
+            >
+              <MessageCircle size={16} aria-hidden />
+              {nav.whatsappLabel}
+            </a>
+          )}
         </div>
         <div className="mt-10">
           <div className="text-[12px] font-misans-regular tracking-widest text-soft-ivory/45">
@@ -419,7 +431,7 @@ function SoftFourOhFourDialog({
           </p>
           <div className="mt-2 flex items-center gap-4">
             <a
-              href="mailto:hello@example.com?subject=Notify%20me%20when%20Stories%20opens"
+              href="/plan?intent=stories-notify"
               className="text-[13px] font-misans-regular text-alpine-blue underline-offset-4 hover:underline"
             >
               {nav.soft404Notify}

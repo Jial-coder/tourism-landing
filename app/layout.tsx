@@ -12,6 +12,25 @@ import "./globals.css";
 
 const dictionaries = { en, zh } as const;
 
+function getMetadataBase(headerStore: Headers) {
+  const configuredUrl =
+    process.env.SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
+
+  if (configuredUrl) {
+    return new URL(
+      configuredUrl.startsWith("http") ? configuredUrl : `https://${configuredUrl}`,
+    );
+  }
+
+  const host = headerStore.get("x-forwarded-host") ?? headerStore.get("host") ?? "localhost:3000";
+  const protocol =
+    headerStore.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
+
+  return new URL(`${protocol}://${host}`);
+}
+
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-newsreader",
@@ -39,6 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
     meta?.description ??
     "Editorial cinematic concierge for inbound China travel. A real local advisor turns your idea into a route — not a generic package.";
   return {
+    metadataBase: getMetadataBase(headerStore),
     title,
     description,
     icons: {

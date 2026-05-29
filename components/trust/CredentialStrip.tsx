@@ -1,6 +1,5 @@
 'use client';
 
-import { MockBadge } from '@/components/trust/MockBadge';
 import { useLocale } from '@/components/i18n/LocaleProvider';
 import type { CredentialProof } from '@/lib/data/trust-proofs';
 
@@ -24,20 +23,19 @@ const CATEGORY_LABEL_ZH: Record<CredentialProof['category'], string> = {
 
 export function CredentialStrip({ credentials }: { credentials: CredentialProof[] }) {
   const { locale } = useLocale();
-  if (credentials.length === 0) return null;
-  const placeholderLabel = locale === 'zh' ? '占位' : 'placeholder';
+  const visibleCredentials = credentials.filter((credential) => credential.status !== 'hidden');
+  if (visibleCredentials.length === 0) return null;
+
   const labelMap = locale === 'zh' ? CATEGORY_LABEL_ZH : CATEGORY_LABEL_EN;
   return (
     <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {credentials.map((c) => {
-        const isMock = c.status === 'mock';
+      {visibleCredentials.map((c) => {
         return (
           <li
             key={c.id}
             data-status={c.status}
             className="relative flex h-full flex-col gap-2 rounded-2xl border border-ink/10 bg-cream p-5"
           >
-            {isMock && <MockBadge className="self-start">{placeholderLabel}</MockBadge>}
             <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-jade">
               {labelMap[c.category]}
             </span>

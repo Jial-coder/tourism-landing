@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
 import { useDictionary } from "@/components/i18n/LocaleProvider";
 
@@ -63,12 +64,12 @@ export function SoftLinkDialog({
             {body}
           </p>
           <div className="mt-2 flex items-center gap-4">
-            <a
-              href="mailto:hello@example.com?subject=Notify%20me%20when%20this%20corner%20opens"
+            <Link
+              href="/plan?intent=notify"
               className="text-[13px] font-misans-regular text-alpine-blue underline-offset-4 hover:underline"
             >
               {nav.soft404Notify}
-            </a>
+            </Link>
             <button
               type="button"
               onClick={onClose}

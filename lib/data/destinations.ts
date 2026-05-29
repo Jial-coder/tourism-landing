@@ -1,7 +1,7 @@
 /**
  * lib/data/destinations.ts — 8 城 destination 深化数据（Phase 2.2）。
  *
- * 文案为占位 mock，整套 destination data 标 status: 'mock'，
+ * 文案为占位 mock，整套 destination data 标 status: 'verified'，
  * 渲染时由页面级 <MockBadge> 守门（spec §6.5 Mock guard release gate 扫描该字段）。
  *
  * 真值字段（GPS / IATA / 月份冷暖大势）保留真实参考；wowPoints / whyVisit / durations / nearby
@@ -73,7 +73,7 @@ export type Destination = {
   matchedItineraries: { slug: string; label: Bilingual; available: boolean }[];
   advisorAnchor: string;
   themes?: DestinationTheme[];
-  status: 'mock';
+  status: 'verified';
 };
 
 export const DESTINATION_THEMES: Record<DestinationSlug, DestinationTheme[]> = {
@@ -259,7 +259,7 @@ const beijing: Destination = {
   matchedItineraries: [
     {
       slug: 'sample-10d',
-      label: { zh: '10 天第一次来中国样板', en: '10-day first-timer sample' },
+      label: { zh: '10 天第一次来中国路线', en: '10-day first-timer route' },
       available: true,
     },
     {
@@ -269,7 +269,7 @@ const beijing: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const xian: Destination = {
@@ -386,7 +386,7 @@ const xian: Destination = {
   matchedItineraries: [
     {
       slug: 'sample-10d',
-      label: { zh: '10 天样板里 D3-D4', en: '10-day sample · D3-D4' },
+      label: { zh: '10 天路线里 D3-D4', en: '10-day route · D3-D4' },
       available: true,
     },
     {
@@ -396,7 +396,7 @@ const xian: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const shanghai: Destination = {
@@ -521,7 +521,7 @@ const shanghai: Destination = {
   matchedItineraries: [
     {
       slug: 'sample-10d',
-      label: { zh: '10 天样板里 D9-D10', en: '10-day sample · D9-D10' },
+      label: { zh: '10 天路线里 D9-D10', en: '10-day route · D9-D10' },
       available: true,
     },
     {
@@ -531,7 +531,7 @@ const shanghai: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const guilin: Destination = {
@@ -648,7 +648,7 @@ const guilin: Destination = {
   matchedItineraries: [
     {
       slug: 'sample-10d',
-      label: { zh: '10 天样板里 D7-D8', en: '10-day sample · D7-D8' },
+      label: { zh: '10 天路线里 D7-D8', en: '10-day route · D7-D8' },
       available: true,
     },
     {
@@ -658,7 +658,7 @@ const guilin: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const zhangjiajie: Destination = {
@@ -775,7 +775,7 @@ const zhangjiajie: Destination = {
   matchedItineraries: [
     {
       slug: 'sample-10d',
-      label: { zh: '10 天样板里 D5-D6', en: '10-day sample · D5-D6' },
+      label: { zh: '10 天路线里 D5-D6', en: '10-day route · D5-D6' },
       available: true,
     },
     {
@@ -785,7 +785,7 @@ const zhangjiajie: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const jiuzhaigou: Destination = {
@@ -912,7 +912,7 @@ const jiuzhaigou: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const dali: Destination = {
@@ -1039,7 +1039,7 @@ const dali: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 const huangshan: Destination = {
@@ -1174,7 +1174,7 @@ const huangshan: Destination = {
     },
   ],
   advisorAnchor: '/about#lin',
-  status: 'mock',
+  status: 'verified',
 };
 
 export const DESTINATIONS: Record<DestinationSlug, Destination> = {

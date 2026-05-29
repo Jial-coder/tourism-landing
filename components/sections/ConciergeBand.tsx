@@ -34,7 +34,7 @@ export function ConciergeBand() {
                 把想法告诉一个真人顾问
               </h2>
               <p className="text-[14px] lg:text-[15px] font-misans-regular text-ink/70 leading-relaxed">
-                4 个字段 · 不需要先选行程 · 不主动外发你的联系方式。本地中国顾问会在 4 小时内回 WhatsApp 或微信。
+                4 个字段 · 不需要先选行程 · 不主动外发你的联系方式。本地中国顾问会在 4 小时内按你选择的方式回复。
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export function ConciergeBand() {
                   收到 · 4 小时内 Lin 会回你
                 </div>
                 <p className="mt-1 text-[13px] font-misans-regular text-ink/70">
-                  我们也会同步发一份 10 天样板行程做参考。如果你急，直接 WhatsApp +86 138 *** Lin。
+                  我们也会同步发一份 10 天参考路线做讨论起点。如果你急，可以继续补充一份完整需求表。
                 </p>
               </div>
             ) : (
@@ -70,7 +70,7 @@ export function ConciergeBand() {
                     placeholder="2 大 1 小 · 父母同行"
                   />
                   <Field
-                    label="WhatsApp / 微信 / Email"
+                    label="联系方式"
                     name="contact"
                     placeholder="选你最方便回复的一种"
                   />
@@ -120,11 +120,11 @@ export function ConciergeBand() {
               "我会先听你的节奏，再帮你判断哪条线最合适。" — Lin
             </p>
             <a
-              href="https://wa.me/"
+              href="/plan?advisor=lin"
               className="inline-flex items-center gap-2 text-[13px] font-misans-bold text-ink hover:text-jade"
             >
               <MessageCircle size={14} aria-hidden />
-              Talk to Lin on WhatsApp →
+              Ask Lin to check it →
             </a>
           </aside>
         </div>

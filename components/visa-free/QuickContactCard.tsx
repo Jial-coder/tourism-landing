@@ -2,23 +2,10 @@
 
 import { useLocale } from '@/components/i18n/LocaleProvider';
 import { CTAPrimary } from '@/components/atoms/CTAGhost';
-import {
-  buildWhatsAppDeepLink,
-  groupTextFrom,
-  interestsTextFrom,
-  whenTextFrom,
-} from '@/lib/wizard-payload';
-
-const ADVISOR_PHONE = '861300000000';
 
 export function QuickContactCard() {
   const { t } = useLocale();
   const dict = t.home.visaFree;
-  const wa = buildWhatsAppDeepLink(ADVISOR_PHONE, {
-    whenText: whenTextFrom({ tripWindow: 'considering', tripMonth: '', tripLength: '5-7-days' }),
-    groupText: groupTextFrom({ groupType: 'visa-free', adultsCount: 1, childrenAgeTiers: [] }),
-    interestsText: interestsTextFrom({ chips: ['visa-free'], notes: 'wants to chat' }),
-  });
   return (
     <article className="flex flex-col gap-5 rounded-[12px] bg-vermilion-soft/70 p-6 ring-1 ring-vermilion/20 lg:p-10">
       <div className="flex flex-col gap-2">
@@ -28,7 +15,7 @@ export function QuickContactCard() {
         <p className="text-[16px] font-misans-bold text-ink lg:text-[18px]">{dict.contact.body}</p>
       </div>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-        <CTAPrimary href={wa.href} className="h-11">
+        <CTAPrimary href="/plan?type=visa-free" className="h-11">
           {dict.contact.whatsappCta}
         </CTAPrimary>
         <a

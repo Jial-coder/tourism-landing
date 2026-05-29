@@ -29,8 +29,21 @@ export default {
   faq: {},
   // TODO_COPY
   footer: {},
-  // TODO_COPY
-  chat: {},
+  chat: {
+    launcher: {
+      showEntry: '显示聊天入口',
+      openEntry: '聊天入口 · 联系顾问台',
+      dialogLabel: '顾问聊天窗口',
+      title: '联系顾问台',
+      status: 'Lin · 在线 · 通常 5 分钟内回复',
+      hide: '隐藏',
+      close: '关闭',
+      prompt:
+        '你好。先问一句：你大概打算什么时候来中国？我先记下来，再给你一份对应季节的参考路线。',
+      placeholder: '写下你的问题...',
+      sendToSpecialist: '发给顾问 →',
+    },
+  },
   leadResponsePromise: '北京顾问 Lin 会在 4 小时内回复你（中国节假日除外）',
   home: {
     nav: {
@@ -59,18 +72,18 @@ export default {
       mobileMenuLabel: '移动端菜单',
       languageHeading: 'LANGUAGE · 语言',
       soft404Title: '这一栏将在第二阶段开放',
-      soft404Body: '这部分将在第二阶段上线，想第一时间收到通知吗？',
+      soft404Body: '这部分将在第二阶段上线。你可以先留下一条需求，我们开放后再接着回到这里。',
       soft404Notify: 'Notify me · 通知我',
       soft404Close: 'Esc 关闭',
       contactSpecialist: '直接联系顾问',
       softLinks: {
         auth: {
           title: '账户系统将在 v1.5 上线',
-          body: '现在草稿与回信会通过邮箱 / WhatsApp 与你保持同步；账户登录正在路上。想第一时间拿到登录链接吗？',
+          body: '现在草稿与回信会通过邮箱和你在表单里留下的联系方式保持同步；账户登录正在路上。想第一时间拿到登录链接吗？',
         },
         themes: {
           title: '主题分类页 v1.5 上线',
-          body: '我们正在把家庭、自然、商务延伸、文化遗产等主题拆成独立的入口页。v1.5 上线后会带你直接看到每个主题下的样板路线。',
+          body: '我们正在把家庭、自然、商务延伸、文化遗产等主题拆成独立的入口页。v1.5 上线后会带你直接看到每个主题下的路线方向。',
         },
         legalPrivacy: {
           title: '隐私政策正文整理中',
@@ -81,8 +94,8 @@ export default {
           body: '正式服务条款正在律师终审中。上线前会替换为正式条款页面。',
         },
         legalIcp: {
-          title: 'ICP 备案号待补',
-          body: '中国境内备案手续办理中，备案号下来后会替换这一行的占位。',
+          title: 'ICP 备案办理中',
+          body: '中国境内备案手续办理中，备案号下来后会更新这一行。',
         },
         bestTime: {
           title: '“最佳出行时间”专题筹备中',
@@ -94,11 +107,11 @@ export default {
         },
         press: {
           title: '媒体询问页筹备中',
-          body: '在媒体页上线前，请直接邮件 hello@example.com，主题写「Press inquiry」，我们会在 1 个工作日内回复。',
+          body: '媒体页上线前，请先通过需求表单留一句「Press inquiry」。我们会把它转给负责人处理。',
         },
         wechat: {
           title: '微信联系卡正在做',
-          body: '上线前会在这里放出 Lin 本人的二维码与个人微信号；目前请先用 WhatsApp 或邮箱联系我们。',
+          body: '上线前会在这里放出 Lin 本人的二维码与个人微信号；目前请先通过需求表单留下联系方式。',
         },
         aboutPromise: {
           title: '“品牌承诺”单页整理中',
@@ -110,7 +123,7 @@ export default {
         },
         aboutVoices: {
           title: '“客户原话”集合页筹备中',
-          body: '首批旅客回家后我们会把原话与照片汇总到这一页。在那之前，/reviews 已有承诺与示例。',
+          body: '首批旅客回家后我们会把原话与照片汇总到这一页。在那之前，/reviews 已有承诺与衡量标准。',
         },
       },
     },
@@ -122,26 +135,49 @@ export default {
       primaryCta: '开始定制',
       secondaryCta: '直接联系顾问',
       contactModalTitle: '直接联系顾问',
-      contactModalDescription: '挑一个你顺手的渠道，北京顾问会在 24 小时内回复（中国节假日除外）。',
+      contactModalDescription: '先提交一份定制需求，北京顾问会按你留下的联系方式回复（中国节假日除外）。',
+      contactModalCloseLabel: '关闭联系顾问弹窗',
       anchorCard: {
-        eyebrow: '样板路线 · 改成你的版本',
+        eyebrow: '路线起点 · 改成你的版本',
         title: '10 天第一次来中国 · 文化与山水平衡线',
         meta: '10 天 · USD 4,200 起 · 4–5 月 / 9–10 月最佳',
         cta: '看完整行程',
       },
     },
+    advisorShortcut: {
+      eyebrow: '还在比较？先问顾问',
+      heading: '先把方向说清楚，再开始排路线',
+      body:
+        '如果你还在比较城市、季节、节奏或预算，这一段先帮你把最关键的三件事说清楚。北京顾问会接住你的想法，再往下收拢成路线草稿。',
+      primaryCta: '去做行程',
+      secondaryCta: '填写需求',
+      points: [
+        {
+          title: '4 小时内回复',
+          body: '北京顾问人工接单，不是客服机器人。',
+        },
+        {
+          title: '先聊方向',
+          body: '还没定城市也没关系，先把节奏和预算范围讲清楚。',
+        },
+        {
+          title: '继续往下走',
+          body: '如果你已经有想法，直接进入定制表单。',
+        },
+      ],
+    },
     trustStrip: {
       items: [
-        { value: 10000, suffix: '+', label: '已为 10,000+ 位旅客做过定制' },
-        { value: 98.8, decimals: 1, suffix: '%', label: '五星好评率（样本）' },
-        { value: 8, suffix: ' 年', label: '顾问平均从业年限' },
-        { value: 24, suffix: ' 小时', label: '内回复（中国节假日除外）' },
+        { value: 4, suffix: ' 小时', label: '首次人工回复目标' },
+        { value: 24, suffix: ' 小时', label: '方向确认后给出路线草稿' },
+        { value: 1, suffix: ':1', label: '北京顾问对接，不走客服机器人' },
+        { value: 0, suffix: ' 套', label: '固定套餐菜单，按你的节奏重排' },
       ],
     },
     visaFreeBanner: {
       eyebrow: '240 小时免签',
       headline: '海外护照可在北京 / 上海 / 广州过境免签 240 小时',
-      body: '55 国 · 65 口岸 · 24 省。我们已经做好了多条 10 天过境路线，选一条让北京顾问帮你改细节。',
+      body: '官方政策覆盖 55 国、65 口岸、24 个省级区域。当前工具先放最常见护照和口岸，再由 Lin 做最终核对。',
       cta: '看免签路线',
     },
     howWeWork: {
@@ -182,11 +218,11 @@ export default {
       ],
     },
     sampleItineraries: {
-      eyebrow: '已经写过的样板',
-      heading: '我们已经写过的样板行程 · 可以是你的起点',
-      body: '5 条 mock 样板行程，每条 10 章节深度，节奏按真实可执行的顾问视角写。挑一条像你的，告诉 Lin 你想加 / 减 / 换的细节。',
-      cta: '看完整行程',
-      seeAll: '看完整 5 条样板列表',
+      eyebrow: '路线起点',
+      heading: '先选一个方向，再让顾问改成你的版本',
+      body: '公开目的地先给你几个清晰起点。先把你喜欢的方向交给 Lin，我们会按月份、预算和节奏重排。',
+      cta: '看完整方向',
+      seeAll: '填写我的需求',
       meta: {
         days: '天',
         priceFromUsd: 'USD {price} 起',
@@ -195,8 +231,8 @@ export default {
     },
     itineraries: {
       eyebrow: 'Itineraries',
-      heroHeading: '先看一条样板路线 · 再改成你的版本',
-      heroBody: '5 条样板，10 章节深度，每条都标 mock 守门。看完之后告诉 Lin 你想加 / 减 / 换的细节。',
+      heroHeading: '先看路线方向 · 再改成你的版本',
+      heroBody: '每条路线都会清楚标明可调整范围。看完之后告诉 Lin 你想加 / 减 / 换的细节。',
       filterDuration: '天数',
       filterTheme: '主题',
       filterMonth: '出行月份',
@@ -210,12 +246,12 @@ export default {
       detailTripNotes: '住、行、吃、签证 · 一段简短交底',
       detailAdvisor: '把它交给 Lin 改成你的版本',
       detailFinalCta: '把这条路线交给 Lin 改 →',
-      mockBadge: '样板价位',
+      mockBadge: '参考价位',
     },
     specialists: {
       eyebrow: '你的顾问',
-      heading: '每条回复背后都是真人',
-      body: '北京 / 成都 / 上海全职顾问，签约不外包。',
+      heading: '先由真人顾问接住你的想法',
+      body: '公开顾问名片会在资料核验后展示；当前先说明你的需求会怎样被人工处理。',
       cta: '联系顾问',
     },
     leadForm: {
@@ -263,23 +299,24 @@ export default {
         { id: '15000_30000usd', label: '人均 15,000 – 30,000 美元' },
         { id: '30000usd_plus', label: '人均 30,000 美元以上' },
       ],
-      consent: '提交即同意顾问与你联系。当前为示例占位文案，上线前替换为正式隐私声明。',
+      consent: '提交即表示你同意我们仅为行程沟通使用这些信息；如需停止联系，可随时告知顾问。',
       toasts: {
         verificationFailed: '人机校验失败，请重试。',
         rateLimited: '提交过于频繁，请稍后再试。',
-        genericError: '出了点小问题，可重试或通过 WhatsApp 联系我们。',
+        genericError: '出了点小问题，请重试；如果持续失败，可以稍后重新提交。',
         success: '已收到，Lin 会在 4 小时内回复。',
       },
     },
     leadFormSuccess: {
       title: '收到了，谢谢。',
       subtitle: '北京顾问 Lin 会在 4 小时内亲自回复你（中国节假日除外）。',
-      channelsHeading: '想要更快回复？也可以直接：',
+      channelsHeading: '其它已验证联系渠道：',
+      channelsFallback: '我们已经收到你的需求；顾问会按你表单里留下的联系方式回复。外部直连渠道核验前不会公开。',
       advisorPromiseEyebrow: '1:1 顾问承诺',
       advisorPromiseTitle: '北京顾问 Lin 会在 4 小时内回复',
       advisorPromiseBody: '没有轮班排队。同一位顾问从草稿、回复，到出发前的所有沟通都跟到底。',
-      directWhatsApp: '直接 WhatsApp 找 Lin →',
-      directWeChat: '微信联系（国内优先）→',
+      directWhatsApp: 'WhatsApp 联系 Lin →',
+      directWeChat: '微信联系 Lin →',
       backHome: '← 回到首页',
     },
     planWizard: {
@@ -298,7 +335,7 @@ export default {
       jumpWhatsAppBody:
         '点这里直接打开 WhatsApp，已填的行程意向会自动带过去。Lin 看到后用你的时区回你。',
       jumpWhatsAppCta: 'WhatsApp 联系 Lin',
-      jumpWhatsAppMockHint: '上线前 WhatsApp 号为占位号。',
+      jumpWhatsAppMockHint: 'WhatsApp 号码上线前暂不公开。',
       filledHeading: '已填',
       resumeHint: '检测到上次的草稿，已为你恢复。',
       resumeClear: '清空重新填',
@@ -309,6 +346,7 @@ export default {
         tooLong: '字数超出上限',
         invalidNumber: '请填一个有效的数字',
         termsRequired: '请先勾选同意再发送',
+        turnstileMissing: '人机校验未完成，请稍候再试',
         generic: '这里填得有点问题，请检查一下',
       },
       summary: {
@@ -403,8 +441,8 @@ export default {
       },
       step5: {
         heading: '顾问怎么联系你？',
-        body: '北京顾问 Lin 用你的时区，按你顺手的渠道回你。',
-        whyAsk: '至少要邮箱才能发草稿。电话 + WhatsApp / 微信选填，会让回合更快。',
+        body: '北京顾问 Lin 用你的时区，按你在表单里留下的联系方式回你。',
+        whyAsk: '至少要邮箱才能发草稿。电话和备注里的联系偏好选填，会让回合更快。',
         nameLabel: '你的称呼',
         namePlaceholder: '请填写姓名',
         emailLabel: '邮箱',
@@ -426,7 +464,7 @@ export default {
       items: [
         {
           q: '需要中国签证吗？',
-          a: '截至 2026 年，38 个国家旅客可享 30 天免签入境；我们会在收到咨询后 24 小时内确认你的资格。（示例占位 —— 上线前由运营核实最新政策。）',
+          a: '截至 2026 年，40 多个国家旅客可享 30 天单方面免签入境；我们会在收到咨询后 24 小时内确认你的资格。政策会动态调整，请以最新核验为准。',
         },
         {
           q: '需要多早开始计划？',
@@ -442,15 +480,15 @@ export default {
         },
         {
           q: '怎么付款？',
-          a: '支持国际信用卡、银行转账与 Stripe。行程未确认前不收取任何费用。',
+          a: '第一版方案沟通阶段不收款。最终付款方式和收款主体会写进正式方案，确认清楚后才付款。',
         },
         {
           q: '取消政策如何？',
-          a: '出发前 30 天以上免费取消；14–30 天部分退款；具体写入合同。',
+          a: '取消条款会在付款前写入正式服务协议。条款没有讲清楚之前，我们不会要求你付款。',
         },
         {
           q: '中国上网 / VPN 怎么处理？',
-          a: '我们会提前告知你能用的本地 App（微信、支付宝、地图）并提供旅行 SIM 卡，行程内可访问 Google 等服务。',
+          a: '我们会在出发前说明必备中国 App，以及当时可用的旅行 SIM / eSIM 方案。网络规则会变化，临近出行再做最终确认。',
         },
         {
           q: '能处理特殊需求（饮食 / 无障碍）吗？',
@@ -460,8 +498,8 @@ export default {
     },
     trustGrid: {
       eyebrow: '为什么留下来',
-      heading: '顾问、案例、评价与小字',
-      body: '当前为示例占位内容；所有模块都接到结构化数据层，运营可一键替换为真实素材。',
+      heading: '真实证据没有准备好，就不假装准备好了',
+      body: '评价、顾问名片、案例和资质会在核验后公开；在此之前，首页只展示能兑现的流程承诺。',
       sections: {
         advisors: {
           title: '真人顾问，而不是客服话术',
@@ -469,15 +507,15 @@ export default {
         },
         cases: {
           title: '我们起草过的范例旅程',
-          body: '概念性范例 —— 你的行程会从对话出发重新搭建。',
+          body: '示例旅程草稿 —— 你的行程会从对话出发重新搭建。',
         },
         reviews: {
           title: '旅客怎么说',
-          body: '示例占位评价 —— 真实 Tripadvisor 和 Google 评价由运营接入。',
+          body: '示例评价 —— 真实 Tripadvisor 和 Google 评价由运营接入。',
         },
         credentials: {
           title: '正经但有用的小字',
-          body: '资质、支付合作、隐私声明 —— 法务确认前先用占位。',
+          body: '资质、支付合作、隐私声明 —— 法务确认前先用暂行说明。',
         },
       },
     },
@@ -495,13 +533,13 @@ export default {
           a: {
             label: '第 1 步 · 护照',
             heading: '选你的护照国',
-            help: 'NIA 现行 55 国白单都在这里。',
+            help: '当前先收录 NIA 55 国名单中的常见护照；如果找不到，请让 Lin 单独核对。',
             placeholder: '搜索国家',
           },
           b: {
             label: '第 2 步 · 入境口岸',
             heading: '选你入境的口岸',
-            help: '65 个口岸 — 机场、高铁、跨境大桥、陆港、海港。',
+            help: '当前先收录常见机场、高铁站、跨境大桥、陆港和海港；官方完整名单更广。',
             placeholder: '搜索口岸',
           },
           c: {
@@ -536,7 +574,7 @@ export default {
         ],
         cta: {
           plan: '让 Lin 给我画一条这个路线',
-          chat: 'WhatsApp 直接问 Lin',
+          chat: '把当前选择发给 Lin',
         },
       },
       caveats: {
@@ -565,18 +603,18 @@ export default {
         ],
       },
       readymade: {
-        heading: '我们已经写过的 240h 路线',
-        body: '四条 10 天框架。Lin 会按你的同行人 / 节奏 / 回程航班把它改成你的版本。',
-        comingSoonBadge: '筹建中',
+        heading: '免签路线方向',
+        body: '四条 10 天起点。Lin 会按你的同行人 / 节奏 / 回程航班把它改成你的版本。',
+        comingSoonBadge: '按需定制',
         cta: '请 Lin 写这条给我',
       },
       contact: {
         heading: '还是拿不准？跳过表单。',
-        body: '北京顾问 Lin 在你的时区上午第一件事看 WhatsApp。',
-        whatsappCta: 'WhatsApp 直接找 Lin',
+        body: '把你的护照、口岸和第三国去向发给 Lin，顾问会先确认免签边界，再建议路线。',
+        whatsappCta: '让 Lin 帮我判断',
         embassyCta: '需要更长？申请 L 类签证 →',
         embassyHref: 'https://bj.china-embassy.gov.cn/chn/',
-        notOnListCta: '护照不在 55 国名单？也可以聊聊 →',
+        notOnListCta: '这里没列出你的护照？也可以聊聊 →',
       },
       tailorMake: {
         heading: '或者，把刚才的回答交给定制顾问',
@@ -596,7 +634,7 @@ export default {
       },
       reasons: {
         pendingInput: '填完四步才能给出结论。',
-        passportNotEligible: '你的护照不在 55 国白单里。',
+        passportNotEligible: '你的护照不在当前工具列表里。预订前请让 Lin 按最新政策单独核对。',
         portNotInPassportList: '这个口岸对你的护照不开放。',
         portNotApplicableForStay: '这个口岸目前不开放你选的停留时长。',
         durationNotEligibleForPassport: '你的护照不在该停留时长的名单中。',
@@ -607,6 +645,19 @@ export default {
     },
     pathCFooter: {
       brandTagline: '中国本地顾问真人在线，把你的想法慢慢谈成一条只属于你的路线。',
+      manifesto: {
+        title: '真正的高光时刻，发生在距离够近的时候。',
+        subtitle: '旅行最好的瞬间，通常不是远远看一眼。',
+      },
+      newsletter: {
+        heading: '月报',
+        body: '每月 1 封 · 顾问亲选 3 个目的地灵感 · 不卖广告。',
+      },
+      legalShortLabels: {
+        privacy: '隐私',
+        terms: '条款',
+        icp: 'ICP',
+      },
       sitemap: {
         plan: {
           heading: '开始规划',
@@ -620,8 +671,8 @@ export default {
           heading: '看看路线',
           links: [
             { label: '行程一览', href: '/itineraries' },
-            { label: '样板 10 天', href: '/itineraries/sample-10d' },
-            { label: '主题（v1.5 上线）', href: '/themes', soft: 'themes' as const },
+            { label: '告诉 Lin 你的版本', href: '/plan' },
+            { label: '主题', href: '/themes', soft: 'themes' as const },
           ],
         },
         about: {
@@ -629,15 +680,15 @@ export default {
           links: [
             { label: '关于 pandatravel', href: '/about' },
             { label: '旅客评价', href: '/reviews' },
-            { label: '联系顾问（v1.5）', href: '/about#contact' },
+            { label: '联系顾问', href: '/about#contact' },
           ],
         },
         channels: {
           heading: '小字',
           links: [
-            { label: '隐私（占位）', href: '/legal/privacy', soft: 'legalPrivacy' as const },
-            { label: '条款（占位）', href: '/legal/terms', soft: 'legalTerms' as const },
-            { label: 'ICP 占位', href: '/legal/icp', soft: 'legalIcp' as const },
+            { label: '隐私', href: '/legal/privacy', soft: 'legalPrivacy' as const },
+            { label: '条款', href: '/legal/terms', soft: 'legalTerms' as const },
+            { label: 'ICP', href: '/legal/icp', soft: 'legalIcp' as const },
           ],
         },
       },
@@ -645,12 +696,12 @@ export default {
         heading: '信任网络',
         body: '首批旅客确认后，我们会在这里接入真实的评价 widget。',
         partners: [
-          { label: 'Tripadvisor', status: '待接入' },
-          { label: 'Google Reviews', status: '待接入' },
-          { label: 'Feefo', status: '待接入' },
-          { label: 'Trustindex', status: '待接入' },
+          { label: 'Tripadvisor', status: '核验中' },
+          { label: 'Google Reviews', status: '核验中' },
+          { label: 'Feefo', status: '核验中' },
+          { label: 'Trustindex', status: '核验中' },
         ],
-        partnerStatusLabel: '待接入',
+        partnerStatusLabel: '核验中',
       },
       replyPromise: {
         heading: '回复承诺',
@@ -662,7 +713,7 @@ export default {
         body: '我们是北京的小工作室，按你想要的旅行节奏帮你画一条专属路线，没有打包菜单，也没有 49 字段的询价表。',
       },
       languageHint: '可在页面顶部切换语言。',
-      mockNotice: '示例占位内容 —— 上线前替换',
+      mockNotice: '内容以正式核验版本为准',
       copyright: '© 2026 pandatravel · pandatravel.com.cn · 版权所有',
     },
   },

@@ -40,7 +40,7 @@ export function NearbyGrid({
             <div className="flex flex-col gap-3 p-5">
               <div className="flex items-baseline justify-between gap-2">
                 <h3 className="text-[18px] font-misans-bold text-ink">
-                  {lang === "zh" ? `${cn} · ${en}` : `${en} · ${cn}`}
+                  {lang === "zh" ? `${cn} · ${en}` : en}
                 </h3>
                 <span className="shrink-0 text-[12px] font-misans-regular text-jade">
                   +{r.days} {lang === "zh" ? "天" : "d"}

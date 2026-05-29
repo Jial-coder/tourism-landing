@@ -13,8 +13,13 @@ export function LeadFormSuccess({ submissionId }: { submissionId: string }) {
   const ls = t.home.leadFormSuccess;
   const responsePromise = t.leadResponsePromise;
   const refLabel = locale === 'zh' ? '编号' : 'Reference';
-  const whatsapp = CONTACT_CHANNELS.find((c) => c.kind === 'whatsapp');
-  const wechat = CONTACT_CHANNELS.find((c) => c.kind === 'wechat');
+  const visibleChannels = CONTACT_CHANNELS.filter(
+    (c) => c.status !== 'hidden' && c.visibility !== 'hidden',
+  );
+  const externalChannels = visibleChannels.filter((c) => c.kind !== 'form');
+  const whatsapp = visibleChannels.find((c) => c.kind === 'whatsapp');
+  const wechat = visibleChannels.find((c) => c.kind === 'wechat');
+  const hasDirectChannels = Boolean(whatsapp || wechat);
 
   return (
     <section
@@ -43,33 +48,43 @@ export function LeadFormSuccess({ submissionId }: { submissionId: string }) {
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               {ls.advisorPromiseBody}
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              {whatsapp && (
-                <a
-                  href={whatsapp.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-vermilion px-5 py-3 text-sm font-medium text-soft-ivory hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                >
-                  {ls.directWhatsApp}
-                </a>
-              )}
-              {wechat && (
-                <a
-                  href={wechat.href}
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-jade px-5 py-3 text-sm font-medium text-jade hover:bg-jade hover:text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
-                >
-                  {ls.directWeChat}
-                </a>
-              )}
-            </div>
+            {hasDirectChannels && (
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                {whatsapp && (
+                  <a
+                    href={whatsapp.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full bg-vermilion px-5 py-3 text-sm font-medium text-soft-ivory hover:bg-vermilion-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+                  >
+                    {ls.directWhatsApp}
+                  </a>
+                )}
+                {wechat && (
+                  <a
+                    href={wechat.href}
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-jade px-5 py-3 text-sm font-medium text-jade hover:bg-jade hover:text-soft-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+                  >
+                    {ls.directWeChat}
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
-          <p className="mt-8 text-sm font-medium text-ink">{ls.channelsHeading}</p>
-          <div className="mt-4">
-            <ContactChannelList variant="grid" locale={locale} />
-          </div>
+          {externalChannels.length > 0 ? (
+            <>
+              <p className="mt-8 text-sm font-medium text-ink">{ls.channelsHeading}</p>
+              <div className="mt-4">
+                <ContactChannelList variant="grid" locale={locale} channels={externalChannels} />
+              </div>
+            </>
+          ) : (
+            <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-ink-soft">
+              {ls.channelsFallback}
+            </p>
+          )}
           <p className="mt-8 text-xs text-ink-soft/70">
             {refLabel}: {submissionId}
           </p>

@@ -1,6 +1,5 @@
 'use client';
 
-import { MockBadge } from '@/components/trust/MockBadge';
 import { useLocale } from '@/components/i18n/LocaleProvider';
 import type { AdvisorProof } from '@/lib/data/trust-proofs';
 
@@ -13,15 +12,13 @@ const initials = (name: string) =>
 
 export function AdvisorProfileCard({ advisor }: { advisor: AdvisorProof }) {
   const { locale } = useLocale();
-  const isMock = advisor.status === 'mock';
+  if (advisor.status === 'hidden') return null;
+
   return (
     <article
       data-status={advisor.status}
       className="relative flex h-full flex-col gap-4 rounded-2xl border border-ink/10 bg-cream p-6"
     >
-      {isMock && (
-        <MockBadge className="self-start">demo</MockBadge>
-      )}
       <div
         aria-hidden="true"
         className="flex size-16 items-center justify-center rounded-full bg-gradient-to-br from-jade/20 via-jade-soft/30 to-gold/20 font-serif text-xl text-ink ring-1 ring-ink/10"

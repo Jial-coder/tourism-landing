@@ -1,5 +1,3 @@
-import { MockBadge } from "@/components/trust/MockBadge";
-
 type SampleReview = {
   scenario: string;
   body: string;
@@ -13,7 +11,6 @@ export function SampleReviewCard({ review }: { review: SampleReview }) {
         <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
           这是占位样例 · 不是真实客户原话
         </span>
-        <MockBadge>placeholder · sample only</MockBadge>
       </div>
       <h3 className="text-[16px] font-misans-bold leading-snug text-ink">
         当我们有了首批旅客之后，他们的回信大概会长这样：

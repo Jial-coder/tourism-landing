@@ -9,6 +9,7 @@ interface NumberTickerProps {
   decimals?: number;
   duration?: number;
   delay?: number;
+  animateFromZero?: boolean;
   className?: string;
   prefix?: string;
   suffix?: string;
@@ -26,6 +27,7 @@ export function NumberTicker({
   decimals = 0,
   duration = 1.6,
   delay = 0.3,
+  animateFromZero = true,
   className,
   prefix = '',
   suffix = '',
@@ -35,7 +37,10 @@ export function NumberTicker({
   const reduce = useReducedMotion();
   const mounted = useMounted();
   const motionValue = useMotionValue(0);
-  const [display, setDisplay] = useState(() => formatNumber(0, decimals));
+  const shouldAnimate = animateFromZero && value !== 0;
+  const [display, setDisplay] = useState(() =>
+    formatNumber(shouldAnimate ? 0 : value, decimals),
+  );
 
   useEffect(() => {
     if (!mounted) return;
@@ -62,12 +67,12 @@ export function NumberTicker({
   }, [mounted]);
 
   useEffect(() => {
-    if (!inView) return;
-    if (reduce) {
+    if (reduce || !shouldAnimate) {
       motionValue.set(value);
       setDisplay(formatNumber(value, decimals));
       return;
     }
+    if (!inView) return;
     let controls: ReturnType<typeof animate> | null = null;
     const startTimer = window.setTimeout(() => {
       controls = animate(motionValue, value, {
@@ -80,13 +85,13 @@ export function NumberTicker({
       window.clearTimeout(startTimer);
       controls?.stop();
     };
-  }, [inView, reduce, value, decimals, delay, duration, motionValue]);
+  }, [inView, reduce, shouldAnimate, value, decimals, delay, duration, motionValue]);
 
   if (!mounted) {
     return (
       <span ref={ref} className={className} suppressHydrationWarning>
         {prefix}
-        {formatNumber(0, decimals)}
+        {formatNumber(shouldAnimate ? 0 : value, decimals)}
         {suffix}
       </span>
     );

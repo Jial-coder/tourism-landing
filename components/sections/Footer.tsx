@@ -4,6 +4,7 @@ import { useDictionary } from "@/components/i18n/LocaleProvider";
 import { SectionInner } from "@/components/atoms/SectionContainer";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
 import { SoftLinkButton } from "@/components/chrome/SoftLinkButton";
+import { SUPPORTED_LOCALES, type Locale } from "@/lib/data/locales";
 import { NewsletterForm } from "./NewsletterForm";
 
 /**
@@ -22,16 +23,10 @@ import { NewsletterForm } from "./NewsletterForm";
  * brief: docs/modules/M-FOOTER.md (revised)
  */
 
-const LANG_DISPLAY = [
-  { code: "ZH", label: "中文" },
-  { code: "EN", label: "English" },
-  { code: "JA", label: "日本語" },
-  { code: "DE", label: "Deutsch" },
-  { code: "FR", label: "Français" },
-  { code: "ES", label: "Español", coming: true },
-  { code: "IT", label: "Italiano", coming: true },
-  { code: "RU", label: "Русский", coming: true },
-];
+const LANG_LABELS: Record<Locale, string> = {
+  en: "English",
+  zh: "中文",
+};
 
 export function Footer() {
   const dict = useDictionary();
@@ -61,10 +56,10 @@ export function Footer() {
         <div className="border-y border-soft-ivory/8">
           <SectionInner className="py-8 lg:py-12">
             <p className="text-[18px] lg:text-[28px] font-misans-bold tracking-tight italic text-soft-ivory text-center">
-              Highlights happen when you get closer.
+              {t.manifesto.title}
             </p>
             <p className="mt-2 text-[13px] font-misans-regular text-soft-ivory/55 text-center">
-              真正的高光时刻，发生在距离够近的时候。
+              {t.manifesto.subtitle}
             </p>
           </SectionInner>
         </div>
@@ -75,10 +70,10 @@ export function Footer() {
             {/* Newsletter (col 1) */}
             <div className="lg:col-span-1 flex flex-col gap-3">
               <div className="text-[12px] font-misans-regular uppercase tracking-[0.18em] text-alpine-blue/80">
-                Newsletter
+                {t.newsletter.heading}
               </div>
               <p className="text-[13px] font-misans-regular text-soft-ivory/75 leading-relaxed">
-                每月 1 封 · 顾问亲选 3 个目的地灵感 · 不卖广告。
+                {t.newsletter.body}
               </p>
               <NewsletterForm />
             </div>
@@ -124,19 +119,12 @@ export function Footer() {
         <div className="border-t border-soft-ivory/8">
           <SectionInner className="py-6 flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8 justify-between">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] font-misans-regular">
-              {LANG_DISPLAY.map((l) => (
+              {SUPPORTED_LOCALES.map((code) => (
                 <span
-                  key={l.code}
-                  className={
-                    l.coming
-                      ? "text-soft-ivory/35"
-                      : "text-soft-ivory/75 hover:text-soft-ivory cursor-pointer"
-                  }
+                  key={code}
+                  className="text-soft-ivory/75"
                 >
-                  {l.label}
-                  {l.coming && (
-                    <span className="ml-1 text-soft-ivory/28">· soon</span>
-                  )}
+                  {LANG_LABELS[code]}
                 </span>
               ))}
             </div>
@@ -147,21 +135,21 @@ export function Footer() {
                 body={softLinks.legalPrivacy.body}
                 className="hover:text-soft-ivory/65"
               >
-                Privacy
+                {t.legalShortLabels.privacy}
               </SoftLinkButton>
               <SoftLinkButton
                 title={softLinks.legalTerms.title}
                 body={softLinks.legalTerms.body}
                 className="hover:text-soft-ivory/65"
               >
-                Terms
+                {t.legalShortLabels.terms}
               </SoftLinkButton>
               <SoftLinkButton
                 title={softLinks.legalIcp.title}
                 body={softLinks.legalIcp.body}
                 className="hover:text-soft-ivory/65"
               >
-                ICP
+                {t.legalShortLabels.icp}
               </SoftLinkButton>
             </div>
           </SectionInner>

@@ -48,6 +48,10 @@ const REQUIRED_FIELDS = new Set([
   'partySize',
 ]);
 
+const turnstileFallbackToken = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+  ? ''
+  : 'dev-turnstile-bypass';
+
 type ErrorDict = ReturnType<typeof useLocale>['t']['home']['leadForm']['errors'];
 
 const localizeFromIssue = (
@@ -100,6 +104,22 @@ const RequiredMark = ({ ariaLabel }: { ariaLabel: string }) => (
   </>
 );
 
+const fieldClassName =
+  'h-10 w-full min-w-0 rounded-xl border-ink/15 bg-soft-ivory px-3 text-[13px] text-ink placeholder:text-ink/45 focus-visible:border-jade focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:h-11 md:px-4 md:text-sm';
+
+const selectClassName =
+  '!h-10 w-full min-w-0 max-w-full overflow-hidden rounded-xl border-ink/15 bg-soft-ivory px-3 text-[13px] text-ink data-[placeholder]:text-ink/45 focus-visible:border-jade focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:!h-11 md:px-4 md:text-sm';
+
+const textareaClassName =
+  'min-h-16 rounded-xl border-ink/15 bg-soft-ivory px-3 py-2 text-[13px] text-ink placeholder:text-ink/45 focus-visible:border-jade focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:min-h-32 md:px-4 md:text-sm';
+
+const formItemClassName = 'min-w-0 gap-1 md:gap-2';
+
+const EMAIL_REPLY_OPTION = {
+  id: 'email',
+  label: { zh: '邮件回复', en: 'Email reply' },
+};
+
 export function LeadForm({ source }: { source: LeadSource }) {
   const { locale, t } = useLocale();
   const ld = t.home.leadForm;
@@ -131,7 +151,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
       name: '',
       email: '',
       phone: '',
-      preferredChannel: '',
+      preferredChannel: EMAIL_REPLY_OPTION.id,
       country: '',
       travelMonth: '',
       durationDays: 7,
@@ -139,7 +159,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
       budgetRange: '',
       notes: '',
       company_website: '',
-      turnstileToken: '',
+      turnstileToken: turnstileFallbackToken,
     },
   });
 
@@ -147,7 +167,14 @@ export function LeadForm({ source }: { source: LeadSource }) {
     form.setValue('locale', locale, { shouldDirty: false, shouldTouch: false });
   }, [locale, form]);
 
-  const channelOptions = CONTACT_CHANNELS.filter((c) => c.kind !== 'form');
+  const channelOptions = CONTACT_CHANNELS.filter(
+    (c) => c.kind !== 'form' && c.status !== 'hidden' && c.visibility !== 'hidden',
+  ).map((c) => ({ id: c.id, label: c.label }));
+
+  const preferredChannelOptions = [
+    EMAIL_REPLY_OPTION,
+    ...channelOptions.filter((c) => c.id !== EMAIL_REPLY_OPTION.id),
+  ];
 
   const onSubmit: SubmitHandler<LeadFormInput> = async (data) => {
     setState({ kind: 'submitting' });
@@ -166,7 +193,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
       }
       if (res.status === 400 && 'error' in payload && payload.error === 'turnstile_failed') {
         toast.error(ld.toasts.verificationFailed);
-        form.setValue('turnstileToken', '', { shouldValidate: true });
+        form.setValue('turnstileToken', turnstileFallbackToken, { shouldValidate: true });
         setState({ kind: 'error', messageKey: 'turnstile' });
         return;
       }
@@ -196,7 +223,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
   const renderLabel = (fieldId: string, label: string) => {
     const required = REQUIRED_FIELDS.has(fieldId);
     return (
-      <FormLabel className="text-ink">
+      <FormLabel className="min-w-0 max-w-full flex-wrap gap-0.5 text-xs font-medium leading-tight text-ink md:text-base">
         {label}
         {required && <RequiredMark ariaLabel={ld.requiredAria} />}
       </FormLabel>
@@ -207,39 +234,39 @@ export function LeadForm({ source }: { source: LeadSource }) {
     <section
       id="lead-form"
       data-feedback-id="HOME-LEAD-FORM-01"
-      className="bg-paper py-20 lg:py-28"
+      className="bg-paper py-10 sm:py-16 lg:py-28"
     >
-      <div className="mx-auto w-full max-w-3xl px-6 lg:px-10">
+      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-10">
         <Reveal>
-          <div className="mb-10 flex flex-col gap-3 text-center">
+          <div className="mb-5 flex flex-col gap-1.5 text-center md:mb-10 md:gap-3">
             <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-jade">
               {ld.eyebrow}
             </p>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
+            <h2 className="font-serif text-2xl leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">
               {ld.heading}
             </h2>
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+            <p className="mx-auto max-w-2xl text-sm leading-normal text-ink-soft sm:text-base sm:leading-relaxed md:text-lg">
               {ld.body}
             </p>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="mx-auto max-w-2xl rounded-2xl border border-ink/10 bg-cream p-6 shadow-sm md:p-8">
+          <div className="mx-auto max-w-2xl rounded-2xl border border-ink/15 bg-cream p-3 shadow-sm md:p-8">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-2.5 md:gap-5" noValidate>
+              <div className="grid grid-cols-2 gap-2.5 md:gap-5">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('name', ld.labels.name)}
                       <FormControl>
                         <Input
                           placeholder={ld.placeholders.name}
                           autoComplete="name"
-                          className="h-11 bg-paper text-ink"
+                          className={fieldClassName}
                           {...field}
                         />
                       </FormControl>
@@ -251,14 +278,14 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('email', ld.labels.email)}
                       <FormControl>
                         <Input
                           type="email"
                           placeholder={ld.placeholders.email}
                           autoComplete="email"
-                          className="h-11 bg-paper text-ink"
+                          className={fieldClassName}
                           {...field}
                         />
                       </FormControl>
@@ -268,17 +295,17 @@ export function LeadForm({ source }: { source: LeadSource }) {
                 />
               </div>
 
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-5">
                 <FormField
                   control={form.control}
                   name="travelMonth"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={`col-span-2 md:col-span-1 ${formItemClassName}`}>
                       {renderLabel('travelMonth', ld.labels.travelMonth)}
                       <FormControl>
                         <Input
                           placeholder={ld.placeholders.travelMonth}
-                          className="h-11 bg-paper text-ink"
+                          className={fieldClassName}
                           {...field}
                         />
                       </FormControl>
@@ -290,7 +317,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   control={form.control}
                   name="durationDays"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('durationDays', ld.labels.durationDays)}
                       <FormControl>
                         <Input
@@ -298,7 +325,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                           min={1}
                           max={365}
                           inputMode="numeric"
-                          className="h-11 bg-paper text-ink"
+                          className={fieldClassName}
                           name={field.name}
                           ref={field.ref}
                           onBlur={field.onBlur}
@@ -314,7 +341,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   control={form.control}
                   name="partySize"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('partySize', ld.labels.partySize)}
                       <FormControl>
                         <Input
@@ -322,7 +349,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
                           min={1}
                           max={50}
                           inputMode="numeric"
-                          className="h-11 bg-paper text-ink"
+                          className={fieldClassName}
                           name={field.name}
                           ref={field.ref}
                           onBlur={field.onBlur}
@@ -336,24 +363,24 @@ export function LeadForm({ source }: { source: LeadSource }) {
                 />
               </div>
 
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              <div className="grid grid-cols-2 gap-2.5 md:gap-5">
                 <FormField
                   control={form.control}
                   name="preferredChannel"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('preferredChannel', ld.labels.preferredChannel)}
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || undefined}>
                         <FormControl>
                           <SelectTrigger
                             aria-label={ld.labels.preferredChannel}
-                            className="h-11 w-full bg-paper text-ink"
+                            className={`${selectClassName} w-full`}
                           >
                             <SelectValue placeholder={ld.labels.preferredChannel} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {channelOptions.map((opt) => (
+                          {preferredChannelOptions.map((opt) => (
                             <SelectItem key={opt.id} value={opt.id}>
                               {locale === 'zh' ? opt.label.zh : opt.label.en}
                             </SelectItem>
@@ -368,13 +395,13 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   control={form.control}
                   name="budgetRange"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className={formItemClassName}>
                       {renderLabel('budgetRange', ld.labels.budgetRange)}
-                      <Select onValueChange={field.onChange} value={field.value ?? ''}>
+                      <Select onValueChange={field.onChange} value={field.value || undefined}>
                         <FormControl>
                           <SelectTrigger
                             aria-label={ld.labels.budgetRange}
-                            className="h-11 w-full bg-paper text-ink"
+                            className={`${selectClassName} w-full`}
                           >
                             <SelectValue placeholder={ld.labels.budgetRange} />
                           </SelectTrigger>
@@ -397,13 +424,13 @@ export function LeadForm({ source }: { source: LeadSource }) {
                 control={form.control}
                 name="notes"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className={formItemClassName}>
                     {renderLabel('notes', ld.labels.notes)}
                     <FormControl>
                       <Textarea
-                        rows={5}
+                        rows={4}
                         placeholder={ld.placeholders.notes}
-                        className="bg-paper text-ink"
+                        className={textareaClassName}
                         {...field}
                       />
                     </FormControl>
@@ -414,26 +441,30 @@ export function LeadForm({ source }: { source: LeadSource }) {
 
               <HoneypotField {...form.register('company_website')} />
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <TurnstileWidget
                   onToken={(token) =>
                     form.setValue('turnstileToken', token, { shouldValidate: true })
                   }
-                  onExpire={() => form.setValue('turnstileToken', '', { shouldValidate: true })}
+                  onExpire={() =>
+                    form.setValue('turnstileToken', turnstileFallbackToken, {
+                      shouldValidate: true,
+                    })
+                  }
                 />
                 {form.formState.errors.turnstileToken && (
                   <p className="text-sm text-destructive">{ld.toasts.verificationFailed}</p>
                 )}
               </div>
 
-              <p className="text-xs leading-relaxed text-ink-soft">{ld.consent}</p>
+              <p className="text-[11px] leading-normal text-ink-soft md:text-xs md:leading-relaxed">{ld.consent}</p>
 
-              <div className="flex justify-center pt-2">
-                <MagneticCta>
+              <div className="flex justify-center pt-1 md:pt-2">
+                <MagneticCta className="w-full md:w-auto">
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="h-12 rounded-full bg-vermilion px-8 py-3 font-medium text-soft-ivory shadow-md shadow-vermilion/25 transition-colors hover:bg-vermilion-deep disabled:opacity-60"
+                    className="h-11 w-full rounded-full bg-vermilion px-6 py-3 text-sm font-medium text-soft-ivory shadow-md shadow-vermilion/25 transition-colors hover:bg-vermilion-deep disabled:opacity-60 md:h-12 md:w-auto md:px-8"
                   >
                     {submitting ? ld.submitting : ld.submit}
                   </Button>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CTAPrimary } from "@/components/atoms/CTAGhost";
-import { MockBadge } from "@/components/trust/MockBadge";
 import type { Destination } from "@/lib/data/destinations";
 
 export function TailorMakePullCta({
@@ -13,10 +12,6 @@ export function TailorMakePullCta({
   const cn = destination.cn;
   const en = destination.en;
   const planHref = `/plan?destination=${encodeURIComponent(destination.slug)}`;
-  const waText = lang === "zh"
-    ? `想聊聊 ${cn} ${en}`
-    : `I'd like to talk about ${en} (${cn})`;
-  const waHref = `https://wa.me/?text=${encodeURIComponent(waText)}`;
 
   return (
     <article className="grid grid-cols-1 gap-8 rounded-[12px] bg-paper p-6 ring-1 ring-ink/10 lg:grid-cols-[160px_1fr] lg:p-10">
@@ -27,7 +22,6 @@ export function TailorMakePullCta({
         >
           L
         </div>
-        <MockBadge>demo advisor</MockBadge>
       </div>
 
       <div className="flex flex-col gap-5">
@@ -36,38 +30,32 @@ export function TailorMakePullCta({
             {lang === "zh" ? "你的中国旅程顾问" : "Your China advisor"}
           </div>
           <h3 className="text-[24px] font-misans-bold text-ink lg:text-[28px]">
-            {lang === "zh" ? "Lin · 北京 · 7 年定制" : "Lin · Beijing-based, 7 yrs custom"}
+            {lang === "zh" ? "定制规划台 · 北京" : "Custom planning desk · Beijing"}
           </h3>
         </div>
 
         <p className="max-w-[560px] text-[14px] font-misans-regular leading-relaxed text-ink/80 lg:text-[15px]">
           {lang === "zh"
-            ? `把 ${cn} 加进你的草稿，告诉 Lin 你的天数、同行人和预期，初步方案会在 1 个工作日内回到你的邮箱。我们不卖标准包，所以这里看不到价格表。`
-            : `Add ${en} to your draft, tell Lin who you are travelling with and roughly when, and a first-pass plan lands in your inbox within one business day. We don't run packaged tours, so you won't find a price table here.`}
+            ? `把 ${cn} 加进你的草稿，告诉我们你的天数、同行人和预期，初步方案会通过表单流程整理。我们不卖标准包，所以这里不放价格表。`
+            : `Add ${en} to your draft, tell us who you are travelling with and roughly when, and we will use the form flow to prepare a first-pass plan. We don't run packaged tours, so you won't find a price table here.`}
         </p>
 
         <ul className="grid grid-cols-1 gap-2 text-[13px] font-misans-regular text-ink/70 sm:grid-cols-2">
-          <li>{lang === "zh" ? "1 名顾问从询价到落地全程" : "One advisor from inquiry to arrival"}</li>
-          <li>{lang === "zh" ? "1 个工作日内回方案" : "First plan within 1 business day"}</li>
-          <li>{lang === "zh" ? "无销售奖金提成" : "No commission-driven upsells"}</li>
-          <li>{lang === "zh" ? "落地后顾问值班" : "Advisor on-call during your trip"}</li>
+          <li>{lang === "zh" ? "先通过表单提交需求" : "Start with the request form"}</li>
+          <li>{lang === "zh" ? "按月份和节奏整理" : "Shape the route around month and pace"}</li>
+          <li>{lang === "zh" ? "不要求购买固定套餐" : "No fixed package requirement"}</li>
+          <li>{lang === "zh" ? "行前确认支持边界" : "Support scope confirmed before departure"}</li>
         </ul>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <CTAPrimary href={planHref} className="h-11 px-6">
             {lang === "zh" ? `把 ${cn} 加进我的行程` : `Add ${en} to my plan`}
           </CTAPrimary>
-          <a
-            href={waHref}
-            className="inline-flex items-center text-[13px] font-misans-regular text-ink/75 underline-offset-4 hover:text-jade hover:underline"
-          >
-            {lang === "zh" ? "WhatsApp Lin · 直接聊 →" : "WhatsApp Lin directly →"}
-          </a>
           <Link
-            href={destination.advisorAnchor}
+            href="/about"
             className="text-[13px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"
           >
-            {lang === "zh" ? "看 Lin 是谁" : "Meet Lin"}
+            {lang === "zh" ? "了解我们如何工作" : "See how we work"}
           </Link>
         </div>
       </div>

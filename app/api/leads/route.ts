@@ -1,7 +1,8 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { after, NextResponse, type NextRequest } from 'next/server';
 import { createHash } from 'node:crypto';
 import { leadFormSchema } from '@/lib/data/lead-form';
 import { getDb, schema } from '@/lib/db';
+import { requiresTurnstileSecret } from '@/lib/security/turnstile-env';
 
 export const runtime = 'nodejs';
 
@@ -39,6 +40,10 @@ function checkRateLimit(ipHash: string): boolean {
 async function verifyTurnstile(token: string, remoteip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) {
+    if (requiresTurnstileSecret()) {
+      console.error('[lead-spam] TURNSTILE_SECRET_KEY not set in production');
+      return false;
+    }
     console.warn('[lead-spam] TURNSTILE_SECRET_KEY not set — bypassing siteverify in dev');
     return true;
   }
@@ -176,18 +181,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: 'db_insert_failed' }, { status: 500 });
   }
 
-  void notifyFeishu({
-    rowId,
-    locale: data.locale,
-    source: data.source,
-    name: data.name,
-    email: data.email,
-    country: data.country || undefined,
-    travelMonth: data.travelMonth,
-    duration: data.durationDays,
-    partySize: data.partySize,
-    preferredChannel: data.preferredChannel,
-    message: data.notes || '',
+  after(() => {
+    return notifyFeishu({
+      rowId,
+      locale: data.locale,
+      source: data.source,
+      name: data.name,
+      email: data.email,
+      country: data.country || undefined,
+      travelMonth: data.travelMonth,
+      duration: data.durationDays,
+      partySize: data.partySize,
+      preferredChannel: data.preferredChannel,
+      message: data.notes || '',
+    });
   });
 
   return NextResponse.json({ ok: true, id: rowId }, { status: 200 });

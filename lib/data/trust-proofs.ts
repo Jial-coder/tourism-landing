@@ -61,29 +61,29 @@ export interface StatProof {
 export const TRUST_STATS: StatProof[] = [
   {
     id: 'stat-travelers-count',
-    status: 'mock',
-    productionVisible: true,
+    status: 'hidden',
+    productionVisible: false,
     stat: '10,000+',
     label: { en: "Travelers we've planned for", zh: '已为 10,000+ 位旅客做过定制' },
   },
   {
     id: 'stat-five-star-rate',
-    status: 'mock',
-    productionVisible: true,
+    status: 'hidden',
+    productionVisible: false,
     stat: '98.8%',
     label: { en: '5-star reviews (sample)', zh: '五星好评率（样本）' },
   },
   {
     id: 'stat-specialist-tenure',
-    status: 'mock',
-    productionVisible: true,
+    status: 'hidden',
+    productionVisible: false,
     stat: '8 yrs',
     label: { en: 'Average specialist tenure', zh: '顾问平均从业年限' },
   },
   {
     id: 'stat-reply-window',
-    status: 'mock',
-    productionVisible: true,
+    status: 'hidden',
+    productionVisible: false,
     stat: '24 h',
     label: {
       en: 'Reply within (China holidays excluded)',
@@ -96,7 +96,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'example-trip-classic-12d',
     kind: 'C_case',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     customerType: 'First-time couple from the US',
     durationDays: 12,
@@ -115,7 +115,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'example-trip-yunnan-loop-9d',
     kind: 'C_case',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     customerType: 'Slow-travel couple from the UK',
     durationDays: 9,
@@ -134,7 +134,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'example-trip-family-15d',
     kind: 'C_case',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     customerType: 'Multi-gen family of 5 from Australia',
     durationDays: 15,
@@ -153,7 +153,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'demo-advisor-yiwen-lu',
     kind: 'B_advisor',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     displayName: { en: 'Yiwen Lu', zh: '陆奕雯' },
     role: { en: 'Senior China Specialist · Beijing', zh: '资深中国顾问 · 北京' },
@@ -168,7 +168,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'demo-advisor-bo-chen',
     kind: 'B_advisor',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     displayName: { en: 'Bo Chen', zh: '陈博' },
     role: { en: 'Yunnan & Sichuan Specialist · Chengdu', zh: '云南川藏顾问 · 成都' },
@@ -183,7 +183,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'demo-advisor-mei-zhang',
     kind: 'B_advisor',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     displayName: { en: 'Mei Zhang', zh: '张玫' },
     role: { en: 'East China & Shanghai Specialist', zh: '华东上海顾问' },
@@ -191,14 +191,14 @@ export const TRUST_PROOFS: TrustProof[] = [
     destinations: ['Shanghai', 'Hangzhou', 'Suzhou', 'Huangshan'],
     yearsOfExperience: 8,
     responseModel: {
-      en: 'Replies within 24h; reachable on WeChat during the trip.',
-      zh: '24 小时内回复；行程中微信常驻。',
+      en: 'Replies within 24h; trip support details confirmed before departure.',
+      zh: '24 小时内回复；出行支持方式行前确认。',
     },
   },
   {
     id: 'demo-advisor-jian-li',
     kind: 'B_advisor',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     displayName: { en: 'Jian Li', zh: '李健' },
     role: { en: 'Family & Multi-gen Specialist · Beijing', zh: '家庭与多代同行顾问 · 北京' },
@@ -213,7 +213,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'mock-review-tripadvisor-01',
     kind: 'A_review',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     platform: 'tripadvisor',
     rating: 5,
@@ -227,7 +227,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'mock-review-google-02',
     kind: 'A_review',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     platform: 'google',
     rating: 5,
@@ -241,7 +241,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'sample-licensed-tour-operator-cn',
     kind: 'D_credential',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     category: 'license',
     displayName: {
@@ -257,7 +257,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'sample-payment-stripe-placeholder',
     kind: 'D_credential',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     category: 'payment',
     displayName: {
@@ -273,7 +273,7 @@ export const TRUST_PROOFS: TrustProof[] = [
   {
     id: 'sample-privacy-gdpr-placeholder',
     kind: 'D_credential',
-    status: 'mock',
+    status: 'hidden',
     productionVisible: false,
     category: 'privacy',
     displayName: {
@@ -303,7 +303,11 @@ export const exampleCases = (proofs: TrustProof[] = TRUST_PROOFS): CaseProof[] =
 
 export const demoAdvisors = (proofs: TrustProof[] = TRUST_PROOFS): AdvisorProof[] =>
   proofs.filter(
-    (p): p is AdvisorProof => p.kind === 'B_advisor' && p.id.startsWith('demo-advisor-')
+    (p): p is AdvisorProof =>
+      p.kind === 'B_advisor' &&
+      p.id.startsWith('demo-advisor-') &&
+      p.status !== 'hidden' &&
+      p.productionVisible
   );
 
 export const reviewProofs = (proofs: TrustProof[] = TRUST_PROOFS): ReviewProof[] =>

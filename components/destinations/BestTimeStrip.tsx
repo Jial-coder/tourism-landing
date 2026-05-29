@@ -22,36 +22,38 @@ const TONE_LABEL: Record<BestTime["months"][Month], { zh: string; en: string }> 
 
 export function BestTimeStrip({
   bestTime,
-  slug: _slug,
+  slug,
   lang = "zh",
 }: {
   bestTime: BestTime;
   slug: string;
   lang?: "zh" | "en";
 }) {
+  const planHref = `/plan?destination=${encodeURIComponent(slug)}`;
+
   return (
     <div className="flex flex-col gap-6">
       <div className="grid grid-cols-6 gap-2 sm:grid-cols-12">
         {MONTH_ORDER.map((m) => {
           const tone = bestTime.months[m];
           const label = MONTH_LABELS[m];
+          const status = lang === "zh" ? TONE_LABEL[tone].zh : TONE_LABEL[tone].en;
           return (
-            <Link
+            <div
               key={m}
-              href={`/best-time/${m}`}
+              aria-label={`${lang === "zh" ? label.zh : label.en}: ${status}`}
               className={cn(
-                "group flex flex-col items-center gap-1 rounded-[8px] px-1 py-3 text-center ring-1 transition-colors",
-                TONE[tone],
-                "hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+                "flex flex-col items-center gap-1 rounded-[8px] px-1 py-3 text-center ring-1",
+                TONE[tone]
               )}
             >
               <span className="text-[12px] font-misans-bold leading-none lg:text-[13px]">
                 {lang === "zh" ? label.zh : label.en}
               </span>
               <span className="text-[10px] font-misans-regular tracking-wide lg:text-[11px]">
-                {lang === "zh" ? TONE_LABEL[tone].zh : TONE_LABEL[tone].en}
+                {status}
               </span>
-            </Link>
+            </div>
           );
         })}
       </div>
@@ -62,10 +64,10 @@ export function BestTimeStrip({
 
       <p className="text-[12px] font-misans-regular text-ink/70">
         <Link
-          href="/best-time"
+          href={planHref}
           className="inline-flex items-center gap-1 underline-offset-4 hover:underline hover:text-jade focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
-          {lang === "zh" ? "看 12 月份完整建议" : "See full 12-month guide"}
+          {lang === "zh" ? "让 Lin 按你的月份排路线" : "Ask Lin to route around your travel month"}
           <ArrowRight aria-hidden size={12} />
         </Link>
       </p>

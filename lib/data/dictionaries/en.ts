@@ -29,8 +29,21 @@ export default {
   faq: {},
   // TODO_COPY
   footer: {},
-  // TODO_COPY
-  chat: {},
+  chat: {
+    launcher: {
+      showEntry: 'Show chat entry',
+      openEntry: 'Chat with our concierge desk',
+      dialogLabel: 'Concierge chat',
+      title: 'Chat with our concierge desk',
+      status: 'Lin · Online · Usually replies within 5 minutes',
+      hide: 'Hide',
+      close: 'Close',
+      prompt:
+        'Hi. First question: when are you thinking about coming to China? I will note the season and send you a matching route direction.',
+      placeholder: 'Write your question...',
+      sendToSpecialist: 'Send this to a specialist →',
+    },
+  },
   leadResponsePromise:
     'Lin, a Beijing-based China travel advisor, replies within 4 hours (Chinese holidays excluded).',
   home: {
@@ -60,30 +73,30 @@ export default {
       mobileMenuLabel: 'Mobile menu',
       languageHeading: 'LANGUAGE · 语言',
       soft404Title: 'This corner is opening in Phase 2',
-      soft404Body: "This corner of the site is opening in Phase 2. Want us to email you when it's live?",
+      soft404Body: "This corner of the site is opening in Phase 2. Leave a note now and we will pick it up when the page opens.",
       soft404Notify: 'Notify me · 通知我',
       soft404Close: 'Esc to close',
       contactSpecialist: 'Talk to a specialist',
       softLinks: {
         auth: {
           title: 'Accounts open in v1.5',
-          body: 'For now we keep drafts and replies in sync via email and WhatsApp; account login is on the way. Want the sign-in link the day it ships?',
+          body: 'For now we keep drafts and replies in sync via email and the contact method you leave in the form; account login is on the way. Want the sign-in link the day it ships?',
         },
         themes: {
           title: 'Themed routes coming in v1.5',
-          body: 'We are splitting family, nature, business add-on and heritage into their own landing pages. v1.5 will take you straight to the sample routes for each.',
+          body: 'We are splitting family, nature, business add-on and heritage into their own landing pages. v1.5 will take you straight to route directions for each.',
         },
         legalPrivacy: {
           title: 'Privacy policy in legal review',
-          body: 'Our legal team is finalising a PIPL + GDPR aligned privacy policy. The placeholder will be replaced with the formal page before launch.',
+          body: 'Our legal team is finalising a PIPL + GDPR aligned privacy policy. The formal page will be published before launch.',
         },
         legalTerms: {
           title: 'Terms of service in legal review',
-          body: 'Formal terms of service are in final lawyer review. The placeholder will be replaced with the formal page before launch.',
+          body: 'Formal terms of service are in final lawyer review. The formal page will be published before launch.',
         },
         legalIcp: {
-          title: 'ICP filing pending',
-          body: 'The China ICP filing is being processed; once we have the number this placeholder line will be replaced.',
+          title: 'ICP filing in progress',
+          body: 'The China ICP filing is being processed; once we have the number this line will be updated.',
         },
         bestTime: {
           title: '“Best time to visit” guide in progress',
@@ -95,11 +108,11 @@ export default {
         },
         press: {
           title: 'Press page in progress',
-          body: 'Until the press page is live, please email hello@example.com with the subject “Press inquiry” — we reply within one business day.',
+          body: 'Until the press page is live, please leave “Press inquiry” in the request form. We will route it to the right person.',
         },
         wechat: {
           title: 'WeChat contact card in progress',
-          body: 'Lin’s personal QR code and WeChat ID will be posted here before launch; for now please reach us via WhatsApp or email.',
+          body: 'Lin’s personal QR code and WeChat ID will be posted here before launch; for now please leave your preferred contact method in the request form.',
         },
         aboutPromise: {
           title: '“Brand promise” page in progress',
@@ -111,7 +124,7 @@ export default {
         },
         aboutVoices: {
           title: '“Traveler voices” page in progress',
-          body: 'Once our first cohort returns home we will collect their voices and photos here. Until then, /reviews already has the promise and samples.',
+          body: 'Once our first cohort returns home we will collect their voices and photos here. Until then, /reviews already has the promise and evaluation standard.',
         },
       },
     },
@@ -124,26 +137,49 @@ export default {
       secondaryCta: 'Talk to a specialist',
       contactModalTitle: 'Talk to a specialist',
       contactModalDescription:
-        'Pick the channel that suits you. A Beijing specialist replies within 24 hours (Chinese holidays excluded).',
+        'Start with a custom request. A Beijing specialist will reply through the contact method you leave in the form (Chinese holidays excluded).',
+      contactModalCloseLabel: 'Close contact specialist dialog',
       anchorCard: {
-        eyebrow: 'Sample route · tweak it your way',
+        eyebrow: 'Route idea · tweak it your way',
         title: '10-day first-timer China · Culture & landscape balanced',
         meta: '10 days · from USD 4,200 · best Apr–May / Sep–Oct',
         cta: 'See full itinerary',
       },
     },
+    advisorShortcut: {
+      eyebrow: 'Not ready to compare routes yet?',
+      heading: 'Get the direction clear before you build the trip',
+      body:
+        'If you are still weighing cities, seasons, pace or budget, this section helps you get the key points straight first. A Beijing specialist will turn that into a draft route next.',
+      primaryCta: 'Start planning',
+      secondaryCta: 'Fill in the request',
+      points: [
+        {
+          title: 'Replies within 4 hours',
+          body: 'A real Beijing specialist answers, not an auto-reply.',
+        },
+        {
+          title: 'Start with direction',
+          body: 'No city picked yet? That is fine. Just bring pace and budget into focus.',
+        },
+        {
+          title: 'Jump straight to planning',
+          body: 'If you already know what you want, go directly to the form.',
+        },
+      ],
+    },
     trustStrip: {
       items: [
-        { value: 10000, suffix: '+', label: "Travelers we've planned for" },
-        { value: 98.8, decimals: 1, suffix: '%', label: '5-star reviews (sample)' },
-        { value: 8, suffix: ' yrs', label: 'Average specialist tenure' },
-        { value: 24, suffix: ' h', label: 'Reply within (China holidays excluded)' },
+        { value: 4, suffix: ' h', label: 'First human reply target' },
+        { value: 24, suffix: ' h', label: 'Draft route after direction is clear' },
+        { value: 1, suffix: ':1', label: 'Beijing specialist handoff' },
+        { value: 0, suffix: ' preset menus', label: 'Fixed package menus' },
       ],
     },
     visaFreeBanner: {
       eyebrow: '240h Visa-Free',
       headline: 'Foreign passports can transit through Beijing, Shanghai or Guangzhou for up to 240 hours visa-free.',
-      body: '55 countries · 65 ports · 24 provinces. We have ready-made 10-day routes for transit travelers — pick one and tweak with a Beijing specialist.',
+      body: 'Official policy covers 55 countries, 65 ports and 24 provincial-level regions. Our tool starts with common traveler passports and ports, then routes you to Lin for a final check.',
       cta: 'See visa-free trips',
     },
     howWeWork: {
@@ -184,11 +220,11 @@ export default {
       ],
     },
     sampleItineraries: {
-      eyebrow: 'Sample lines we have already drafted',
-      heading: 'Sample itineraries · could be your starting point',
-      body: 'Five mock sample lines, ten chapters of depth each, written by advisors at the real cadence we run. Pick the one closest to yours, then tell Lin what to add, drop, or swap.',
-      cta: 'See full itinerary',
-      seeAll: 'See all 5 sample itineraries',
+      eyebrow: 'Route starters',
+      heading: 'Pick a direction first, then make it yours',
+      body: 'Public destinations give you a clear starting point. Hand Lin the direction you like and we will reshape it around month, budget and pace.',
+      cta: 'See direction',
+      seeAll: 'Fill in my request',
       meta: {
         days: 'days',
         priceFromUsd: 'From USD {price}',
@@ -197,8 +233,8 @@ export default {
     },
     itineraries: {
       eyebrow: 'Itineraries',
-      heroHeading: 'Start from a sample · then make it yours',
-      heroBody: 'Five sample lines, ten chapters of depth, every page mock-guarded. Browse the depth, then tell Lin what to keep, swap or drop.',
+      heroHeading: 'Start from a route direction · then make it yours',
+      heroBody: 'Every route direction is clear about what can change. Browse the depth, then tell Lin what to keep, swap or drop.',
       filterDuration: 'Length',
       filterTheme: 'Theme',
       filterMonth: 'Travel month',
@@ -212,12 +248,12 @@ export default {
       detailTripNotes: 'Where you sleep, how you move, what you eat, visa',
       detailAdvisor: 'Hand it to Lin to make yours',
       detailFinalCta: 'Hand this line to Lin →',
-      mockBadge: 'sample band',
+      mockBadge: 'reference band',
     },
     specialists: {
       eyebrow: 'Your specialists',
-      heading: 'Real people behind every reply',
-      body: 'Beijing / Chengdu / Shanghai-based, full-time, on contract. No outsourced agents.',
+      heading: 'A real specialist handles your idea first',
+      body: 'Public specialist profiles will appear after verification. For now, this shows how your request is handled by humans.',
       cta: 'Speak to a specialist',
     },
     leadForm: {
@@ -266,25 +302,27 @@ export default {
         { id: '30000usd_plus', label: '$30,000+ / person' },
       ],
       consent:
-        'By submitting you agree to be contacted by a specialist. Mock placeholder — replace with verified privacy notice before launch.',
+        'By submitting, you agree that we may use these details only to discuss your trip. You can ask the specialist to stop contacting you at any time.',
       toasts: {
         verificationFailed: 'Verification failed, please retry.',
         rateLimited: 'Too many submissions, please retry in a minute.',
         genericError:
-          'Something went wrong, please retry or contact us via WhatsApp.',
+          'Something went wrong. Please retry; if it keeps failing, submit again later.',
         success: 'Sent. Lin will reply within 4h.',
       },
     },
     leadFormSuccess: {
       title: 'Thanks — your request is in.',
       subtitle: 'Lin, a Beijing-based China specialist, will reply personally within 4 hours (Chinese holidays excluded).',
-      channelsHeading: 'Prefer a faster reply? Reach us directly:',
+      channelsHeading: 'Other verified contact channels:',
+      channelsFallback:
+        'We already have your request. The specialist will reply through the contact method you left in the form. External direct channels stay hidden until verified.',
       advisorPromiseEyebrow: '1:1 advisor commitment',
       advisorPromiseTitle: 'Lin (Beijing) will reply within 4 hours',
       advisorPromiseBody:
         'No round-robin queue. The same specialist sees your draft, replies, and stays with you until departure.',
-      directWhatsApp: 'Talk now on WhatsApp →',
-      directWeChat: 'Open WeChat (CN priority) →',
+      directWhatsApp: 'Message Lin on WhatsApp →',
+      directWeChat: 'Message Lin on WeChat →',
       backHome: '← Back to home',
     },
     planWizard: {
@@ -304,7 +342,7 @@ export default {
       jumpWhatsAppBody:
         'Tap to open WhatsApp with your trip-intent prefilled. Lin reads it, replies in your timezone.',
       jumpWhatsAppCta: 'WhatsApp Lin now',
-      jumpWhatsAppMockHint: 'WhatsApp number is a placeholder until launch.',
+      jumpWhatsAppMockHint: 'WhatsApp number is not public yet.',
       filledHeading: 'So far',
       resumeHint: 'We saved your last draft — pick up where you left off.',
       resumeClear: 'Clear and start over',
@@ -315,6 +353,7 @@ export default {
         tooLong: 'This is over the maximum length',
         invalidNumber: 'Please enter a valid number',
         termsRequired: 'Please confirm before sending',
+        turnstileMissing: 'Verification not complete yet — please try again',
         generic: "Something looks off here — please double-check",
       },
       summary: {
@@ -410,8 +449,8 @@ export default {
       },
       step5: {
         heading: 'How should Lin reach you?',
-        body: 'Lin (Beijing) replies within 4 hours, in your timezone, by your channel of choice.',
-        whyAsk: 'We need at least an email to send the first draft. Phone + WhatsApp / WeChat are optional, but speed up the back-and-forth.',
+        body: 'Lin (Beijing) replies within 4 hours, in your timezone, through the contact method you leave in the form.',
+        whyAsk: 'We need at least an email to send the first draft. Phone and contact preferences in your notes are optional, but speed up the back-and-forth.',
         nameLabel: 'Your name',
         namePlaceholder: 'Jane Traveler',
         emailLabel: 'Email',
@@ -434,7 +473,7 @@ export default {
       items: [
         {
           q: 'Do I need a visa to visit China?',
-          a: 'Most travelers from 38 countries can enter visa-free for 30 days as of 2026. We confirm your eligibility within 24 hours of your inquiry. (Mock placeholder — operations confirms before launch.)',
+          a: 'Travelers from more than 40 countries may qualify for 30-day unilateral visa-free entry as of 2026. We confirm your eligibility within 24 hours of your inquiry. Policy changes, so rely on the latest check before booking.',
         },
         {
           q: 'How early should I plan?',
@@ -450,15 +489,15 @@ export default {
         },
         {
           q: 'How do payments work?',
-          a: 'We accept international cards, bank transfer, and Stripe. No payment is required until your itinerary is finalized.',
+          a: 'No payment is required while we shape the first draft. The final proposal will confirm the available payment methods and operating entity before you pay.',
         },
         {
           q: 'What is the cancellation policy?',
-          a: 'Free cancellation 30+ days before departure; partial refund 14–30 days. Specifics on your contract.',
+          a: 'Cancellation terms are written into the final service agreement before payment. We do not ask you to pay until those terms are clear.',
         },
         {
           q: 'How is internet / VPN handled in China?',
-          a: 'We brief you on functional apps (WeChat, Alipay, Maps) and travel SIM with Google access during your trip.',
+          a: 'We brief you on essential China apps and current travel SIM or eSIM options before departure. Connectivity rules change, so we confirm the setup close to travel.',
         },
         {
           q: 'Can you handle special requests (dietary, accessibility)?',
@@ -468,8 +507,8 @@ export default {
     },
     trustGrid: {
       eyebrow: 'Why travelers stay with us',
-      heading: 'Specialists, examples, reviews and the small print',
-      body: 'Mock placeholder content for now — every block below is wired to typed proof data so ops can swap real material in one place.',
+      heading: 'If proof is not ready, we do not pretend it is',
+      body: 'Reviews, specialist profiles, cases and credentials will go public after verification. Until then, the page only shows process commitments we can stand behind.',
       sections: {
         advisors: {
           title: 'Real specialists, not call-center scripts',
@@ -481,11 +520,11 @@ export default {
         },
         reviews: {
           title: 'What travelers say',
-          body: 'Mock placeholder reviews — real Tripadvisor and Google reviews to be wired in by ops.',
+          body: 'Verified Tripadvisor and Google reviews appear only after permission and ops checks.',
         },
         credentials: {
           title: 'The boring but useful small print',
-          body: 'Licenses, payment partners and privacy stance — placeholders until legal sign-off.',
+          body: 'Licenses, payment partners and privacy stance — interim notes until legal sign-off.',
         },
       },
     },
@@ -503,13 +542,13 @@ export default {
           a: {
             label: 'Step a · Passport',
             heading: 'Pick your passport country',
-            help: 'We list the 55 countries on the NIA whitelist.',
+            help: 'We start with common passports from the 55-country NIA list; ask Lin if yours is missing.',
             placeholder: 'Search countries',
           },
           b: {
             label: 'Step b · Entry port',
             heading: 'Pick your entry port',
-            help: '65 ports — airports, rail stations, bridges and land/sea ports.',
+            help: 'We start with common airports, rail stations, bridges and land/sea ports; the official list is broader.',
             placeholder: 'Search ports',
           },
           c: {
@@ -544,7 +583,7 @@ export default {
         ],
         cta: {
           plan: 'Tailor-make my route with Lin',
-          chat: 'WhatsApp Lin now',
+          chat: 'Send these choices to Lin',
         },
       },
       caveats: {
@@ -573,18 +612,18 @@ export default {
         ],
       },
       readymade: {
-        heading: 'Already-drafted 240h routes',
-        body: 'Four ready-made starting points. Each is a 10-day frame Lin can rearrange to your group, pace and return flight.',
-        comingSoonBadge: 'coming soon',
+        heading: 'Visa-free route starters',
+        body: 'Four 10-day starting points Lin can rearrange to your group, pace and return flight.',
+        comingSoonBadge: 'custom-built',
         cta: 'Ask Lin for this route',
       },
       contact: {
         heading: 'Still confused? Skip the form.',
-        body: 'Lin (Beijing) reads WhatsApp first thing in the morning, in your timezone.',
-        whatsappCta: 'WhatsApp Lin now',
+        body: 'Send Lin your passport, entry port and onward country. We check the visa-free boundary first, then suggest a route.',
+        whatsappCta: 'Ask Lin to check it',
         embassyCta: 'Need a longer stay? Apply for an L visa →',
         embassyHref: 'https://bj.china-embassy.gov.cn/eng/',
-        notOnListCta: 'Passport not on the 55-country list? Talk to us anyway →',
+        notOnListCta: 'Passport not listed here? Talk to us anyway →',
       },
       tailorMake: {
         heading: 'Or build a custom route from these answers',
@@ -604,7 +643,7 @@ export default {
       },
       reasons: {
         pendingInput: 'Fill in all four steps to see your answer.',
-        passportNotEligible: 'Your passport is not on the 55-country whitelist.',
+        passportNotEligible: 'Your passport is not in our current tool list. Ask Lin to check the latest policy before booking.',
         portNotInPassportList: 'This port is not allowed for your passport.',
         portNotApplicableForStay: 'This port does not currently support the stay length you picked.',
         durationNotEligibleForPassport: 'Your passport is not on the list for this stay length.',
@@ -616,6 +655,19 @@ export default {
     pathCFooter: {
       brandTagline:
         'Tailor-made China travel, drafted with a Beijing-based specialist who actually picks up.',
+      manifesto: {
+        title: 'Highlights happen when you get closer.',
+        subtitle: 'The best travel moments rarely happen from far away.',
+      },
+      newsletter: {
+        heading: 'Newsletter',
+        body: 'One note a month · 3 specialist-picked China ideas · no ads.',
+      },
+      legalShortLabels: {
+        privacy: 'Privacy',
+        terms: 'Terms',
+        icp: 'ICP',
+      },
       sitemap: {
         plan: {
           heading: 'Plan',
@@ -629,8 +681,8 @@ export default {
           heading: 'Discover',
           links: [
             { label: 'Itineraries', href: '/itineraries' },
-            { label: 'Sample 10 days', href: '/itineraries/sample-10d' },
-            { label: 'Themes (coming v1.5)', href: '/themes', soft: 'themes' as const },
+            { label: 'Custom itinerary request', href: '/plan' },
+            { label: 'Themes', href: '/themes', soft: 'themes' as const },
           ],
         },
         about: {
@@ -638,15 +690,15 @@ export default {
           links: [
             { label: 'About pandatravel', href: '/about' },
             { label: 'Reviews', href: '/reviews' },
-            { label: 'Contact (coming v1.5)', href: '/about#contact' },
+            { label: 'Contact', href: '/about#contact' },
           ],
         },
         channels: {
           heading: 'Fine print',
           links: [
-            { label: 'Privacy (placeholder)', href: '/legal/privacy', soft: 'legalPrivacy' as const },
-            { label: 'Terms (placeholder)', href: '/legal/terms', soft: 'legalTerms' as const },
-            { label: 'ICP placeholder', href: '/legal/icp', soft: 'legalIcp' as const },
+            { label: 'Privacy', href: '/legal/privacy', soft: 'legalPrivacy' as const },
+            { label: 'Terms', href: '/legal/terms', soft: 'legalTerms' as const },
+            { label: 'ICP', href: '/legal/icp', soft: 'legalIcp' as const },
           ],
         },
       },
@@ -654,12 +706,12 @@ export default {
         heading: 'Trust network',
         body: 'We will plug verified review widgets in here as our first cohort lands.',
         partners: [
-          { label: 'Tripadvisor', status: 'pending' },
-          { label: 'Google Reviews', status: 'pending' },
-          { label: 'Feefo', status: 'pending' },
-          { label: 'Trustindex', status: 'pending' },
+          { label: 'Tripadvisor', status: 'verifying' },
+          { label: 'Google Reviews', status: 'verifying' },
+          { label: 'Feefo', status: 'verifying' },
+          { label: 'Trustindex', status: 'verifying' },
         ],
-        partnerStatusLabel: 'pending',
+        partnerStatusLabel: 'verifying',
       },
       replyPromise: {
         heading: 'Reply promise',
@@ -671,7 +723,7 @@ export default {
         body: 'A small Beijing-based studio that designs private China trips around how you actually travel — not a packaged menu, not a 49-field intake form.',
       },
       languageHint: 'Switch language at the top of the page.',
-      mockNotice: 'Mock data — replace before launch',
+      mockNotice: 'Content follows the final verified version',
       copyright: '© 2026 pandatravel · pandatravel.com.cn · All rights reserved',
     },
   },

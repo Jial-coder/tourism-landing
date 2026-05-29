@@ -1,28 +1,87 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
 import { useDictionary } from '@/components/i18n/LocaleProvider';
 import { Reveal } from '@/components/motion/Reveal';
 import { HeroParallax } from '@/components/motion/HeroParallax';
 import { HeroBackdrop } from '@/components/motion/HeroBackdrop';
 import { MagneticCta } from '@/components/motion/MagneticCta';
 import { ContactChannelList } from '@/components/contact/ContactChannelList';
-import { MockBadge } from '@/components/trust/MockBadge';
 import { ChineseSeal } from '@/components/brand/ChineseSeal';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
 
 export function HomeHero() {
   const dict = useDictionary();
   const t = dict.home.hero;
-  const anchor = t.anchorCard;
+  const [contactOpen, setContactOpen] = useState(false);
+  const contactTriggerRef = useRef<HTMLButtonElement>(null);
+  const contactDialogRef = useRef<HTMLDivElement>(null);
+  const contactCloseRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!contactOpen) return;
+    const previouslyFocused =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const focusableSelector = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',');
+
+    const getFocusable = () => {
+      const dialog = contactDialogRef.current;
+      if (!dialog) return [];
+      return Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (element) =>
+          !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true',
+      );
+    };
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setContactOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusable = getFocusable();
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first || !last) {
+        event.preventDefault();
+        contactDialogRef.current?.focus({ preventScroll: true });
+        return;
+      }
+
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !contactDialogRef.current?.contains(active))) {
+        event.preventDefault();
+        last.focus({ preventScroll: true });
+      }
+      if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus({ preventScroll: true });
+      }
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKey);
+    const focusFrame = window.requestAnimationFrame(() => {
+      contactCloseRef.current?.focus({ preventScroll: true });
+    });
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKey);
+      const restoreTarget =
+        previouslyFocused?.isConnected === true ? previouslyFocused : contactTriggerRef.current;
+      restoreTarget?.focus({ preventScroll: true });
+    };
+  }, [contactOpen]);
 
   return (
     <section
@@ -30,7 +89,7 @@ export function HomeHero() {
       className="relative isolate overflow-hidden bg-deep-slate text-soft-ivory min-h-[88svh] md:min-h-screen"
     >
       <HeroParallax>
-        <HeroBackdrop src="/landmarks/hero-gen/v4-a.webp" />
+        <HeroBackdrop eager />
       </HeroParallax>
       <div
         aria-hidden="true"
@@ -68,66 +127,20 @@ export function HomeHero() {
                   {t.primaryCta}
                 </a>
               </MagneticCta>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center rounded-full border border-vermilion/60 bg-vermilion/10 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-vermilion hover:bg-vermilion/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
-                  >
-                    {t.secondaryCta}
-                  </button>
-                </DialogTrigger>
-                <DialogContent
-                  aria-label={t.contactModalTitle}
-                  className="max-h-[85vh] overflow-y-auto sm:max-w-lg"
-                >
-                  <DialogHeader>
-                    <DialogTitle className="font-serif text-2xl text-ink">
-                      {t.contactModalTitle}
-                    </DialogTitle>
-                    <DialogDescription className="text-ink-soft">
-                      {t.contactModalDescription}
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="mt-2">
-                    <ContactChannelList variant="list" />
-                  </div>
-                </DialogContent>
-              </Dialog>
+              <button
+                ref={contactTriggerRef}
+                type="button"
+                aria-haspopup="dialog"
+                aria-expanded={contactOpen}
+                aria-controls={contactOpen ? 'home-contact-dialog' : undefined}
+                onClick={() => setContactOpen(true)}
+                className="inline-flex items-center justify-center rounded-full border border-vermilion/60 bg-vermilion/10 px-7 py-3 text-sm font-medium text-soft-ivory backdrop-blur-sm transition-colors hover:border-vermilion hover:bg-vermilion/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory/60"
+              >
+                {t.secondaryCta}
+              </button>
             </div>
           </Reveal>
 
-          <Reveal delay={0.4} className="lg:hidden">
-            <Link
-              href="/itineraries/sample-10d"
-              className="mt-4 flex items-stretch gap-3 rounded-[14px] bg-paper/95 p-3 text-ink ring-1 ring-ink/10 backdrop-blur-sm transition-colors hover:ring-ink/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate"
-            >
-              <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-[10px]">
-                <Image
-                  src="/landmarks/beijing.jpg"
-                  alt={anchor.title}
-                  fill
-                  sizes="96px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex min-w-0 flex-col justify-between gap-1 py-1">
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-jade">
-                  {anchor.eyebrow}
-                </p>
-                <p className="font-serif text-[15px] leading-snug text-ink line-clamp-2">
-                  {anchor.title}
-                </p>
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <span className="text-[12px] text-ink/75">{anchor.meta}</span>
-                  <MockBadge>样板价位</MockBadge>
-                </div>
-                <span className="text-[12px] font-medium text-vermilion">
-                  {anchor.cta} →
-                </span>
-              </div>
-            </Link>
-          </Reveal>
         </div>
       </div>
 
@@ -143,48 +156,45 @@ export function HomeHero() {
         />
       </Reveal>
 
-      <Reveal
-        delay={0.5}
-        className="pointer-events-none absolute bottom-10 right-10 z-10 hidden lg:block"
-      >
-        <Link
-          href="/itineraries/sample-10d"
-          className="pointer-events-auto group block w-[300px] overflow-hidden rounded-[14px] bg-paper/95 text-ink shadow-2xl shadow-deep-slate/40 ring-1 ring-ink/15 backdrop-blur-sm transition-colors hover:ring-vermilion/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soft-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate"
+      {contactOpen && (
+        <div
+          className="fixed inset-0 z-[80] grid place-items-center bg-deep-slate/60 px-4 backdrop-blur-sm"
+          onClick={() => setContactOpen(false)}
         >
-          <div className="relative aspect-[5/3] w-full overflow-hidden">
-            <Image
-              src="/landmarks/beijing.jpg"
-              alt={anchor.title}
-              fill
-              sizes="300px"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-            <div className="absolute left-3 top-3">
-              <span
-                className="inline-flex items-center rounded-full bg-vermilion-deep px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-soft-ivory shadow-md shadow-deep-slate/30"
-                style={{ color: '#fbf7ee', backgroundColor: '#7a141d' }}
-              >
-                {anchor.eyebrow}
-              </span>
+          <div
+            ref={contactDialogRef}
+            id="home-contact-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="home-contact-title"
+            aria-describedby="home-contact-description"
+            tabIndex={-1}
+            className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-xl bg-paper p-6 text-ink shadow-2xl ring-1 ring-ink/10"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              ref={contactCloseRef}
+              type="button"
+              aria-label={t.contactModalCloseLabel}
+              onClick={() => setContactOpen(false)}
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-ink/60 transition-colors hover:bg-ink/5 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade"
+            >
+              <X size={18} aria-hidden />
+            </button>
+            <div className="flex flex-col gap-2 pr-8">
+              <h2 id="home-contact-title" className="font-serif text-2xl text-ink">
+                {t.contactModalTitle}
+              </h2>
+              <p id="home-contact-description" className="text-sm leading-relaxed text-ink-soft">
+                {t.contactModalDescription}
+              </p>
+            </div>
+            <div className="mt-5">
+              <ContactChannelList variant="list" onNavigate={() => setContactOpen(false)} />
             </div>
           </div>
-          <div className="flex flex-col gap-2 p-4">
-            <p className="font-serif text-[18px] leading-snug text-ink">
-              {anchor.title}
-            </p>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[12px] text-ink/75">{anchor.meta}</span>
-              <MockBadge>样板价位</MockBadge>
-            </div>
-            <span className="mt-1 inline-flex items-center gap-1 text-[13px] font-medium text-vermilion transition-colors group-hover:text-vermilion-deep">
-              {anchor.cta}
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none">
-                →
-              </span>
-            </span>
-          </div>
-        </Link>
-      </Reveal>
+        </div>
+      )}
     </section>
   );
 }

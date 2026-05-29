@@ -59,3 +59,12 @@ Thumbs.db
 hero-*.png
 qa-*.png
 scripts/_tmp/
+.codex-run/
+.superpowers/
+__pycache__/
+*.pyc
+/qa/
+docs/qa/**/*.png
+docs/qa/**/*.jpg
+docs/qa/**/*.jpeg
+docs/qa/**/*.log

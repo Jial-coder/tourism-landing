@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MockBadge } from "@/components/trust/MockBadge";
 import type { Advisor } from "@/lib/data/advisors";
 
 const BG_CLASSES: Record<NonNullable<Advisor["avatar"]["placeholder"]["bg"]>, string> = {
@@ -9,11 +8,15 @@ const BG_CLASSES: Record<NonNullable<Advisor["avatar"]["placeholder"]["bg"]>, st
 };
 
 export function AdvisorCard({ advisor }: { advisor: Advisor }) {
+  if (advisor.status === "hidden") return null;
+
   const bg = BG_CLASSES[advisor.avatar.placeholder.bg];
   const firstName = advisor.name.zh.split(" · ")[0];
   const enFirst = advisor.name.en.split(" · ")[0];
   const waMsg = `Hi ${enFirst}, I'd like to plan a trip with pandatravel.`;
-  const waHref = `https://wa.me/${advisor.whatsappPhone}?text=${encodeURIComponent(waMsg)}`;
+  const waHref = advisor.whatsappPhone
+    ? `https://wa.me/${advisor.whatsappPhone}?text=${encodeURIComponent(waMsg)}`
+    : null;
 
   return (
     <article
@@ -33,7 +36,6 @@ export function AdvisorCard({ advisor }: { advisor: Advisor }) {
             <h3 className="text-[22px] lg:text-[26px] font-misans-bold leading-tight text-ink">
               {advisor.name.zh}
             </h3>
-            <MockBadge>真名占位</MockBadge>
           </div>
           <p className="text-[12px] font-misans-regular tracking-[0.16em] uppercase text-jade">
             {advisor.name.en}
@@ -64,7 +66,6 @@ export function AdvisorCard({ advisor }: { advisor: Advisor }) {
           <span className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
             最近一次写过的草稿
           </span>
-          <MockBadge>样例占位</MockBadge>
         </div>
         <p className="text-[14px] font-misans-regular leading-relaxed text-ink/80">
           {advisor.caseSnippet.zh}
@@ -72,12 +73,14 @@ export function AdvisorCard({ advisor }: { advisor: Advisor }) {
       </div>
 
       <div className="mt-auto flex flex-col gap-3 border-t border-ink/8 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-        <a
-          href={waHref}
-          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-jade px-5 py-2.5 text-[13px] font-misans-bold text-soft-ivory shadow-sm transition-colors hover:bg-paper hover:text-jade hover:ring-2 hover:ring-jade focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper motion-reduce:transition-none"
-        >
-          WhatsApp · 直接和 {firstName} 聊
-        </a>
+        {waHref && (
+          <a
+            href={waHref}
+            className="inline-flex items-center justify-center gap-1.5 rounded-full bg-jade px-5 py-2.5 text-[13px] font-misans-bold text-soft-ivory shadow-sm transition-colors hover:bg-paper hover:text-jade hover:ring-2 hover:ring-jade focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper motion-reduce:transition-none"
+          >
+            WhatsApp · 直接和 {firstName} 聊
+          </a>
+        )}
         <Link
           href={`/plan?advisor=${advisor.slug}`}
           className="inline-flex items-center text-[13px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-paper rounded-sm"

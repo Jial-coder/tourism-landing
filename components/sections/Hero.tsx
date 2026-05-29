@@ -70,10 +70,10 @@ export function Hero() {
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <CTAGhost href="/plan">免费定制行程</CTAGhost>
               <a
-                href="/itineraries/sample-10d"
+                href="/itineraries"
                 className="text-[13px] font-misans-regular tracking-wide text-soft-ivory/75 italic underline-offset-4 hover:underline"
               >
-                看看 10 天样板行程 →
+                看看行程思路 →
               </a>
             </div>
 

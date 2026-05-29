@@ -10,7 +10,7 @@ import { SectionInner } from "@/components/atoms/SectionContainer";
 
 const DIAGNOSTICS = [
   { label: "还没想好", desc: "Not sure yet", href: "/plan?path=undecided" },
-  { label: "只有 10 天", desc: "Only 10 days", href: "/itineraries/sample-10d" },
+  { label: "只有 10 天", desc: "Only 10 days", href: "/plan" },
   { label: "带孩子", desc: "Traveling with kids", href: "/themes/family" },
   { label: "想看自然", desc: "Nature, not cities", href: "/themes/nature" },
   { label: "在中国出差", desc: "Business trip extension", href: "/themes/business-add-on" },

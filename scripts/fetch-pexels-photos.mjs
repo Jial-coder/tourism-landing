@@ -43,16 +43,20 @@ const PEXELS_PHOTOS = [
   // Jiuzhaigou / 九寨沟 — alpine lakes
   {
     id: "jiuzhaigou",
-    pexelsId: 13975984,
-    description: "Alpine lakes Jiuzhaigou Sichuan",
-    photographer: "Pexels community",
+    pexelsId: 34619137,
+    description: "Five Flower Lake in Jiuzhaigou Valley National Park",
+    photographer: "David Tran",
+    photoUrl: "https://www.pexels.com/photo/scenic-view-of-five-flower-lake-in-jiuzhaigou-34619137/",
+    photographerUrl: "https://www.pexels.com/@davidtran07/",
   },
   // Huangshan / 黄山 — sea of clouds (replaces hero default)
   {
     id: "huangshan",
-    pexelsId: 18707644,
-    description: "Huangshan sea of clouds at sunrise",
-    photographer: "Pexels community",
+    pexelsId: 14970258,
+    description: "Huangshan mountain landscape in Anhui",
+    photographer: "汪顺",
+    photoUrl: "https://www.pexels.com/photo/landscape-of-huangshan-a-mountain-range-in-southern-anhui-province-in-eastern-china-14970258/",
+    photographerUrl: "https://www.pexels.com/@1474704934/",
   },
   // Dali / 大理 — Erhai lake & Cangshan
   {
@@ -165,9 +169,9 @@ for (const photo of PEXELS_PHOTOS) {
       id: photo.id,
       source: "pexels",
       pexels_id: photo.pexelsId,
-      photo_url: `https://www.pexels.com/photo/${photo.pexelsId}/`,
+      photo_url: photo.photoUrl ?? `https://www.pexels.com/photo/${photo.pexelsId}/`,
       photographer: photo.photographer,
-      photographer_url: "https://www.pexels.com/",
+      photographer_url: photo.photographerUrl ?? "https://www.pexels.com/",
       alt: photo.description,
       license: "Pexels License (free for commercial use, attribution appreciated)",
     });

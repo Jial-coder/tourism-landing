@@ -8,7 +8,19 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "check:i18n": "tsx scripts/check-i18n-parity.ts",
-    "prelaunch-check": "tsx scripts/prelaunch-mock-guard.ts --enforce-production",
+    "check:i18n:hardcoded": "tsx scripts/check-hardcoded-public-chinese.ts",
+    "qa:uiux:render": "python scripts/ui_ux_render_evidence.py",
+    "qa:uiux:route": "tsx scripts/ui-ux-scenario-router.ts",
+    "qa:uiux:scenario-coverage": "tsx scripts/ui-ux-scenario-coverage.ts",
+    "qa:uiux:playbook": "tsx scripts/ui-ux-scenario-playbook.ts",
+    "qa:uiux:review": "tsx scripts/ui-ux-aesthetic-review-check.ts",
+    "qa:uiux:propose": "tsx scripts/ui-ux-aesthetic-proposal.ts",
+    "qa:uiux:plan": "tsx scripts/ui-ux-decision-plan.ts",
+    "qa:uiux:deconflict": "tsx scripts/ui-ux-deconflict-check.ts",
+    "qa:uiux:audit": "tsx scripts/ui-ux-objective-audit.ts",
+    "qa:uiux:handoff": "tsx scripts/ui-ux-handoff.ts",
+    "qa:uiux:status": "tsx scripts/ui-ux-orchestration-status.ts",
+    "prelaunch-check": "tsx scripts/prelaunch-mock-guard.ts --enforce-production && tsx scripts/prelaunch-env-check.ts",
     "prebuild": "tsx scripts/prelaunch-mock-guard.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -51,7 +63,7 @@
     "drizzle-kit": "^0.31.10",
     "tailwindcss": "^4",
     "tsx": "^4.22.3",
-    "typescript": "^5"
+    "typescript": "5.1.6"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

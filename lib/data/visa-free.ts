@@ -1017,7 +1017,7 @@ export function evaluateEligibility(
 /* =========================================================================
  * Ready-made transit itineraries (UI cards on /visa-free)
  * Each entry's `available` flag controls whether we route to a real
- * /itineraries/[slug] page or render a "coming soon" badge.
+ * /itineraries/[slug] page or render a planned badge.
  * ========================================================================= */
 
 export type ReadymadeRoute = {

@@ -20,23 +20,13 @@ import {
   type EntryPortType,
   type StayDuration,
 } from '@/lib/data/visa-free';
-import {
-  buildWhatsAppDeepLink,
-  groupTextFrom,
-  interestsTextFrom,
-  whenTextFrom,
-} from '@/lib/wizard-payload';
 import { cn } from '@/lib/utils';
 
 type Locale = ReturnType<typeof useLocale>['locale'];
 type T = ReturnType<typeof useLocale>['t']['home']['visaFree'];
 
-// Public placeholder advisor number is gated behind the mock guard. Replace
-// before launch via lib/data/advisors.ts.
-const ADVISOR_PHONE = '861300000000';
-
 const inputCls =
-  'h-11 w-full rounded-md border border-ink/15 bg-soft-ivory px-3 text-[14px] text-ink shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
+  'h-10 w-full rounded-md border border-ink/15 bg-soft-ivory px-3 text-[13px] text-ink shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:h-11 sm:text-[14px]';
 
 const REASON_TO_KEY: Record<EligibilityReasonCode, keyof T['reasons']> = {
   'pending-input': 'pendingInput',
@@ -272,32 +262,6 @@ export function DecisionTool() {
 
   const reasonText = dict.reasons[REASON_TO_KEY[result.reasonCode]];
 
-  // WhatsApp deep link — uses the v1 wizard payload format.
-  const wa = useMemo(() => {
-    const passportLabel = rule
-      ? locale === 'zh'
-        ? rule.passportCountryName.zh
-        : rule.passportCountryName.en
-      : '';
-    const portLabel = port ? (locale === 'zh' ? port.cn : port.en) : '';
-    const onwardLabel = onward ? (locale === 'zh' ? onward.countryName.zh : onward.countryName.en) : '';
-    const whenText = whenTextFrom({
-      tripWindow: 'considering',
-      tripMonth: '',
-      tripLength: stay === '240h' ? '8-10-days' : '5-7-days',
-    });
-    const groupText = groupTextFrom({ groupType: 'visa-free', adultsCount: 1, childrenAgeTiers: [] });
-    const interestsText = interestsTextFrom({
-      chips: ['visa-free', passportLabel, portLabel, `→ ${onwardLabel}`].filter(Boolean) as string[],
-      notes: stay ? `${stay} transit` : '',
-    });
-    return buildWhatsAppDeepLink(ADVISOR_PHONE, {
-      whenText: whenText || 'visa-free transit',
-      groupText: groupText || 'solo / unspecified',
-      interestsText,
-    });
-  }, [locale, rule, port, onward, stay]);
-
   const planQuery = new URLSearchParams({ type: 'visa-free' });
   if (portSlug) planQuery.set('port', portSlug);
   if (onwardCode) planQuery.set('onward', onwardCode);
@@ -309,74 +273,86 @@ export function DecisionTool() {
       data-testid="visa-free-decision-tool"
       data-eligible={result.eligible ? 'yes' : 'no'}
       data-reason={result.reasonCode}
-      className="grid grid-cols-1 gap-8 rounded-[12px] bg-paper p-6 ring-1 ring-ink/10 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:p-10"
+      className="grid grid-cols-1 gap-6 rounded-[12px] bg-paper p-4 ring-1 ring-ink/10 sm:p-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:p-10"
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-5 sm:gap-6">
         <div className="flex flex-col gap-2">
-          <h2 className="text-[24px] font-misans-heavy text-ink lg:text-[32px]">{dict.tool.heading}</h2>
-          <p className="text-[14px] text-ink/70">{dict.tool.body}</p>
+          <h2 className="text-[22px] font-misans-heavy text-ink sm:text-[24px] lg:text-[32px]">
+            {dict.tool.heading}
+          </h2>
+          <p className="text-[13px] text-ink/70 sm:text-[14px]">{dict.tool.body}</p>
         </div>
 
-        <fieldset className="flex flex-col gap-2">
-          <legend className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
-            {dict.tool.steps.a.label}
-          </legend>
-          <h3 className="text-[16px] font-misans-bold text-ink">{dict.tool.steps.a.heading}</h3>
-          <PassportSelect
-            value={passport}
-            onChange={setPassport}
-            label={dict.tool.steps.a.heading}
-            placeholder={dict.placeholders.passport}
-            locale={locale}
-          />
-          <p className="text-[12px] text-ink/70">{dict.tool.steps.a.help}</p>
-        </fieldset>
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+          <fieldset className="flex min-w-0 flex-col gap-2 rounded-[10px] border border-ink/10 bg-soft-ivory/60 p-3 shadow-sm shadow-ink/5 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+            <legend className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              {dict.tool.steps.a.label}
+            </legend>
+            <h3 className="text-[14px] font-misans-bold leading-snug text-ink sm:text-[16px]">
+              {dict.tool.steps.a.heading}
+            </h3>
+            <PassportSelect
+              value={passport}
+              onChange={setPassport}
+              label={dict.tool.steps.a.heading}
+              placeholder={dict.placeholders.passport}
+              locale={locale}
+            />
+            <p className="hidden text-[12px] text-ink/70 sm:block">{dict.tool.steps.a.help}</p>
+          </fieldset>
 
-        <fieldset className="flex flex-col gap-2">
-          <legend className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
-            {dict.tool.steps.b.label}
-          </legend>
-          <h3 className="text-[16px] font-misans-bold text-ink">{dict.tool.steps.b.heading}</h3>
-          <PortSelect
-            value={portSlug}
-            onChange={setPortSlug}
-            label={dict.tool.steps.b.heading}
-            placeholder={dict.placeholders.port}
-            locale={locale}
-          />
-          <p className="text-[12px] text-ink/70">{dict.tool.steps.b.help}</p>
-        </fieldset>
+          <fieldset className="flex min-w-0 flex-col gap-2 rounded-[10px] border border-ink/10 bg-soft-ivory/60 p-3 shadow-sm shadow-ink/5 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+            <legend className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              {dict.tool.steps.b.label}
+            </legend>
+            <h3 className="text-[14px] font-misans-bold leading-snug text-ink sm:text-[16px]">
+              {dict.tool.steps.b.heading}
+            </h3>
+            <PortSelect
+              value={portSlug}
+              onChange={setPortSlug}
+              label={dict.tool.steps.b.heading}
+              placeholder={dict.placeholders.port}
+              locale={locale}
+            />
+            <p className="hidden text-[12px] text-ink/70 sm:block">{dict.tool.steps.b.help}</p>
+          </fieldset>
 
-        <fieldset className="flex flex-col gap-2">
-          <legend className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
-            {dict.tool.steps.c.label}
-          </legend>
-          <h3 className="text-[16px] font-misans-bold text-ink">{dict.tool.steps.c.heading}</h3>
-          <OnwardSelect
-            value={onwardCode}
-            onChange={setOnwardCode}
-            label={dict.tool.steps.c.heading}
-            placeholder={dict.placeholders.onward}
-            locale={locale}
-          />
-          <p className="text-[12px] text-ink/70">{dict.tool.steps.c.help}</p>
-        </fieldset>
+          <fieldset className="col-span-2 flex min-w-0 flex-col gap-2 rounded-[10px] border border-ink/10 bg-soft-ivory/60 p-3 shadow-sm shadow-ink/5 lg:col-span-1 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+            <legend className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              {dict.tool.steps.c.label}
+            </legend>
+            <h3 className="text-[14px] font-misans-bold leading-snug text-ink sm:text-[16px]">
+              {dict.tool.steps.c.heading}
+            </h3>
+            <OnwardSelect
+              value={onwardCode}
+              onChange={setOnwardCode}
+              label={dict.tool.steps.c.heading}
+              placeholder={dict.placeholders.onward}
+              locale={locale}
+            />
+            <p className="hidden text-[12px] text-ink/70 sm:block">{dict.tool.steps.c.help}</p>
+          </fieldset>
 
-        <fieldset className="flex flex-col gap-2">
-          <legend className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
-            {dict.tool.steps.d.label}
-          </legend>
-          <h3 className="text-[16px] font-misans-bold text-ink">{dict.tool.steps.d.heading}</h3>
-          <StayRadio value={stay} onChange={setStay} rule={rule} port={port} t={dict} />
-          <p className="text-[12px] text-ink/70">{dict.tool.steps.d.help}</p>
-        </fieldset>
+          <fieldset className="col-span-2 flex min-w-0 flex-col gap-2 rounded-[10px] border border-ink/10 bg-soft-ivory/60 p-3 shadow-sm shadow-ink/5 lg:col-span-1 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+            <legend className="text-[11px] font-misans-regular tracking-[0.18em] uppercase text-jade">
+              {dict.tool.steps.d.label}
+            </legend>
+            <h3 className="text-[14px] font-misans-bold leading-snug text-ink sm:text-[16px]">
+              {dict.tool.steps.d.heading}
+            </h3>
+            <StayRadio value={stay} onChange={setStay} rule={rule} port={port} t={dict} />
+            <p className="hidden text-[12px] text-ink/70 sm:block">{dict.tool.steps.d.help}</p>
+          </fieldset>
+        </div>
       </div>
 
       <div
         aria-live="polite"
         data-testid="visa-free-result"
         className={cn(
-          'flex h-fit flex-col gap-5 rounded-[10px] p-6 ring-1',
+          'flex h-fit flex-col gap-4 rounded-[10px] p-4 ring-1 sm:p-5',
           result.reasonCode === 'eligible'
             ? 'bg-vermilion-soft/60 ring-vermilion/30 text-ink'
             : 'bg-paper ring-ink/10 text-ink',
@@ -388,8 +364,17 @@ export function DecisionTool() {
               ? dict.result.eligibleHeading
               : dict.result.ineligibleHeading}
           </span>
-          <p className="text-[15px] font-misans-bold leading-snug text-ink">{result.reason[locale]}</p>
+          <p className="text-[14px] font-misans-bold leading-snug text-ink sm:text-[15px]">
+            {result.reason[locale]}
+          </p>
           <p className="text-[12px] text-ink/65">{reasonText}</p>
+          {result.reasonCode !== 'eligible' && (
+            <p className="text-[12px] leading-relaxed text-ink/65 sm:hidden">
+              {locale === 'zh'
+                ? '完整细则放在下面的“老实说的细则”里。'
+                : 'The full caveats are listed below.'}
+            </p>
+          )}
         </div>
 
         {result.eligible && (
@@ -427,7 +412,7 @@ export function DecisionTool() {
           </>
         )}
 
-        <div className="flex flex-col gap-2">
+        <div className="hidden flex-col gap-2 sm:flex">
           <span className="text-[12px] font-misans-regular tracking-[0.14em] uppercase text-ink/70">
             {dict.result.risksHeading}
           </span>
@@ -441,18 +426,22 @@ export function DecisionTool() {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-3 pt-2">
+        <div className="flex flex-col gap-3 pt-1 sm:pt-2">
+          <Link
+            href="#visa-free-caveats-title"
+            className="text-[12px] font-misans-regular text-jade underline-offset-4 hover:underline sm:hidden"
+          >
+            {locale === 'zh' ? '看完整细则' : 'See full caveats'}
+          </Link>
           <CTAPrimary href={planHref} className="h-11">
             {dict.result.cta.plan}
           </CTAPrimary>
-          <a
-            href={wa.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={planHref}
             className="text-[13px] font-misans-regular text-ink/75 underline-offset-4 hover:text-jade hover:underline"
           >
             {dict.result.cta.chat} →
-          </a>
+          </Link>
           <Link
             href="/"
             className="text-[12px] font-misans-regular text-ink/70 underline-offset-4 hover:text-jade hover:underline"

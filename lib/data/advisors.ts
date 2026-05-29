@@ -1,7 +1,7 @@
 /**
  * lib/data/advisors.ts — pandatravel 顾问真名透明数据层（Phase 2.6 §5.11）
  *
- * v1 全 mock 占位 + status: 'mock'，渲染由 <MockBadge> 守门，并被
+ * v1 全 mock 占位 + status: 'hidden'，渲染由 <MockBadge> 守门，并被
  * scripts/prelaunch-mock-guard.ts 在 production build 前扫描拦截。
  *
  * 上线前由用户提供顾问真名 / 真号 / 真照片替换：
@@ -36,7 +36,7 @@ export type Advisor = {
   avatar: AdvisorAvatar;
   vlogUrl?: string;
   languages: string[];
-  status: 'mock';
+  status: 'hidden';
 };
 
 const lin: Advisor = {
@@ -57,7 +57,7 @@ const lin: Advisor = {
     zh: '上周给一组澳洲家庭（爸妈 + 9 岁双胞胎）写了 12 天「北京 · 西安 · 上海」的草稿。爸爸想看长城，孩子想坐高铁，妈妈想吃地道烤鸭——三件事都给安排进了，烤鸭那家是我自己每周也去的。',
     en: 'Last week I wrote a 12-day Beijing / Xi\'an / Shanghai draft for an Australian family — parents and twin nine-year-olds. Dad wanted the Great Wall, the kids wanted high-speed trains, mum wanted real Peking duck. All three made it in, and the duck spot is the one I go to myself every week.',
   },
-  whatsappPhone: '861300000000',
+  whatsappPhone: '',
   avatar: {
     placeholder: {
       initials: 'L',
@@ -65,7 +65,7 @@ const lin: Advisor = {
     },
   },
   languages: ['中文', 'English'],
-  status: 'mock',
+  status: 'hidden',
 };
 
 const mei: Advisor = {
@@ -86,7 +86,7 @@ const mei: Advisor = {
     zh: '今年三月给一对纽约的蜜月夫妇写了 9 天「桂林 · 阳朔 · 大理」。他们点名「不要任何旅行团出现的角度」——所以我把他们的清晨放在漓江私家船上，下午住阳朔山谷里只有 6 间房的小院，最后两天在大理喜洲找了一户可以同住的本地白族人家。',
     en: 'This March I wrote nine days through Guilin, Yangshuo and Dali for a New York honeymoon couple. They asked for "no angle a tour group would ever stand at" — so their mornings became private boats on the Li River, their afternoons a six-room courtyard tucked in a Yangshuo valley, and their last two days a homestay with a Bai family in Xizhou.',
   },
-  whatsappPhone: '861300000001',
+  whatsappPhone: '',
   avatar: {
     placeholder: {
       initials: 'M',
@@ -94,7 +94,7 @@ const mei: Advisor = {
     },
   },
   languages: ['中文', 'English', '日本語 (basic)'],
-  status: 'mock',
+  status: 'hidden',
 };
 
 const wei: Advisor = {
@@ -115,7 +115,7 @@ const wei: Advisor = {
     zh: '上个月给一位新加坡的工程师写了 6 天「广州 · 港珠澳大桥 · 香港」240h 过境免签线路。他原计划塞满，我帮他砍掉了珠海半天，换成在香港中环住一晚不用早起。回来他给我发了一句：「第一次出差回来不累。」',
     en: 'Last month I wrote a six-day "Guangzhou · HZMB Bridge · Hong Kong" 240h transit loop for a Singapore-based engineer. He wanted it packed; I cut half a day in Zhuhai and gave him one night in Central Hong Kong without an early call. His message after the trip was one line: "first business trip I came back from rested."',
   },
-  whatsappPhone: '861300000002',
+  whatsappPhone: '',
   avatar: {
     placeholder: {
       initials: 'W',
@@ -123,7 +123,7 @@ const wei: Advisor = {
     },
   },
   languages: ['中文', 'English', '粤语'],
-  status: 'mock',
+  status: 'hidden',
 };
 
 export const ADVISORS: Advisor[] = [lin, mei, wei];

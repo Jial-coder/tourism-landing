@@ -1,11 +1,11 @@
 /**
  * lib/data/itineraries.ts — 5 itinerary mock 数据（Phase 2.5）。
  *
- * 整套 itinerary data 标 status: 'mock'，由页面级 <MockBadge /> 守门
+ * 整套 itinerary data 标 status: 'hidden'，由页面级 <MockBadge /> 守门
  * （spec §6.5 Mock guard release gate 扫描该字段 + JSX 引用）。
  *
  * 文案为 worker 自写占位（不复制 chinahighlights 任何文字）：
- *   - 价格区间 USD 起价占位（标 MockBadge 样板价位）
+ *   - 价格区间 USD 起价占位（标 MockBadge 参考价位）
  *   - 酒店等级真实分级（3-star / 4-star / 5-star）但具体酒店名字不放
  *   - 含/不含项写实，但不绑定具体供应商
  *   - 行程逐日 morning/afternoon/evening 节奏自写
@@ -94,7 +94,7 @@ export type Itinerary = {
     visa: Bilingual;
   };
   advisorSlug: string;
-  status: 'mock';
+  status: 'hidden';
 };
 
 const HERO_BY_SLUG: Record<string, { src: string; alt: Bilingual }> = {
@@ -143,8 +143,8 @@ const sample10d: Itinerary = {
     en: '10-day first-timer China · Culture & landscape balanced',
   },
   kicker: {
-    zh: 'SAMPLE · FIRST TIME IN CHINA',
-    en: 'SAMPLE · FIRST TIME IN CHINA',
+    zh: 'ROUTE · FIRST TIME IN CHINA',
+    en: 'ROUTE · FIRST TIME IN CHINA',
   },
   days: 10,
   priceFromUsd: 2800,
@@ -153,7 +153,7 @@ const sample10d: Itinerary = {
   destinations: ['beijing', 'xian', 'zhangjiajie', 'guilin', 'shanghai'],
   hero: HERO_BY_SLUG['sample-10d'],
   intro: {
-    zh: '第一次来中国不要赶 12 站。这条 10 天样板是我们写过最稳的入门节奏：北京两天古都厚重感，西安两天秦汉骨架，张家界两天峰林透气，桂林两天山水抒情，上海两天现代收尾。每一段你都有半天的留白，回酒店休息或者随便走走。',
+    zh: '第一次来中国不要赶 12 站。这条 10 天路线是我们写过最稳的入门节奏：北京两天古都厚重感，西安两天秦汉骨架，张家界两天峰林透气，桂林两天山水抒情，上海两天现代收尾。每一段你都有半天的留白，回酒店休息或者随便走走。',
     en: "First time in China? Don't try to cram in 12 cities. This 10-day baseline is the steadiest first-timer rhythm we know: two days in Beijing for imperial weight, two in Xi'an for Han-Tang bones, two in Zhangjiajie to breathe, two in Guilin for lyrical karst, two in Shanghai to land back in the present. Every leg includes a half day of slack so you can nap or just wander.",
   },
   glance: [
@@ -247,7 +247,7 @@ const sample10d: Itinerary = {
           note: { zh: '湖边是北京最像电影的一段；选靠水侧的桌子，鸽哨从屋顶飘过来时停下吃半口', en: 'The lakeside is the most cinematic block in Beijing — pick a table by the water and pause when the pigeon whistles drift over the rooftops' },
         },
         {
-          activity: { zh: '回酒店泡温水澡 · 顾问微信发明早叫醒和早餐时间', en: 'Warm bath at the hotel · advisor pings tomorrow\'s wake-up and breakfast time on WeChat' },
+          activity: { zh: '回酒店泡温水澡 · 行前支持信息确认明早叫醒和早餐时间', en: 'Warm bath at the hotel · support note confirms tomorrow\'s wake-up and breakfast time' },
           minutes: 60,
         },
       ],
@@ -638,7 +638,7 @@ const sample10d: Itinerary = {
       ],
       evening: [
         {
-          activity: { zh: '司机送浦东机场 · 顾问值班直到你过完安检', en: 'Driver to Pudong Airport · advisor on standby until you clear security' },
+          activity: { zh: '司机送浦东机场 · 支持团队确认你过完安检', en: 'Driver to Pudong Airport · support team confirms once you clear security' },
           minutes: 90,
         },
       ],
@@ -669,7 +669,7 @@ const sample10d: Itinerary = {
       { zh: '私人司机 + 商务车', en: 'Private driver and business van' },
       { zh: '所有城际高铁 / 国内航班 / 接送机', en: 'All inter-city bullet trains, domestic flights, airport transfers' },
       { zh: '景点门票 + 提前预约', en: 'All entry tickets and timed reservations' },
-      { zh: '24/7 顾问值班 · 出发后随叫随到', en: '24/7 advisor on call once you land' },
+      { zh: '行前包写清出行支持与紧急联系人', en: 'Pre-departure pack documents trip support and emergency contacts' },
     ],
     exclusions: [
       { zh: '中国签证 / 国际机票', en: 'China visa and international flights' },
@@ -703,7 +703,7 @@ const sample10d: Itinerary = {
     },
   },
   advisorSlug: 'lin',
-  status: 'mock',
+  status: 'hidden',
 };
 
 // ─── 2. visa-free-240h-beijing ─────────────────────────────
@@ -724,7 +724,7 @@ const visaFree240hBeijing: Itinerary = {
   destinations: ['beijing'],
   hero: HERO_BY_SLUG['visa-free-240h-beijing'],
   intro: {
-    zh: '从国家移民管理局 2025-11-04 公告之后，北京-天津-河北属于 240h 过境免签 24 个省级区域之一。这条样板路线是按"用满 10 天再走"设计的：北京 6 天古都 + 长城 + 现代区，天津 1 天近代史 + 早茶街，河北 1 天承德避暑山庄，最后回北京 2 天等回程航班。整段不会跨省，符合 NIA 同区域出境约束。',
+    zh: '从国家移民管理局 2025-11-04 公告之后，北京-天津-河北属于 240h 过境免签 24 个省级区域之一。这条路线是按"用满 10 天再走"设计的：北京 6 天古都 + 长城 + 现代区，天津 1 天近代史 + 早茶街，河北 1 天承德避暑山庄，最后回北京 2 天等回程航班。整段不会跨省，符合 NIA 同区域出境约束。',
     en: 'Since the NIA 2025-11-04 announcement, the Beijing–Tianjin–Hebei zone has been one of the 24 provincial regions covered by 240h transit visa-free. This baseline assumes you use the full 10 days: 6 days in Beijing for imperial Beijing, the Wall and modern districts; 1 day in Tianjin for treaty-era streets and breakfast lanes; 1 day in Chengde for the Qing summer palace; 2 days back in Beijing to soft-land before your onward flight. We never leave the region — clean exit at any of the in-zone ports.',
   },
   glance: [
@@ -751,7 +751,7 @@ const visaFree240hBeijing: Itinerary = {
           note: { zh: '走 240h 专用通道，边检会盖一个红章并写明你必须在 10 天内从同区域口岸离境；红章下方手写日期是关键，离境时要核对', en: 'Use the 240h channel — the officer stamps a red seal noting you must exit within 10 days from an in-zone port, and the hand-written date below the stamp is the one immigration matches on departure' },
         },
         {
-          activity: { zh: '出关 · 顾问微信确认你已成功用 240h · 司机举名牌等你', en: 'After clearance · advisor pings WeChat to confirm a clean 240h entry · driver waits with a name card at arrivals' },
+          activity: { zh: '出关 · 支持团队确认你已成功用 240h · 司机举名牌等你', en: 'After clearance · support team confirms a clean 240h entry · driver waits with a name card at arrivals' },
           minutes: 30,
         },
       ],
@@ -762,7 +762,7 @@ const visaFree240hBeijing: Itinerary = {
           note: { zh: '我们故意不选机场酒店或 CBD · 240h 第一晚住胡同片区，第二天醒来推开门就是真实北京', en: 'We deliberately skip airport hotels and the CBD — your 240h first night should be in a hutong block so you wake up inside real Beijing, not a glass tower' },
         },
         {
-          activity: { zh: '短午休 · 顾问微信确认你已成功用 240h 入境', en: 'Brief nap · advisor pings on WeChat to confirm successful 240h entry' },
+          activity: { zh: '短午休 · 支持团队确认你已成功用 240h 入境', en: 'Brief nap · support team confirms successful 240h entry' },
           minutes: 90,
         },
         {
@@ -1055,7 +1055,7 @@ const visaFree240hBeijing: Itinerary = {
       ],
       afternoon: [
         {
-          activity: { zh: '航班飞第三国 · 顾问微信值班直到你过完安检发位置', en: 'Flight to your declared third country · advisor stays on WeChat until you share post-security location' },
+          activity: { zh: '航班飞第三国 · 支持团队确认你过完安检并按流程收尾', en: 'Flight to your declared third country · support team confirms post-security status and closes the loop' },
           minutes: 60,
           note: { zh: '出境必须从京津冀区域内的口岸（PEK / 天津 / 石家庄等），不能跨区出境', en: 'Exit must be from an in-zone port (PEK / Tianjin / Shijiazhuang) — leaving from another region invalidates 240h' },
         },
@@ -1088,7 +1088,7 @@ const visaFree240hBeijing: Itinerary = {
       { zh: '所有城内 + 城际高铁 + 接送机', en: 'All in-city transport, inter-city bullet trains, airport transfers' },
       { zh: '240h 入境证件预审 + 边检材料 PDF 包', en: '240h pre-screening review + immigration documents PDF pack' },
       { zh: '景点门票 + 提前预约 · 故宫 / 颐和园 / 避暑山庄', en: 'Entry tickets and timed reservations: Forbidden City, Summer Palace, Mountain Resort' },
-      { zh: '7×24 顾问值班 · WeChat / WhatsApp 同时值班', en: '24/7 advisor on WeChat and WhatsApp' },
+      { zh: '行前包写清出行支持与紧急联系人', en: 'Pre-departure pack documents trip support and emergency contacts' },
     ],
     exclusions: [
       { zh: '国际机票 · 第三国机票需自行预订（必须）', en: 'International flights · third-country onward ticket is on you (mandatory for 240h)' },
@@ -1123,7 +1123,7 @@ const visaFree240hBeijing: Itinerary = {
     },
   },
   advisorSlug: 'lin',
-  status: 'mock',
+  status: 'hidden',
 };
 
 // ─── 3. family-12d ─────────────────────────────────────────
@@ -1367,7 +1367,7 @@ const family12d: Itinerary = {
         { activity: { zh: '老城厢早茶 · 生煎 + 小笼 · 收尾餐', en: 'Old town breakfast · pan-fried buns and xiaolongbao · farewell meal' }, minutes: 90 },
       ],
       afternoon: [
-        { activity: { zh: '司机送浦东机场 · 顾问值班直到过完安检', en: 'Driver to Pudong Airport · advisor on standby through security' }, minutes: 90 },
+        { activity: { zh: '司机送浦东机场 · 支持团队确认过完安检', en: 'Driver to Pudong Airport · support team confirms security clearance' }, minutes: 90 },
       ],
       evening: [
         { activity: { zh: '航班 · 顾问最后一条消息送祝福', en: 'Flight home · advisor sends a final safe-travels note' }, minutes: 60 },
@@ -1395,7 +1395,7 @@ const family12d: Itinerary = {
       { zh: '所有城际高铁商务座 / 国内航班 / 接送机', en: 'Inter-city bullet trains in business class, domestic flights, airport transfers' },
       { zh: '景点门票 + 提前预约', en: 'All entry tickets and timed reservations' },
       { zh: '面食工作坊 + 滑车 + 科技馆票', en: 'Noodle workshop, toboggan, Science Museum tickets included' },
-      { zh: '24/7 顾问值班 + 紧急医疗联系人', en: '24/7 advisor on call, emergency medical contact' },
+      { zh: '行前包写清出行支持 + 紧急医疗联系人', en: 'Pre-departure support plan plus emergency medical contact' },
     ],
     exclusions: [
       { zh: '中国签证 / 国际机票 / 第三国签证（如适用）', en: 'China visa, international flights, third-country visas if applicable' },
@@ -1430,7 +1430,7 @@ const family12d: Itinerary = {
     },
   },
   advisorSlug: 'lin',
-  status: 'mock',
+  status: 'hidden',
 };
 
 // ─── 4. honeymoon-9d ───────────────────────────────────────
@@ -1624,7 +1624,7 @@ const honeymoon9d: Itinerary = {
         { activity: { zh: '法租界一家咖啡馆早午餐 · 自由时间', en: 'Brunch at a French Concession café · free time' }, minutes: 120 },
       ],
       afternoon: [
-        { activity: { zh: '司机送浦东机场 · 顾问值班', en: 'Driver to Pudong Airport · advisor stands by' }, minutes: 90 },
+        { activity: { zh: '司机送浦东机场 · 支持团队确认送机收尾', en: 'Driver to Pudong Airport · support team confirms departure handoff' }, minutes: 90 },
       ],
       evening: [
         { activity: { zh: '航班 · 顾问最后一条消息', en: 'Flight home · advisor sends a final note' }, minutes: 30 },
@@ -1652,7 +1652,7 @@ const honeymoon9d: Itinerary = {
       { zh: '私人司机 + 高端商务车 · 全程跟到底', en: 'Private driver and premium business van throughout' },
       { zh: '所有城际高铁 / 国内航班 / 接送机', en: 'All inter-city bullet trains, domestic flights, airport transfers' },
       { zh: '西湖私船 + 漓江私筏 + 洱海私人环湖车', en: 'Private West Lake boat + private Li River raft + private Erhai loop' },
-      { zh: '24/7 顾问值班', en: '24/7 advisor on call' },
+      { zh: '行前包写清出行支持方式', en: 'Pre-departure pack documents support channels' },
     ],
     exclusions: [
       { zh: '中国签证 / 国际机票', en: 'China visa and international flights' },
@@ -1688,7 +1688,7 @@ const honeymoon9d: Itinerary = {
     },
   },
   advisorSlug: 'lin',
-  status: 'mock',
+  status: 'hidden',
 };
 
 // ─── 5. nature-14d ─────────────────────────────────────────
@@ -1963,7 +1963,7 @@ const nature14d: Itinerary = {
         { activity: { zh: '酒店退房 · 司机送桂林两江机场', en: 'Hotel checkout · driver to Guilin Liangjiang Airport' }, minutes: 90 },
       ],
       afternoon: [
-        { activity: { zh: '飞回出发城市 · 顾问值班', en: 'Fly home or onward · advisor stands by' }, minutes: 60 },
+        { activity: { zh: '飞回出发城市 · 支持团队确认收尾', en: 'Fly home or onward · support team confirms the closing handoff' }, minutes: 60 },
       ],
       evening: [
         { activity: { zh: '航班 · 顾问最后一条消息', en: 'Final flight · advisor sends a closing note' }, minutes: 30 },
@@ -1992,7 +1992,7 @@ const nature14d: Itinerary = {
       { zh: '九寨沟 + 黄山 + 张家界 + 漓江景区门票 + 提前预约', en: 'Park entries for Jiuzhaigou, Huangshan, Zhangjiajie, Li River + timed reservations' },
       { zh: '漓江私人摄影船 + 张家界私人观景台时间锁定', en: 'Private Li River photography boat + Zhangjiajie private viewpoint slots' },
       { zh: '高原适应方案 · 氧气瓶 + 海拔渐进', en: 'Altitude acclimatization protocol · oxygen + gradual ascent' },
-      { zh: '24/7 顾问值班', en: '24/7 advisor on call' },
+      { zh: '行前包写清出行支持方式', en: 'Pre-departure pack documents support channels' },
     ],
     exclusions: [
       { zh: '中国签证 / 国际机票', en: 'China visa and international flights' },
@@ -2028,7 +2028,7 @@ const nature14d: Itinerary = {
     },
   },
   advisorSlug: 'lin',
-  status: 'mock',
+  status: 'hidden',
 };
 
 // ─── exports ───────────────────────────────────────────────
@@ -2048,13 +2048,17 @@ export const ITINERARY_SLUGS: string[] = [
   'nature-14d',
 ];
 
+export const PUBLIC_ITINERARY_SLUGS: string[] = ITINERARY_SLUGS.filter(
+  (slug) => ITINERARIES[slug]?.status !== 'hidden',
+);
+
 export function getItinerary(slug: string): Itinerary | null {
-  if (ITINERARY_SLUGS.includes(slug)) {
+  if (PUBLIC_ITINERARY_SLUGS.includes(slug)) {
     return ITINERARIES[slug];
   }
   return null;
 }
 
 export function listItineraries(): Itinerary[] {
-  return ITINERARY_SLUGS.map((slug) => ITINERARIES[slug]);
+  return PUBLIC_ITINERARY_SLUGS.map((slug) => ITINERARIES[slug]);
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FilmGrain } from "@/components/atoms/FilmGrain";
+import { useDictionary } from "@/components/i18n/LocaleProvider";
 
 /**
  * ChatLauncher — M-CHAT-LAUNCHER 右下浮 FAB。
@@ -13,6 +14,8 @@ import { FilmGrain } from "@/components/atoms/FilmGrain";
  * 与 INTERACTIVE-DOCK 留 16px 间距。
  */
 export function ChatLauncher() {
+  const dict = useDictionary();
+  const t = dict.chat.launcher;
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -34,7 +37,7 @@ export function ChatLauncher() {
       <button
         type="button"
         onClick={toggleHidden}
-        aria-label="显示聊天入口"
+        aria-label={t.showEntry}
         className="fixed bottom-6 right-0 z-40 h-12 w-8 rounded-l-full bg-charcoal-blue/80 backdrop-blur-md border border-r-0 border-soft-ivory/12 text-soft-ivory/65 hover:text-soft-ivory motion-safe:transition-colors"
       >
         <MessageCircle size={14} className="mx-auto" aria-hidden />
@@ -47,7 +50,7 @@ export function ChatLauncher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label="聊天入口 · Chat with our concierge desk"
+        aria-label={t.openEntry}
         aria-expanded={open}
         className={cn(
           "fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full",
@@ -67,7 +70,7 @@ export function ChatLauncher() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="聊天 widget"
+          aria-label={t.dialogLabel}
           className="fixed bottom-24 right-6 z-40 w-[min(360px,90vw)] overflow-hidden rounded-[16px] surface-dropdown"
         >
           <FilmGrain opacity={0.04} />
@@ -75,10 +78,10 @@ export function ChatLauncher() {
             <div className="flex items-center justify-between border-b border-soft-ivory/8 px-5 py-4">
               <div className="flex flex-col gap-0.5">
                 <span className="text-[14px] font-misans-bold text-soft-ivory">
-                  Chat with our concierge desk
+                  {t.title}
                 </span>
                 <span className="text-[11px] font-misans-regular text-soft-ivory/55">
-                  Lin · Online · 通常 5 分钟内回复
+                  {t.status}
                 </span>
               </div>
               <div className="flex items-center gap-1">
@@ -87,12 +90,12 @@ export function ChatLauncher() {
                   onClick={toggleHidden}
                   className="text-[11px] text-soft-ivory/55 hover:text-soft-ivory/85 underline-offset-4 hover:underline"
                 >
-                  Hide
+                  {t.hide}
                 </button>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  aria-label="关闭"
+                  aria-label={t.close}
                   className="ml-2 inline-flex h-7 w-7 items-center justify-center rounded-full hover:bg-soft-ivory/[0.06]"
                 >
                   <X size={14} aria-hidden className="text-soft-ivory/75" />
@@ -100,19 +103,19 @@ export function ChatLauncher() {
               </div>
             </div>
             <div className="px-5 py-4 text-[13px] font-misans-regular text-soft-ivory/85 leading-relaxed">
-              你好。先问一句 - 你大概打算什么时候来中国？我先记下来，再给你一份对应季节的样板路线。
+              {t.prompt}
             </div>
             <div className="px-5 pb-4 flex flex-col gap-2">
               <input
                 type="text"
-                placeholder="写下你的问题…"
+                placeholder={t.placeholder}
                 className="bg-transparent border-b border-soft-ivory/15 py-2 text-[13px] text-soft-ivory placeholder:text-soft-ivory/35 focus:outline-none focus:border-alpine-blue/60"
               />
               <a
-                href="https://wa.me/"
+                href="/plan?intent=chat"
                 className="text-[12px] font-misans-regular text-soft-ivory/55 underline-offset-4 hover:underline self-start"
               >
-                Open WhatsApp instead →
+                {t.sendToSpecialist}
               </a>
             </div>
           </div>

@@ -1,4 +1,3 @@
-import { MockBadge } from "@/components/trust/MockBadge";
 import type { Itinerary } from "@/lib/data/itineraries";
 
 const HOTEL_LABEL: Record<string, string> = {
@@ -17,7 +16,6 @@ export function PricingMatrix({ pricing, days }: { pricing: Itinerary["pricing"]
           <span className="text-[12px] font-misans-regular tracking-[0.18em] uppercase text-jade">
             Tour Price
           </span>
-          <MockBadge>样板价位</MockBadge>
         </div>
         <p className="text-[13px] font-misans-regular leading-relaxed text-ink/65">
           下面的数字是每人每晚酒店底价区间，不是最终成交价。你的真实报价由顾问根据出行月份、组人数、机票和加项 1:1 算给你。
