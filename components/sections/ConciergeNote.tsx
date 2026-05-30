@@ -21,7 +21,7 @@ export function ConciergeNote() {
             "我们不卖路线。我们听你想去做什么，再帮你拼一条只属于你的中国。"
           </p>
           <p className="text-[13px] font-misans-regular text-soft-ivory/60">
-            — 林颂阳 · Lin · 旅行顾问，2018 至今
+            — pandatravel 顾问团队
           </p>
         </div>
       </SectionInner>

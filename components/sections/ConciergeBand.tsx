@@ -34,14 +34,14 @@ export function ConciergeBand() {
                 把想法告诉一个真人顾问
               </h2>
               <p className="text-[14px] lg:text-[15px] font-misans-regular text-ink/70 leading-relaxed">
-                4 个字段 · 不需要先选行程 · 不主动外发你的联系方式。本地中国顾问会在 4 小时内按你选择的方式回复。
+                4 个字段 · 不需要先选行程 · 不主动外发你的联系方式。本地中国顾问团队会按你选择的方式回复。
               </p>
             </div>
 
             {done ? (
               <div className="rounded-[6px] ring-1 ring-ink/10 bg-cream p-5">
                 <div className="text-[15px] font-misans-bold text-ink">
-                  收到 · 4 小时内 Lin 会回你
+                  收到 · 顾问团队会按你的联系方式回复
                 </div>
                 <p className="mt-1 text-[13px] font-misans-regular text-ink/70">
                   我们也会同步发一份 10 天参考路线做讨论起点。如果你急，可以继续补充一份完整需求表。
@@ -77,10 +77,10 @@ export function ConciergeBand() {
                 </div>
                 <div className="flex flex-wrap items-center gap-4 mt-2">
                   <CTAPrimary type="submit" className="h-10 px-6 text-[13px]">
-                    {submitting ? "Sending…" : "Send to Lin"}
+                    {submitting ? "Sending…" : "Send to the team"}
                   </CTAPrimary>
                   <p className="text-[12px] font-misans-regular text-ink/70">
-                    4 小时内回复 · 不主动外发 · 不订阅营销
+                    人工阅读需求 · 不主动外发 · 不订阅营销
                   </p>
                 </div>
               </form>
@@ -101,11 +101,11 @@ export function ConciergeBand() {
               <div className="flex flex-col gap-1.5 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="text-[15px] font-misans-bold text-ink">
-                    Lin · 林颂阳
+                    顾问团队
                   </span>
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-jade" />
                   <span className="text-[11px] font-misans-regular text-ink/65">
-                    Online
+                    Human follow-up
                   </span>
                 </div>
                 <div className="text-[12px] font-misans-regular text-ink/65 leading-relaxed">
@@ -117,14 +117,14 @@ export function ConciergeBand() {
               </div>
             </div>
             <p className="text-[12px] font-misans-regular text-ink/65 leading-relaxed border-t border-ink/10 pt-3">
-              "我会先听你的节奏，再帮你判断哪条线最合适。" — Lin
+              "我们会先听你的节奏，再帮你判断哪条线最合适。" — 顾问团队
             </p>
             <a
-              href="/plan?advisor=lin"
+              href="/plan"
               className="inline-flex items-center gap-2 text-[13px] font-misans-bold text-ink hover:text-jade"
             >
               <MessageCircle size={14} aria-hidden />
-              Ask Lin to check it →
+              Ask the team to check it →
             </a>
           </aside>
         </div>

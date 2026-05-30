@@ -75,7 +75,7 @@ export const aboutPageCopy: Record<
       heading: 'China is easier to visit when someone local owns the route',
       paragraphs: [
         'Most inbound travelers can find a list of famous places. The hard part is knowing which places belong together, which transfers are realistic, and which day should be intentionally slower.',
-        'pandatravel is built around that gap. We start with a short request, reply from Beijing, and turn your interests into a route that can be discussed before anything is booked.',
+        'pandatravel is built around that gap. We start with a short request, have a local planning team review it, and turn your interests into a route that can be discussed before anything is booked.',
         'The public site only states what we are ready to stand behind: human planning, visible tradeoffs, no fake reviews, no unverified awards, and no hidden shopping-stop model.',
       ],
     },
@@ -83,13 +83,13 @@ export const aboutPageCopy: Record<
       eyebrow: 'Our promise',
       heading: 'Six standards you can hold us to',
       body:
-        'These are operating standards, not campaign slogans. Ask Lin about any of them before you continue.',
+        'These are operating standards, not campaign slogans. Ask the planning team about any of them before you continue.',
       items: [
         {
           kicker: '01',
-          title: 'Human reply target',
+          title: 'Human request review',
           body:
-            'A Beijing-based specialist replies within the stated window, with Chinese public holidays handled separately.',
+            'A real specialist reviews your request before any route direction is drafted, with Chinese public holidays handled separately.',
         },
         {
           kicker: '02',
@@ -233,7 +233,7 @@ export const aboutPageCopy: Record<
       heading: '来中国旅行，真正缺的是有人替这条路线负责',
       paragraphs: [
         '海外旅客并不缺景点清单。真正难的是判断哪些地方适合串在一起、哪段转场现实、哪一天应该故意慢下来。',
-        'pandatravel 就围绕这个缺口来做：先用简短需求表单收集信息，由北京顾问回复，再把你的兴趣整理成一条可以讨论的路线。',
+        'pandatravel 就围绕这个缺口来做：先用简短需求表单收集信息，由本地顾问团队阅读，再把你的兴趣整理成一条可以讨论的路线。',
         '公开页面只写我们愿意负责的事：真人规划、清楚取舍、不造评价、不挂未核验奖项、不靠购物店模型赚钱。',
       ],
     },
@@ -241,12 +241,12 @@ export const aboutPageCopy: Record<
       eyebrow: '我们的承诺',
       heading: '你可以拿这 6 条反问我们',
       body:
-        '这些不是营销口号，而是当前工作标准。继续往下走之前，任何一条都可以直接问 Lin。',
+        '这些不是营销口号，而是当前工作标准。继续往下走之前，任何一条都可以直接问顾问团队。',
       items: [
         {
           kicker: '01',
-          title: '人工回复目标',
-          body: '北京顾问按页面写明的时间窗口回复；中国公共节假日会单独说明回复安排。',
+          title: '人工阅读需求',
+          body: '真人顾问会先阅读你的需求，再开始整理路线方向；中国公共节假日会单独说明回复安排。',
         },
         {
           kicker: '02',

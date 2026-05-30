@@ -8,7 +8,7 @@ import { FilmGrain } from "@/components/atoms/FilmGrain";
  * AdvisorCard — M-ADVISOR-CARD（独立大卡，不是 hero 内的 mini）。
  * brief: docs/modules/M-ADVISOR-CARD.md
  *
- * 用 "Lin" 真实名字替代抽象服务包；语言行写 `English · 中文 · 1 more`（brief 约定）。
+ * 暂不展示未核验顾问真名；用团队口径承接需求。
  */
 export function AdvisorCard() {
   return (
@@ -46,7 +46,7 @@ export function AdvisorCard() {
               你的顾问
             </div>
             <h2 className="text-[36px] lg:text-[56px] font-misans-bold leading-tight text-soft-ivory tracking-tight">
-              Lin · 林颂阳
+              顾问团队
             </h2>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-[14px] font-misans-regular text-soft-ivory/75">
               <span>English · 中文 · 1 more</span>
@@ -54,18 +54,18 @@ export function AdvisorCard() {
               <span>专长：自然摄影 · 家庭旅行 · 西南山地</span>
             </div>
             <p className="text-[15px] lg:text-[17px] font-misans-regular text-soft-ivory/80 leading-relaxed">
-              在四川和云南跑了 8 年高山线，更喜欢慢慢拼一条让你"回得去"的路线，而不是塞 12 站。每个客人我会先听节奏，再帮你判断哪条线最合适。
+              我们会先读你的节奏、同行人、月份和目的地兴趣，再判断哪条线最合适，而不是先塞一串固定站点。
             </p>
             <p className="text-[14px] font-misans-regular text-soft-ivory/65 leading-relaxed">
-              "我不是中介。我会跟你一起把行程改三轮，直到你看着它就知道 — 这就是我的旅行。"
+              "先把路线写成可以讨论的版本，再一起加减替换，直到它像你的旅行。"
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <CTAPrimary href="/plan?advisor=lin" className="h-12 px-7 text-[14px]">
+              <CTAPrimary href="/plan" className="h-12 px-7 text-[14px]">
                 <MessageCircle size={16} className="mr-2" aria-hidden />
-                Ask Lin to review my plan
+                Ask the team to review my plan
               </CTAPrimary>
               <a
-                href="/plan?advisor=lin&intent=chat"
+                href="/plan?intent=chat"
                 className="text-[13px] font-misans-regular text-soft-ivory/85 underline-offset-4 hover:underline"
               >
                 站内聊天 · in-site chat

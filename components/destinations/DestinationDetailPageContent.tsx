@@ -36,13 +36,13 @@ const copy = {
       "This is a planning starter, not a fixed package or a live supplier promise. Current access, ticketing, weather, transport and guide availability are checked before any quote is prepared.",
     ctaEyebrow: "Next step",
     ctaBody: (name: string) =>
-      `Add ${name} to your request. The form gives Lin enough context to decide whether it should be a main stop, a side trip, or something to save for another route.`,
+      `Add ${name} to your request. The form gives the planning team enough context to decide whether it should be a main stop, a side trip, or something to save for another route.`,
     ctaButton: (name: string) => `Add ${name} to my plan`,
     wowEyebrow: "Ideas to verify",
     wowHeading: "Moments worth discussing before the route is written",
     wowNote:
       "Not every idea fits every month or travel style. Treat these as conversation starters, then let the advisor check what is realistic for your dates.",
-    wowLink: "Ask Lin to choose the right moments",
+    wowLink: "Ask the team to choose the right moments",
     bestTimeEyebrow: "Best time",
     bestTimeHeading: "Which months usually work best",
     climateEyebrow: "Season note",
@@ -51,7 +51,7 @@ const copy = {
     durationEyebrow: "How long to stay",
     durationHeading: (name: string) => `How many days should ${name} hold?`,
     durationNote: "Not sure how many days to reserve?",
-    durationLink: "Ask Lin to shape the pace",
+    durationLink: "Ask the team to shape the pace",
     nearbyEyebrow: "Nearby and combine",
     nearbyHeading: (name: string) => `What pairs naturally with ${name}`,
     nearbyBody:
@@ -65,7 +65,7 @@ const copy = {
     customBody:
       "This route is not published as a fixed product. Share your month, pace and party size, and we will draft a version around you.",
     publicBody: "Open the route direction and use it as a starting point, not a final quote.",
-    customLink: "Ask Lin to draft it",
+    customLink: "Ask the team to draft it",
     publicLink: "View route direction",
     tailorEyebrow: "Tailor-make",
     tailorHeading: (name: string) => `Turn ${name} into your version`,
@@ -80,13 +80,13 @@ const copy = {
       "这是路线规划起点，不是固定套餐，也不是实时供应商承诺。具体开放、票务、天气、交通和向导可用性都要在报价前再次确认。",
     ctaEyebrow: "下一步",
     ctaBody: (name: string) =>
-      `把 ${name} 加进需求表。Lin 会根据你的信息判断它适合做主站、顺路支线，还是留给另一条路线。`,
+      `把 ${name} 加进需求表。顾问团队会根据你的信息判断它适合做主站、顺路支线，还是留给另一条路线。`,
     ctaButton: (name: string) => `把 ${name} 加进我的行程`,
     wowEyebrow: "待确认体验",
     wowHeading: "路线写出来前，值得先讨论的几个瞬间",
     wowNote:
       "不是每个体验都适合所有月份和旅行方式。先把它们当成讨论起点，再由顾问确认你的日期里哪些真实可行。",
-    wowLink: "请 Lin 帮我筛选适合的体验",
+    wowLink: "请顾问团队帮我筛选适合的体验",
     bestTimeEyebrow: "最佳时节",
     bestTimeHeading: "一年里通常哪几个月更合适",
     climateEyebrow: "季节说明",
@@ -95,7 +95,7 @@ const copy = {
     durationEyebrow: "停留天数",
     durationHeading: (name: string) => `${name} 留几天比较合适`,
     durationNote: "拿不准要排几天？",
-    durationLink: "让 Lin 帮你算节奏",
+    durationLink: "让顾问团队帮你算节奏",
     nearbyEyebrow: "顺路串联",
     nearbyHeading: (name: string) => `${name} 可以和哪些地方自然串起来`,
     nearbyBody:
@@ -107,9 +107,9 @@ const copy = {
     customBadge: "按需起草",
     publicBadge: "路线方向",
     customBody:
-      "这类路线不作为固定产品展示。告诉 Lin 你的出发月份、节奏和同行人，我们会按你的情况起草。",
+      "这类路线不作为固定产品展示。告诉顾问团队你的出发月份、节奏和同行人，我们会按你的情况起草。",
     publicBody: "打开路线方向作为讨论起点，不作为最终报价。",
-    customLink: "请 Lin 写一份给我",
+    customLink: "请顾问团队写一份给我",
     publicLink: "看路线方向",
     tailorEyebrow: "定制路线",
     tailorHeading: (name: string) => `把 ${name} 改成你的版本`,

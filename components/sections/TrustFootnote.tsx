@@ -26,7 +26,7 @@ const FOOTNOTES = [
   {
     n: "04",
     title: "客人原话",
-    desc: "「Lin 改了三轮，我们看着行程就知道哪天该慢哪天该走。」 — Yamamoto, Tokyo",
+    desc: "真实客人原话会在取得授权和来源核验后展示。",
   },
 ];
 

@@ -42,16 +42,16 @@ export type Advisor = {
 const lin: Advisor = {
   slug: 'lin',
   name: {
-    zh: 'Lin · 顾问编号 demo',
-    en: 'Lin · advisor demo-01',
+    zh: '顾问团队 · demo-01',
+    en: 'Planning desk · demo-01',
   },
   role: {
-    zh: '北京顾问 · 第一次来中国 / 历史文化路线',
-    en: 'Beijing-based advisor · First-timer & culture trips',
+    zh: '中国顾问团队 · 第一次来中国 / 历史文化路线',
+    en: 'China planning team · First-timer & culture trips',
   },
   bio: {
-    zh: '我在北京长大，2018 年开始做来华旅客的私人顾问。最常被问到的事情是「14 天能不能既看故宫又有桂林漓江」——所以你写信进来的时候，我会先和你视频 30 分钟，把你的同行人、节奏、对吃的耐受度都问一遍，再写第一版草稿给你。我不卖标准包，所以你不会在邮件里收到价格表。我每周接的客户控制在 3 组以内，4 小时内回信是这个上限换来的。',
-    en: 'I grew up in Beijing and have worked as a private advisor for travellers heading to China since 2018. The question I get the most is "can we see the Forbidden City and Guilin in 14 days?" — which is why I start every inquiry with a 30-minute video call to learn who is travelling with you, what pace feels right, and how adventurous your eating is. I do not sell packaged tours, so you will not receive a price sheet by email. I cap my caseload at three families a week; that is what makes the four-hour reply window possible.',
+    zh: '这是一张隐藏的顾问资料占位。正式展示前，需要替换成真实姓名、真实角色、联系方式、照片授权和可核验服务经历。当前公开页面只承诺真人顾问团队阅读需求，不承诺未核验个人或固定回复时效。',
+    en: 'This is a hidden advisor-profile placeholder. Before public display, replace it with a verified name, role, contact channel, photo permission and service background. Current public pages only promise human review by the planning team, not an unverified person or fixed response window.',
   },
   caseSnippet: {
     zh: '上周给一组澳洲家庭（爸妈 + 9 岁双胞胎）写了 12 天「北京 · 西安 · 上海」的草稿。爸爸想看长城，孩子想坐高铁，妈妈想吃地道烤鸭——三件事都给安排进了，烤鸭那家是我自己每周也去的。',

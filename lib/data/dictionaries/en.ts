@@ -1,7 +1,7 @@
 export default {
   meta: {
-    title: 'pandatravel · China trips designed by a Beijing local',
-    description: 'A Beijing-based human advisor designs your China trip in 4 hours, not a chatbot in 1 working day.',
+    title: 'pandatravel · Tailor-made China trips by a local planning team',
+    description: 'A local China travel planning team turns your destinations, timing and party details into a private route direction.',
   },
   // TODO_COPY
   nav: {},
@@ -35,7 +35,7 @@ export default {
       openEntry: 'Chat with our concierge desk',
       dialogLabel: 'Concierge chat',
       title: 'Chat with our concierge desk',
-      status: 'Lin · Online · Usually replies within 5 minutes',
+      status: 'Concierge desk · Human follow-up after submission',
       hide: 'Hide',
       close: 'Close',
       prompt:
@@ -45,7 +45,7 @@ export default {
     },
   },
   leadResponsePromise:
-    'Lin, a Beijing-based China travel advisor, replies within 4 hours (Chinese holidays excluded).',
+    'A local China travel planning team will reply through the contact method you left (Chinese holidays excluded).',
   home: {
     nav: {
       ariaLabel: 'Primary navigation',
@@ -112,7 +112,7 @@ export default {
         },
         wechat: {
           title: 'WeChat contact card in progress',
-          body: 'Lin’s personal QR code and WeChat ID will be posted here before launch; for now please leave your preferred contact method in the request form.',
+          body: 'External direct channels stay hidden until verified; for now please leave your preferred contact method in the request form.',
         },
         aboutPromise: {
           title: '“Brand promise” page in progress',
@@ -132,12 +132,12 @@ export default {
       eyebrow: 'Tailor-made China',
       headline: 'Plan your private China trip with local experts',
       subheadline:
-        'From the Forbidden City sunrises to a private Yunnan loop — every itinerary is a real conversation between you and a Beijing-based specialist.',
+        'From Forbidden City sunrises to a private Yunnan loop — every itinerary starts from your destination interests, timing and party, not a preset package.',
       primaryCta: 'Start planning',
       secondaryCta: 'Talk to a specialist',
       contactModalTitle: 'Talk to a specialist',
       contactModalDescription:
-        'Start with a custom request. A Beijing specialist will reply through the contact method you leave in the form (Chinese holidays excluded).',
+        'Start with a custom request. The planning team will reply through the contact method you leave in the form (Chinese holidays excluded).',
       contactModalCloseLabel: 'Close contact specialist dialog',
       anchorCard: {
         eyebrow: 'Route idea · tweak it your way',
@@ -150,13 +150,13 @@ export default {
       eyebrow: 'Not ready to compare routes yet?',
       heading: 'Get the direction clear before you build the trip',
       body:
-        'If you are still weighing cities, seasons, pace or budget, this section helps you get the key points straight first. A Beijing specialist will turn that into a draft route next.',
+        'If you are still weighing cities, seasons, pace or budget, this section helps you get the key points straight first. The planning team will turn that into a draft route next.',
       primaryCta: 'Start planning',
       secondaryCta: 'Fill in the request',
       points: [
         {
-          title: 'Replies within 4 hours',
-          body: 'A real Beijing specialist answers, not an auto-reply.',
+          title: 'Human review',
+          body: 'A real planning team reads the request, not an auto-reply.',
         },
         {
           title: 'Start with direction',
@@ -170,16 +170,16 @@ export default {
     },
     trustStrip: {
       items: [
-        { value: 4, suffix: ' h', label: 'First human reply target' },
+        { value: 1, suffix: ':1', label: 'Human planning thread' },
         { value: 24, suffix: ' h', label: 'Draft route after direction is clear' },
-        { value: 1, suffix: ':1', label: 'Beijing specialist handoff' },
+        { value: 0, suffix: ' chatbot', label: 'Automated route replies' },
         { value: 0, suffix: ' preset menus', label: 'Fixed package menus' },
       ],
     },
     visaFreeBanner: {
       eyebrow: '240h Visa-Free',
       headline: 'Foreign passports can transit through Beijing, Shanghai or Guangzhou for up to 240 hours visa-free.',
-      body: 'Official policy covers 55 countries, 65 ports and 24 provincial-level regions. Our tool starts with common traveler passports and ports, then routes you to Lin for a final check.',
+      body: 'Official policy covers 55 countries, 65 ports and 24 provincial-level regions. Our tool starts with common traveler passports and ports, then routes you to the planning team for a final check.',
       cta: 'See visa-free trips',
     },
     howWeWork: {
@@ -199,7 +199,7 @@ export default {
         {
           num: '03',
           title: 'Travel with backup',
-          body: 'On-the-ground support from Beijing — flights delayed, plans changed, food allergies — handled in your timezone.',
+          body: 'On-the-ground China support — flights delayed, plans changed, food allergies — handled with your timezone in mind.',
         },
       ],
       cta: 'Start planning',
@@ -222,7 +222,7 @@ export default {
     sampleItineraries: {
       eyebrow: 'Route starters',
       heading: 'Pick a direction first, then make it yours',
-      body: 'Public destinations give you a clear starting point. Hand Lin the direction you like and we will reshape it around month, budget and pace.',
+      body: 'Public destinations give you a clear starting point. Hand the team the direction you like and we will reshape it around month, budget and pace.',
       cta: 'See direction',
       seeAll: 'Fill in my request',
       meta: {
@@ -234,7 +234,7 @@ export default {
     itineraries: {
       eyebrow: 'Itineraries',
       heroHeading: 'Start from a route direction · then make it yours',
-      heroBody: 'Every route direction is clear about what can change. Browse the depth, then tell Lin what to keep, swap or drop.',
+      heroBody: 'Every route direction is clear about what can change. Browse the depth, then tell the team what to keep, swap or drop.',
       filterDuration: 'Length',
       filterTheme: 'Theme',
       filterMonth: 'Travel month',
@@ -243,11 +243,11 @@ export default {
       detailGlance: 'One-table glance at the rhythm',
       detailDayByDay: 'Morning · afternoon · evening, day by day',
       detailHighlights: 'Moments most travellers remember',
-      detailPrice: 'Price band · final number 1:1 with Lin',
+      detailPrice: 'Price band · final number confirmed 1:1',
       detailTailorMake: 'Want to make it yours? Common swaps',
       detailTripNotes: 'Where you sleep, how you move, what you eat, visa',
-      detailAdvisor: 'Hand it to Lin to make yours',
-      detailFinalCta: 'Hand this line to Lin →',
+      detailAdvisor: 'Hand it to the team to make yours',
+      detailFinalCta: 'Hand this line to the team →',
       mockBadge: 'reference band',
     },
     specialists: {
@@ -258,8 +258,8 @@ export default {
     },
     leadForm: {
       eyebrow: 'Plan with a specialist',
-      heading: 'Tell us your trip — Lin replies within 4h',
-      body: 'No obligation. We use these details to draft a private route, not a sales call.',
+      heading: 'Tell us the China trip you have in mind',
+      body: 'No obligation. We use these details to draft a private route; the planning team replies through the contact method you leave.',
       submit: 'Send to a specialist',
       submitting: 'Sending…',
       requiredHint: 'Required',
@@ -279,6 +279,7 @@ export default {
         email: 'Email',
         phone: 'Phone (optional)',
         country: 'Country / region',
+        tripFocus: 'Destinations or trip focus',
         travelMonth: 'Travel month',
         durationDays: 'Trip length (days)',
         partySize: 'Travelers',
@@ -291,6 +292,7 @@ export default {
         email: 'you@email.com',
         phone: '+1 555 0100',
         country: 'United States',
+        tripFocus: 'e.g. Beijing + Xi’an, slow Yunnan, not sure yet',
         travelMonth: 'e.g. October 2026',
         notes: 'Pace, must-sees, dietary needs, destinations of interest, travel style — anything that matters.',
       },
@@ -308,28 +310,28 @@ export default {
         rateLimited: 'Too many submissions, please retry in a minute.',
         genericError:
           'Something went wrong. Please retry; if it keeps failing, submit again later.',
-        success: 'Sent. Lin will reply within 4h.',
+        success: 'Sent. The planning team will reply through your preferred contact method.',
       },
     },
     leadFormSuccess: {
       title: 'Thanks — your request is in.',
-      subtitle: 'Lin, a Beijing-based China specialist, will reply personally within 4 hours (Chinese holidays excluded).',
+      subtitle: 'The planning team will reply through the contact method you left (Chinese holidays excluded).',
       channelsHeading: 'Other verified contact channels:',
       channelsFallback:
         'We already have your request. The specialist will reply through the contact method you left in the form. External direct channels stay hidden until verified.',
-      advisorPromiseEyebrow: '1:1 advisor commitment',
-      advisorPromiseTitle: 'Lin (Beijing) will reply within 4 hours',
+      advisorPromiseEyebrow: 'Human planning commitment',
+      advisorPromiseTitle: 'A real specialist reads your request first',
       advisorPromiseBody:
-        'No round-robin queue. The same specialist sees your draft, replies, and stays with you until departure.',
-      directWhatsApp: 'Message Lin on WhatsApp →',
-      directWeChat: 'Message Lin on WeChat →',
+        'We review destination interests, timing, party size and budget before assigning the right specialist. External direct channels stay hidden until verified.',
+      directWhatsApp: 'Message a specialist on WhatsApp →',
+      directWeChat: 'Message a specialist on WeChat →',
       backHome: '← Back to home',
     },
     planWizard: {
       eyebrow: 'Plan my China trip',
-      heading: 'Send your idea to a Beijing-based advisor',
+      heading: 'Send your China idea to the planning team',
       body:
-        'Five short steps about the kind of trip you want — not a 49-field interrogation. Lin (Beijing) replies within 4 hours.',
+        'Five short steps about the kind of trip you want — not a 49-field interrogation. The planning team replies through the contact method you leave.',
       progressLabel: 'Step',
       of: 'of',
       back: 'Back',
@@ -340,8 +342,8 @@ export default {
       requiredAria: 'required field',
       jumpWhatsAppHeading: 'Want to chat now? Skip the rest →',
       jumpWhatsAppBody:
-        'Tap to open WhatsApp with your trip-intent prefilled. Lin reads it, replies in your timezone.',
-      jumpWhatsAppCta: 'WhatsApp Lin now',
+        'Tap to open WhatsApp with your trip intent prefilled. A specialist will reply with your timezone in mind.',
+      jumpWhatsAppCta: 'WhatsApp a specialist now',
       jumpWhatsAppMockHint: 'WhatsApp number is not public yet.',
       filledHeading: 'So far',
       resumeHint: 'We saved your last draft — pick up where you left off.',
@@ -448,8 +450,8 @@ export default {
         ],
       },
       step5: {
-        heading: 'How should Lin reach you?',
-        body: 'Lin (Beijing) replies within 4 hours, in your timezone, through the contact method you leave in the form.',
+        heading: 'How should the team reach you?',
+        body: 'The planning team will reply through the contact method you leave in the form.',
         whyAsk: 'We need at least an email to send the first draft. Phone and contact preferences in your notes are optional, but speed up the back-and-forth.',
         nameLabel: 'Your name',
         namePlaceholder: 'Jane Traveler',
@@ -461,7 +463,7 @@ export default {
         whatsappLabel: 'OK to message me on WhatsApp',
         wechatLabel: 'Reply via WeChat (CN priority)',
         termsLabel:
-          'I agree to be contacted by a Beijing-based specialist about this trip request.',
+          'I agree to be contacted by the planning team about this trip request.',
         termsLink: 'Privacy notice',
       },
     },
@@ -473,7 +475,7 @@ export default {
       items: [
         {
           q: 'Do I need a visa to visit China?',
-          a: 'Travelers from more than 40 countries may qualify for 30-day unilateral visa-free entry as of 2026. We confirm your eligibility within 24 hours of your inquiry. Policy changes, so rely on the latest check before booking.',
+          a: 'Travelers from more than 40 countries may qualify for 30-day unilateral visa-free entry as of 2026. We confirm eligibility after receiving your inquiry. Policy changes, so rely on the latest check before booking.',
         },
         {
           q: 'How early should I plan?',
@@ -542,7 +544,7 @@ export default {
           a: {
             label: 'Step a · Passport',
             heading: 'Pick your passport country',
-            help: 'We start with common passports from the 55-country NIA list; ask Lin if yours is missing.',
+            help: 'We start with common passports from the 55-country NIA list; ask the planning team if yours is missing.',
             placeholder: 'Search countries',
           },
           b: {
@@ -582,8 +584,8 @@ export default {
           'Policy is being revised quarterly. Check the NIA source linked above before flying.',
         ],
         cta: {
-          plan: 'Tailor-make my route with Lin',
-          chat: 'Send these choices to Lin',
+          plan: 'Tailor-make my route with the team',
+          chat: 'Send these choices to the team',
         },
       },
       caveats: {
@@ -613,14 +615,14 @@ export default {
       },
       readymade: {
         heading: 'Visa-free route starters',
-        body: 'Four 10-day starting points Lin can rearrange to your group, pace and return flight.',
+        body: 'Four 10-day starting points the planning team can rearrange to your group, pace and return flight.',
         comingSoonBadge: 'custom-built',
-        cta: 'Ask Lin for this route',
+        cta: 'Ask the team for this route',
       },
       contact: {
         heading: 'Still confused? Skip the form.',
-        body: 'Send Lin your passport, entry port and onward country. We check the visa-free boundary first, then suggest a route.',
-        whatsappCta: 'Ask Lin to check it',
+        body: 'Send the team your passport, entry port and onward country. We check the visa-free boundary first, then suggest a route.',
+        whatsappCta: 'Ask the team to check it',
         embassyCta: 'Need a longer stay? Apply for an L visa →',
         embassyHref: 'https://bj.china-embassy.gov.cn/eng/',
         notOnListCta: 'Passport not listed here? Talk to us anyway →',
@@ -643,7 +645,7 @@ export default {
       },
       reasons: {
         pendingInput: 'Fill in all four steps to see your answer.',
-        passportNotEligible: 'Your passport is not in our current tool list. Ask Lin to check the latest policy before booking.',
+        passportNotEligible: 'Your passport is not in our current tool list. Ask the planning team to check the latest policy before booking.',
         portNotInPassportList: 'This port is not allowed for your passport.',
         portNotApplicableForStay: 'This port does not currently support the stay length you picked.',
         durationNotEligibleForPassport: 'Your passport is not on the list for this stay length.',
@@ -654,7 +656,7 @@ export default {
     },
     pathCFooter: {
       brandTagline:
-        'Tailor-made China travel, drafted with a Beijing-based specialist who actually picks up.',
+        'Tailor-made China travel, drafted by a real planning team.',
       manifesto: {
         title: 'Highlights happen when you get closer.',
         subtitle: 'The best travel moments rarely happen from far away.',
@@ -715,12 +717,12 @@ export default {
       },
       replyPromise: {
         heading: 'Reply promise',
-        body: 'Lin replies in 4 hours from Beijing. No chatbot, no auto-routing.',
+        body: 'A real planning team reviews each request. No chatbot route replies.',
         meta: 'Chinese public holidays excluded.',
       },
       whyPanda: {
         heading: 'Why pandatravel',
-        body: 'A small Beijing-based studio that designs private China trips around how you actually travel — not a packaged menu, not a 49-field intake form.',
+        body: 'A small China travel studio that designs private trips around how you actually travel — not a packaged menu, not a 49-field intake form.',
       },
       languageHint: 'Switch language at the top of the page.',
       mockNotice: 'Content follows the final verified version',

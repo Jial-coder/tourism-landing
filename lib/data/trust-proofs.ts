@@ -161,8 +161,8 @@ export const TRUST_PROOFS: TrustProof[] = [
     destinations: ['Beijing', "Xi'an", 'Inner Mongolia', 'Pingyao'],
     yearsOfExperience: 9,
     responseModel: {
-      en: 'Replies within 24h, weekdays Beijing time.',
-      zh: '北京工作日 24 小时内回复。',
+      en: 'Human reply model pending verification.',
+      zh: '人工回复机制待核验。',
     },
   },
   {
@@ -176,8 +176,8 @@ export const TRUST_PROOFS: TrustProof[] = [
     destinations: ['Chengdu', 'Dali', 'Lijiang', 'Shangri-La', 'Jiuzhaigou'],
     yearsOfExperience: 7,
     responseModel: {
-      en: 'Replies within 24h; on-trip support in Chengdu timezone.',
-      zh: '24 小时内回复；行程中按成都时区随叫随到。',
+      en: 'Human reply and on-trip support model pending verification.',
+      zh: '人工回复与行中支持机制待核验。',
     },
   },
   {
@@ -191,8 +191,8 @@ export const TRUST_PROOFS: TrustProof[] = [
     destinations: ['Shanghai', 'Hangzhou', 'Suzhou', 'Huangshan'],
     yearsOfExperience: 8,
     responseModel: {
-      en: 'Replies within 24h; trip support details confirmed before departure.',
-      zh: '24 小时内回复；出行支持方式行前确认。',
+      en: 'Trip support details confirmed before departure.',
+      zh: '出行支持方式行前确认。',
     },
   },
   {
@@ -206,8 +206,8 @@ export const TRUST_PROOFS: TrustProof[] = [
     destinations: ['Beijing', 'Zhangjiajie', 'Guilin', 'Hangzhou'],
     yearsOfExperience: 10,
     responseModel: {
-      en: 'Replies within 24h; specialised in accessible & family pacing.',
-      zh: '24 小时内回复；擅长无障碍与家庭节奏。',
+      en: 'Specialised in accessible and family pacing; reply model pending verification.',
+      zh: '擅长无障碍与家庭节奏；回复机制待核验。',
     },
   },
   {

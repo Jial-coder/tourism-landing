@@ -6,6 +6,7 @@ export type LeadFieldId =
   | 'phone'
   | 'preferredChannel'
   | 'country'
+  | 'tripFocus'
   | 'travelMonth'
   | 'durationDays'
   | 'partySize'
@@ -26,6 +27,7 @@ export const LEAD_FIELDS: LeadFieldSpec[] = [
   { id: 'phone', required: false, type: 'tel', maxLength: 40 },
   { id: 'preferredChannel', required: true, type: 'select' },
   { id: 'country', required: false, type: 'text', maxLength: 80 },
+  { id: 'tripFocus', required: true, type: 'text', maxLength: 160 },
   { id: 'travelMonth', required: true, type: 'text', maxLength: 40 },
   { id: 'durationDays', required: true, type: 'number' },
   { id: 'partySize', required: true, type: 'number' },
@@ -57,6 +59,7 @@ export const leadFormSchema = z.object({
   phone: z.string().trim().max(40).optional().or(z.literal('')),
   preferredChannel: z.string().min(1),
   country: z.string().trim().max(80).optional().or(z.literal('')),
+  tripFocus: z.string().trim().min(1).max(160),
   travelMonth: z.string().trim().min(1).max(40),
   durationDays: z.coerce.number().int().min(1).max(365),
   partySize: z.coerce.number().int().min(1).max(50),

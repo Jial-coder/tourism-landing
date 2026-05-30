@@ -78,7 +78,7 @@ export const reviewsPageCopy: Record<
       eyebrow: "What to use before reviews exist",
       heading: "Use these six standards to judge us now",
       body:
-        "The same standards also appear on /about. If one of them is unclear, ask Lin before you continue.",
+        "The same standards also appear on /about. If one of them is unclear, ask the planning team before you continue.",
     },
     proofNeeded: {
       eyebrow: "Needs real data",
@@ -152,7 +152,7 @@ export const reviewsPageCopy: Record<
       eyebrow: "没有评价前看什么",
       heading: "先用这 6 条标准判断我们",
       body:
-        "同样的标准也写在 /about。任何一条不清楚，都可以继续往下走之前直接问 Lin。",
+        "同样的标准也写在 /about。任何一条不清楚，都可以继续往下走之前直接问顾问团队。",
     },
     proofNeeded: {
       eyebrow: "需要真实资料",

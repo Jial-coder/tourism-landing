@@ -967,6 +967,10 @@ export function PlanWizard({
       phone: String(state.phone ?? ''),
       preferredChannel: state.whatsappOk ? 'whatsapp' : state.wechatOk ? 'wechat' : 'email',
       country: String(state.countryCode ?? ''),
+      tripFocus:
+        interestLabels.join(', ') ||
+        String(state.notesUserText ?? '').slice(0, 160) ||
+        'Route direction not specified',
       travelMonth:
         state.tripWindow === 'approximate'
           ? String(state.tripMonth ?? '')

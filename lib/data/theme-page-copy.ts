@@ -38,7 +38,7 @@ export const themePageCopy: Record<
 > = {
   en: {
     shared: {
-      asideHeading: 'Ask Lin to design around this direction',
+      asideHeading: 'Ask the planning team to design around this direction',
       asideBody:
         'This is only a starting point. Send it together with your dates, party and must-see places.',
       primaryCta: 'Use this direction',
@@ -54,7 +54,7 @@ export const themePageCopy: Record<
         kicker: 'FAMILY TRAVEL',
         title: 'China with kids works best when the pace is right first',
         description:
-          'Family travel should not inherit a honeymoon tempo. Lin first checks ages, stamina, hotel-change tolerance and daily recovery time, then chooses the city and nature mix.',
+          'Family travel should not inherit a honeymoon tempo. The planning team first checks ages, stamina, hotel-change tolerance and daily recovery time, then chooses the city and nature mix.',
         bullets: [
           'Family-friendly hotels and realistic transfer days',
           'Rain-plan swaps and rest blocks before they are needed',
@@ -86,7 +86,7 @@ export const themePageCopy: Record<
         kicker: 'BUSINESS ADD-ON',
         title: 'A few days after work can still feel like a real trip',
         description:
-          'Start from your meeting city and return airport. Lin turns the 2-5 day gap into a city walk, food route or nature short line without risking the business schedule.',
+          'Start from your meeting city and return airport. The planning team turns the 2-5 day gap into a city walk, food route or nature short line without risking the business schedule.',
         bullets: [
           'Route planned backward from meeting location and departure airport',
           'Buffer time kept for delays, jet lag and schedule changes',
@@ -102,7 +102,7 @@ export const themePageCopy: Record<
         kicker: 'HERITAGE + LEISURE',
         title: 'Family visits and travel can belong in the same route',
         description:
-          'If you have a family city, ancestry clue or relatives to visit, Lin locks the immovable dates first, then builds the leisure route around them.',
+          'If you have a family city, ancestry clue or relatives to visit, the planning team locks the immovable dates first, then builds the leisure route around them.',
         bullets: [
           'Fixed family-visit dates protected before sightseeing is added',
           'Bilingual notes and local context for sensitive logistics',
@@ -115,7 +115,7 @@ export const themePageCopy: Record<
     shared: {
       asideHeading: '让顾问按这个方向设计',
       asideBody:
-        '这只是切入点。你可以把它和日期、同行人、目的地一起发给 Lin。',
+        '这只是切入点。你可以把它和日期、同行人、目的地一起发给顾问团队。',
       primaryCta: '用这个方向定制行程',
       backHome: '回到首页',
     },
@@ -129,7 +129,7 @@ export const themePageCopy: Record<
         kicker: 'FAMILY TRAVEL',
         title: '带孩子来中国，节奏要先对',
         description:
-          '亲子旅行不能直接套蜜月节奏。Lin 会先确认孩子年龄、体力、换酒店承受度和每天恢复时间，再推荐城市与自然组合。',
+          '亲子旅行不能直接套蜜月节奏。顾问团队会先确认孩子年龄、体力、换酒店承受度和每天恢复时间，再推荐城市与自然组合。',
         bullets: [
           '亲子友好的酒店和真实可执行的车程',
           '雨天替换方案和提前留好的恢复时间',
@@ -177,7 +177,7 @@ export const themePageCopy: Record<
         kicker: 'HERITAGE + LEISURE',
         title: '探亲和旅行可以放在同一条线里',
         description:
-          '如果你有家族城市、祖籍线索或亲友安排，Lin 会先锁住不可移动的探亲节点，再补旅行段。',
+          '如果你有家族城市、祖籍线索或亲友安排，顾问团队会先锁住不可移动的探亲节点，再补旅行段。',
         bullets: [
           '先保护固定探亲日期，再安排游览',
           '准备必要的中英文说明和本地语境',

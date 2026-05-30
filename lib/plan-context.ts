@@ -132,8 +132,8 @@ export function buildPlanInitialContext(
   if (advisorSlug === 'lin') {
     items.push({
       id: 'advisor',
-      label: { en: 'Advisor requested', zh: '指定顾问' },
-      value: { en: 'Lin · Beijing advisor', zh: 'Lin · 北京顾问' },
+      label: { en: 'Contact requested', zh: '联系对象' },
+      value: { en: 'Planning team', zh: '顾问团队' },
     });
   }
 

@@ -65,6 +65,7 @@ async function notifyFeishu(payload: {
   name: string;
   email: string;
   country?: string;
+  tripFocus: string;
   travelMonth: string;
   duration: number;
   partySize: number;
@@ -87,6 +88,7 @@ async function notifyFeishu(payload: {
     `🆕 New lead — ${payload.name} (${payload.email})`,
     `Locale: ${payload.locale} · Source: ${payload.source}`,
     `Country: ${payload.country ?? '—'}`,
+    `Trip focus: ${payload.tripFocus || '—'}`,
     `Travel: ${payload.travelMonth} · ${payload.duration} days · party of ${payload.partySize}`,
     `Preferred channel: ${payload.preferredChannel}`,
     `Message: ${summaryMessage}`,
@@ -165,7 +167,7 @@ export async function POST(request: NextRequest) {
         travel_dates: data.travelMonth,
         duration: data.durationDays,
         party_size: data.partySize,
-        interests: null,
+        interests: data.tripFocus ? [data.tripFocus] : null,
         budget_range: data.budgetRange || null,
         preferred_contact: data.preferredChannel,
         message: data.notes || null,
@@ -191,6 +193,7 @@ export async function POST(request: NextRequest) {
       name: data.name,
       email: data.email,
       country: data.country || undefined,
+      tripFocus: data.tripFocus,
       travelMonth: data.travelMonth,
       duration: data.durationDays,
       partySize: data.partySize,

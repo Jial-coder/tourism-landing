@@ -67,7 +67,7 @@ export function BestTimeStrip({
           href={planHref}
           className="inline-flex items-center gap-1 underline-offset-4 hover:underline hover:text-jade focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jade focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
-          {lang === "zh" ? "让 Lin 按你的月份排路线" : "Ask Lin to route around your travel month"}
+          {lang === "zh" ? "让顾问团队按你的月份排路线" : "Ask the team to route around your travel month"}
           <ArrowRight aria-hidden size={12} />
         </Link>
       </p>

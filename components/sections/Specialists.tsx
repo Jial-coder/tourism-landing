@@ -16,9 +16,9 @@ const DESK_CARDS = {
   zh: [
     {
       index: '01',
-      title: '北京首回',
-      body: '先由北京顾问读你的表单，把月份、人数、预算和最想看的中国拆清楚。',
-      meta: '4 小时内人工回复目标',
+      title: '人工读表',
+      body: '先由顾问团队读你的表单，把月份、人数、预算和最想看的中国拆清楚。',
+      meta: '真人接手需求',
     },
     {
       index: '02',
@@ -36,9 +36,9 @@ const DESK_CARDS = {
   en: [
     {
       index: '01',
-      title: 'Beijing first reply',
-      body: 'A Beijing specialist reads your form first and clarifies month, party size, budget and must-sees.',
-      meta: '4h human reply target',
+      title: 'Human request review',
+      body: 'A planning specialist reads your form first and clarifies month, party size, budget and must-sees.',
+      meta: 'Real team handoff',
     },
     {
       index: '02',

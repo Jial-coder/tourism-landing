@@ -42,6 +42,7 @@ type ApiResponse =
 const REQUIRED_FIELDS = new Set([
   'name',
   'email',
+  'tripFocus',
   'preferredChannel',
   'travelMonth',
   'durationDays',
@@ -153,6 +154,7 @@ export function LeadForm({ source }: { source: LeadSource }) {
       phone: '',
       preferredChannel: EMAIL_REPLY_OPTION.id,
       country: '',
+      tripFocus: '',
       travelMonth: '',
       durationDays: 7,
       partySize: 2,
@@ -294,6 +296,25 @@ export function LeadForm({ source }: { source: LeadSource }) {
                   )}
                 />
               </div>
+
+              <FormField
+                control={form.control}
+                name="tripFocus"
+                render={({ field }) => (
+                  <FormItem className={formItemClassName}>
+                    {renderLabel('tripFocus', ld.labels.tripFocus)}
+                    <FormControl>
+                      <Input
+                        placeholder={ld.placeholders.tripFocus}
+                        autoComplete="off"
+                        className={fieldClassName}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-5">
                 <FormField

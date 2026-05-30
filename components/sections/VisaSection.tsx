@@ -41,7 +41,7 @@ export function VisaSection() {
               30 天免签 · 现在能直接来
             </h2>
             <p className="text-[14px] lg:text-[15px] font-misans-regular text-soft-ivory/70 leading-relaxed">
-              30 天免签覆盖了北美、英联邦、欧盟和东亚主流国家。常见情况下，从决定到飞起只需要一张机票 + 一晚酒店预订。我们也能在 24 小时内核实你的护照适用范围。
+              30 天免签覆盖了北美、英联邦、欧盟和东亚主流国家。常见情况下，从决定到飞起只需要一张机票 + 一晚酒店预订。我们也能在收到咨询后核实你的护照适用范围。
             </p>
             <VisaChip>截至 2026 年 12 月有效 · 政策来源：中国国家移民管理局</VisaChip>
           </div>
